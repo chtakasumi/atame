@@ -1,0 +1,8 @@
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\bin\Debug\netstandard2.0\api.domain.deps.json
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\bin\Debug\netstandard2.0\api.domain.dll
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\bin\Debug\netstandard2.0\api.domain.pdb
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\obj\Debug\netstandard2.0\api.domain.csproj.CoreCompileInputs.cache
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\obj\Debug\netstandard2.0\api.domain.AssemblyInfoInputs.cache
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\obj\Debug\netstandard2.0\api.domain.AssemblyInfo.cs
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\obj\Debug\netstandard2.0\api.domain.dll
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.domain\obj\Debug\netstandard2.0\api.domain.pdb

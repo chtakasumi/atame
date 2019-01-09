@@ -1,0 +1,12 @@
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\bin\Debug\netstandard2.0\api.infra.deps.json
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\bin\Debug\netstandard2.0\api.infra.dll
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\bin\Debug\netstandard2.0\api.infra.pdb
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\bin\Debug\netstandard2.0\api.domain.dll
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\bin\Debug\netstandard2.0\api.domain.pdb
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.csprojAssemblyReference.cache
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.csproj.CoreCompileInputs.cache
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.AssemblyInfoInputs.cache
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.AssemblyInfo.cs
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.csproj.CopyComplete
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.dll
+C:\Users\AdmAbaco\Documents\sistema comercial atame\api\src\api.infra\obj\Debug\netstandard2.0\api.infra.pdb
