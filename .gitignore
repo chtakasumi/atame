@@ -1,8 +1,13 @@
+**/api/src/api.web/obj
+**/api/src/api.web/bin
+
 **/api/src/api.domain/obj
 **/api/src/api.domain/bin
 
 **/api/src/api.infra/obj
 **/api/src/api.infra/bin
+**/api/src/api.infra/Migrations
 
-**/api/src/api.web/obj
-**/api/src/api.web/bin
+
+
+

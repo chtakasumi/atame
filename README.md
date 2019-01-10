@@ -1,17 +1,17 @@
-# Sistema de Gestão comercial -  Grupo ATAME
+# Sistema de Gestão comercial - ATAME
 
-Este projeto visa criar um erp com foco na area comercial inicialmente.
+Este projeto visa criar um ERP com foco na area comercial inicialmente.
 
 ## Contributing
-* **Elton Jhon Assunção** https://github.com/ejaassuncao
+* **Elton John Assunção** https://github.com/ejaassuncao
+* **Clovis Hideki Takasumi** https://github.com/chtakasumi
 
 ## Versioning
 0.0.0
 
 ## Authors
-* **CLOVIS HIDEKI TAKASUMI ** https://github.com/chtakasumi
+* **Clovis Hideki Takasumi** https://github.com/chtakasumi
 * **GRUPO ATAME**
 
 ## License
-
-Este Projeto pertence ao grupo Atame.
+* **Este projeto do grupo Atame.**

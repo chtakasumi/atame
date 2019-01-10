@@ -1,5 +1,6 @@
 ﻿using api.infra;
 using api.infra.Data;
+using api.web.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -22,11 +23,19 @@ namespace api.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options => {             
+                 options.Filters.Add(new TransactionFilter());               
+                //options.Filters.Add(typeof(TransactionFilter));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<APIContext>(options =>
+            
+
+                services.AddDbContext<DBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("gestao_comercial")));
-        }
+
+            new InjectCDI(services);
+
+        }        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -49,7 +58,7 @@ namespace api.web
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetRequiredService<APIContext>();
+                var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
 
                 //facilita mas nem tanto
                 //context.Database.Migrate();  //so cria o banco, leva em consideração a migração já feitas, como se esse comando fosse apenas o: "update-database"

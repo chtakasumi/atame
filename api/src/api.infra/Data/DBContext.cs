@@ -1,12 +1,13 @@
-﻿using api.domain.Entity;
+﻿using System;
+using api.domain.Entity;
 using api.infra.EntityConfig;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.infra
 {
-    public class APIContext:DbContext
+    public class DBContext:DbContext
     {
-        public APIContext(DbContextOptions<APIContext> option):base(option)
+        public DBContext(DbContextOptions<DBContext> option):base(option)
         {
                 
         }
@@ -20,6 +21,6 @@ namespace api.infra
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Grupo> Grupos { get; set; }
-
+        
     }
 }

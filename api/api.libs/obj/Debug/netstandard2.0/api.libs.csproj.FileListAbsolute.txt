@@ -1,0 +1,8 @@
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\bin\Debug\netstandard2.0\api.libs.deps.json
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\bin\Debug\netstandard2.0\api.libs.dll
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\bin\Debug\netstandard2.0\api.libs.pdb
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\obj\Debug\netstandard2.0\api.libs.csproj.CoreCompileInputs.cache
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\obj\Debug\netstandard2.0\api.libs.AssemblyInfoInputs.cache
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\obj\Debug\netstandard2.0\api.libs.AssemblyInfo.cs
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\obj\Debug\netstandard2.0\api.libs.dll
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\api.libs\obj\Debug\netstandard2.0\api.libs.pdb

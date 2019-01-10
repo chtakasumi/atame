@@ -1,11 +1,12 @@
 ﻿using api.domain.Entity;
+using libs;
 using System.Linq;
 
 namespace api.infra.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(APIContext context)
+        public static void Initialize(DBContext context)
         {
             if (!context.Perfis.Any())
             {               
@@ -22,7 +23,7 @@ namespace api.infra.Data
                         },
                         new PerfilGrupo
                         {
-                            Perfil = new Perfil{Descricao="tela_cliente_cadastro"}
+                            Perfil = new Perfil{Descricao="tela_cliente_cadastrar"}
                         },
                         new PerfilGrupo
                         {
@@ -50,7 +51,7 @@ namespace api.infra.Data
                 var usuario = new Usuario
                 {
                     Login = "Master",
-                    Senha = "1",//Todo: Falta criptografar
+                    Senha = Seguranca.GerarHash("1"),
                     Ativo = "S",
                     GruposUsuarios = new GrupoUsuario[]
                     {
