@@ -6,8 +6,12 @@
 
 **/api/src/api.infra/obj
 **/api/src/api.infra/bin
-**/api/src/api.infra/Migrations
 
+**/api/src/api.testeConsole/obj
+**/api/src/api.testeConsole/bin
+
+**/api/src/api.libs/obj
+**/api/src/api.libs/bin
 
 
 
