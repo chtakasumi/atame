@@ -76,11 +76,12 @@ namespace api.infra.Data
             return _dbContexto.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> PesquisarTodos()
+        public IEnumerable<TEntity> BuscarTodos()
         {
             return _dbContexto.Set<TEntity>().AsEnumerable();
         }
 
-        #endregion
+        #endregion       
+       
     }
 }

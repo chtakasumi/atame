@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\api.domain\api.domain.csproj" />
+    <ProjectReference Include="..\api.libs\api.libs.csproj" />
   </ItemGroup>
 
 </Project>

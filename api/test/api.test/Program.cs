@@ -1,7 +1,7 @@
 ﻿using libs;
 using System;
 
-namespace api.testeConsole
+namespace api.test
 {
     class Program
     {
@@ -26,7 +26,5 @@ namespace api.testeConsole
 
             Console.ReadKey();
         }
-
-
     }
 }

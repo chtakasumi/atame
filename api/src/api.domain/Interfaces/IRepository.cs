@@ -5,10 +5,10 @@ namespace api.domain.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        //metodos de busca
-        IEnumerable<TEntity> PesquisarTodos();
+        //metodos de busca       
         IEnumerable<TEntity> Pesquisar(Func<TEntity, bool> expressao);
         TEntity PesquisarPorId(int id);
+        IEnumerable<TEntity> BuscarTodos();
 
         //metodos de Insercao
         TEntity Inserir(TEntity entity);
@@ -20,7 +20,8 @@ namespace api.domain.Interfaces
 
         //metodos de exclusao
         void Excluir(TEntity entity);
-        void Excluir(IEnumerable<TEntity> entities);
+        void Excluir(IEnumerable<TEntity> entities);       
+
     }
 
 }

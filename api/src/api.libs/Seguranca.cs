@@ -14,7 +14,6 @@ namespace libs
 
         public static string Descriptografar(string valor)
         {
-
             try
             {
                 Byte[] cript = Convert.FromBase64String(valor);
@@ -23,9 +22,7 @@ namespace libs
             catch
             {
                 throw new Exception("o valor informado não esta criptografado para ser descriptogravado");
-            }       
-
-           
+            }           
         }
 
         public static string GerarHash(string valor)

@@ -25,7 +25,7 @@ namespace api.domain.Services
 
         public IEnumerable<Usuario> BuscarTodos()
         {
-            return _usuarioRepository.PesquisarTodos();
+            return _usuarioRepository.BuscarTodos();
         }
 
         public bool IsAtivo(int id)
@@ -36,6 +36,16 @@ namespace api.domain.Services
             }
 
             return _usuarioRepository.Pesquisar(x => x.Id == id && x.Ativo == "S").Count() > 0;
+        }
+
+        public IEnumerable<Usuario> BuscarComGrupo(int id)
+        {
+            return _usuarioRepository.BuscarComGrupo(id);
+        }
+
+        public void Atualizar(Usuario usuario)
+        {
+            _usuarioRepository.Atualizar(usuario);
         }
 
         public Usuario BuscarPorId(int id)
@@ -55,12 +65,14 @@ namespace api.domain.Services
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
             }
 
+            usuario.Ativo = "S";
+
             return _usuarioRepository.Inserir(usuario);
+
         }
 
         public Usuario Excluir(int id)
         {   
-
             if (id == 0)
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Id não informado");
@@ -78,5 +90,6 @@ namespace api.domain.Services
             return usuario;
 
         }
+        
     }
 }

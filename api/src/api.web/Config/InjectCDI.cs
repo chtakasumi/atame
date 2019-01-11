@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using api.domain.Interfaces;
+﻿using api.domain.Interfaces;
 using api.domain.Services;
 using api.infra.Repository;
 using Microsoft.Extensions.DependencyInjection;

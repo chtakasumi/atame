@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
 
 namespace api.domain.Services.Commons
 {
-    
 
-        [Serializable]
+    [Serializable]
         internal class MensagemException : Exception
         {
             private EnumStatusCode requisicaoInvalida;
@@ -23,7 +19,6 @@ namespace api.domain.Services.Commons
                 this.mensagem = mensagem;
             }
             
-        }
-  
+        } 
         
 }

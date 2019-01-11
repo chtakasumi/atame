@@ -1,30 +1,30 @@
 ﻿using System.Collections.Generic;
 using api.domain.Entity;
 using api.domain.Services;
+using api.domain.Services.Commons;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/usuario")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private readonly UsuarioService _usuario;
+        public readonly UsuarioService _usuario;
 
         public UsuarioController(UsuarioService usuario)
         {
             _usuario = usuario;
         }
 
-        // GET: api/Usuario
-        [HttpGet]       
-        public IEnumerable<Usuario> GetUsuarios()
-        {
-            return _usuario.BuscarTodos();            
 
+        // crud
+        [HttpGet]
+        public IActionResult GetUsuarios()
+        {
+            return Ok(_usuario.BuscarTodos());
         }
-        
-        // GET: api/Usuario
+
         [HttpGet("{id}")]
         public IActionResult GetUsuario(int id)
         {
@@ -32,37 +32,49 @@ namespace api.web.Controllers
             return Ok(usuario);
         }
 
-        // GET: api/Usuario
+        [HttpPost]
+        public IActionResult PostUsuario([FromBody] Usuario usuario)
+        {
+            var usu = _usuario.Cadastrar(usuario);
+            return CreatedAtAction("PostUsuario", new { id = usu.Id }, usu);
+        }
+
+        [HttpPut]
+        public IActionResult PutUsuario([FromBody] Usuario usuario)
+        {
+            _usuario.Atualizar(usuario);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUsuario([FromRoute] int id)
+        {
+            var usuario = _usuario.Excluir(id);
+            return Ok(usuario);
+        }
+        //fim do crud
+        
+
+        [HttpGet("{id}/grupo")]      
+        public IEnumerable<Usuario> GetUsuarioEGrupos(int id)
+        {
+            return _usuario.BuscarComGrupo(id);         
+        }
+
         [HttpGet("IsAtivo/{id}")]
         public IActionResult IsAtivo(int id)
         {
             var ativo = _usuario.IsAtivo(id);
             return Ok(ativo);
         }
-        
-        // GET: api/Usuario
-        [HttpPost]
-        public Usuario Autenticar(string login, string senha)
+
+        [HttpPost("Autenticar")]
+        public IActionResult Autenticar([FromBody] Usuario usuario)
         {
-            return _usuario.Autenticar(login, senha);
-        }
+            return Ok(_usuario.Autenticar(usuario.Login, usuario.Senha));
 
 
-        // GET: api/Usuario
-        [HttpPost]
-        public IActionResult PostUsuario([FromBody] Usuario usuario)
-        {
-            var usu = _usuario.Cadastrar(usuario);
 
-            return CreatedAtAction("PostUsuario", new { id = usu.Id }, usu);
-        }
-
-        // GET: api/Usuario
-        [HttpDelete("{id}")]
-        public IActionResult DeleteUsuario([FromRoute] int id)
-        {
-            var usuario = _usuario.Excluir(id);
-            return Ok(usuario);
         }
 
 
