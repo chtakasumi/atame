@@ -1,6 +1,7 @@
 **/api/src/api.web/obj
 **/api/src/api.web/bin
 **/api/src/api.web/App/sws
+**/api/src/api.web/App/resources/js/plugins/appres
 **/api/src/api.web/appsettings.json
 
 **/api/src/api.domain/obj
