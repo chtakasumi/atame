@@ -1,0 +1,876 @@
+[05-Jan-2015 22:48:48 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:49:02 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:49:27 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:50:51 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:51:03 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:51:40 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:52:10 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:52:19 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:52:50 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:56:02 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:58:30 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 22:58:44 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:01:23 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:04:17 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:05:17 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:05:23 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:05:36 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:05:49 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:05:58 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:06:04 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:06:15 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:06:20 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:06:31 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:08:07 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:14:40 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:26 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:40 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:45 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:50 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:55 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:15:59 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:16:07 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:16:12 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:18:57 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:19:31 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:20:28 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:04 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:07 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:08 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:08 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:14 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:15 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:15 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:27 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:27 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:27 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:49 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:50 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:50 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:57 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:58 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:23:58 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:24:03 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:24:04 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';' in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 26
+[05-Jan-2015 23:25:07 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:11 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:13 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:23 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:27 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:35 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:40 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:25:48 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarIdUsuarioPorLoginSenha() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 28
+[05-Jan-2015 23:26:22 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 35
+[05-Jan-2015 23:26:33 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 35
+[05-Jan-2015 23:26:36 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 35
+[05-Jan-2015 23:26:58 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 35
+[05-Jan-2015 23:28:09 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 33
+[05-Jan-2015 23:28:20 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 33
+[05-Jan-2015 23:28:29 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 33
+[05-Jan-2015 23:30:44 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 33
+[05-Jan-2015 23:31:02 America/Sao_Paulo] PHP Fatal error:  Call to a member function BuscarSituacaoEstabelecimento() on a non-object in /home/d31esuge/public_html/sistema/server/application/controllers/User.php on line 33
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:18 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:19 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:19 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:19 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:34 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:54:35 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:02 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:02 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:02 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:03 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:11 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:11 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:11 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:12 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:32 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:32 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:32 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:43 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:43 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:43 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:44 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:44 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:44 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:55:45 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:56:44 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:56:44 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:56:44 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:30 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:30 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:30 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:43 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:43 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:57:43 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:58:42 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:58:42 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:58:42 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:59:41 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:59:41 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 20:59:41 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 21:00:40 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 21:00:40 America/Sao_Paulo] PHP Warning:  require(application/config/constants.php): failed to open stream: No such file or directory in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[07-Jan-2015 21:00:40 America/Sao_Paulo] PHP Fatal error:  require(): Failed opening required 'application/config/constants.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/d31esuge/public_html/sistema/server/system/core/CodeIgniter.php on line 64
+[29-Aug-2015 08:31:31 America/Campo_Grande] PHP Fatal error:  Call to undefined method DaProduto::GetNumRows() in /home/ellos931/public_html/admfrotas.com.br/sws/server/application/models/daproduto.php on line 78
+[29-Dec-2015 15:12:17] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:12:17] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:12:17] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:12:17] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:14] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:14] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:14] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:14] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:15] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:15] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:20] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:20] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:25] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:25] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:30] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:30] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:35] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:35] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:38] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:38] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:38] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:13:38] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:14:20] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:14:20] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:16:31] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:16:31] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:16:32] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 15:16:32] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:29:54] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:29:54] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:29:54] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:29:54] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:01] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:01] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:01] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:01] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:02] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:02] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:07] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:07] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:08] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:08] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:09] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:09] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:37] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:37] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:38] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:38] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:42] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:42] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:43] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:43] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:43] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:43] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:48] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:48] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:48] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:30:48] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:36:57] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:36:57] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:42:58] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 17:42:58] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:38] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:38] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:38] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:38] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:42] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 18:26:42] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:08] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:08] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:16] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:16] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:34] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[29-Dec-2015 22:40:34] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20090626, debug=0, thread-safety=0
+PHP    compiled with module API=20060613, debug=0, thread-safety=0
+These options need to match
+ in Unknown on line 0
+[24-May-2018 17:22:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:22:09 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:22:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:22:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:22:24 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:12 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:21 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:30 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:35 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:23:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:01 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:05 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:17 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:27 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:24:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:25:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:25:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:26:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:30:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:34:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:35:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:36:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:40:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:57:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 17:57:15 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:01:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:02:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:02:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:02:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:02:52 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:03:10 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:03:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:00 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:05:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:07:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:08:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:08:55 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:10:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:11:01 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:11:05 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:11:45 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:14:35 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:14:51 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:15:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:15:23 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:30:33 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:32:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:32:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:33:34 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:33:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:33:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:34:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:34:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:34:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:34:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:35:33 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 18:55:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 19:03:33 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[24-May-2018 20:15:21 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 02:21:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 02:21:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 12:51:51 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 12:52:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 12:59:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:00:24 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:40:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:40:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:40:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:40:53 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:43:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:43:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:44:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:44:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:45:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:46:00 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:46:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:47:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 13:47:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 14:17:39 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 14:17:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 16:45:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 16:45:23 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 20:59:34 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 20:59:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 20:59:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 21:00:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[25-May-2018 21:00:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:50 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:53 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:55 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:44:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:45:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:45:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:45:05 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:45:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:51:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:52:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:52:57 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:53:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:54:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 00:57:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:02:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:02:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:03:35 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:04:10 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:11:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:11:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:15 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[26-May-2018 01:12:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[05-Nov-2018 12:18:53 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[05-Nov-2018 13:15:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[05-Nov-2018 19:29:03 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[07-Nov-2018 17:37:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:00:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:00:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:00:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:01:17 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:01:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:01:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:01:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:02:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:02:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:02:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:02:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:03:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:03:21 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:03:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:03:39 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:04:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:24 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:06:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:25 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:50 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:07:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:08:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:08:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:08:34 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:08:53 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:10:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:11:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:03 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:15 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:20 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:52 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:13:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:14:40 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:10 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:20 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:45 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:15:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:16:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:16:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:17:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:17:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:18:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:21:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:21:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:22:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:22:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:24:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:24:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:24:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:26:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:26:55 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:27:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:12 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:20 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:28:53 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:00 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:12 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:29:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:30:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:55:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:56:55 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:34 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:57:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:58:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:58:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:20 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:27 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 04:59:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:00:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:00:25 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:04:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:17 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 05:07:58 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 17:54:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 17:54:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 17:54:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[08-Nov-2018 17:54:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:25:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:30:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:30:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:30:57 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:31:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:32:07 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:32:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[09-Nov-2018 18:33:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[10-Nov-2018 01:24:15 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-Nov-2018 15:38:23 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-Nov-2018 15:38:42 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-Nov-2018 15:38:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-Nov-2018 15:40:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[12-Nov-2018 15:40:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:21:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:21:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:21:45 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:22:13 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:22:21 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:22:23 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:22:41 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:23:12 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:23:23 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:23:24 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:23:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:23:27 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:25:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:26:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:26:14 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:26:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:26:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:27:50 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:29:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:29:43 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:29:47 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:36:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:36:17 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:38:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:39:52 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:21 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:22 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:34 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:40:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:41:05 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:45:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:46:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:46:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:46:40 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:48:25 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:49:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:53:56 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:30 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:32 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:33 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:54:49 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:55:19 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:55:38 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:55:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:55:55 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:58:18 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:59:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 12:59:48 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:00:12 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:01:01 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:01:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:02:31 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:03:16 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:04:02 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:04:10 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:04:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 13:06:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 15:36:08 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 15:36:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 15:36:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 15:36:57 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 15:39:06 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:34:29 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:35:11 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:35:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:35:37 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:37:44 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:38:28 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:38:40 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:38:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:38:54 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:39:26 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:40:46 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:44:04 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:47:40 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:48:05 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:48:36 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:48:59 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:53:52 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:53:58 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0
+[16-Nov-2018 17:54:09 UTC] PHP Deprecated:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in Unknown on line 0

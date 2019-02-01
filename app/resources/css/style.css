@@ -1,0 +1,113 @@
+
+/********************tags html************/
+body {
+    font-size: 14px;
+    font-family: Lucida Grande/Tahoma
+}
+
+
+h1 {
+    font-size: 22px;    
+}
+
+.footer {
+    background-color: #ba131a;
+    height: 40px;
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
+    text-align: right;
+}
+
+.footer > div {  
+    margin-top:5px;
+    margin-right: 10px;
+    padding:5px;
+    color: white;
+}
+/********************Pagina login************/
+
+.logo-menu {
+    width: 90px;
+    margin-top: -19px;
+}
+.login-container {
+    border: 1px solid #e2dcdc;
+    padding: 10px;
+}
+.logo-login {
+    background-color: #ba131a;
+    font-size: x-large;
+    font-family: fantasy;
+    color: white;
+    text-align: center;
+}
+.btn-logar{
+    text-align: end;
+}
+
+
+/********************menu************/
+
+.navbar-inverse {
+    background-color: #ba131a;
+    border-color: #1c74c0;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+        color: #e00808;
+        background-color: #f9f7f7;
+        font-weight: bold;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+
+
+
+/********************View pages************/
+
+.paginas{
+    margin-top: 5%;
+}
+
+.edicao{
+   
+    width: 101px;
+}
+
+.edicao-agendamento{   
+    width: 150px;
+}
+
+.edicao i{
+    font-size: 10px;
+  
+}
+
+.edicao-atendimento{
+    width: 35px;
+}
+/***Mensagem*****/
+.mensagem {
+    position: fixed;
+    top: 0;
+    z-index: 9999999;
+    width: inherit;   
+    -webkit-transition:all linear 0.7s;
+    transition:all linear 0.7s;
+}
+
+.ng-hide {
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    top:-200px;
+    left: 200px;     
+  }

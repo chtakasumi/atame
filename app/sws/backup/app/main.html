@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="app">
+<head>
+<!-- metas tags -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="img/logo.png">
+<!-- css -->
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="css/toaster.css" />
+<link type="text/css" rel="stylesheet" href="css/chosen.css" />
+<link type="text/css" rel="stylesheet" href="css/select2.css" />
+<link type="text/css" rel="stylesheet" href="css/dataTables.bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="css/site.css" />
+
+
+<!-- core -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.24.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-locale_pt-br.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.min.js"></script>
+<script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="js/angular-validator.js"></script>
+<!-- libs -->
+<script type="text/javascript" src="js/toaster.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/chosen.js"></script>
+<script type="text/javascript" src="js/masks.js"></script>
+<script type="text/javascript" src="js/select2.js"></script>
+<!-- aplicacao -->
+<script type="text/javascript" src="app-config/extension.js"></script>
+<script type="text/javascript" src="app-config/customFilters.js"></script>
+<script type="text/javascript" src="app-config/rotas.js"></script>
+<script type="text/javascript" src="app-config/httpInterceptor.js"></script>
+<script type="text/javascript" src="app-config/api.js"></script>
+<script type="text/javascript" src="app-config/app.js"></script>
+<script type="text/javascript" src="app-config/menu.js"></script>
+
+<title>{{sistema.titulo}}</title>
+</head>
+<body>
+	<!--menu -->
+	<div class="navbar navbar-default navbar-fixed-top bg-topo"
+		ng-show="sistema.menu">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/home" title="Pagina Inicial">
+					&nbsp;&nbsp;&nbsp;<img src="img/logo.png" height="50px" alt="" />
+				</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href=""
+						class="acoes-user dropdown-toggle" data-toggle="dropdown"><i
+							class="glyphicon glyphicon-cog"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="" ng-click="editarPerfil()"><i
+									class="glyphicon glyphicon-user"></i>&nbsp;Configurar Sistema</a></li>
+							<li><a href="" ng-click="onClickDeslogar()"><i
+									class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a></li>
+						</ul></li>
+				</ul>
+				<div class="user pull-right">
+					<div class="bemvindo pull-left">
+						<i class="glyphicon glyphicon-user"></i>&nbsp;{{sistema.saudacao}}
+					</div>
+					<div id="timer" class="crono pull-right">
+						<i class="glyphicon glyphicon-time"></i> <span id="time">{{dataHora | date: 'hh:mm:ss'}}</span>
+					</div>
+					<div class="usuario  pull-left">{{user.Nome}}</div>
+				</div>
+				<!-- itens do menu -->
+				<ul class="nav navbar-nav navbar-right" ng-controller="MenuCtrl">
+					<li class="active"><a href="#/home"> <i
+							class="glyphicon glyphicon-home"></i>
+					</a></li>
+					<li ng-repeat="menu in GetMenus()"><a href="{{menu.Rota}}"
+						ng-show="menu.Ativo">{{menu.Nome}}</a></li>
+				</ul>
+				<!-- fim itens do menu -->
+			</div>
+		</div>
+	</div>
+	<!-- fim menu -->
+	<toaster-container toaster-options="{'time-out': 5000,'spinner':false}"></toaster-container>	
+	<loading></loading>
+
+	<!-- conteudo -->
+	<div class="container conteudo" ng-view>
+		
+	</div>
+	<br/>	
+	<!-- fim conteudo -->
+	<div class="rodape">
+		<div class="copy pull-left">&nbsp;&nbsp;{{sistema.rodape1}} -
+			{{sistema.version}}</div>
+		<div class="copy">{{sistema.rodape2}}</div>
+	</div>
+</body>
+</html>

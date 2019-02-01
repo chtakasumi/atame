@@ -1,0 +1,55 @@
+<style type="text/css">
+<!--
+.container {
+	min-width:0;
+}
+-->
+</style>
+<div  class="box col-md-6 col-md-offset-3" ng-keypress="keyLogar($event)">
+	<div class="col-lg-12 login">
+		<div class="col-lg-12 logo-login">			
+			<img alt="" src="img/logo.png" height="50px" class="pull-left"
+				style="margin-left: 1px;" />
+			<h4 style="color: white;" ng-bind-html="sistema.titulo"></h4>			
+		</div>
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-12">
+					<label> E-mail: </label>
+					<div class="input-group">
+						<span class="input-group-addon">@</span> <input type="text"
+							class="form-control" name="Login" placeholder="{{view.email}}"
+							ng-model="dados.email"  maxlength="40"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<label> Senha: </label>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input type="password"
+							class="form-control" name="Login" placeholder="{{view.senha}}"
+							ng-model="dados.senha" maxlength="10" />
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-lg-6 pull-left">
+					<p class="help-block">
+						<a class="text-muted" href="#/recuperar-senha"
+							name="EsqueceuSenha"><small>Esqueceu Senha</small></a>
+					</p>
+				</div>
+				<div class="col-lg-6">
+					<button type="submit" class="btn btn-success pull-right"
+						ng-click="logar()">
+						<i class="glyphicon glyphicon-log-in"></i> Entrar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="app-controller/autenticacao.js"></script>

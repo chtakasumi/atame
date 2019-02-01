@@ -1,0 +1,33 @@
+
+
+
+<!-- core -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.24.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-locale_pt-br.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.min.js"></script>
+<script type="text/javascript" src="js/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="js/angular-validator.js"></script>
+<!-- libs -->
+<script type="text/javascript" src="js/jquery.inputmask.js"></script>
+<script type="text/javascript" src="js/jquery.inputmask.regex.extensions.js"></script>
+<script type="text/javascript" src="js/toaster.js"></script>
+<script type="text/javascript" src="js/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/chosen.js"></script>
+<script type="text/javascript" src="js/masks.js"></script>
+<script type="text/javascript" src="js/select2.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+<!-- aplicacao -->
+<script type="text/javascript" src="app-config/extension.js"></script>
+<script type="text/javascript" src="app-config/customFilters.js"></script>
+<script type="text/javascript" src="app-config/rotas.js"></script>
+<script type="text/javascript" src="app-config/httpInterceptor.js"></script>
+<script type="text/javascript" src="app-config/api.js"></script>
+<script type="text/javascript" src="app-config/app.js"></script>
+<script type="text/javascript" src="app-config/menu.js"></script>

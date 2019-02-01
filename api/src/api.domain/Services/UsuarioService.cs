@@ -17,10 +17,29 @@ namespace api.domain.Services
             _usuarioRepository = usuario;
         }
         
-        public Usuario Autenticar(string login, string senha)
+        public DadosChave Autenticar(string login, string senha)
         {
-            string senhaCriptografada = Seguranca.GerarHash(senha);
-            return _usuarioRepository.Autenticar(login, senhaCriptografada);
+
+            if (string.IsNullOrEmpty(login))
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Login não informado");
+            }
+
+            if (string.IsNullOrEmpty(senha))
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
+            }
+
+            string senhaCriptografada = Seguranca.GerarHash(senha.Trim());
+            Usuario usuario =  _usuarioRepository.Autenticar(login.Trim().ToUpper(), senhaCriptografada);
+
+            if (usuario == null)
+            {
+                throw new MensagemException(EnumStatusCode.NaoAutorizado, "Usuário ou senhas inválidas");
+            }
+
+            return new DadosChave(usuario.Id, usuario.Login, usuario.Ativo,usuario.GruposUsuarios, DateTime.Now);
+       
         }
 
         public IEnumerable<Usuario> BuscarTodos()
@@ -66,6 +85,7 @@ namespace api.domain.Services
             }
 
             usuario.Ativo = "S";
+            usuario.Login = usuario.Login.Trim().ToUpper();
 
             return _usuarioRepository.Inserir(usuario);
 
@@ -90,6 +110,11 @@ namespace api.domain.Services
             return usuario;
 
         }
-        
+
+        public bool IsAutenticado(string cookie)
+        {
+            //todo: verifico se o cookie não foi expirado
+            return true;
+        }
     }
 }

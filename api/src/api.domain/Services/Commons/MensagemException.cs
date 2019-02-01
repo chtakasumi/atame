@@ -4,21 +4,21 @@ namespace api.domain.Services.Commons
 {
 
     [Serializable]
-        internal class MensagemException : Exception
-        {
-            private EnumStatusCode requisicaoInvalida;
-            private string mensagem;
+    public class MensagemException : Exception
+    {
+        public EnumStatusCode StatusCode { get; private set; }
+        public string Mensagem { get; private set; }
 
-            public MensagemException()
-            {
-            }
-          
-            public MensagemException(EnumStatusCode requisicaoInvalida, string mensagem = null)
-            {
-                this.requisicaoInvalida = requisicaoInvalida;
-                this.mensagem = mensagem;
-            }
-            
-        } 
+        public MensagemException()
+        {
+        }
+
+        internal MensagemException(EnumStatusCode statusCode, string mensagem = null)
+        {
+            this.StatusCode = statusCode;
+            this.Mensagem = mensagem;
+        }
+
+    }
         
 }

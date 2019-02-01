@@ -2,6 +2,7 @@
 using api.domain.Entity;
 using api.domain.Services;
 using api.domain.Services.Commons;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.web.Controllers
@@ -72,9 +73,12 @@ namespace api.web.Controllers
         public IActionResult Autenticar([FromBody] Usuario usuario)
         {
             return Ok(_usuario.Autenticar(usuario.Login, usuario.Senha));
+        }
 
-
-
+        [HttpGet("IsAutenticado")]
+        public IActionResult IsAutenticado(string cookie)
+        {
+            return Ok(_usuario.IsAutenticado(cookie));
         }
 
 

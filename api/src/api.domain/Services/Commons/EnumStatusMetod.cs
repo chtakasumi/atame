@@ -9,7 +9,7 @@ namespace api.domain.Services.Commons
     /// Veja a documentação abaixo para entender melhor os codigos HTTP
     /// https://pt.wikipedia.org/wiki/Lista_de_códigos_de_estado_HTTP
     /// </summary>
-    enum EnumStatusCode
+    public enum EnumStatusCode
     {        
         //Informativa
         Informativa = 100, //caso queira dar um informação para o cliente, porem deverá conseguir processar a requisição

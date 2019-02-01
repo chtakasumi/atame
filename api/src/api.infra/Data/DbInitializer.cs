@@ -50,7 +50,7 @@ namespace api.infra.Data
 
                 var usuario = new Usuario
                 {
-                    Login = "Master",
+                    Login = "MASTER",
                     Senha = Seguranca.GerarHash("1"),
                     Ativo = "S",
                     GruposUsuarios = new GrupoUsuario[]
