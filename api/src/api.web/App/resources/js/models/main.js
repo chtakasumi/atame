@@ -5,7 +5,7 @@ var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster
 app.constant('configConst', {
     baseUrl: "http://localhost:5000/App", //url da minha aplicação
     baseUrlView: "./view/", //paginas html
-    baseUrlApi: "http://localhost:5000/api/", //onde meu servico ira consumir dados no banco de dados
+    baseUrlApi: "/api/", //onde meu servico ira consumir dados no banco de dados
 });
 
 //permissão e autorização
@@ -85,8 +85,8 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 }
             }
         })
-        .when("/paciente", {
-            templateUrl: configConst.baseUrlView + "paciente.html",
+        .when("/curso", {
+            templateUrl: configConst.baseUrlView + "curso.html",
         })
         .when("/atendimento", {
             templateUrl: configConst.baseUrlView + "atendimento.html"
@@ -109,7 +109,17 @@ app.factory("consumerService", ['$http', 'configConst', function ($http, configC
         $http.get(url, param).then(function (data) {            
             callback(data.data);
         });
+
     }
+
+    var _delete= function (url, callback) {
+        var url = configConst.baseUrlApi + url;
+        $http.delete(url, param).then(function (data) {
+            callback(data.data);
+        });
+
+    }
+
 
     var _post= function (url, data, callback) {
         var urlNew = configConst.baseUrlApi + url;
@@ -122,11 +132,27 @@ app.factory("consumerService", ['$http', 'configConst', function ($http, configC
             function (data) {
                 callback(data.data);
             });
-     }
+    }
+
+    var _put = function (url, data, callback) {
+        var urlNew = configConst.baseUrlApi + url;
+        var parm = {
+            method: 'PUT',
+            headers: headers
+        };
+
+        $http.put(urlNew, data, parm).then(
+            function (data) {
+                callback(data.data);
+        });
+    }
+  
 
     return {
         get: _get,
+        delete: _delete,
         post: _post,
+        put: _put,
     };
 }]);
 

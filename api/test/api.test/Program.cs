@@ -1,4 +1,5 @@
-﻿using libs;
+﻿using api.domain.Entity;
+using api.libs;
 using System;
 
 namespace api.test
@@ -7,7 +8,9 @@ namespace api.test
     {
         static void Main(string[] args)
         {
-            TestarLibSeguranca();
+            TestarJSONCoverter();
+
+            Console.ReadKey();
         }
 
         static void TestarLibSeguranca()
@@ -23,8 +26,16 @@ namespace api.test
 
             var h = Seguranca.GerarHash(senha);
             Console.WriteLine(h);
+           
+        }
 
-            Console.ReadKey();
+        static void TestarJSONCoverter()
+        {
+            string json= Json.ToJson(new Curso());
+            Console.WriteLine(json);
+
+            Curso o = Json.ToObject<Curso>(json);
+            Console.WriteLine(o);
         }
     }
 }

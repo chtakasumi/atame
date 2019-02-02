@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace libs
+namespace api.libs
 {
     public static class Seguranca
     {

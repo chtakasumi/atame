@@ -16,7 +16,11 @@ namespace api.web
         public InjectCDI(IServiceCollection services)
         {
             services.AddScoped<UsuarioService>();
+            services.AddScoped<CursoService>();
+
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<ICursoRepository, CursoRepository>();
+            
         }
     }
 }

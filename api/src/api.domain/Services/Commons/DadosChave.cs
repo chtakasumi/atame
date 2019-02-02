@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using api.domain.Entity;
-using libs;
+using api.libs;
 
 namespace api.domain.Services.Commons
 {

@@ -1,5 +1,5 @@
 ﻿using api.domain.Entity;
-using libs;
+using api.libs;
 using System.Linq;
 
 namespace api.infra.Data
@@ -67,7 +67,35 @@ namespace api.infra.Data
 
                 #endregion
 
+                #region Curso
+
+                var curso1 = new Curso
+                {
+                    Nome = "Informatica",
+
+                };
+
+                var curso2 = new Curso
+                {
+                    Nome = "Culinaria",
+
+                };
+
+                var curso3 = new Curso
+                {
+                    Nome = "Medicina",
+                };
+
+                context.Add(curso1);
+                context.Add(curso2);
+                context.Add(curso3);
+                context.SaveChanges();
+                #endregion
+
             }
+
+
+
         }
     }
 }

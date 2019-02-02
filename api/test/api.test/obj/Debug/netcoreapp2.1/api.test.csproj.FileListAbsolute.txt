@@ -16,3 +16,5 @@ C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\De
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.csproj.CopyComplete
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.dll
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.pdb
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml

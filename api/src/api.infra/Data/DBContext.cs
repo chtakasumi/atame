@@ -15,11 +15,13 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new PerfilMap());
             modelBuilder.ApplyConfiguration(new GrupoMap());
+            modelBuilder.ApplyConfiguration(new CursoMap());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
-        public DbSet<Grupo> Grupos { get; set; }      
+        public DbSet<Grupo> Grupos { get; set; }
+        public DbSet<Curso> Curso { get; set; }
 
     }
 }

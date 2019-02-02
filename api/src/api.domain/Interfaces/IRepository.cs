@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace api.domain.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : class
     {
         //metodos de busca       
-        IEnumerable<TEntity> Pesquisar(Func<TEntity, bool> expressao);
+        IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>> expressao);
+        IEnumerable<TEntity> Query(List<Expression<Func<TEntity, bool>>> criterios);
         TEntity PesquisarPorId(int id);
         IEnumerable<TEntity> BuscarTodos();
 

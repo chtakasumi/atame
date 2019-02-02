@@ -11,6 +11,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System.IO;
 using System.Net;
 
@@ -39,12 +42,22 @@ namespace api.web
             services.AddMvc(config =>
             {
                 config.Filters.Add(typeof(CustomExceptionFilter));
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            })
 
-                //discução=> https://stackoverflow.com/questions/7397207/json-net-error-self-referencing-loop-detected-for-type
-                .AddJsonOptions(
-                    options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-                 );
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+
+            //discução=> https://stackoverflow.com/questions/7397207/json-net-error-self-referencing-loop-detected-for-type
+            .AddJsonOptions(                  
+                    o =>
+                    {
+                        o.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                        o.SerializerSettings.Converters.Add(new StringEnumConverter());
+                        o.SerializerSettings.Formatting = Formatting.Indented;
+                        o.SerializerSettings.NullValueHandling = NullValueHandling.Include;
+                        o.SerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
+                        o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    }               
+             );
 
             //Dizendo qual o contexto da aplicação e qual a string de conexoa para o sqlserver
             services.AddDbContext<DBContext>(options =>            
@@ -69,9 +82,10 @@ namespace api.web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }                   
+            }
 
             app.UseMvc();
+
 
             InicializarPaginasHtml(app, env);
 
@@ -88,7 +102,7 @@ namespace api.web
                 var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
 
                 //facilita mas nem tanto
-                //context.Database.Migrate();  //so cria o banco, leva em consideração a migração já feitas, como se esse comando fosse apenas o: "update-database"
+               // context.Database.Migrate();  //so cria o banco, leva em consideração a migração já feitas, como se esse comando fosse apenas o: "update-database"
                 
                 //modo primitivo**** localhost isso seria legal
                 context.Database.EnsureCreated(); //Cria o banco e gerar as migrações, porem não gera o historico de versão

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace api.infra.Data
 {
@@ -66,11 +67,11 @@ namespace api.infra.Data
 
         #region pesquisa
 
-        public virtual IEnumerable<TEntity> Pesquisar(Func<TEntity, bool> expressao)
+        public virtual IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>>  expressao)
         {          
             return _dbContexto.Set<TEntity>().Where(expressao).AsEnumerable();
         }
-
+              
         public TEntity PesquisarPorId(int id)
         {
             return _dbContexto.Set<TEntity>().Find(id);
@@ -81,7 +82,21 @@ namespace api.infra.Data
             return _dbContexto.Set<TEntity>().AsEnumerable();
         }
 
-        #endregion       
-       
+        public IEnumerable<TEntity> Query(List<Expression<Func<TEntity, bool>>> clauses)
+        {
+
+            IQueryable<TEntity> Query =null;
+
+            var bd = _dbContexto.Set<TEntity>();
+            foreach (var clause in clauses)
+            {
+                Query.Where(clause);
+            }
+
+            return bd.ToList();
+        }
+
+        #endregion
+
     }
 }

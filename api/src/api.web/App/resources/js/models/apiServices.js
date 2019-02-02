@@ -1,6 +1,6 @@
 var app = angular.module('main');
 app.factory("autenticacaoService", ['consumerService', '$window', '$location',
-    function (consumerService, $window, $location) {
+function (consumerService, $window, $location) {
        
    var key = "Chave";
 
@@ -18,10 +18,10 @@ app.factory("autenticacaoService", ['consumerService', '$window', '$location',
         var parm = { "login": login, "senha": senha };
 
         consumerService.post("usuario/Autenticar", parm,
-            function (dados) {              
-                $window.localStorage.setItem(key, dados.chave);             
-                return func(dados.chave);              
-            });
+        function (dados) {              
+             $window.localStorage.setItem(key, dados.Chave);             
+             return func(dados.Chave);              
+        });
     };
 
     return {
@@ -32,40 +32,43 @@ app.factory("autenticacaoService", ['consumerService', '$window', '$location',
 
 }]);
 
-app.factory("pacienteService", ['consumerService', function (consumerService) {
+app.factory("cursoService", ['consumerService', function (consumerService) {
 
-    var _new = function () {
-        return angular.copy({ id: null, cpf: null, nome: null, email: null, fone: null });
+    var _model = function (callBack) {
+        consumerService.get("curso/model", function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
     };
 
-    var _listar = function (cpf, nome, callBack) {
-        var param = {cpf: cpf, nome: nome };
-        consumerService.post("paciente/listar", param, function (data) {
+    var _listar = function (id, nome, callBack) {
+        var param = {Id: id, Nome: nome };
+        consumerService.post("curso/listar", param, function (data) {
             callBack(data);
         })
     };
 
-    var _salvar = function (entidade, callBack) {
-        if(entidade.id > 0){
-            consumerService.post("paciente/editar", entidade, function (data) {
+    var _salvar = function (entidade, callBack) {    
+        if(entidade.Id > 0){
+            consumerService.put("curso", entidade, function (data) {
                 callBack(data);
             });
-        }else{
-            consumerService.post("paciente/cadastrar", entidade, function (data) {
+        } else {         
+            consumerService.post("curso", entidade, function (data) {  
                 callBack(data);
             });
         }
     };
 
-    var _excluir = function (id, callBack) {
-        var param ={id:id};
-        consumerService.post("paciente/excluir", param, function (data) {
-            callBack(data);
+    var _excluir = function (id, callBack) {       
+        consumerService.delete("curso?id=" + id, function () {
+            callBack();
         });  
     };
 
+   
+
     return {
-        new: _new,
+        model: _model,
         listar: _listar,
         salvar: _salvar,
         excluir: _excluir

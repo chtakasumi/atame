@@ -2,7 +2,7 @@ var app = angular.module('main');
 
 //comportamento da pagina login
 app.controller('loginCtrl', function ($scope, autenticacaoService, $location) {
-    $scope.autenticar = function () {  
+    $scope.autenticar = function () {        
         autenticacaoService.autenticar($scope.login, $scope.senha, function (chave) {
             if (chave) {
                 $location.path("/home");
@@ -11,23 +11,29 @@ app.controller('loginCtrl', function ($scope, autenticacaoService, $location) {
     }
 });
 
-//comportamento da pagina paciente
-app.controller('pacienteCtrl', function ($rootScope, $scope, pacienteService, alertService) {
+//comportamento da pagina curso
+app.controller('cursoCtrl', function ($rootScope, $scope, cursoService, alertService) {
+
+    this.$$Model = null;
 
     init();
 
-    function init() {      
-        $scope.paciente = pacienteService.new();
-        modoEdicao(false);
+    function init() {
+        cursoService.model(function (modelo) {  
+            this.$$Model = modelo;
+            $scope.curso = angular.copy(this.$$Model);
+            modoEdicao(false);
+        });       
     }
 
     $scope.novo = function () {
         modoEdicao(true);
-        $scope.titulo = "Cadastrar novo paciente";
+        $scope.titulo = "Cadastrar novo Curso";
     }
+
     $scope.editar = function (entity) {
         modoEdicao(true);
-        $scope.titulo = "Editar paciente";
+        $scope.titulo = "Editar Curso";
         carregarFormulario(entity)
     }
 
@@ -41,25 +47,25 @@ app.controller('pacienteCtrl', function ($rootScope, $scope, pacienteService, al
         if (bool) {
             limparFormulario();
         } else {
-            $scope.cpf_pesquisar = null;
+            $scope.id_pesquisar = null;
             $scope.nome_pesquisar = null;
             pesquisar();
         }
     }
 
-    function limparFormulario() {
-        $scope.paciente = pacienteService.new();
+    function limparFormulario() {       
+        $scope.curso = angular.copy(this.$$Model);
     }
 
     function carregarFormulario(entity) {
-        $scope.paciente = entity;
+        $scope.curso = entity;
     }
 
     //CRUD
 
     function pesquisar() {
-        pacienteService.listar($scope.cpf_pesquisar, $scope.nome_pesquisar, function (data) {
-            $scope.grade_pacientes = data;
+        cursoService.listar($scope.id_pesquisar, $scope.nome_pesquisar, function (data) {
+            $scope.grade_cursos = data;
         });
     }
 
@@ -68,42 +74,19 @@ app.controller('pacienteCtrl', function ($rootScope, $scope, pacienteService, al
     }
 
     $scope.excluir = function (id) {
-        pacienteService.excluir(id, function (data) {
-            modoEdicao(false);
-            alertService.getSucesso(data)
+        cursoService.excluir(id, function () {
+            modoEdicao(false);      
+            alertService.getSucesso("Registro excluido com sucesso");
         });
     }
 
     $scope.salvar = function () {
-
-        //validacoes
-        if (!$scope.paciente.cpf) {
-            alertService.getAdvertencia("preencha um cpf");
-            return
-        }
-
-        if (!$scope.paciente.nome) {
-            alertService.getAdvertencia("preencha um nome");
-            return
-        }
-
-        if (!$scope.paciente.email) {
-            alertService.getAdvertencia("preencha um email");
-            return
-        }
-
-
-        if (!$scope.paciente.fone) {
-            alertService.getAdvertencia("preencha um telefone");
-            return
-        }
-
-
-
-        pacienteService.salvar($scope.paciente, function (data) {
+        //validacoes       
+        cursoService.salvar($scope.curso, function (dados) {          
             limparFormulario()
             modoEdicao(false);
-            alertService.getSucesso(data);
+            console.log(dados);
+            alertService.getSucesso("Dados salvo com sucesso");
         });
     }
 });
