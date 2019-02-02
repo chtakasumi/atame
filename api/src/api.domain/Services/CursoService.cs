@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using api.domain.Entity;
+﻿using api.domain.Entity;
 using api.domain.Interfaces;
-using api.domain.Services.Commons;
 using api.domain.Services.DTO;
 using api.libs;
+using System.Collections.Generic;
 
 namespace api.domain.Services
 {

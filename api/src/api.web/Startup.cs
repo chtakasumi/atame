@@ -50,7 +50,7 @@ namespace api.web
             .AddJsonOptions(                  
                     o =>
                     {
-                        o.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                        //o.SerializerSettings.ContractResolver = new DefaultContractResolver();
                         o.SerializerSettings.Converters.Add(new StringEnumConverter());
                         o.SerializerSettings.Formatting = Formatting.Indented;
                         o.SerializerSettings.NullValueHandling = NullValueHandling.Include;

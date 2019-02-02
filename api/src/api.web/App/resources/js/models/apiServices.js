@@ -19,8 +19,8 @@ function (consumerService, $window, $location) {
 
         consumerService.post("usuario/Autenticar", parm,
         function (dados) {              
-             $window.localStorage.setItem(key, dados.Chave);             
-             return func(dados.Chave);              
+             $window.localStorage.setItem(key, dados.chave);             
+             return func(dados.chave);              
         });
     };
 
@@ -48,7 +48,7 @@ app.factory("cursoService", ['consumerService', function (consumerService) {
     };
 
     var _salvar = function (entidade, callBack) {    
-        if(entidade.Id > 0){
+        if(entidade.id > 0){
             consumerService.put("curso", entidade, function (data) {
                 callBack(data);
             });

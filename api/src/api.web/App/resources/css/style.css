@@ -26,7 +26,15 @@ h1 {
     color: white;
 }
 /********************Pagina login************/
-
+.dropdown-divider {   
+    border-bottom:solid 1px white;
+}
+ul .dropdown-menu {
+    background-color: #ba131a;
+}
+li .dropdown-item a{
+    color: aliceblue;
+}
 .logo-menu {
     width: 90px;
     margin-top: -19px;
@@ -56,9 +64,9 @@ h1 {
 .navbar-inverse .navbar-nav>li>a {
     color: white;
 }
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:focus,
-.navbar-inverse .navbar-nav > .active > a:hover {
+.navbar-inverse .navbar-nav > .active > a:active,
+.navbar-inverse .navbar-nav > .active > a:focus
+{
         color: #e00808;
         background-color: #f9f7f7;
         font-weight: bold;

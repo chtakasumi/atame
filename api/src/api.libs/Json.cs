@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace api.libs
 {
@@ -7,7 +8,10 @@ namespace api.libs
 
         public static string ToJson<T>(T objeto)
         {
-            return JsonConvert.SerializeObject(objeto);
+            var settings = new JsonSerializerSettings();
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            settings.Formatting = Formatting.Indented;
+            return JsonConvert.SerializeObject(objeto, settings);
         }
 
         public static T ToObject<T>(string json)

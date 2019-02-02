@@ -1,9 +1,0 @@
-#captura erro
-#RewriteEngine On
-#RewriteCond %{SCRIPT_FILENAME} !-f
-#RewriteCond %{SCRIPT_FILENAME} !-d
-#RewriteRule ^(.*)$ redireciona.html?url=$1
-
-#pagina inicial do diretório
-DirectoryIndex redireciona.html
-

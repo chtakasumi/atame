@@ -1,23 +1,30 @@
 //modulo principal
-var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster"]);
+var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster","datatables"]);
 
 //constantes
 app.constant('configConst', {
-    baseUrl: "http://localhost:5000/App", //url da minha aplicação
+    baseUrl: "http://localhost:5000", //url da minha aplicação
     baseUrlView: "./view/", //paginas html
     baseUrlApi: "/api/", //onde meu servico ira consumir dados no banco de dados
 });
 
 //permissão e autorização
-app.run(function ($rootScope, autenticacaoService, $location) {
+app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDefaultOptions, DTColumnDefBuilder) { 
 
-    $rootScope.mensagem = '';
-    $rootScope.mensagem_show = false;
+    DTDefaultOptions.setLanguageSource(configConst.baseUrl + '/resources/js/plugins/dataTable/Portuguese-Brasil.Json');
+    DTDefaultOptions.setLoadingTemplate('<img src="' + configConst.baseUrl +'/resources/img/ajax-loader.gif">');
+    DTDefaultOptions.setOption("filter", false);
+    DTDefaultOptions.setOption("aoColumnDefs", [
+        {
+            aTargets: 'edicao',
+            bSortable: false
+        }
+    ]);
 
     //esse evento acontece toda vez que mudo de url
     $rootScope.$on('$locationChangeSuccess', function (event, toState, toStateParams) {
         //ativar ao clicar no menu
-        ativaMenu(toState);
+       // ativaMenu(toState);
 
         //checa permissão de acesso as paginas
         if (toState.indexOf('login') > -1) {
@@ -35,21 +42,21 @@ app.run(function ($rootScope, autenticacaoService, $location) {
 
     });
 
-    function ativaMenu(toState) {
-        $rootScope.classAgendamentoActive = '';
-        $rootScope.classAtendimentoActive = '';
-        $rootScope.classPacienteActive = '';
+    //function ativaMenu(toState) {
+    //    $rootScope.classAgendamentoActive = '';
+    //    $rootScope.classAtendimentoActive = '';
+    //    $rootScope.classPacienteActive = '';
 
-        if (toState.indexOf('agendamento') > -1) {
-            $rootScope.classAgendamentoActive = 'active'
-        }
-        else if (toState.indexOf('atendimento') > -1) {
-            $rootScope.classAtendimentoActive = 'active'
-        }
-        else if (toState.indexOf('paciente') > -1) {
-            $rootScope.classPacienteActive = 'active'
-        }
-    }
+    //    if (toState.indexOf('agendamento') > -1) {
+    //        $rootScope.classAgendamentoActive = 'active'
+    //    }
+    //    else if (toState.indexOf('atendimento') > -1) {
+    //        $rootScope.classAtendimentoActive = 'active'
+    //    }
+    //    else if (toState.indexOf('paciente') > -1) {
+    //        $rootScope.classPacienteActive = 'active'
+    //    }
+    //}
 });
 
 //rotas de url amigaveis
@@ -57,6 +64,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
     $httpProvider.interceptors.push('httpInterceptor');
     $httpProvider.defaults.withCredentials = true;
     $qProvider.errorOnUnhandledRejections(false);
+      
   
     $routeProvider
         .when("/", {
@@ -88,13 +96,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
         .when("/curso", {
             templateUrl: configConst.baseUrlView + "curso.html",
         })
-        .when("/atendimento", {
-            templateUrl: configConst.baseUrlView + "atendimento.html"
-        })
-        .when("/agendamento", {
-            templateUrl: configConst.baseUrlView + "agendamento.html"
-        }).
-        otherwise('/home');
+        .otherwise('/home');
 }]);
 
 app.factory("consumerService", ['$http', 'configConst', function ($http, configConst) {
