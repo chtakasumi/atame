@@ -1,0 +1,91 @@
+<div ng-controller="tipoCursoCtrl">
+    
+    <div class="panel panel-default" ng-show="painelPesquisar">
+        <div class="panel-heading">Pesquisar Tipo Curso</div>
+        <div class="panel-body">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="cpf" class="sr-only">Codigo:</label>
+                    <input type="text" ng-model="id_pesquisar" class="form-control" id="id" name="id" placeholder="Código">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="nome" class="sr-only">Nome</label>
+                    <input type="text" ng-model="descricao_pesquisar" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary" ng-click="pesquisar()">
+                        <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                    </button>
+                    <button class="btn btn-warning" ng-click="limparFiltros()">
+                        <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                    </button>
+                    <button class="btn btn-default" ng-click="novo()">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-12 table-responsive">
+                <table  datatable="ng"  class="table table-bordered table-striped table-hover table-condensed cf"
+                       id="GridView1">
+                    <thead>
+                        <tr class="title-table">
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th class="edicao"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tipoCurso in grade_tipoCursos">
+                            <td>{{tipoCurso.id}}</td>
+                            <td>{{tipoCurso.descricao}}</td>
+                            <td class="edicao">
+                                <a class="btn btn-default btn-xs" ng-click="editar(tipoCurso)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a class="btn btn-default btn-xs" ng-click="excluir(tipoCurso.id)"><i class="glyphicon glyphicon-remove"></i></a>
+                            </td>                         
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default" ng-show="painelEditar">
+        <div class="panel-heading">{{titulo}}</div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label for="Nome">Código</label>
+                <input type="text" ng-model="tipoCurso.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" ng-model="tipoCurso.descricao" class="
+                       form-control" id="Descricao" name="Descricao" placeholder="Descricao">
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="btn-group">
+                    <button class="btn btn-success" ng-click="salvar()">
+                        <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                    </button>
+                    <button class="btn btn-default" ng-click="voltar()">
+                        <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

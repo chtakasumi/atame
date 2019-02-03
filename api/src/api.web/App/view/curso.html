@@ -3,13 +3,13 @@
     <div class="panel panel-default" ng-show="painelPesquisar">
         <div class="panel-heading">Pesquisar Curso</div>
         <div class="panel-body">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="form-group">
                     <label for="cpf" class="sr-only">Codigo:</label>
                     <input type="text" ng-model="id_pesquisar" class="form-control" id="id" name="id" placeholder="Código">
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="nome" class="sr-only">Nome</label>
                     <input type="text" ng-model="nome_pesquisar" class="form-control" id="nome" name="nome" placeholder="Nome">
@@ -17,9 +17,27 @@
             </div>
 
             <div class="col-md-3">
+                <div class="form-group">
+                    <label for="tipoCursoPesquisa" class="sr-only">TipoCurso</label>
+                    <ui-select tagging ng-model="tipocurso_pesquisar" 
+                               on-select="selecionarPesquisa($item)" spinner-enabled="true">
+                        <ui-select-match placeholder="**Selecione um tipo de curso**">
+                            <span ng-bind="$select.selected.descricao"></span>                         
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (listaTipoCursoPesquisa | filter: $select.search) track by item.id"
+                                           refresh="buscarTipoCursoPesquisa($select.search)" refresh-delay="0">
+                            <span ng-bind="item.descricao"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>           
+            <div class="col-md-4">
                 <div class="btn-group pull-right">
                     <button class="btn btn-primary" ng-click="pesquisar()">
                         <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                    </button>
+                    <button class="btn btn-warning" ng-click="limparFiltros()">
+                        <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
                     </button>
                     <button class="btn btn-default" ng-click="novo()">
                         <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
@@ -28,12 +46,14 @@
             </div>
 
             <div class="col-md-12 table-responsive">
-                <table  datatable="ng"  class="table table-bordered table-striped table-hover table-condensed cf"
+                <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
                        id="GridView1">
                     <thead>
                         <tr class="title-table">
                             <th>Código</th>
                             <th>Nome</th>
+                            <th>Tipo Curso</th>
+                            <th>Descrição</th>
                             <th class="edicao"></th>
                         </tr>
                     </thead>
@@ -41,10 +61,12 @@
                         <tr ng-repeat="curso in grade_cursos">
                             <td>{{curso.id}}</td>
                             <td>{{curso.nome}}</td>
+                            <td>{{curso.tipoCurso.descricao}}</td>
+                            <td>{{curso.descricao}}</td>
                             <td class="edicao">
                                 <a class="btn btn-default btn-xs" ng-click="editar(curso)"><i class="glyphicon glyphicon-pencil"></i></a>
                                 <a class="btn btn-default btn-xs" ng-click="excluir(curso.id)"><i class="glyphicon glyphicon-remove"></i></a>
-                            </td>                         
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,7 +82,7 @@
         <div class="panel-body">
 
             <div class="form-group">
-                <label for="Nome">Nome</label>
+                <label for="Nome">Código</label>
                 <input type="text" ng-model="curso.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
             </div>
 
@@ -70,8 +92,31 @@
                        form-control" id="Nome" name="nome" placeholder="Nome">
             </div>
 
+            <div class="form-group">
+
+                <label for="tipoCurso">Tipo Curso</label>
+
+                <ui-select input-id="tipoCurso" ng-model="curso.tipoCurso" on-select="selecionar($item)" spinner-enabled="true">
+                    <ui-select-match placeholder="**Selecione um tipo de curso**">
+                        <span ng-bind="$select.selected.descricao"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (listaTipoCurso | filter: $select.search) track by item.id" 
+                                       refresh="buscarTipoCurso($select.search)" refresh-delay="0" >
+                        <span ng-bind="item.descricao"></span>
+                    </ui-select-choices>
+                </ui-select>             
+
+            </div>           
+
+            <div class="form-group">
+                <label for="Nome">Descrição</label>
+                <input type="text" ng-model="curso.descricao" class="form-control" id="Descricao"
+                       name="descricao" placeholder="Descrição">
+            </div>
+
         </div>
         <div class="panel-footer">
+            <!--{{curso}}-->
             <div class="form-group">
                 <div class="btn-group">
                     <button class="btn btn-success" ng-click="salvar()">

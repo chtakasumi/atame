@@ -32,35 +32,80 @@ function (consumerService, $window, $location) {
 
 }]);
 
-app.factory("cursoService", ['consumerService', function (consumerService) {
+app.factory("tipoCursoService", ['consumerService', function (consumerService) {
+
+    var baseUrl = 'tipoCurso';
 
     var _model = function (callBack) {
-        consumerService.get("curso/model", function (modelo) {
+        consumerService.get(baseUrl+"/model", function (modelo) {
             callBack(JSON.parse(JSON.parse(modelo)));
         });
     };
 
-    var _listar = function (id, nome, callBack) {
-        var param = {Id: id, Nome: nome };
-        consumerService.post("curso/listar", param, function (data) {
+    var _listar = function (id, descricao, callBack) {
+        var param = { Id: id, Descricao: descricao };
+        consumerService.post(baseUrl+"/listar", param, function (data) {
+            callBack(data);
+        })
+    };
+
+    var _salvar = function (entidade, callBack) {
+        if (entidade.id > 0) {
+            consumerService.put(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        } else {
+            consumerService.post(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        }
+    };
+
+    var _excluir = function (id, callBack) {
+        consumerService.delete(baseUrl+"?id=" + id, function () {
+            callBack();
+        });
+    };    
+
+    return {
+        model: _model,
+        listar: _listar,
+        salvar: _salvar,
+        excluir: _excluir
+    };
+
+}]); 
+
+app.factory("cursoService", ['consumerService', function (consumerService) {
+    var baseUrl = "curso";
+
+    var _model = function (callBack) {
+        consumerService.get(baseUrl+"/model", function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    var _listar = function (id, nome, tipoCursoId, callBack) {
+        var param = { Id: id, Nome: nome, TipoCursoId: tipoCursoId };
+        consumerService.post(baseUrl +"/listar", param, function (data) {
             callBack(data);
         })
     };
 
     var _salvar = function (entidade, callBack) {    
         if(entidade.id > 0){
-            consumerService.put("curso", entidade, function (data) {
+            consumerService.put(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         } else {         
-            consumerService.post("curso", entidade, function (data) {  
+            consumerService.post(baseUrl, entidade, function (data) {  
                 callBack(data);
             });
         }
     };
 
     var _excluir = function (id, callBack) {       
-        consumerService.delete("curso?id=" + id, function () {
+        consumerService.delete(baseUrl +"?id=" + id, function () {
             callBack();
         });  
     };
@@ -76,81 +121,3 @@ app.factory("cursoService", ['consumerService', function (consumerService) {
 
 }]); 
 
-app.factory("agendamentoService", ['consumerService', function (consumerService) {
-
-    var _new = function () {
-        return angular.copy({ id: null, cpf: null, nome: null, data: null, hora: null, status:null });
-    };
-
-    var _listar = function (cpf, nome, data, callBack) {
-        var param = {cpf: cpf, nome: nome, data:data };
-        consumerService.post("agendamento/listar", param, function (data) {
-            callBack(data);
-        })
-    };
-
-    var _salvar = function (entidade, callBack) {
-        if(entidade.id > 0){
-            consumerService.post("agendamento/editar", entidade, function (data) {
-                callBack(data);
-            });
-        }else{
-            consumerService.post("agendamento/cadastrar", entidade, function (data) {
-                callBack(data);
-            });     
-        }        
-
-        return callBack("salvo com sucesso!");
-    };
-
-    var _excluir = function (id, callBack) {
-        var param ={id:id};
-        consumerService.post("agendamento/excluir", param, function (data) {
-            callBack(data);
-        });  
-    };
-
-    var _confirmar = function (id, callBack) {
-        var param ={id:id};
-        consumerService.post("agendamento/confirmar", param, function (data) {
-            callBack(data);
-        });  
-    };
-
-    return {
-        new: _new,
-        listar: _listar,
-        salvar: _salvar,
-        excluir: _excluir,
-        confirmar: _confirmar
-    };
-
-}]); 
-
-app.factory("atendimentoService", ['consumerService', function (consumerService) {
-
-    var _new = function () {
-        return angular.copy({ id: null, cpf: null, nome: null, data: null, hora: null, status:null, prescricao:null, agendamento:null });
-    };
-
-    var _listar = function (cpf, nome, data, callBack) {
-        var param = {cpf: cpf, nome: nome, data:data };
-        consumerService.post("atendimento/listar", param, function (data) {
-            callBack(data);
-        })
-    };
-
-    var _salvar = function (entidade, callBack) {    
-        consumerService.post("atendimento/cadastrar", entidade, function (data) {
-            callBack(data);
-        });
-    };
-
-
-    return {
-        new: _new,
-        listar: _listar,
-        salvar: _salvar       
-    };
-
-}]); 

@@ -1,5 +1,5 @@
 //modulo principal
-var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster","datatables"]);
+var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables","ui.select"]);
 
 //constantes
 app.constant('configConst', {
@@ -41,30 +41,19 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
         }
 
     });
-
-    //function ativaMenu(toState) {
-    //    $rootScope.classAgendamentoActive = '';
-    //    $rootScope.classAtendimentoActive = '';
-    //    $rootScope.classPacienteActive = '';
-
-    //    if (toState.indexOf('agendamento') > -1) {
-    //        $rootScope.classAgendamentoActive = 'active'
-    //    }
-    //    else if (toState.indexOf('atendimento') > -1) {
-    //        $rootScope.classAtendimentoActive = 'active'
-    //    }
-    //    else if (toState.indexOf('paciente') > -1) {
-    //        $rootScope.classPacienteActive = 'active'
-    //    }
-    //}
+    
 });
 
 //rotas de url amigaveis
-app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider) {
+app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig', function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
     $httpProvider.interceptors.push('httpInterceptor');
     $httpProvider.defaults.withCredentials = true;
     $qProvider.errorOnUnhandledRejections(false);
-      
+    // uiSelectConfig.theme = 'bootstrap';
+    //uiSelectConfig.theme = 'select2';   
+    //uiSelectConfig.theme = 'selectize';
+    //uiSelectConfig.resetSearchInput = false;
+    //uiSelectConfig.appendToBody = true;
   
     $routeProvider
         .when("/", {
@@ -95,6 +84,9 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
         })
         .when("/curso", {
             templateUrl: configConst.baseUrlView + "curso.html",
+        })
+        .when("/tipoCurso", {
+            templateUrl: configConst.baseUrlView + "tipoCurso.html",
         })
         .otherwise('/home');
 }]);
@@ -215,10 +207,10 @@ app.factory('httpInterceptor', ['$q', '$rootScope', 'alertService','$location',
                         alertService.getAdvertencia(rejection.data);
                         break;  
                     case 500:                        
-                        alertService.getError(rejection.data);
+                        alertService.getError(rejection.statusText);
                         break;
                     default:
-                        alertService.getError(rejection.data);
+                        alertService.getError(rejection.statusText);
                 }
                 return $q.reject(rejection);
             }

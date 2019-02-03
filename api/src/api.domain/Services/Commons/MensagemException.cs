@@ -6,6 +6,7 @@ namespace api.domain.Services.Commons
     [Serializable]
     public class MensagemException : Exception
     {
+     
         public EnumStatusCode StatusCode { get; private set; }
         public string Mensagem { get; private set; }
 
@@ -13,12 +14,12 @@ namespace api.domain.Services.Commons
         {
         }
 
-        internal MensagemException(EnumStatusCode statusCode, string mensagem = null)
+       
+        public MensagemException(EnumStatusCode statusCode, string mensagem)
         {
             this.StatusCode = statusCode;
             this.Mensagem = mensagem;
         }
-
     }
         
 }

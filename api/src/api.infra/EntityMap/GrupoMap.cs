@@ -8,7 +8,7 @@ namespace api.infra.EntityConfig
     {
         public void Configure(EntityTypeBuilder<Grupo> builder)
         {
-            builder.ToTable("grupo");
+            builder.ToTable("Grupo");
 
             builder.HasKey(x => x.Id);
 

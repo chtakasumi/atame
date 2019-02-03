@@ -8,7 +8,7 @@ namespace api.infra.EntityConfig
     {
         public void Configure(EntityTypeBuilder<Perfil> builder)
         {
-            builder.ToTable("perfil");
+            builder.ToTable("Perfil");
 
             builder.HasKey(x => x.Id);
 

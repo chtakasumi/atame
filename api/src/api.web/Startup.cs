@@ -53,7 +53,7 @@ namespace api.web
                         //o.SerializerSettings.ContractResolver = new DefaultContractResolver();
                         o.SerializerSettings.Converters.Add(new StringEnumConverter());
                         o.SerializerSettings.Formatting = Formatting.Indented;
-                        o.SerializerSettings.NullValueHandling = NullValueHandling.Include;
+                        o.SerializerSettings.NullValueHandling = NullValueHandling.Include;                      
                         o.SerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
                         o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     }               
@@ -102,10 +102,10 @@ namespace api.web
                 var context = serviceScope.ServiceProvider.GetRequiredService<DBContext>();
 
                 //facilita mas nem tanto
-               // context.Database.Migrate();  //so cria o banco, leva em consideração a migração já feitas, como se esse comando fosse apenas o: "update-database"
+                context.Database.Migrate();  //so cria o banco, leva em consideração a migração já feitas, como se esse comando fosse apenas o: "update-database"
                 
                 //modo primitivo**** localhost isso seria legal
-                context.Database.EnsureCreated(); //Cria o banco e gerar as migrações, porem não gera o historico de versão
+                //context.Database.EnsureCreated(); //Cria o banco e gerar as migrações, porem não gera o historico de versão
 
                 DbInitializer.Initialize(context); //Popula algumas tabelas
             }

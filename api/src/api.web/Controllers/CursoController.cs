@@ -2,8 +2,6 @@
 using api.domain.Services;
 using api.domain.Services.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace api.web.Controllers
 {
@@ -34,7 +32,7 @@ namespace api.web.Controllers
 
         [HttpPost]
         public IActionResult Cadastrar(Curso curso)
-        {       
+        {
             return Ok(_curso.Cadastrar(curso));
         }
 

@@ -17,6 +17,15 @@ namespace api.infra.EntityConfig
                 .HasColumnType("varchar(40)")
                 .IsRequired();
 
+            builder.Property(c => c.Descricao)
+               .HasColumnName("descricao")
+               .HasColumnType("varchar(500)");
+
+            builder.HasOne(c => c.TipoCurso)         
+               .WithMany()
+               .HasForeignKey(x => x.TipoCursoId)           
+               .OnDelete(DeleteBehavior.Restrict);
+
         }
        
     }

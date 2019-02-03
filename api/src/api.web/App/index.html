@@ -7,14 +7,17 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <link href="resources/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="resources/css/toaster.css" rel="stylesheet" />
+
     <link href="resources/css/dataTables.bootstrap.css" rel="stylesheet" />
 
+    <link href="resources/css/select.css" rel="stylesheet" />
+
+    <!--<link href="resources/css/select2.css" rel="stylesheet" />
+    <link href="resources/css/selectize.default.css" rel="stylesheet" />-->
 
     <link href="resources/css/style.css" rel="stylesheet">
-
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <!------libs js---------->
@@ -33,6 +36,8 @@
     <script src="resources/js/plugins/dataTable/dataTables.bootstrap.js"></script>
     <script src="resources/js/plugins/dataTable/angular-datatables.js"></script>
 
+
+    <script src="resources/js/plugins/select2/select.js"></script>
 
     <!--modelos-->
     <script src="resources/js/models/main.js"></script>
@@ -63,12 +68,15 @@
                         <ul class="nav navbar-nav">                          
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" 
-                                   href="#" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+                                   role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item"> <a href="#!tipoCurso">TipoCurso</a></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a>   </li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!docente">Docente</a> </li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!coteudo">Conteúdo Programático</a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#">Outro</a> </li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoDocente">Curso x Docente</a></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoConteudo">Curso x Conteúdo</a></li>
                                 </ul>
                             </li>
                         </ul>
