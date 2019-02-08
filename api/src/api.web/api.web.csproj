@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="App\resources\js\plugins\ui-mask\" />
     <Folder Include="App\resources\js\plugins\select2\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>

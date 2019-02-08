@@ -14,9 +14,10 @@ h1 {
     background-color: #ba131a;
     height: 40px;
     width: 100%;
-    bottom: 0px;
+    bottom: -10px;
     position: fixed;
     text-align: right;
+    z-index: -1;
 }
 
 .footer > div {  
@@ -82,7 +83,7 @@ li .dropdown-item a{
 /********************View pages************/
 
 .paginas{
-    margin-top: 5%;
+    margin-top: 7%;
 }
 
 .edicao{

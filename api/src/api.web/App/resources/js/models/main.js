@@ -1,5 +1,5 @@
 //modulo principal
-var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables","ui.select"]);
+var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables", "ui.select","ui.mask"]);
 
 //constantes
 app.constant('configConst', {
@@ -45,16 +45,21 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 });
 
 //rotas de url amigaveis
-app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig', function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
+app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig', 'uiMask.ConfigProvider',
+    function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig, uiMaskConfigProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
     $httpProvider.defaults.withCredentials = true;
-    $qProvider.errorOnUnhandledRejections(false);
-    // uiSelectConfig.theme = 'bootstrap';
-    //uiSelectConfig.theme = 'select2';   
-    //uiSelectConfig.theme = 'selectize';
-    //uiSelectConfig.resetSearchInput = false;
-    //uiSelectConfig.appendToBody = true;
-  
+        $qProvider.errorOnUnhandledRejections(false);
+
+    uiSelectConfig.theme = 'bootstrap';
+    uiMaskConfigProvider.clearOnBlur(false);
+    uiMaskConfigProvider.clearOnBlurPlaceholder(true);
+    uiMaskConfigProvider.eventsToHandle(['input', 'keyup', 'click']);
+    uiMaskConfigProvider.maskDefinitions({ 'A': /[a-z]/, '*': /[a-zA-Z0-9]/ });
+        uiMaskConfigProvider.maskDefinitions({ 'N': /[0-9]+/, '*': /[0-9]+/ });
+        
+
+    $httpProvider.interceptors.push('httpInterceptor');
     $routeProvider
         .when("/", {
             templateUrl: configConst.baseUrlView + "home.html",
@@ -84,11 +89,112 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
         })
         .when("/curso", {
             templateUrl: configConst.baseUrlView + "curso.html",
+            controller: 'cursoCtrl',
+            resolve: {
+                parm: function (cursoService, tipoCursoService) {
+                    return {
+                        titulo: function () {
+                            return "Curso";
+                        },
+                        filter: function () {
+                            return { id: null, nome: null, tipoCursoId:null };
+                        },
+                        service: function () {
+                            return cursoService;
+
+                        },                       
+                        model: function (callBack) {
+                            return cursoService.model(function (data) {
+                                return callBack(data);
+                            });
+                        },
+                        tipoCursoService: function () {
+                            return tipoCursoService;
+                        },
+                    }
+                }
+            }
         })
         .when("/tipoCurso", {
             templateUrl: configConst.baseUrlView + "tipoCurso.html",
+            controller: 'tipoCursoCtrl',
+            resolve: {
+                parm: function (tipoCursoService) {
+                    return {
+                        titulo: function () {
+                            return "Tipo Curso";
+                        },
+                        filter: function () {
+                            return { id: null, descricao: null };
+
+                        },
+                        service: function () {
+                            return tipoCursoService;
+
+                        },
+                        model: function (callBack) {
+                            return tipoCursoService.model(function (data) {
+                                return callBack(data);
+                            });
+                        }
+                    }
+                }
+            }
+        })
+        .when("/docente", {
+            templateUrl: configConst.baseUrlView + "docente.html",
+            controller: 'docenteCtrl',
+            resolve: {
+                parm: function (docenteService) {
+                    return {
+                        titulo: function () {
+                            return "Docente";
+                        },
+                        filter: function () {
+                            return { id: null, nome: null, formacao: null };
+
+                        },
+                        service: function () {
+                            return docenteService;
+
+                        },
+                        model: function (callBack) {
+                            return docenteService.model(function (data) {
+                                return callBack(data);
+                            });
+                        }
+                    }
+                }                
+            }
+        })
+        .when("/conteudoProgramatico", {
+            templateUrl: configConst.baseUrlView + "conteudoProgramatico.html",
+            controller: 'conteudoProgramaticoCtrl',
+            resolve: {
+                parm: function (conteudoProgramaticoService) {
+                    return {
+                        titulo: function () {
+                            return "Conteúdo Programático";
+                        },
+                        filter: function () {
+                            return { id: null, identificacao: null };
+
+                        },
+                        service: function () {
+                            return conteudoProgramaticoService;
+
+                        },
+                        model: function (callBack) {
+                            return conteudoProgramaticoService.model(function (data) {
+                                return callBack(data);
+                            });
+                        }
+                    }
+                }
+            }
         })
         .otherwise('/home');
+
 }]);
 
 app.factory("consumerService", ['$http', 'configConst', function ($http, configConst) {
@@ -206,14 +312,13 @@ app.factory('httpInterceptor', ['$q', '$rootScope', 'alertService','$location',
                     case 404: 
                         alertService.getAdvertencia(rejection.data);
                         break;  
-                    case 500:                        
-                        alertService.getError(rejection.statusText);
+                    case 500: 
+                        alertService.getError(rejection.data);
                         break;
-                    default:
-                        alertService.getError(rejection.statusText);
+                    default:                     
+                        alertService.getError(rejection.data);
                 }
                 return $q.reject(rejection);
             }
         };
-
     }]);

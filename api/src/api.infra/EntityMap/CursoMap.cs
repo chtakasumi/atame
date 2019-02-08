@@ -21,6 +21,14 @@ namespace api.infra.EntityConfig
                .HasColumnName("descricao")
                .HasColumnType("varchar(500)");
 
+
+            builder.Property(c => c.Preco)
+               .HasColumnName("preco")
+               .HasColumnType("decimal(5,2)");
+        
+            builder.Property(c => c.TipoCursoId)
+                .HasColumnName("tipoCursoId");
+            
             builder.HasOne(c => c.TipoCurso)         
                .WithMany()
                .HasForeignKey(x => x.TipoCursoId)           

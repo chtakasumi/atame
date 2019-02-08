@@ -11,5 +11,6 @@ namespace api.domain.Entity
         public string Descricao { get; set; }
         public int TipoCursoId { get; set; }
         public TipoCurso TipoCurso { get; set; }
+        public decimal Preco { get; set; }
     }
 }

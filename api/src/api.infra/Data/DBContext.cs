@@ -17,6 +17,8 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new GrupoMap());
             modelBuilder.ApplyConfiguration(new CursoMap());
             modelBuilder.ApplyConfiguration(new TipoCursoMap());
+            modelBuilder.ApplyConfiguration(new DocenteMap());
+            modelBuilder.ApplyConfiguration(new ConteudoProgramaticoMap());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -24,6 +26,8 @@ namespace api.infra
         public DbSet<Grupo> Grupos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<TipoCurso> TipoCursos { get; set; }
+        public DbSet<Docente> Docentes { get; set; }
+        public DbSet<ConteudoProgramatico> ConteudoProgramaticos { get; set; }
 
     }
 }

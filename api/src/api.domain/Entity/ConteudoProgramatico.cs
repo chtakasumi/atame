@@ -4,12 +4,11 @@ using System.Text;
 
 namespace api.domain.Entity
 {
-    public class TipoCurso
+    public class ConteudoProgramatico
     {
         public int? Id { get; set; }
+        public string Identificacao { get; set; }
         public string Descricao { get; set; }
-        public decimal Comissao { get; set; }
-        // public virtual ICollection<Curso> Cursos { get; set; }
 
     }
 }

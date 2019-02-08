@@ -17,11 +17,11 @@ namespace api.infra.EntityConfig
                 .HasColumnType("varchar(40)")
                 .IsRequired();
 
-            //builder.HasMany(c => c.Cursos)
-            //     .WithOne(t => t.TipoCurso)
-            //    .HasForeignKey(f => f.TipoCursoId)
-            //    .HasPrincipalKey(c => c.Id).OnDelete(DeleteBehavior.Restrict);
 
+            builder.Property(c => c.Comissao)
+               .HasColumnName("comissao")
+               .HasColumnType("numeric(5, 3)")
+               .IsRequired();
         }
        
     }

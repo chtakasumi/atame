@@ -19,6 +19,26 @@ namespace api.infra.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("api.domain.Entity.ConteudoProgramatico", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao")
+                        .HasColumnName("descricao")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("Identificacao")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConteudoProgramatico");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Curso", b =>
                 {
                     b.Property<int>("Id")
@@ -34,13 +54,39 @@ namespace api.infra.Migrations
                         .HasColumnName("nome")
                         .HasColumnType("varchar(40)");
 
-                    b.Property<int>("TipoCursoId");
+                    b.Property<decimal>("Preco")
+                        .HasColumnName("preco")
+                        .HasColumnType("decimal(5,2)");
+
+                    b.Property<int>("TipoCursoId")
+                        .HasColumnName("tipoCursoId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TipoCursoId");
 
                     b.ToTable("Curso");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Docente", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Formacao")
+                        .IsRequired()
+                        .HasColumnName("formacao")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Docente");
                 });
 
             modelBuilder.Entity("api.domain.Entity.Grupo", b =>
@@ -118,6 +164,10 @@ namespace api.infra.Migrations
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Comissao")
+                        .HasColumnName("comissao")
+                        .HasColumnType("numeric(5, 3)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()

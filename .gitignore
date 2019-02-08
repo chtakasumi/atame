@@ -3,12 +3,14 @@
 **/api/src/api.web/App/sws
 **/api/src/api.web/App/resources/js/plugins/appres
 **/api/src/api.web/appsettings.json
+**/api/src/api.web/Properties/launchSettings.json
 
 **/api/src/api.domain/obj
 **/api/src/api.domain/bin
 
 **/api/src/api.infra/obj
 **/api/src/api.infra/bin
+**/api/src/api.infra/Migrations
 
 **/api/src/api.testeConsole/obj
 **/api/src/api.testeConsole/bin

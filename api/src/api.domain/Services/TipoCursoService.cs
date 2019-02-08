@@ -2,6 +2,7 @@
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
+using System;
 using System.Collections.Generic;
 
 namespace api.domain.Services
@@ -31,6 +32,14 @@ namespace api.domain.Services
             ValidarModelo(tipoCurso);
 
             return _tipoCursoRepository.Inserir(tipoCurso);
+        }
+
+        public IEnumerable<TipoCurso> Lov(string descricao=null)
+        {
+            var filtro = new TipoCurso();
+            filtro.Descricao = (descricao!="null")? descricao:null;
+
+            return _tipoCursoRepository.Listar(filtro);
         }
 
         public void Editar(TipoCurso tipoCurso)

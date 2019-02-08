@@ -1,23 +1,23 @@
 <div id="divController">
     
-    <div class="panel panel-default" ng-show="painelPesquisar">
+    <div class="panel panel-default" ng-if="painelPesquisar">
         <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label for="id" class="sr-only">Codigo:</label>
                         <input type="number" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="descricao" class="sr-only">Nome</label>
-                        <input type="text" ng-model="filtros.descricao" class="form-control" id="descricao" name="descricao" placeholder="Nome">
-                    </div>
-                </div>
-
                 <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="identificacao" class="sr-only">Identificação</label>
+                        <input type="text" ng-model="filtros.identificacao" class="form-control" id="identificacao" name="identificacao" placeholder="Identificação">
+                    </div>
+                </div> 
+
+                <div class="col-lg-5 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
                             <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
@@ -38,16 +38,16 @@
                         <thead>
                             <tr class="title-table">
                                 <th>Código</th>
-                                <th>Nome</th>
-                                <th>Comissão</th>
+                                <th>Identificação</th>
+                                <th>Descrição</th>                                
                                 <th class="edicao"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
+                                <td>{{row.identificacao}}</td>                                
                                 <td>{{row.descricao}}</td>
-                                <td>{{row.comissao}}</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-default btn-xs" ng-click="excluir(row.id)"><i class="glyphicon glyphicon-remove"></i></a>
@@ -55,37 +55,34 @@
                             </tr>
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div class="panel panel-default" ng-show="painelEditar">
+    <div class="panel panel-default" ng-if="painelEditar">
         <div class="panel-heading">{{titulo}}</div>
         <div class="panel-body">
 
             <div class="form-group">
-                <label for="Codigo">Código</label>
-                <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
+                <label for="codigo">Código</label>
+                <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
             </div>
 
             <div class="form-group">
-                <label for="Nome">Nome</label>
-                <input type="text" ng-model="model.descricao" class="
-                       form-control" id="Nome" name="Nome" placeholder="Nome">
+                <label for="identificacao">Identificação</label>
+                <input type="text" ng-model="model.identificacao" class="
+                       form-control" id="identificacao" name="identificacao" placeholder="Identificação">
             </div>
-
+           
             <div class="form-group">
-                <label for="comissao">Comissão</label>
-                <input type="text" ng-model="model.comissao" class="
-                       form-control" id="comissao" name="comissao" placeholder="Comissão">
+                <label for="descricao">Descrição</label>
+                <input type="text" ng-model="model.descricao" class="form-control" id="descricao"
+                       name="descricao" placeholder="Descrição">
             </div>
 
         </div>
-        <div class="panel-footer">
+        <div class="panel-footer">       
             <div class="form-group">
                 <div class="btn-group">
                     <button class="btn btn-success" ng-click="salvar()">

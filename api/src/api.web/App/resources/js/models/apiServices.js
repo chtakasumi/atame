@@ -30,6 +30,48 @@ function (consumerService, $window, $location) {
         autenticar: _autenticar
     };
 
+    }]);
+
+app.factory("cursoService", ['consumerService', function (consumerService) {
+    var baseUrl = "curso";
+
+    var _model = function (callBack) {
+        consumerService.get(baseUrl + "/model", function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    var _listar = function (filtro, callBack) {
+        consumerService.post(baseUrl + "/listar", filtro, function (data) {
+            callBack(data);
+        })
+    };
+
+    var _salvar = function (entidade, callBack) {
+        if (entidade.id > 0) {
+            consumerService.put(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        } else {
+            consumerService.post(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        }
+    };
+
+    var _excluir = function (id, callBack) {
+        consumerService.delete(baseUrl + "?id=" + id, function () {
+            callBack();
+        });
+    };
+
+    return {
+        model: _model,
+        listar: _listar,
+        salvar: _salvar,
+        excluir: _excluir
+    };
+
 }]);
 
 app.factory("tipoCursoService", ['consumerService', function (consumerService) {
@@ -42,9 +84,15 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
         });
     };
 
-    var _listar = function (id, descricao, callBack) {
-        var param = { Id: id, Descricao: descricao };
-        consumerService.post(baseUrl+"/listar", param, function (data) {
+    var _lov = function (string, callBack) {
+        var param = (string) ? string : null;
+        consumerService.get(baseUrl + "/" + param, function (data) {
+            callBack(data);
+        })
+    };
+
+    var _listar = function (filtro, callBack) {
+        consumerService.post(baseUrl + "/listar", filtro, function (data) {
             callBack(data);
         })
     };
@@ -69,6 +117,7 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
 
     return {
         model: _model,
+        lov: _lov,
         listar: _listar,
         salvar: _salvar,
         excluir: _excluir
@@ -76,42 +125,91 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
 
 }]); 
 
-app.factory("cursoService", ['consumerService', function (consumerService) {
-    var baseUrl = "curso";
+app.factory("docenteService", ['consumerService', function (consumerService) {
+    var baseUrl = "docente";
 
+    //não muda
     var _model = function (callBack) {
-        consumerService.get(baseUrl+"/model", function (modelo) {
+        consumerService.get(baseUrl + "/model", function (modelo) {
             callBack(JSON.parse(JSON.parse(modelo)));
         });
     };
 
-    var _listar = function (id, nome, tipoCursoId, callBack) {
-        var param = { Id: id, Nome: nome, TipoCursoId: tipoCursoId };
-        consumerService.post(baseUrl +"/listar", param, function (data) {
+    //não muda
+    var _listar = function (filtro, callBack) {       
+        consumerService.post(baseUrl + "/listar", filtro, function (data) {
             callBack(data);
         })
     };
 
-    var _salvar = function (entidade, callBack) {    
-        if(entidade.id > 0){
+    //não muda
+    var _salvar = function (entidade, callBack) {
+        if (entidade.id > 0) {
             consumerService.put(baseUrl, entidade, function (data) {
                 callBack(data);
             });
-        } else {         
-            consumerService.post(baseUrl, entidade, function (data) {  
+        } else {
+            consumerService.post(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         }
     };
 
-    var _excluir = function (id, callBack) {       
-        consumerService.delete(baseUrl +"?id=" + id, function () {
+     //não muda
+    var _excluir = function (id, callBack) {
+        consumerService.delete(baseUrl + "?id=" + id, function () {
             callBack();
-        });  
+        });
     };
 
-   
+    //não muda
+    return {
+        model: _model,
+        listar: _listar,
+        salvar: _salvar,
+        excluir: _excluir
+    };
 
+}]);
+
+app.factory("conteudoProgramaticoService", ['consumerService', function (consumerService) {
+    var baseUrl = "conteudoProgramatico";
+
+    //não muda
+    var _model = function (callBack) {
+        consumerService.get(baseUrl + "/model", function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    //não muda
+    var _listar = function (filtro, callBack) {
+        consumerService.post(baseUrl + "/listar", filtro, function (data) {
+            callBack(data);
+        })
+    };
+
+    //não muda
+    var _salvar = function (entidade, callBack) {
+        if (entidade.id > 0) {
+            consumerService.put(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        } else {
+            consumerService.post(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        }
+    };
+
+    //não muda
+    var _excluir = function (id, callBack) {
+        consumerService.delete(baseUrl + "?id=" + id, function () {
+            callBack();
+        });
+    };
+
+    //não muda
     return {
         model: _model,
         listar: _listar,
@@ -120,4 +218,5 @@ app.factory("cursoService", ['consumerService', function (consumerService) {
     };
 
 }]); 
+
 

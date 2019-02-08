@@ -4,13 +4,13 @@
         <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
-                        <label for="Id" class="sr-only">Codigo:</label>
-                        <input type="text"  ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="number" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="form-group">
                         <label for="nome" class="sr-only">Nome</label>
                         <input type="text" ng-model="filtros.nome" class="form-control" id="nome" name="nome" placeholder="Nome">
@@ -18,19 +18,11 @@
                 </div>
                 <div class="col-md-5">
                     <div class="form-group">
-                        <label for="tipoCursoPesquisa" class="sr-only">TipoCurso</label>
-                        <ui-select ng-model="filtros.tipoCurso"
-                                   on-select="selecionarPesquisa($item)" spinner-enabled="true">
-                            <ui-select-match placeholder="**Selecione um tipo de curso**">
-                                <span ng-bind="$select.selected.descricao"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (listaTipoCursoPesquisa | filter: $select.search) track by item.id"
-                                               refresh="buscarTipoCursoPesquisa($select.search)" refresh-delay="0">
-                                <span ng-bind="item.descricao"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>                 
+                        <label for="formacao" class="sr-only">Formação</label>
+                        <input type="text" ng-model="filtros.formacao" class="form-control" id="formacao" name="formacao" placeholder="Formação">
+                    </div>
                 </div>
+
                 <div class="col-lg-12 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
@@ -53,19 +45,15 @@
                             <tr class="title-table">
                                 <th>Código</th>
                                 <th>Nome</th>
-                                <th>Tipo Curso</th>
-                                <th>Descrição</th>
-                                <th>Preço</th>
+                                <th>Formação</th>                                
                                 <th class="edicao"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
-                                <td>{{row.nome}}</td>
-                                <td>{{row.tipoCurso.descricao}}</td>
-                                <td>{{row.descricao}}</td>
-                                <td>{{row.preco}}</td>
+                                <td>{{row.nome}}</td>                                
+                                <td>{{row.formacao}}</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-default btn-xs" ng-click="excluir(row.id)"><i class="glyphicon glyphicon-remove"></i></a>
@@ -83,45 +71,25 @@
         <div class="panel-body">
 
             <div class="form-group">
-                <label for="Nome">Código</label>
-                <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
+                <label for="codigo">Código</label>
+                <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
             </div>
 
             <div class="form-group">
-                <label for="Nome">Nome</label>
+                <label for="nome">Nome</label>
                 <input type="text" ng-model="model.nome" class="
-                       form-control" id="Nome" name="nome" placeholder="Nome">
+                       form-control" id="nome" name="nome" placeholder="Nome">
             </div>
+           
 
             <div class="form-group">
-
-                <label for="tipoCurso">Tipo Curso</label>
-
-              <ui-select input-id="tipoCurso" ng-model="model.tipoCurso" on-select="selecionar($item)" spinner-enabled="true">
-                    <ui-select-match placeholder="**Selecione um tipo de curso**">
-                        <span ng-bind="$select.selected.descricao"></span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in (listaTipoCurso | filter: $select.search) track by item.id"
-                                       refresh="buscarTipoCurso($select.search)" refresh-delay="0">
-                        <span ng-bind="item.descricao"></span>
-                    </ui-select-choices>
-                </ui-select>
-
+                <label for="formacao">Formação</label>
+                <input type="text" ng-model="model.formacao" class="form-control" id="formacao"
+                       name="formacao" placeholder="Formação">
             </div>
 
-            <div class="form-group">
-                <label for="Nome">Descrição</label>
-                <input type="text" ng-model="model.descricao" class="form-control" id="Descricao"
-                       name="descricao" placeholder="Descrição">
-            </div>
-
-            <div class="form-group">
-                <label for="preco">Preço</label>
-                <input type="text" ng-model="model.preco" class="form-control" id="preco"
-                       name="preco" placeholder="Preço">
-            </div>  
         </div>
-        <div class="panel-footer">           
+        <div class="panel-footer">       
             <div class="form-group">
                 <div class="btn-group">
                     <button class="btn btn-success" ng-click="salvar()">

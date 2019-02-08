@@ -29,6 +29,12 @@ namespace api.web.Controllers
             return Ok(_tipoCurso.Listar(vo));
         }
 
+        [HttpGet("{descricao}")]
+        public IActionResult GetTipoCurso(string descricao)
+        {            
+            return Ok(_tipoCurso.Lov(descricao));
+        }
+
         [HttpPost]
         public IActionResult Cadastrar(TipoCurso entidade)
         {       
