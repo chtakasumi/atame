@@ -14,4 +14,4 @@ Este projeto visa criar um ERP com foco na area comercial inicialmente.
 * **GRUPO ATAME**
 
 ## License
-* **Este projeto do grupo Atame.**
+* ***Este projeto do grupo Atame.***
