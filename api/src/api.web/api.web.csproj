@@ -12,6 +12,138 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+    <Content Remove="appsettings.json" />
+    <Content Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="App\index.html" />
+    <None Remove="App\resources\css\bootstrap.min.css" />
+    <None Remove="App\resources\css\bootstrap.min.css.map" />
+    <None Remove="App\resources\css\dataTables.bootstrap.css" />
+    <None Remove="App\resources\css\jquery-ui.min.css" />
+    <None Remove="App\resources\css\select.css" />
+    <None Remove="App\resources\css\select2.css" />
+    <None Remove="App\resources\css\selectize.default.css" />
+    <None Remove="App\resources\css\style.css" />
+    <None Remove="App\resources\css\toaster.css" />
+    <None Remove="App\resources\fonts\glyphicons-halflings-regular.eot" />
+    <None Remove="App\resources\fonts\glyphicons-halflings-regular.svg" />
+    <None Remove="App\resources\fonts\glyphicons-halflings-regular.ttf" />
+    <None Remove="App\resources\fonts\glyphicons-halflings-regular.woff" />
+    <None Remove="App\resources\fonts\glyphicons-halflings-regular.woff2" />
+    <None Remove="App\resources\img\ajax-loader.gif" />
+    <None Remove="App\resources\img\dataTables\back_disabled.png" />
+    <None Remove="App\resources\img\dataTables\back_enabled.png" />
+    <None Remove="App\resources\img\dataTables\back_enabled_hover.png" />
+    <None Remove="App\resources\img\dataTables\favicon.ico" />
+    <None Remove="App\resources\img\dataTables\forward_disabled.png" />
+    <None Remove="App\resources\img\dataTables\forward_enabled.png" />
+    <None Remove="App\resources\img\dataTables\forward_enabled_hover.png" />
+    <None Remove="App\resources\img\dataTables\Sorting icons.psd" />
+    <None Remove="App\resources\img\dataTables\sort_asc.png" />
+    <None Remove="App\resources\img\dataTables\sort_asc_disabled.png" />
+    <None Remove="App\resources\img\dataTables\sort_both.png" />
+    <None Remove="App\resources\img\dataTables\sort_desc.png" />
+    <None Remove="App\resources\img\dataTables\sort_desc_disabled.png" />
+    <None Remove="App\resources\img\loader.gif" />
+    <None Remove="App\resources\img\logo.png" />
+    <None Remove="App\resources\js\libs\angular-animate.min.js" />
+    <None Remove="App\resources\js\libs\angular-animate.min.js.map" />
+    <None Remove="App\resources\js\libs\angular-route.min.js" />
+    <None Remove="App\resources\js\libs\angular-route.min.js.map" />
+    <None Remove="App\resources\js\libs\angular-sanitize.min.js" />
+    <None Remove="App\resources\js\libs\angular-sanitize.min.js.map" />
+    <None Remove="App\resources\js\libs\angular.min.js" />
+    <None Remove="App\resources\js\libs\angular.min.js.map" />
+    <None Remove="App\resources\js\libs\bootstrap.min.js" />
+    <None Remove="App\resources\js\libs\jquery-1.11.1.min.js" />
+    <None Remove="App\resources\js\libs\jquery-ui.min.js" />
+    <None Remove="App\resources\js\libs\jquery.validate.min.js" />
+    <None Remove="App\resources\js\models\apiServices.js" />
+    <None Remove="App\resources\js\models\controllers.js" />
+    <None Remove="App\resources\js\models\main.js" />
+    <None Remove="App\resources\js\plugins\angular-imput-mask\angular-input-masks-standalone.js" />
+    <None Remove="App\resources\js\plugins\dataTable\angular-datatables.js" />
+    <None Remove="App\resources\js\plugins\dataTable\dataTables.bootstrap.js" />
+    <None Remove="App\resources\js\plugins\dataTable\jquery.dataTables.js" />
+    <None Remove="App\resources\js\plugins\select2\select.js" />
+    <None Remove="App\resources\js\plugins\toaster\toaster.js" />
+    <None Remove="App\view\Componetes\menu.html" />
+    <None Remove="App\view\conteudoProgramatico.html" />
+    <None Remove="App\view\curso.html" />
+    <None Remove="App\view\docente.html" />
+    <None Remove="App\view\home.html" />
+    <None Remove="App\view\login.html" />
+    <None Remove="App\view\tipoCurso.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App\index.html">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App\resources\css\bootstrap.min.css" />
+    <Content Include="App\resources\css\bootstrap.min.css.map" />
+    <Content Include="App\resources\css\dataTables.bootstrap.css" />
+    <Content Include="App\resources\css\jquery-ui.min.css" />
+    <Content Include="App\resources\css\select.css" />
+    <Content Include="App\resources\css\select2.css" />
+    <Content Include="App\resources\css\selectize.default.css" />
+    <Content Include="App\resources\css\style.css" />
+    <Content Include="App\resources\css\toaster.css" />
+    <Content Include="App\resources\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App\resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App\resources\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App\resources\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App\resources\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App\resources\img\ajax-loader.gif" />
+    <Content Include="App\resources\img\dataTables\back_disabled.png" />
+    <Content Include="App\resources\img\dataTables\back_enabled.png" />
+    <Content Include="App\resources\img\dataTables\back_enabled_hover.png" />
+    <Content Include="App\resources\img\dataTables\favicon.ico" />
+    <Content Include="App\resources\img\dataTables\forward_disabled.png" />
+    <Content Include="App\resources\img\dataTables\forward_enabled.png" />
+    <Content Include="App\resources\img\dataTables\forward_enabled_hover.png" />
+    <Content Include="App\resources\img\dataTables\Sorting icons.psd" />
+    <Content Include="App\resources\img\dataTables\sort_asc.png" />
+    <Content Include="App\resources\img\dataTables\sort_asc_disabled.png" />
+    <Content Include="App\resources\img\dataTables\sort_both.png" />
+    <Content Include="App\resources\img\dataTables\sort_desc.png" />
+    <Content Include="App\resources\img\dataTables\sort_desc_disabled.png" />
+    <Content Include="App\resources\img\loader.gif" />
+    <Content Include="App\resources\img\logo.png" />
+    <Content Include="App\resources\js\libs\angular-animate.min.js" />
+    <Content Include="App\resources\js\libs\angular-animate.min.js.map" />
+    <Content Include="App\resources\js\libs\angular-route.min.js" />
+    <Content Include="App\resources\js\libs\angular-route.min.js.map" />
+    <Content Include="App\resources\js\libs\angular-sanitize.min.js" />
+    <Content Include="App\resources\js\libs\angular-sanitize.min.js.map" />
+    <Content Include="App\resources\js\libs\angular.min.js" />
+    <Content Include="App\resources\js\libs\angular.min.js.map" />
+    <Content Include="App\resources\js\libs\bootstrap.min.js" />
+    <Content Include="App\resources\js\libs\jquery-1.11.1.min.js" />
+    <Content Include="App\resources\js\libs\jquery-ui.min.js" />
+    <Content Include="App\resources\js\libs\jquery.validate.min.js" />
+    <Content Include="App\resources\js\models\apiServices.js" />
+    <Content Include="App\resources\js\models\controllers.js" />
+    <Content Include="App\resources\js\models\main.js" />
+    <Content Include="App\resources\js\plugins\angular-imput-mask\angular-input-masks-standalone.js" />
+    <Content Include="App\resources\js\plugins\dataTable\angular-datatables.js" />
+    <Content Include="App\resources\js\plugins\dataTable\dataTables.bootstrap.js" />
+    <Content Include="App\resources\js\plugins\dataTable\jquery.dataTables.js" />
+    <Content Include="App\resources\js\plugins\select2\select.js" />
+    <Content Include="App\resources\js\plugins\toaster\toaster.js" />
+    <Content Include="App\view\Componetes\menu.html" />
+    <Content Include="App\view\conteudoProgramatico.html" />
+    <Content Include="App\view\curso.html" />
+    <Content Include="App\view\docente.html" />
+    <Content Include="App\view\home.html" />
+    <Content Include="App\view\login.html" />
+    <Content Include="App\view\tipoCurso.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
@@ -29,9 +161,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App\resources\js\plugins\ui-mask\" />
-    <Folder Include="App\resources\js\plugins\select2\" />
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.Development.json" />
+    <None Include="appsettings.json" />
+    <None Include="Properties\launchSettings.json" />
   </ItemGroup>
 
 </Project>
