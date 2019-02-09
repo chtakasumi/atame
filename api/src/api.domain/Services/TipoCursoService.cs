@@ -73,7 +73,12 @@ namespace api.domain.Services
             if (string.IsNullOrEmpty(tipoCurso.Descricao))
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Descrição do tipo curso não informado");
-            }   
+            }
+
+            if (tipoCurso.Comissao==0)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Comissão do tipo curso não informado");
+            }
         }
     }    
 }

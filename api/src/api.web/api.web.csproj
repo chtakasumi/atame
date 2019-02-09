@@ -51,6 +51,7 @@
     <None Remove="App\resources\img\logo.png" />
     <None Remove="App\resources\js\libs\angular-animate.min.js" />
     <None Remove="App\resources\js\libs\angular-animate.min.js.map" />
+    <None Remove="App\resources\js\libs\angular-locale_pt-br.js" />
     <None Remove="App\resources\js\libs\angular-route.min.js" />
     <None Remove="App\resources\js\libs\angular-route.min.js.map" />
     <None Remove="App\resources\js\libs\angular-sanitize.min.js" />
@@ -65,6 +66,7 @@
     <None Remove="App\resources\js\models\controllers.js" />
     <None Remove="App\resources\js\models\main.js" />
     <None Remove="App\resources\js\plugins\angular-imput-mask\angular-input-masks-standalone.js" />
+    <None Remove="App\resources\js\plugins\angular-modal-bootstrep\angularModalBootstrap.js" />
     <None Remove="App\resources\js\plugins\dataTable\angular-datatables.js" />
     <None Remove="App\resources\js\plugins\dataTable\dataTables.bootstrap.js" />
     <None Remove="App\resources\js\plugins\dataTable\jquery.dataTables.js" />
@@ -115,6 +117,7 @@
     <Content Include="App\resources\img\logo.png" />
     <Content Include="App\resources\js\libs\angular-animate.min.js" />
     <Content Include="App\resources\js\libs\angular-animate.min.js.map" />
+    <Content Include="App\resources\js\libs\angular-locale_pt-br.js" />
     <Content Include="App\resources\js\libs\angular-route.min.js" />
     <Content Include="App\resources\js\libs\angular-route.min.js.map" />
     <Content Include="App\resources\js\libs\angular-sanitize.min.js" />
@@ -129,6 +132,7 @@
     <Content Include="App\resources\js\models\controllers.js" />
     <Content Include="App\resources\js\models\main.js" />
     <Content Include="App\resources\js\plugins\angular-imput-mask\angular-input-masks-standalone.js" />
+    <Content Include="App\resources\js\plugins\angular-modal-bootstrep\angularModalBootstrap.js" />
     <Content Include="App\resources\js\plugins\dataTable\angular-datatables.js" />
     <Content Include="App\resources\js\plugins\dataTable\dataTables.bootstrap.js" />
     <Content Include="App\resources\js\plugins\dataTable\jquery.dataTables.js" />

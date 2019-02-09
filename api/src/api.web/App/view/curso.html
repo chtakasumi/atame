@@ -7,7 +7,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="Id" class="sr-only">Codigo:</label>
-                        <input type="text"  ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                        <input type="text"  max="99999999" ui-hide-group-sep ui-number-mask="0"  ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -65,10 +65,10 @@
                                 <td>{{row.nome}}</td>
                                 <td>{{row.tipoCurso.descricao}}</td>
                                 <td>{{row.descricao}}</td>
-                                <td>{{row.preco}}</td>
+                                <td>{{row.preco | currency }}</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a class="btn btn-default btn-xs" ng-click="excluir(row.id)"><i class="glyphicon glyphicon-remove"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.nome)"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -97,7 +97,7 @@
 
                 <label for="tipoCurso">Tipo Curso</label>
 
-              <ui-select input-id="tipoCurso" ng-model="model.tipoCurso" on-select="selecionar($item)" spinner-enabled="true">
+                <ui-select input-id="tipoCurso" ng-model="model.tipoCurso" on-select="selecionar($item)" spinner-enabled="true">
                     <ui-select-match placeholder="**Selecione um tipo de curso**">
                         <span ng-bind="$select.selected.descricao"></span>
                     </ui-select-match>
@@ -110,16 +110,17 @@
             </div>
 
             <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="text" ng-model="model.preco" ui-money-mask class="form-control" id="preco"
+                       name="preco" placeholder="Preço">
+            </div>
+     
+            <div class="form-group">
                 <label for="Nome">Descrição</label>
                 <input type="text" ng-model="model.descricao" class="form-control" id="Descricao"
                        name="descricao" placeholder="Descrição">
             </div>
 
-            <div class="form-group">
-                <label for="preco">Preço</label>
-                <input type="text" ng-model="model.preco" class="form-control" id="preco"
-                       name="preco" placeholder="Preço">
-            </div>  
         </div>
         <div class="panel-footer">           
             <div class="form-group">

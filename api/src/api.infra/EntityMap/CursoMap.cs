@@ -23,8 +23,8 @@ namespace api.infra.EntityConfig
 
 
             builder.Property(c => c.Preco)
-               .HasColumnName("preco")
-               .HasColumnType("decimal(5,2)");
+               .HasColumnName("preco").IsRequired();
+              
         
             builder.Property(c => c.TipoCursoId)
                 .HasColumnName("tipoCursoId");

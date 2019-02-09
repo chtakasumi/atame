@@ -28,15 +28,16 @@
     <script src="resources/js/libs/angular-route.min.js"></script>
     <script src="resources/js/libs/angular-sanitize.min.js"></script>
     <script src="resources/js/libs/angular-animate.min.js"></script>
+    <script src="resources/js/libs/angular-locale_pt-br.js"></script>
 
     <!--plugins-->
     <script src="resources/js/plugins/toaster/toaster.js"></script>
     <script src="resources/js/plugins/dataTable/jquery.dataTables.js"></script>
     <script src="resources/js/plugins/dataTable/dataTables.bootstrap.js"></script>
     <script src="resources/js/plugins/dataTable/angular-datatables.js"></script>
-    <script src="resources/js/plugins/select2/select.js"></script>
-    <!--<script src="resources/js/plugins/ui-mask/mask.js"></script>-->
+    <script src="resources/js/plugins/select2/select.js"></script> 
     <script src="resources/js/plugins/angular-imput-mask/angular-input-masks-standalone.js"></script>
+    <script src="resources/js/plugins/angular-modal-bootstrep/angularModalBootstrap.js"></script>
     <!--modelos-->
     <script src="resources/js/models/main.js"></script>
     <script src="resources/js/models/apiServices.js"></script>
@@ -48,49 +49,62 @@
 <body>
     <toaster-container toaster-options="{'time-out': 5000,'spinner':false}"></toaster-container>
     <div class="container-fluid">
-        <!--Menu-->
-        <div>
-            <nav class="navbar navbar-inverse navbar-fixed-top" ng-if="permission">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                                aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"><img src="./resources/img/logo.png" class="logo-menu"></a>
+        
+            <modal id="modalExcluir" backdrop="static" keyboard="false"  title="Excluir"  visible="showModal">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning"> Deseja exluir o registor: {{msg}}?</div>                       
                     </div>
-                    <div id="navbar" class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">                          
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" 
-                                   role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item"> <a href="#!tipoCurso">TipoCurso</a></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!docente">Docente</a> </li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!conteudoProgramatico">Conteúdo Programático</a></li>
-                                    <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoDocente">Curso x Docente</a></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoConteudo">Curso x Conteúdo</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li ng-class="pull-right"><a href="#!login"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a></li>
-                        </ul>
-                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                        <button class="btn btn-warning" ng-click="Confirmar()">Confirmar</button>
+                   </div>
                 </div>
-            </nav>
-        </div>
+            </modal>
 
-        <!--pagina-->
-        <div class="container paginas">          
-            <div ng-view></div>
-        </div>
-    </div>
+            <!--Menu-->
+            <div>
+                <nav class="navbar navbar-inverse navbar-fixed-top" ng-if="permission">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                    aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#"><img src="./resources/img/logo.png" class="logo-menu"></a>
+                        </div>
+                        <div id="navbar" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="#!tipoCurso">TipoCurso</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="#!docente">Docente</a> </li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="#!conteudoProgramatico">Conteúdo Programático</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoDocente">Curso x Docente</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="#!cursoConteudo">Curso x Conteúdo</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li ng-class="pull-right"><a href="#!login"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!--pagina-->
+            <div class="container paginas">
+                <div ng-view></div>
+            </div>
+</div>
     <div class="footer">
         <div class="pull-left">Sistema comercial Atame</div>
         <div class="pull-right">Versão 0.0.1</div>

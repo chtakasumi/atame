@@ -55,8 +55,7 @@ namespace api.infra.Migrations
                         .HasColumnType("varchar(40)");
 
                     b.Property<decimal>("Preco")
-                        .HasColumnName("preco")
-                        .HasColumnType("decimal(5,2)");
+                        .HasColumnName("preco");
 
                     b.Property<int>("TipoCursoId")
                         .HasColumnName("tipoCursoId");

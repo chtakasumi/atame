@@ -7,8 +7,8 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="id" class="sr-only">Codigo:</label>
-                        <input type="number" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
-                    </div>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"  ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>                   
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -47,10 +47,10 @@
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
                                 <td>{{row.descricao}}</td>
-                                <td>{{row.comissao}}</td>
+                                <td>{{row.comissao |  number:3}}%</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a class="btn btn-default btn-xs" ng-click="excluir(row.id)"><i class="glyphicon glyphicon-remove"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -80,9 +80,10 @@
 
             <div class="form-group">
                 <label for="comissao">Comissão</label>
-                <input type="text" ng-model="model.comissao" class="
+                <input type="text" ng-model="model.comissao" ui-percentage-value ui-percentage-mask="3" class="
                        form-control" id="comissao" name="comissao" placeholder="Comissão">
             </div>
+
 
         </div>
         <div class="panel-footer">

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:5000/#!/tipoCurso -->
+<html ng-app="main" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="./Login_files/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="./Login_files/toaster.css" rel="stylesheet">
+
+    <link href="./Login_files/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="./Login_files/select.css" rel="stylesheet">
+
+    <!--<link href="resources/css/select2.css" rel="stylesheet" />
+    <link href="resources/css/selectize.default.css" rel="stylesheet" />-->
+
+    <link href="./Login_files/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="http://localhost:5000/favicon.ico">
+
+    <!------libs js---------->
+    <script src="./Login_files/jquery-1.11.1.min.js.download"></script>
+    <script src="./Login_files/jquery-ui.min.js.download"></script>
+    <script src="./Login_files/bootstrap.min.js.download"></script>
+    <script src="./Login_files/angular.min.js.download"></script>
+    <script src="./Login_files/angular-route.min.js.download"></script>
+    <script src="./Login_files/angular-sanitize.min.js.download"></script>
+    <script src="./Login_files/angular-animate.min.js.download"></script>
+    <script src="./Login_files/angular-locale_pt-br.js.download"></script>
+
+    <!--plugins-->
+    <script src="./Login_files/toaster.js.download"></script>
+    <script src="./Login_files/jquery.dataTables.js.download"></script>
+    <script src="./Login_files/dataTables.bootstrap.js.download"></script>
+    <script src="./Login_files/angular-datatables.js.download"></script>
+    <script src="./Login_files/select.js.download"></script> 
+    <script src="./Login_files/angular-input-masks-standalone.js.download"></script>
+    <script src="./Login_files/angularModalBootstrap.js.download"></script>
+    <!--modelos-->
+    <script src="./Login_files/main.js.download"></script>
+    <script src="./Login_files/apiServices.js.download"></script>
+    <script src="./Login_files/controllers.js.download"></script>
+
+    <!--<base href="/">--><base href=".">
+</head>
+
+<body class="modal-open" style="padding-right: 24px;">
+    <div id="toast-container" ng-class="config.position" toaster-options="{&#39;time-out&#39;: 5000,&#39;spinner&#39;:false}" class="ng-scope toast-top-full-width"><!-- ngRepeat: toaster in toasters --></div>
+    <div class="container-fluid">
+        
+            <div class="modal fade ng-scope in" tabindex="-1" role="dialog" id="modalExcluir" backdrop="static" keyboard="false" title="Excluir" visible="showModal" aria-hidden="false" style="display: block;"><div class="modal-backdrop fade in"></div><div class="modal-dialog" role="document" style="z-index: 999999;"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title ng-binding">Excluir</h4></div><div class="modal-body" style="text-align: center;" ng-transclude="">
+                <div class="row ng-scope">
+                    <div class="col-md-12 ng-binding">
+                        Deseja exluir o registor: 2332?
+                    </div>
+                    <div class="col-md-12">
+                        <button class="btn btn-default" ng-click="Cancelar()">Cancelar</button>
+                        <button class="btn btn-warning" ng-click="Confirmar()">Confirmar</button>
+                   </div>
+                </div>
+            </div></div></div></div>
+
+
+            <!--Menu-->
+            <div>
+                <!-- ngIf: permission --><nav class="navbar navbar-inverse navbar-fixed-top ng-scope" ng-if="permission">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="http://localhost:5000/#"><img src="./Login_files/logo.png" class="logo-menu"></a>
+                        </div>
+                        <div id="navbar" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item"> <a href="http://localhost:5000/#!tipoCurso">TipoCurso</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="http://localhost:5000/#!curso">Curso</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="http://localhost:5000/#!docente">Docente</a> </li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="http://localhost:5000/#!conteudoProgramatico">Conteúdo Programático</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="http://localhost:5000/#!cursoDocente">Curso x Docente</a></li>
+                                        <li class="dropdown-item"> <a class="dropdown-item" href="http://localhost:5000/#!cursoConteudo">Curso x Conteúdo</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li ng-class="pull-right"><a href="http://localhost:5000/#!login"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav><!-- end ngIf: permission -->
+            </div>
+
+            <!--pagina-->
+            <div class="container paginas">
+                <!-- ngView: --><div ng-view="" class="ng-scope" style=""><div id="divController" class="ng-scope">
+    
+    <div class="panel panel-default" ng-show="painelPesquisar" style="">
+        <div class="panel-heading ng-binding">Pesquisar Tipo Curso</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep="" ui-number-mask="0" ng-model="filtros.id" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-max" id="id" name="id" placeholder="Código">
+                    </div>                   
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="descricao" class="sr-only">Nome</label>
+                        <input type="text" ng-model="filtros.descricao" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="descricao" name="descricao" placeholder="Nome">
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>
+                        <button class="btn btn-default" ng-click="novo()">
+                            <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <div id="GridView1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="GridView1_length"><label><select name="GridView1_length" aria-controls="GridView1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> resultados por página</label></div></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf ng-isolate-scope no-footer dataTable" id="GridView1" style="display: table;" role="grid" aria-describedby="GridView1_info">
+                        <thead class="ng-scope">
+                            <tr class="title-table" role="row"><th class="sorting_asc" tabindex="0" aria-controls="GridView1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Código: Ordenar colunas de forma descendente" style="width: 231.006px;">Código</th><th class="sorting" tabindex="0" aria-controls="GridView1" rowspan="1" colspan="1" aria-label="Nome: Ordenar colunas de forma ascendente" style="width: 368.006px;">Nome</th><th class="sorting" tabindex="0" aria-controls="GridView1" rowspan="1" colspan="1" aria-label="Comissão: Ordenar colunas de forma ascendente" style="width: 306.006px;">Comissão</th><th class="edicao sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 100px;"></th></tr>
+                        </thead>
+                        <tbody class="ng-scope">
+                            <!-- ngRepeat: row in grade_model --><!-- end ngRepeat: row in grade_model --><!-- end ngRepeat: row in grade_model --><!-- end ngRepeat: row in grade_model --><!-- end ngRepeat: row in grade_model -->
+                        <tr ng-repeat="row in grade_model" class="ng-scope odd" style="" role="row">
+                                <td class="ng-binding sorting_1">1</td>
+                                <td class="ng-binding">Graduação</td>
+                                <td class="ng-binding">5,240%</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr><tr ng-repeat="row in grade_model" class="ng-scope even" role="row">
+                                <td class="ng-binding sorting_1">2</td>
+                                <td class="ng-binding">Pós Graduação</td>
+                                <td class="ng-binding">8,550%</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr><tr ng-repeat="row in grade_model" class="ng-scope odd" role="row">
+                                <td class="ng-binding sorting_1">14</td>
+                                <td class="ng-binding">fdf</td>
+                                <td class="ng-binding">0,323%</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr><tr ng-repeat="row in grade_model" class="ng-scope even" role="row">
+                                <td class="ng-binding sorting_1">15</td>
+                                <td class="ng-binding">2332</td>
+                                <td class="ng-binding">0,323%</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr></tbody>
+                    </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="GridView1_info" role="status" aria-live="polite">Mostrando de 1 até 4 de 4 registros</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="GridView1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="GridView1_previous"><a href="http://localhost:5000/#" aria-controls="GridView1" data-dt-idx="0" tabindex="0">Anterior</a></li><li class="paginate_button active"><a href="http://localhost:5000/#" aria-controls="GridView1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button next disabled" id="GridView1_next"><a href="http://localhost:5000/#" aria-controls="GridView1" data-dt-idx="2" tabindex="0">Próximo</a></li></ul></div></div></div></div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default ng-hide" ng-show="painelEditar">
+        <div class="panel-heading ng-binding"></div>
+        <div class="panel-body">
+
+            <div class="form-group">
+                <label for="Codigo">Código</label>
+                <input type="text" ng-model="model.id" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="Codigo" name="Codigo" placeholder="Código" disabled="">
+            </div>
+
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="text" ng-model="model.descricao" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="Nome" name="Nome" placeholder="Nome">
+            </div>
+
+            <div class="form-group">
+                <label for="comissao">Comissão</label>
+                <input type="text" ng-model="model.comissao" ui-percentage-value="" ui-percentage-mask="3" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" id="comissao" name="comissao" placeholder="Comissão" style="">
+            </div>
+
+
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="btn-group">
+                    <button class="btn btn-success" ng-click="salvar()">
+                        <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                    </button>
+                    <button class="btn btn-default" ng-click="voltar()">
+                        <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div></div>
+            </div>
+</div>
+    <div class="footer">
+        <div class="pull-left">Sistema comercial Atame</div>
+        <div class="pull-right">Versão 0.0.1</div>
+    </div>
+
+
+
+
+</body></html>

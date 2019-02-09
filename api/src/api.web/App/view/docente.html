@@ -7,7 +7,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="id" class="sr-only">Codigo:</label>
-                        <input type="number" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -56,7 +56,7 @@
                                 <td>{{row.formacao}}</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a class="btn btn-default btn-xs" ng-click="excluir(row.id)"><i class="glyphicon glyphicon-remove"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modal(excluir, row.id, row.nome)"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
                         </tbody>

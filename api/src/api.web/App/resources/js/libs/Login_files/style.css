@@ -27,12 +27,8 @@ h1 {
     color: white;
 }
 /********************Pagina login************/
-.modal-header {
-    background-color: #b92020;
-    color: white;
-}
-.dropdown-divider {
-    border-bottom: solid 1px white;
+.dropdown-divider {   
+    border-bottom:solid 1px white;
 }
 ul .dropdown-menu {
     background-color: #ba131a;

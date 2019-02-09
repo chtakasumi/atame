@@ -46,20 +46,19 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 
     $rootScope.modal = function (func, id, descricao)
     {
-        $rootScope.showModal = true;        
+        $rootScope.showModal = true;
         $rootScope.msg = descricao;
-        
+
         $rootScope.Confirmar = function () {
-           
-            $rootScope.showModal = false;        
             func(id);
-            $("#modalExcluir").modal('hide');
-          
         }
+
+        $rootScope.Cancelar = function () {
+            $rootScope.showModal =false
+        }
+       
+       
     }
-
-    
-
     
 });
 

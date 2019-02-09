@@ -34,7 +34,7 @@ namespace api.domain.Services
         }       
 
         public void Editar(Curso curso)
-        {
+        {           
             ValidarModelo(curso);
             _cursoRepository.Atualizar(curso);
         }
@@ -67,6 +67,11 @@ namespace api.domain.Services
             if (curso.TipoCursoId == 0)
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Selecione o tipo do curso");
+            }
+
+            if (curso.Preco == 0)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "preço do curso não informado");
             }
 
             curso.TipoCurso = null;
