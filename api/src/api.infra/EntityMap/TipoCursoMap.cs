@@ -20,7 +20,7 @@ namespace api.infra.EntityConfig
 
             builder.Property(c => c.Comissao)
                .HasColumnName("comissao")
-               .HasColumnType("numeric(5, 3)")
+               .HasColumnType("numeric(10, 3)")
                .IsRequired();
         }
        

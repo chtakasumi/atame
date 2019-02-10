@@ -32,57 +32,8 @@ function (consumerService, $window, $location) {
 
     }]);
 
-app.factory("cursoService", ['consumerService', function (consumerService) {
+app.factory("cursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "curso";
-
-    var _model = function (callBack) {
-        consumerService.get(baseUrl + "/model", function (modelo) {
-            callBack(JSON.parse(JSON.parse(modelo)));
-        });
-    };
-
-    var _listar = function (filtro, callBack) {
-        consumerService.post(baseUrl + "/listar", filtro, function (data) {
-            callBack(data);
-        })
-    };
-
-    var _salvar = function (entidade, callBack) {
-        if (entidade.id > 0) {
-            consumerService.put(baseUrl, entidade, function (data) {
-                callBack(data);
-            });
-        } else {
-            consumerService.post(baseUrl, entidade, function (data) {
-                callBack(data);
-            });
-        }
-    };
-
-    var _excluir = function (id, callBack) {
-        consumerService.delete(baseUrl + "?id=" + id, function () {
-            callBack();
-        });
-    };
-
-    return {
-        model: _model,
-        listar: _listar,
-        salvar: _salvar,
-        excluir: _excluir
-    };
-
-}]);
-
-app.factory("tipoCursoService", ['consumerService', function (consumerService) {
-
-    var baseUrl = 'tipoCurso';
-
-    var _model = function (callBack) {
-        consumerService.get(baseUrl+"/model", function (modelo) {
-            callBack(JSON.parse(JSON.parse(modelo)));
-        });
-    };
 
     var _lov = function (string, callBack) {
         var param = (string) ? string : null;
@@ -91,18 +42,31 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
         })
     };
 
+    var _model = function (callBack) {       
+        var url = baseUrl + "/model";
+        $rootScope.Loading(true, "GET: " + url);
+        consumerService.get(url, function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
     var _listar = function (filtro, callBack) {
-        consumerService.post(baseUrl + "/listar", filtro, function (data) {
+        var url = baseUrl + "/listar";
+        $rootScope.Loading(true, "POST: " + url);
+        consumerService.post(url, filtro, function (data) {
             callBack(data);
         })
     };
 
-    var _salvar = function (entidade, callBack) {
+    var _salvar = function (entidade, callBack) {       
+
         if (entidade.id > 0) {
+            $rootScope.Loading(true, "PUT: " + baseUrl);
             consumerService.put(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         } else {
+            $rootScope.Loading(true, "POST: " + baseUrl);
             consumerService.post(baseUrl, entidade, function (data) {
                 callBack(data);
             });
@@ -110,11 +74,73 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
     };
 
     var _excluir = function (id, callBack) {
-        consumerService.delete(baseUrl+"?id=" + id, function () {
+        var url = baseUrl + "?id=" + id;
+        $rootScope.Loading(true, "DELETE: " + url);
+        consumerService.delete(url, function () {
             callBack();
         });
-    };    
+    };
 
+    return {
+        model: _model,
+        lov: _lov,
+        listar: _listar,
+        salvar: _salvar,
+        excluir: _excluir
+    };
+
+}]);
+
+app.factory("tipoCursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+
+    var baseUrl = 'tipoCurso';
+
+    var _lov = function (string, callBack) {
+        var param = (string) ? string : null;
+        consumerService.get(baseUrl + "/" + param, function (data) {
+            callBack(data);
+        })
+    };
+
+    var _model = function (callBack) {
+        var url = baseUrl + "/model";
+        $rootScope.Loading(true, "GET: " + url);
+        consumerService.get(url, function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    var _listar = function (filtro, callBack) {
+        var url = baseUrl + "/listar";
+        $rootScope.Loading(true, "POST: " + url);
+        consumerService.post(url, filtro, function (data) {
+            callBack(data);
+        })
+    };
+
+    var _salvar = function (entidade, callBack) {
+
+        if (entidade.id > 0) {
+            $rootScope.Loading(true, "PUT: " + baseUrl);
+            consumerService.put(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        } else {
+            $rootScope.Loading(true, "POST: " + baseUrl);
+            consumerService.post(baseUrl, entidade, function (data) {
+                callBack(data);
+            });
+        }
+    };
+
+    var _excluir = function (id, callBack) {
+        var url = baseUrl + "?id=" + id;
+        $rootScope.Loading(true, "DELETE: " + url);
+        consumerService.delete(url, function () {
+            callBack();
+        });
+    };
+    
     return {
         model: _model,
         lov: _lov,
@@ -125,46 +151,58 @@ app.factory("tipoCursoService", ['consumerService', function (consumerService) {
 
 }]); 
 
-app.factory("docenteService", ['consumerService', function (consumerService) {
+app.factory("docenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "docente";
 
-    //não muda
-    var _model = function (callBack) {
-        consumerService.get(baseUrl + "/model", function (modelo) {
-            callBack(JSON.parse(JSON.parse(modelo)));
-        });
-    };
-
-    //não muda
-    var _listar = function (filtro, callBack) {       
-        consumerService.post(baseUrl + "/listar", filtro, function (data) {
+    var _lov = function (string, callBack) {
+        var param = (string) ? string : null;
+        consumerService.get(baseUrl + "/" + param, function (data) {
             callBack(data);
         })
     };
 
-    //não muda
+    var _model = function (callBack) {
+        var url = baseUrl + "/model";
+        $rootScope.Loading(true, "GET: " + url);
+        consumerService.get(url, function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    var _listar = function (filtro, callBack) {
+        var url = baseUrl + "/listar";
+        $rootScope.Loading(true, "POST: " + url);
+        consumerService.post(url, filtro, function (data) {
+            callBack(data);
+        })
+    };
+
     var _salvar = function (entidade, callBack) {
+
         if (entidade.id > 0) {
+            $rootScope.Loading(true, "PUT: " + baseUrl);
             consumerService.put(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         } else {
+            $rootScope.Loading(true, "POST: " + baseUrl);
             consumerService.post(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         }
     };
 
-     //não muda
     var _excluir = function (id, callBack) {
-        consumerService.delete(baseUrl + "?id=" + id, function () {
+        var url = baseUrl + "?id=" + id;
+        $rootScope.Loading(true, "DELETE: " + url);
+        consumerService.delete(url, function () {
             callBack();
         });
     };
-
-    //não muda
+    
     return {
         model: _model,
+        lov: _lov,
         listar: _listar,
         salvar: _salvar,
         excluir: _excluir
@@ -172,46 +210,58 @@ app.factory("docenteService", ['consumerService', function (consumerService) {
 
 }]);
 
-app.factory("conteudoProgramaticoService", ['consumerService', function (consumerService) {
+app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "conteudoProgramatico";
 
-    //não muda
-    var _model = function (callBack) {
-        consumerService.get(baseUrl + "/model", function (modelo) {
-            callBack(JSON.parse(JSON.parse(modelo)));
-        });
-    };
-
-    //não muda
-    var _listar = function (filtro, callBack) {
-        consumerService.post(baseUrl + "/listar", filtro, function (data) {
+    var _lov = function (string, callBack) {
+        var param = (string) ? string : null;
+        consumerService.get(baseUrl + "/" + param, function (data) {
             callBack(data);
         })
     };
 
-    //não muda
+    var _model = function (callBack) {
+        var url = baseUrl + "/model";
+        $rootScope.Loading(true, "GET: " + url);
+        consumerService.get(url, function (modelo) {
+            callBack(JSON.parse(JSON.parse(modelo)));
+        });
+    };
+
+    var _listar = function (filtro, callBack) {
+        var url = baseUrl + "/listar";
+        $rootScope.Loading(true, "POST: " + url);
+        consumerService.post(url, filtro, function (data) {
+            callBack(data);
+        })
+    };
+
     var _salvar = function (entidade, callBack) {
+
         if (entidade.id > 0) {
+            $rootScope.Loading(true, "PUT: " + baseUrl);
             consumerService.put(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         } else {
+            $rootScope.Loading(true, "POST: " + baseUrl);
             consumerService.post(baseUrl, entidade, function (data) {
                 callBack(data);
             });
         }
     };
 
-    //não muda
     var _excluir = function (id, callBack) {
-        consumerService.delete(baseUrl + "?id=" + id, function () {
+        var url = baseUrl + "?id=" + id;
+        $rootScope.Loading(true, "DELETE: " + url);
+        consumerService.delete(url, function () {
             callBack();
         });
     };
 
-    //não muda
     return {
         model: _model,
+        lov: _lov,
         listar: _listar,
         salvar: _salvar,
         excluir: _excluir

@@ -43,23 +43,38 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
     });
 
     //modal
-
-    $rootScope.modal = function (func, id, descricao)
-    {
-        $rootScope.showModal = true;        
+    $rootScope.modalExcluir = function (func, id, descricao)
+    {       
+        $rootScope.showModalExcluir = true;  //abre modal
+        
         $rootScope.msg = descricao;
         
-        $rootScope.Confirmar = function () {
-           
-            $rootScope.showModal = false;        
-            func(id);
-            $("#modalExcluir").modal('hide');
-          
+        $rootScope.Confirmar = function () {  
+            $rootScope.showModalExcluir = false; //fecha modal
+            func(id); //executa funcao de exclusão           
         }
+
+        $rootScope.FecharModal = function () {
+            $rootScope.showModalExcluir = false;         
+        }
+
+        facaDisgestao();       
     }
 
-    
+    //loading
+    $rootScope.Loading = function (showModalLoading, msg) {      
+        $rootScope.showModalLoading = showModalLoading;
+        $rootScope.msg = msg;
+        facaDisgestao();      
+    }
 
+    function facaDisgestao() {
+        setTimeout(function () {
+            if ($rootScope.$$phase != '$apply' && $rootScope.$$phase != '$digest') {
+                $rootScope.$apply();
+            }
+        }, 500);
+    }
     
 });
 
@@ -206,7 +221,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
         })
         .otherwise('/home');
 
-}]);
+    }]);
 
 app.factory("consumerService", ['$http', 'configConst', function ($http, configConst) {
 
@@ -227,7 +242,6 @@ app.factory("consumerService", ['$http', 'configConst', function ($http, configC
             callback(data.data);
         });
     }
-
 
     var _post= function (url, data, callback) {
         var urlNew = configConst.baseUrlApi + url;
@@ -293,17 +307,29 @@ app.factory("alertService", ['toaster', function (toaster) {
 
 app.factory('httpInterceptor', ['$q', '$rootScope', 'alertService','$location',
     function ($q, $rootScope, alertService, $location) {
+        function loadingClose(retorno) {
+            setTimeout(function () {
+                var msg = retorno.status + ": " + retorno.statusText;
+                $rootScope.Loading(false, msg);
+            },600);
+        }
+
         return {
-            request: function (config) {
+            request: function (config) {              
                 return config || $q.when(config);
             },
-            requestError: function (rejection) {
+            requestError: function (rejection) {                
+                loadingClose(rejection);
+
                 return $q.reject(rejection);
             },
-            response: function (response) {  
+            response: function (response) { 
+                loadingClose(response);
                 return response || $q.when(response);
             },
-            responseError: function (rejection) {           
+            responseError: function (rejection) { 
+                
+                loadingClose(rejection);
 
                 switch (rejection.status) {
                
@@ -325,7 +351,7 @@ app.factory('httpInterceptor', ['$q', '$rootScope', 'alertService','$location',
                         break;
                     default:                     
                         alertService.getError(rejection.data);
-                }
+                } 
                 return $q.reject(rejection);
             }
         };

@@ -55,7 +55,8 @@ namespace api.infra.Migrations
                         .HasColumnType("varchar(40)");
 
                     b.Property<decimal>("Preco")
-                        .HasColumnName("preco");
+                        .HasColumnName("preco")
+                        .HasColumnType("Decimal(10, 2)");
 
                     b.Property<int>("TipoCursoId")
                         .HasColumnName("tipoCursoId");
@@ -166,7 +167,7 @@ namespace api.infra.Migrations
 
                     b.Property<decimal>("Comissao")
                         .HasColumnName("comissao")
-                        .HasColumnType("numeric(5, 3)");
+                        .HasColumnType("numeric(10, 3)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()

@@ -26,13 +26,24 @@ h1 {
     padding:5px;
     color: white;
 }
+.dropdown-divider {
+    border-top:solid 1px white;
+}
 /********************Pagina login************/
 .modal-header {
-    background-color: #b92020;
+    background-color: #900b0b;
     color: white;
 }
-.dropdown-divider {
-    border-bottom: solid 1px white;
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #e49f9f;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+     opacity: 1; 
 }
 ul .dropdown-menu {
     background-color: #ba131a;

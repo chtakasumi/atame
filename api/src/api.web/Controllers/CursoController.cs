@@ -24,6 +24,12 @@ namespace api.web.Controllers
             return Ok(usuario);
         }
 
+        [HttpGet("{descricao}")]
+        public IActionResult GetTipoCurso(string descricao)
+        {
+            return Ok(_curso.Lov(descricao));
+        }
+
         [HttpPost("listar")]
         public IActionResult Listar(CursoListarVo cursoVo)
         {

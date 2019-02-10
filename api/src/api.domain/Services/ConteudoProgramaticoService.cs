@@ -3,6 +3,7 @@ using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.domain.Services.DTO;
 using api.libs;
+using System;
 using System.Collections.Generic;
 
 namespace api.domain.Services
@@ -20,6 +21,14 @@ namespace api.domain.Services
         public string ModelSerializale()
         {  
             return Json.ToJson(new ConteudoProgramatico());                
+        }
+
+        public IEnumerable<ConteudoProgramatico> Lov(string descricao)
+        {
+            var filtro = new ConteudoProgramatico();
+            filtro.Identificacao = (descricao != "null") ? descricao : null;
+
+            return _conteudoProgramaticoRepository.Listar(filtro);
         }
 
         public IEnumerable<ConteudoProgramatico> Listar(ConteudoProgramatico ConteudoProgramatico)

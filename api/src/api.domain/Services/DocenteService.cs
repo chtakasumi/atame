@@ -2,6 +2,7 @@
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
+using System;
 using System.Collections.Generic;
 
 namespace api.domain.Services
@@ -37,6 +38,15 @@ namespace api.domain.Services
             ValidarModelo(docente);
             _docenteRepository.Atualizar(docente);
         }
+
+        public IEnumerable<Docente> Lov(string descricao)
+        {
+            var filtro = new Docente();
+            filtro.Nome = (descricao != "null") ? descricao : null;
+
+            return _docenteRepository.Listar(filtro);
+        }
+        
 
         public void Excluir(int id)
         {

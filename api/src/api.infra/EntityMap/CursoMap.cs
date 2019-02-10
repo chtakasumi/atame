@@ -17,15 +17,14 @@ namespace api.infra.EntityConfig
                 .HasColumnType("varchar(40)")
                 .IsRequired();
 
-            builder.Property(c => c.Descricao)
-               .HasColumnName("descricao")
-               .HasColumnType("varchar(500)");
-
-
             builder.Property(c => c.Preco)
-               .HasColumnName("preco").IsRequired();
-              
-        
+               .HasColumnName("preco").HasColumnType("Decimal(10, 2)").IsRequired();
+            
+            builder.Property(c => c.Descricao)
+              .HasColumnName("descricao")
+              .HasColumnType("varchar(500)");
+
+
             builder.Property(c => c.TipoCursoId)
                 .HasColumnName("tipoCursoId");
             

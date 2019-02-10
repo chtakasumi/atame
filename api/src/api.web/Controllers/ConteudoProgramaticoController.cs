@@ -15,6 +15,11 @@ namespace api.web.Controllers
             _ConteudoProgramatico = conteudoProgramatico;
         }
 
+        [HttpGet("{descricao}")]
+        public IActionResult GetTipoCurso(string descricao)
+        {
+            return Ok(_ConteudoProgramatico.Lov(descricao));
+        }
 
         [HttpGet("model")]
         public IActionResult GetModel()
