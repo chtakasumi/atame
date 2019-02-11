@@ -1,5 +1,5 @@
 <div id="divController">
-    
+
     <div class="panel panel-default" ng-show="painelPesquisar">
         <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
         <div class="panel-body">
@@ -7,13 +7,16 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="id" class="sr-only">Codigo:</label>
-                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"  ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
-                    </div>                   
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id"
+                               class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="descricao" class="sr-only">Nome</label>
-                        <input type="text" ng-model="filtros.descricao" class="form-control" id="descricao" name="descricao" placeholder="Nome">
+                        <input type="email" ng-model="filtros.descricao" class="form-control" id="descricao" name="descricao"
+                               placeholder="Nome">
                     </div>
                 </div>
 
@@ -63,41 +66,57 @@
         </div>
     </div>
 
-    <div class="panel panel-default" ng-show="painelEditar">
-        <div class="panel-heading">{{titulo}}</div>
-        <div class="panel-body">
+        <form name="form" novalidate ng-show="painelEditar">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{titulo}}</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="Codigo" class="control-label">Código</label>
+                        <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
+                    </div>
+                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.Nome)">
 
-            <div class="form-group">
-                <label for="Codigo">Código</label>
-                <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
-            </div>
+                        <label for="Nome" class="control-label">Nome</label>
 
-            <div class="form-group">
-                <label for="Nome">Nome</label>
-                <input type="text" ng-model="model.descricao" class="
-                       form-control" id="Nome" name="Nome" placeholder="Nome">
-            </div>
+                        <input type="text" id="Nome" name="Nome" ng-model="model.descricao" class="form-control" placeholder="Nome" maxlength="40" required>
+                                              
+                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.Nome)"></span>
+                                               
+                        <ng-messages for="form.Nome.$error" ng-show="GetValidMessages(form.Nome)">
+                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                        </ng-messages>
 
-            <div class="form-group">
-                <label for="comissao">Comissão</label>
-                <input type="text" ng-model="model.comissao" ui-percentage-value ui-percentage-mask="3" class="
-                       form-control" id="comissao" name="comissao" placeholder="Comissão">
-            </div>
+                    </div>
 
+                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.comissao)">
+                        <label for="comissao" class="control-label">Comissão</label>
+                        <input type="text" ng-model="model.comissao" class="form-control" id="comissao" name="comissao" placeholder="Comissão" 
+                               ui-percentage-value ui-percentage-mask="3" min="0.001" max="100" maxlength="10" required>
+                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.comissao)"></span>
 
-        </div>
-        <div class="panel-footer">
-            <div class="form-group">
-                <div class="btn-group">
-                    <button class="btn btn-success" ng-click="salvar()">
-                        <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
-                    </button>
-                    <button class="btn btn-default" ng-click="voltar()">
-                        <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
-                    </button>
+                        <ng-messages for="form.comissao.$error" ng-show="GetValidMessages(form.comissao)">
+                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="max" class="has-error-text">*Valor máximo permitido 100,000%</ng-message>
+                            <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
+                        </ng-messages>                      
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <button onsubmit="return false" class="btn btn-success" ng-click="salvar(form)">
+                                <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                            </button>
+                            <button class="btn btn-default" ng-click="voltar(form)">
+                                <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
+        </form>
+    
 </div>

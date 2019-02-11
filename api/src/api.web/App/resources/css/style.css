@@ -34,6 +34,11 @@ h1 {
     background-color: #900b0b;
     color: white;
 }
+.has-error-text {
+    color: #a94442;
+    font-stretch: condensed;
+    font-weight: lighter;
+}
 
 .close {
     float: right;
@@ -43,7 +48,15 @@ h1 {
     color: #e49f9f;
     text-shadow: 0 1px 0 #fff;
     filter: alpha(opacity=20);
-     opacity: 1; 
+    opacity: 1;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: 1px solid transparent;
 }
 ul .dropdown-menu {
     background-color: #ba131a;

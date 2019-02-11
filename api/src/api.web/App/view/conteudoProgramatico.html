@@ -1,6 +1,6 @@
 <div id="divController">
-    
-    <div class="panel panel-default" ng-if="painelPesquisar">
+
+    <div class="panel panel-default" ng-show="painelPesquisar">
         <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
         <div class="panel-body">
             <div class="row">
@@ -15,7 +15,7 @@
                         <label for="identificacao" class="sr-only">Identificação</label>
                         <input type="text" ng-model="filtros.identificacao" class="form-control" id="identificacao" name="identificacao" placeholder="Identificação">
                     </div>
-                </div> 
+                </div>
 
                 <div class="col-lg-5 pull-right">
                     <div class="btn-group pull-right">
@@ -39,14 +39,14 @@
                             <tr class="title-table">
                                 <th>Código</th>
                                 <th>Identificação</th>
-                                <th>Descrição</th>                                
+                                <th>Descrição</th>
                                 <th class="edicao"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
-                                <td>{{row.identificacao}}</td>                                
+                                <td>{{row.identificacao}}</td>
                                 <td>{{row.descricao}}</td>
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
@@ -60,40 +60,51 @@
         </div>
     </div>
 
-    <div class="panel panel-default" ng-if="painelEditar">
-        <div class="panel-heading">{{titulo}}</div>
-        <div class="panel-body">
+    <form name="form" novalidate ng-show="painelEditar">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <div class="panel-body">
 
-            <div class="form-group">
-                <label for="codigo">Código</label>
-                <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
-            </div>
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                </div>
 
-            <div class="form-group">
-                <label for="identificacao">Identificação</label>
-                <input type="text" ng-model="model.identificacao" class="
-                       form-control" id="identificacao" name="identificacao" placeholder="Identificação">
-            </div>
-           
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" ng-model="model.descricao" class="form-control" id="descricao"
-                       name="descricao" placeholder="Descrição">
-            </div>
+                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.identificacao)">
+                    <label for="identificacao" class="control-label">Identificação</label>
+                    <input type="text" ng-model="model.identificacao" class="
+                       form-control" id="identificacao" name="identificacao" placeholder="Identificação" required maxlength="40">
+                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.identificacao)"></span>
+                    <ng-messages for="form.identificacao.$error" ng-show="GetValidMessages(form.identificacao)">
+                        <ng-message when="required" class="has-error-text">*Campo Obrigatório</ng-message>
+                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                    </ng-messages>
+                </div>
 
-        </div>
-        <div class="panel-footer">       
-            <div class="form-group">
-                <div class="btn-group">
-                    <button class="btn btn-success" ng-click="salvar()">
-                        <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
-                    </button>
-                    <button class="btn btn-default" ng-click="voltar()">
-                        <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
-                    </button>
+                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.descricao)">
+                    <label for="descricao" class="control-label">Descrição</label>
+                    <textarea type="text" ng-model="model.descricao" class="form-control" id="descricao"
+                              name="descricao" placeholder="Descrição" maxlength="500" rows="4">            
+                    </textarea>
+                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.descricao)"></span>
+                    <ng-messages for="form.descricao.$error" ng-show="GetValidMessages(form.descricao)">
+                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                    </ng-messages>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="voltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </form>
 </div>
