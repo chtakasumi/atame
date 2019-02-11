@@ -50,7 +50,11 @@ app.factory("docenteService", ['consumerService', '$rootScope', function (consum
 app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "conteudoProgramatico";
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);  
-}]); 
+}]);
+app.factory("vendedorService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "vendedor";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
 
 function extendsAbstractServices(baseUrl, consumerService, $rootScope){
 

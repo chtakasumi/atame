@@ -130,7 +130,6 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             service: function () {
                                 return cursoService;
-
                             },
                             model: function (callBack) {
                                 return cursoService.model(function (data) {
@@ -211,6 +210,30 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             model: function (callBack) {
                                 return conteudoProgramaticoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
+             .when("/vendedor", {
+                templateUrl: configConst.baseUrlView + "vendedor.html",
+                controller: 'vendedorCtrl',
+                resolve: {
+                    parm: function (vendedorService) {
+                        return {
+                            titulo: function () {
+                                return "Vendedor";
+                            },
+                            filter: function () {
+                                return { id: null, nome: null };
+                            },
+                            service: function () {
+                                return vendedorService;
+                            },
+                            model: function (callBack) {
+                                return vendedorService.model(function (data) {
                                     return callBack(data);
                                 });
                             }

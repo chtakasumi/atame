@@ -15,7 +15,7 @@ namespace api.infra.Repository
           
         }
 
-        public IEnumerable<Curso> Listar(CursoListarVo cursoVo)
+        public IEnumerable<Curso> Listar(CursoDTO cursoVo)
         {
             var ListaCursos = base._dbContexto.Cursos.Where(x =>
                 (x.Id == cursoVo.Id || !cursoVo.Id.HasValue) &&

@@ -23,7 +23,7 @@ namespace api.domain.Services
             return Json.ToJson(new Curso());                
         }
 
-        public IEnumerable<Curso> Listar(CursoListarVo cursoVo)
+        public IEnumerable<Curso> Listar(CursoDTO cursoVo)
         {
             return _cursoRepository.Listar(cursoVo);
         }
@@ -36,7 +36,7 @@ namespace api.domain.Services
 
         public IEnumerable<Curso> Lov(string descricao)
         {
-            var filtro = new CursoListarVo();
+            var filtro = new CursoDTO();
             filtro.Nome = (descricao != "null") ? descricao : null;
 
             return _cursoRepository.Listar(filtro);

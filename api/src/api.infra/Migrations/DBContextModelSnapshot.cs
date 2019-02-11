@@ -205,6 +205,22 @@ namespace api.infra.Migrations
                     b.ToTable("Usuario");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Vendedor", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vendedor");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Curso", b =>
                 {
                     b.HasOne("api.domain.Entity.TipoCurso", "TipoCurso")

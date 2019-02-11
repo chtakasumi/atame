@@ -8,49 +8,49 @@ namespace api.web.Controllers
     [ApiController]
     public class ConteudoProgramaticoController : ControllerBase
     {
-        public readonly ConteudoProgramaticoService _ConteudoProgramatico;
+        public readonly ConteudoProgramaticoService _servico;
 
-        public ConteudoProgramaticoController(ConteudoProgramaticoService conteudoProgramatico)
+        public ConteudoProgramaticoController(ConteudoProgramaticoService servico)
         {
-            _ConteudoProgramatico = conteudoProgramatico;
+            _servico = servico;
         }
 
         [HttpGet("{descricao}")]
         public IActionResult GetTipoCurso(string descricao)
         {
-            return Ok(_ConteudoProgramatico.Lov(descricao));
+            return Ok(_servico.Lov(descricao));
         }
 
         [HttpGet("model")]
         public IActionResult GetModel()
         {
-            string usuario = _ConteudoProgramatico.ModelSerializale();
+            string usuario = _servico.ModelSerializale();
             return Ok(usuario);
         }
 
         [HttpPost("listar")]
-        public IActionResult Listar(ConteudoProgramatico conteudoProgramatico)
+        public IActionResult Listar(ConteudoProgramatico entidade)
         {
-            return Ok(_ConteudoProgramatico.Listar(conteudoProgramatico));
+            return Ok(_servico.Listar(entidade));
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(ConteudoProgramatico conteudoProgramatico)
+        public IActionResult Cadastrar(ConteudoProgramatico entidade)
         {
-            return Ok(_ConteudoProgramatico.Cadastrar(conteudoProgramatico));
+            return Ok(_servico.Cadastrar(entidade));
         }
 
         [HttpPut]
-        public IActionResult Editar(ConteudoProgramatico ConteudoProgramatico)
+        public IActionResult Editar(ConteudoProgramatico entidade)
         {
-            _ConteudoProgramatico.Editar(ConteudoProgramatico);
+            _servico.Editar(entidade);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult Excluir(int id)
         {
-            _ConteudoProgramatico.Excluir(id);
+            _servico.Excluir(id);
             return Ok();
         }
     }

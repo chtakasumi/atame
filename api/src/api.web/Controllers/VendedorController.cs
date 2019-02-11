@@ -4,17 +4,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.web.Controllers
 {
-    [Route("api/tipoCurso")]
+    [Route("api/vendedor")]
     [ApiController]
-    public class TipoCursoController : ControllerBase
+    public class VendedorController : ControllerBase
     {
-        public readonly TipoCursoService _servico;
+        public readonly VendedorService _servico;
 
-        public TipoCursoController(TipoCursoService servico)
+        public VendedorController(VendedorService servico)
         {
             _servico = servico;
         }
-
 
         [HttpGet("model")]
         public IActionResult GetModel()
@@ -24,25 +23,25 @@ namespace api.web.Controllers
         }
 
         [HttpPost("listar")]
-        public IActionResult Listar(TipoCurso entidade)
+        public IActionResult Listar(Vendedor entidade)
         {
             return Ok(_servico.Listar(entidade));
         }
 
         [HttpGet("{descricao}")]
-        public IActionResult GetTipoCurso(string descricao)
+        public IActionResult GetVendedor(string descricao)
         {            
             return Ok(_servico.Lov(descricao));
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(TipoCurso entidade)
+        public IActionResult Cadastrar(Vendedor entidade)
         {       
             return Ok(_servico.Cadastrar(entidade));
         }
 
         [HttpPut]
-        public IActionResult Editar(TipoCurso entidade)
+        public IActionResult Editar(Vendedor entidade)
         {
             _servico.Editar(entidade);
             return Ok();

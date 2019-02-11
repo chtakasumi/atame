@@ -19,6 +19,8 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new TipoCursoMap());
             modelBuilder.ApplyConfiguration(new DocenteMap());
             modelBuilder.ApplyConfiguration(new ConteudoProgramaticoMap());
+            modelBuilder.ApplyConfiguration(new VendedorMap());
+
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -28,6 +30,7 @@ namespace api.infra
         public DbSet<TipoCurso> TipoCursos { get; set; }
         public DbSet<Docente> Docentes { get; set; }
         public DbSet<ConteudoProgramatico> ConteudoProgramaticos { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }
 
     }
 }

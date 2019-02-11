@@ -20,12 +20,14 @@ namespace api.web
             services.AddScoped<TipoCursoService>();
             services.AddScoped<DocenteService>();
             services.AddScoped<ConteudoProgramaticoService>();
+            services.AddScoped<VendedorService>();
 
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<ITipoCursoRepository, TipoCursoRepository>();
             services.AddTransient<IDocenteRepository, DocenteRepository>();
             services.AddTransient<IConteudoProgramaticoRepository, ConteudoProgramaticoRepository>();
+            services.AddTransient<IVendedorRepository, VendedorRepository>();
 
         }
     }

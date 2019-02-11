@@ -8,50 +8,50 @@ namespace api.web.Controllers
     [ApiController]
     public class DocenteController : ControllerBase
     {
-        public readonly DocenteService _Docente;
+        public readonly DocenteService _servico;
 
-        public DocenteController(DocenteService docente)
+        public DocenteController(DocenteService servico)
         {
-            _Docente = docente;
+            _servico = servico;
         }
 
 
         [HttpGet("model")]
         public IActionResult GetModel()
         {
-            string usuario = _Docente.ModelSerializale();
+            string usuario = _servico.ModelSerializale();
             return Ok(usuario);
         }
 
         [HttpPost("listar")]
-        public IActionResult Listar(Docente docente)
+        public IActionResult Listar(Docente entidade)
         {
-            return Ok(_Docente.Listar(docente));
+            return Ok(_servico.Listar(entidade));
         }
 
         [HttpGet("{descricao}")]
         public IActionResult GetTipoCurso(string descricao)
         {
-            return Ok(_Docente.Lov(descricao));
+            return Ok(_servico.Lov(descricao));
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Docente docente)
+        public IActionResult Cadastrar(Docente entidade)
         {
-            return Ok(_Docente.Cadastrar(docente));
+            return Ok(_servico.Cadastrar(entidade));
         }
 
         [HttpPut]
-        public IActionResult Editar(Docente docente)
+        public IActionResult Editar(Docente entidade)
         {
-            _Docente.Editar(docente);
+            _servico.Editar(entidade);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult Excluir(int id)
         {
-            _Docente.Excluir(id);
+            _servico.Excluir(id);
             return Ok();
         }
     }

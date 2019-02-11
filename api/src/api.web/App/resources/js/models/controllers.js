@@ -57,6 +57,11 @@ app.controller('conteudoProgramaticoCtrl', ['$scope', 'alertService', 'parm', fu
     extendsAbstractController($scope, alertService, parm);
 }]);
 
+//comportamento da pagina vendedor
+app.controller('vendedorCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm);
+}]);
+
 //funções em commun para telas de cadastros
 function extendsAbstractController($scope, alertService, parm, func) {
 
@@ -107,9 +112,8 @@ function extendsAbstractController($scope, alertService, parm, func) {
 
     //não muda
     $scope.voltar = function (form) {       
-        form.$setPristine();
-        $Pesquisa = false;
-        form.$pristine = true;
+        resetaForm(form);
+        $Pesquisa = false;      
         modoEdicao(false);
     }
 
@@ -169,20 +173,13 @@ function extendsAbstractController($scope, alertService, parm, func) {
 
         if (form.$valid) {
             //validacoes       
-            $$Servico.salvar($scope.model, function (dados) {
-                limparFormulario()
-                modoEdicao(false);
-                form.$setPristine();
+            $$Servico.salvar($scope.model, function (dados) {               
+                resetaForm(form);
+                limparFormulario()            
+                modoEdicao(false);               
                 alertService.getSucesso("Dados salvo com sucesso");
             });
         }
-
-        //angular.forEach(form.$error.required, function (field) {         
-        //    field.$setDirty();
-        //});
-        //angular.forEach(form.$error.min, function (field) {
-        //    field.$setDirty();
-        //});       
     }
 
     $scope.GetValidFormGrupoClass = function (componente) {
@@ -200,6 +197,12 @@ function extendsAbstractController($scope, alertService, parm, func) {
 
     $scope.GetValidMessages = function (componente) {
         return componente.$invalid && (componente.$touched || componente.$dirty)
+    }
+
+    function resetaForm(form){        
+        form.$setPristine();
+        form.$setUntouched();
+        form.$submitted = false;        
     }
 }
 

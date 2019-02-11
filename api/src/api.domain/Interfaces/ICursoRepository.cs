@@ -8,6 +8,6 @@ namespace api.domain.Interfaces
 {
     public interface ICursoRepository : IRepository<Curso>
     {
-        IEnumerable<Curso> Listar(CursoListarVo cursoVo);
+        IEnumerable<Curso> Listar(CursoDTO cursoVo);
     }
 }

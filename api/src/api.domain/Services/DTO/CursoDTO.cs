@@ -1,6 +1,6 @@
 ﻿namespace api.domain.Services.DTO
 {
-    public class CursoListarVo
+    public class CursoDTO
     {
         public int? Id { get; set; }
         public string Nome { get; set; }
