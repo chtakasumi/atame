@@ -31,7 +31,7 @@
                         </ui-select>
                     </div>
                 </div>
-                <div class="col-lg-12 pull-right">
+                <div class="col-md-12 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
                             <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
@@ -81,78 +81,96 @@
     <form name="form" novalidate ng-show="painelEditar">
         <div class="panel panel-default">
             <div class="panel-heading">{{titulo}}</div>
+
+            <!--//nav-->
+            <ul class="nav nav-tabs">
+                <li class="active"><a role="button" data-toggle="tab" data-target="#curso"><span class="title-tabs">Curso</span></a></li>
+                <li><a role="button" data-toggle="tab" data-target="#docente"><span class="title-tabs">Víncular Docente</span></a></li>
+                <li><a role="button" data-toggle="tab" data-target="#vincularConteudo"><span class="title-tabs">Víncular Conteúdo Programático</span></a></li>
+            </ul>
+
             <div class="panel-body">
+                <div class="tab-content">
+                    <div id="curso" class="tab-pane fade in active">
+                        <div class="form-group">
+                            <label for="Codigo" class="control-label">Código</label>
+                            <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
+                        </div>
 
-                <div class="form-group">
-                    <label for="Codigo" class="control-label">Código</label>
-                    <input type="text" ng-model="model.id" class="form-control" id="Codigo" name="Codigo" placeholder="Código" disabled>
-                </div>
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.nome)">
+                            <label for="nome" class="control-label">Nome</label>
+                            <input type="text" ng-model="model.nome" class="
+                       form-control" id="nome" name="nome" placeholder="Nome" required maxlength="40">
 
-                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.nome)">
-                    <label for="nome" class="control-label">Nome</label>
-                    <input type="text" ng-model="model.nome" class="
-                       form-control" id="nome" name="nome" placeholder="Nome" required  maxlength="40">
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.nome)"></span>
+                            <ng-messages for="form.nome.$error" ng-show="GetValidMessages(form.nome)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter. Tamanho máximo permitido 40 caracter</ng-message>
+                            </ng-messages>
+                        </div>
 
-                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.nome)"></span>
-                    <ng-messages for="form.nome.$error" ng-show="GetValidMessages(form.nome)">
-                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter. Tamanho máximo permitido 40 caracter</ng-message>                       
-                    </ng-messages>
-                </div>   
-                
-                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.tipoCurso)">
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.tipoCurso)">
 
-                    <label for="tipoCurso" class="control-label">Tipo Curso</label>
+                            <label for="tipoCurso" class="control-label">Tipo Curso</label>
 
-                    <ui-select input-id="tipoCurso" name="tipoCurso" ng-model="model.tipoCurso" required on-select="selecionar($item)" spinner-enabled="true">
-                        <ui-select-match placeholder="**Selecione um tipo de curso**">
-                            <span ng-bind="$select.selected.descricao"></span>
-                        </ui-select-match>
-                        <ui-select-choices repeat="item in (listaTipoCurso | filter: $select.search) track by item.id"
-                                           refresh="buscarTipoCurso($select.search)" refresh-delay="0">
-                            <span ng-bind="item.descricao"></span>
-                        </ui-select-choices>
-                    </ui-select>
+                            <ui-select input-id="tipoCurso" name="tipoCurso" ng-model="model.tipoCurso"
+                                       required on-select="selecionarTipoCurso($item)" spinner-enabled="true">
+                                <ui-select-match placeholder="**Selecione um tipo de curso**">
+                                    <span ng-bind="$select.selected.descricao"></span>
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in (listaTipoCurso | filter: $select.search) track by item.id"
+                                                   refresh="buscarTipoCurso($select.search)" refresh-delay="0">
+                                    <span ng-bind="item.descricao"></span>
+                                </ui-select-choices>
+                            </ui-select>
 
-                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.tipoCurso)"></span>
-                    <ng-messages for="form.tipoCurso.$error" ng-show="GetValidMessages(form.tipoCurso)">
-                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>                        
-                    </ng-messages>
-                
-                </div>
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.tipoCurso)"></span>
+                            <ng-messages for="form.tipoCurso.$error" ng-show="GetValidMessages(form.tipoCurso)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                            </ng-messages>
 
-                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.preco)">
-                    <label for="preco" class="control-label">Preço</label>
-                    <input type="text" ng-model="model.preco" ui-money-mask class="form-control" id="preco"
-                           name="preco" placeholder="Preço" required min="0.01" max="99999999.99">
-                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.preco)"></span>
-                    <ng-messages for="form.preco.$error" ng-show="GetValidMessages(form.preco)">
-                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                        <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
-                        <ng-message when="max" class="has-error-text">*Estorou número máximo de caracter</ng-message>
-                    </ng-messages>
-                </div>
+                        </div>
 
-                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.descricao)">
-                    <label for="descricao" class="control-label">Descrição</label>
-                    <textarea type="text" ng-model="model.descricao" class="form-control" id="descricao"
-                           name="descricao" placeholder="Descrição" maxlength="500" rows="4">            
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.preco)">
+                            <label for="preco" class="control-label">Preço</label>
+                            <input type="text" ng-model="model.preco" ui-money-mask class="form-control" id="preco"
+                                   name="preco" placeholder="Preço" required min="0.01" max="99999999.99">
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.preco)"></span>
+                            <ng-messages for="form.preco.$error" ng-show="GetValidMessages(form.preco)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="max" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                            </ng-messages>
+                        </div>
+
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.descricao)">
+                            <label for="descricao" class="control-label">Descrição</label>
+                            <textarea type="text" ng-model="model.descricao" class="form-control" id="descricao"
+                                      name="descricao" placeholder="Descrição" maxlength="500" rows="4">            
                     </textarea>
 
-                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.descricao)"></span>
-                    <ng-messages for="form.descricao.$error" ng-show="GetValidMessages(form.descricao)">
-                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
-                    </ng-messages>
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.descricao)"></span>
+                            <ng-messages for="form.descricao.$error" ng-show="GetValidMessages(form.descricao)">
+                                <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                            </ng-messages>
+                        </div>
+                    </div>
+                    <div id="docente" class="tab-pane fade">
+                        <div ng-include="'./view/cursoDocentePartial.html'"></div>
+                    </div>
+                    <div id="vincularConteudo" class="tab-pane fade">
+                        <div ng-include="'./view/cursoConteudoProgramaticoPartial.html'"></div>
+                    </div>
                 </div>
-
             </div>
+
             <div class="panel-footer">
                 <div class="form-group">
                     <div class="btn-group">
                         <button class="btn btn-success" ng-click="salvar(form)">
                             <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
                         </button>
-                        <button class="btn btn-default" ng-click="voltar(form)">
+                        <button class="btn btn-default" ng-click="antesDeVoltar(form)">
                             <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
                         </button>
                     </div>
@@ -160,4 +178,6 @@
             </div>
         </div>
     </form>
+
+
 </div>

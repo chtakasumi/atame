@@ -28,10 +28,22 @@ namespace api.infra.EntityConfig
             builder.Property(c => c.TipoCursoId)
                 .HasColumnName("tipoCursoId");
             
-            builder.HasOne(c => c.TipoCurso)         
-               .WithMany()
-               .HasForeignKey(x => x.TipoCursoId)           
+            builder.HasOne(c => c.TipoCurso).WithMany()
+                .HasForeignKey(c => c.TipoCursoId)   
+               .HasPrincipalKey(x=>x.Id)             
                .OnDelete(DeleteBehavior.Restrict);
+         
+            builder.HasMany(c => c.Docentes)
+                .WithOne(cd => cd.Curso)
+                .HasForeignKey(cd=>cd.CursoId)
+                .HasPrincipalKey(c => c.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            builder.HasMany(c => c.ConteudosProgramaticos)
+                .WithOne(cp => cp.Curso)
+               .HasForeignKey(cp => cp.CursoId)
+               .HasPrincipalKey(c => c.Id)
+               .OnDelete(DeleteBehavior.Cascade);
 
         }
        

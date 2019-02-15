@@ -51,10 +51,10 @@
 <body>
     <toaster-container toaster-options="{'time-out': 5000,'spinner':false}"></toaster-container>
 
-    <modal-container id="modalExcluir" backdrop="static" keyboard="true" buttonClose="true" title="Excluir" visible="showModalExcluir">
+    <modal-container id="modalConfirmar" backdrop="static" keyboard="true" buttonClose="true" title="{{tituloModal}}" visible="showModalConfirmar">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-warning"> Deseja exluir o registor: {{msg}}?</div>
+                <div class="alert alert-warning">{{msg}}</div>
             </div>
             <div class="col-md-12">
                 <button class="btn btn-default" ng-click="FecharModal()">Cancelar</button>

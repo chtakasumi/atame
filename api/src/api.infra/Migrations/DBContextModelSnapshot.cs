@@ -68,6 +68,44 @@ namespace api.infra.Migrations
                     b.ToTable("Curso");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.CursoConteudoProgramatico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ConteudoProgramaticoId");
+
+                    b.Property<int>("CursoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConteudoProgramaticoId");
+
+                    b.HasIndex("CursoId");
+
+                    b.ToTable("CursoConteudoProgramatico");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.CursoDocente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CursoId");
+
+                    b.Property<int>("DocenteId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CursoId");
+
+                    b.HasIndex("DocenteId");
+
+                    b.ToTable("CursoDocente");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Docente", b =>
                 {
                     b.Property<int?>("Id")
@@ -227,6 +265,32 @@ namespace api.infra.Migrations
                         .WithMany()
                         .HasForeignKey("TipoCursoId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.CursoConteudoProgramatico", b =>
+                {
+                    b.HasOne("api.domain.Entity.ConteudoProgramatico", "ConteudoProgramatico")
+                        .WithMany()
+                        .HasForeignKey("ConteudoProgramaticoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("api.domain.Entity.Curso", "Curso")
+                        .WithMany("ConteudosProgramaticos")
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.CursoDocente", b =>
+                {
+                    b.HasOne("api.domain.Entity.Curso", "Curso")
+                        .WithMany("Docentes")
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("api.domain.Entity.Docente", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("api.domain.Entity.GrupoUsuario", b =>

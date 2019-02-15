@@ -50,6 +50,10 @@ h1 {
     filter: alpha(opacity=20);
     opacity: 1;
 }
+.margin-top-label {
+    margin-top:24px;
+}
+
 .panel-heading {
     padding: 10px 15px;
     border-top: 1px solid transparent;
@@ -64,6 +68,10 @@ ul .dropdown-menu {
 li .dropdown-item a{
     color: aliceblue;
 }
+.title-tabs {
+    color: #337ab7;
+}
+
 .logo-menu {
     width: 90px;
     margin-top: -19px;
@@ -114,9 +122,9 @@ li .dropdown-item a{
     margin-top: 7%;
 }
 
-.edicao{
-   
-    width: 101px;
+.edicao {
+    /*width: 101px;*/
+    width: 10%;
 }
 
 .edicao-agendamento{   
@@ -141,10 +149,45 @@ li .dropdown-item a{
     transition:all linear 0.7s;
 }
 
-.ng-hide {
-    height: 0;
-    width: 0;
-    background-color: transparent;
-    top:-200px;
-    left: 200px;     
-  }
+/*table*/
+tr.title-table {
+    background-color: #a94442;
+    color: white;
+}
+
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+    opacity: 0.9;
+    color: #ffde3a;
+}
+
+
+
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #a94442;
+    border-color: #a94442;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #ba131a;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+div.dataTables_info {
+    color: #a94442;
+}
+
+.dataTables_length>label {
+    color: #a94442;
+}

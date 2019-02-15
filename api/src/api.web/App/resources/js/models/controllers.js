@@ -1,51 +1,104 @@
 var app = angular.module('main');
 
 //comportamento da pagina login
-app.controller('loginCtrl', function ($scope, autenticacaoService, $location) {
-    $scope.autenticar = function () {        
+app.controller('loginCtrl', ['$scope', 'autenticacaoService', '$location', function ($scope, autenticacaoService, $location) {
+    $scope.autenticar = function () {
         autenticacaoService.autenticar($scope.login, $scope.senha, function (chave) {
             if (chave) {
                 $location.path("/home");
             }
-        });       
+        });
     }
-});
+}]);
 
 app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
 
-    this.$$TipoCursoService = null
-
     extendsAbstractController($scope, alertService, parm, function () {
+
+        $scope.antesDeVoltar = function (form) {           
+            var listaItemconteudo = $scope.model.conteudosProgramaticos.filter(item => item.id == 0);
+            var listaItemdocente = $scope.model.docentes.filter(item => item.id == 0);
+            
+            if (listaItemdocente.length > 0) {
+                $scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba {VINCULO DE  DOCENTE}. Deseja sair memo assim? Os dados vinculados serao perdidos.", form, function (form) {
+                    if (listaItemconteudo.length > 0) {
+                        $scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba  {VINCULO DE CONTEUDOS PROGRAMATICOS}. Deseja sair memo assim? Os dados vinculados serao perdidos.", form, function (form) {
+                            $scope.voltar(form)
+                        });
+                    } else {
+                        $scope.voltar(form)
+                    }    
+                });
+            } else {
+                $scope.voltar(form)
+            }                   
+        }
+
+        //************TIPO CURSO*******************//
         $$TipoCursoService = parm.tipoCursoService();
+
+        //CADASTRO
+        $scope.buscarTipoCurso = function (filtro) {
+            $$TipoCursoService.lov(filtro, function (data) {
+                $scope.listaTipoCurso = data;
+            });
+        }
+        $scope.selecionarTipoCurso = function (item) {
+            $scope.model.tipoCursoId = item.id;
+        }
+
+        //FILTRO
+        $scope.buscarTipoCursoPesquisa = function (fitro) {
+            $$TipoCursoService.lov(fitro, function (data) {
+                $scope.listaTipoCursoPesquisa = data;
+            });
+        }
+        $scope.selecionarPesquisa = function (item) {
+            $scope.filtros.tipoCursoId = item.id;
+        }
+        //*****************FIM TIPO CURSO*************//
+        
+        //***VINCULAR CONTEUDO PROGRAMATICO***//       
+        var param1 = {
+            scopePartial: $scope.cursoConteudoProgramatico = {},
+            servicoVinculo: parm.cursoConteudoProgramaticoService(),
+            servicoLov: parm.conteudoProgramaticoService(),
+            nomeAtributoFK01: "cursoId",
+            nomeAtributoFK02: "conteudoProgramaticoId",
+            nomeTabelaLov: 'conteudoProgramatico',
+            model: $scope.model,
+            alertService: alertService,
+            funcGrid: function () {
+                return $scope.model.conteudosProgramaticos;
+            }
+        };
+        vincular(param1);
+        //***FIM CONTEUDO PROGRAMATICO***//
+        
+        //***VINCULAR DOCENTE***//
+        $scope.cursoDocente = {};
+        var param2 = {
+            scopePartial: $scope.cursoDocente,
+            servicoVinculo: parm.cursoDocenteService(),
+            servicoLov: parm.docenteService(),
+            nomeAtributoFK01: "cursoId",
+            nomeAtributoFK02: "docenteId",
+            nomeTabelaLov: 'docente',
+            model: $scope.model,
+            alertService: alertService,
+            funcGrid: function () {
+                return $scope.model.docentes;
+            }
+        };
+        vincular(param2);
+        //***FIM VINCULAR DOCENTE***//
+
     });
-   
-    //pesquisa tipoCurso (cadastro)
-    $scope.buscarTipoCurso = function (filtro) {
-        $$TipoCursoService.lov(filtro, function (data) {
-            $scope.listaTipoCurso = data;
-        });
-    }
 
-    $scope.selecionar = function (item) {
-        $scope.model.tipoCursoId = item.id;
-    }
-
-    ////pesquisa  tipoCurso (Pesquisa)
-    $scope.buscarTipoCursoPesquisa = function (fitro) {
-        $$TipoCursoService.lov(fitro, function (data) {
-            $scope.listaTipoCursoPesquisa = data;
-        });
-    }
-
-    $scope.selecionarPesquisa = function (item) {
-        $scope.filtros.tipoCursoId = item.id;
-    }
-
-    
 }]);
 
-app.controller('tipoCursoCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {   
-    extendsAbstractController($scope, alertService, parm);  
+app.controller('tipoCursoCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm);
 }]);
 
 //comportamento da pagina docente
@@ -79,8 +132,8 @@ function extendsAbstractController($scope, alertService, parm, func) {
         $$Filtros = parm.filter();
         $$Pesquisa = true;
         init();
-        
-        func = (func) ? func() : func;
+
+        func = (func) ? func($$Model) : func;
     });
 
     //não muda
@@ -111,9 +164,9 @@ function extendsAbstractController($scope, alertService, parm, func) {
     }
 
     //não muda
-    $scope.voltar = function (form) {       
+    $scope.voltar = function (form) {
         resetaForm(form);
-        $Pesquisa = false;      
+        $Pesquisa = false;
         modoEdicao(false);
     }
 
@@ -168,15 +221,15 @@ function extendsAbstractController($scope, alertService, parm, func) {
     $scope.salvar = function (form) {
 
         angular.forEach(form.$$controls, function (field) {
-          field.$setDirty();
+            field.$setDirty();
         });
 
         if (form.$valid) {
             //validacoes       
-            $$Servico.salvar($scope.model, function (dados) {               
+            $$Servico.salvar($scope.model, function (dados) {
                 resetaForm(form);
-                limparFormulario()            
-                modoEdicao(false);               
+                limparFormulario()
+                modoEdicao(false);
                 alertService.getSucesso("Dados salvo com sucesso");
             });
         }
@@ -199,10 +252,80 @@ function extendsAbstractController($scope, alertService, parm, func) {
         return componente.$invalid && (componente.$touched || componente.$dirty)
     }
 
-    function resetaForm(form){        
+    function resetaForm(form) {
         form.$setPristine();
         form.$setUntouched();
-        form.$submitted = false;        
+        form.$submitted = false;
+    }
+}
+
+//funções em commun para telas de vinculos
+function vincular (param) {
+
+    //parametros esperados para vincular o modelo principal ao modelo de ligação
+    var scopePartial = param.scopePartial,
+        servicoVinculo = param.servicoVinculo,
+        servicoLov = param.servicoLov,
+        nomeAtributoFK01 = param.nomeAtributoFK01,
+        nomeAtributoFK02 = param.nomeAtributoFK02,
+        nomeTabelaLov = param.nomeTabelaLov,
+        model = param.model,
+        alertService = param.alertService,
+        funcGrid = param.funcGrid
+
+    //carregaModelos
+    servicoVinculo.model(function (model) {
+        scopePartial.model = angular.copy(model);
+    });
+
+
+    ////pesquisa  tipoCurso (filtro)
+    scopePartial.listar = function (fitro) {
+        servicoLov.lov(fitro, function (data) {
+            scopePartial.data = data;
+        });
+    }
+
+    scopePartial.selected = function (item) {
+        scopePartial.model[nomeAtributoFK01] = model.id;
+        scopePartial.model[nomeAtributoFK02] = item["id"];
+        scopePartial.model[nomeTabelaLov] = item;
+    }
+
+    /////aba vincular
+    scopePartial.vincular = function () {
+
+        if (!scopePartial.model.item) {
+            alertService.getAdvertencia("Selecione um item para vinculo.");
+            return;
+        }
+
+        if (funcGrid().filter(function (item) {
+
+            return (item[nomeAtributoFK02] == scopePartial.model[nomeTabelaLov]["id"])
+        }).length > 0) {
+            alertService.getAdvertencia("Este elemente ja adicionado");
+            return;
+        }
+
+        delete scopePartial.model['item'];
+
+        funcGrid().push(angular.copy(scopePartial.model));
+
+    }
+
+    ///aba vincular docente
+    scopePartial.desvincular = function (element) {
+        if (element.id == 0) {
+            funcGrid().splice(funcGrid().indexOf(element), 1);//limpar da tela
+            // funcAtualizaGrid(gridVinculoModel);
+            return;
+        }
+
+        servicoVinculo.desvincular(element.id, function () {
+            funcGrid().splice(funcGrid().indexOf(element), 1);//limpar da tela           
+            alertService.getSucesso("Registro excluido com sucesso");
+        });
     }
 }
 

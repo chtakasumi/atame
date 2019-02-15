@@ -17,10 +17,11 @@ mymodal.directive('modalContainer', function () {
         replace: true,
         scope: true,
         link: function postLink(scope, element, attrs) {
-
-            scope.title = attrs.title;
+            
             scope.buttonclose = JSON.parse(attrs.buttonclose);
 
+            //scope.title = element[0].title; 
+           
             scope.$watch(attrs.visible, function (value) {              
                     if (value == true) {
                         $(element).modal({
@@ -32,25 +33,11 @@ mymodal.directive('modalContainer', function () {
                         $(element).modal('hide');
                     }                   
             });
-
-            function facaDisgestao() {
-                setTimeout(function () {
-                    if ($rootScope.$$phase != '$apply' && $rootScope.$$phase != '$digest') {
-                        $rootScope.$apply();
-                    }
-                }, 500);
-            }
-            //scope.$on('modal-open', function () {
-            //    attrs.visible = true;
-            //});
-
-            //scope.$on('modal-close', function () {
-            //    attrs.visible = false;
-            //});
-
             $(element).on('shown.bs.modal', function () {
                 scope.$apply(function () {
+                    scope.title = element[0].title; 
                     scope.$parent[attrs.visible] = true;
+                    
                 });
             });
 

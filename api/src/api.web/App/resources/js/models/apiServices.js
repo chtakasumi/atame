@@ -34,7 +34,17 @@ function (consumerService, $window, $location) {
 
 app.factory("cursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "curso";
-   return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);      
+}]);
+
+app.factory("cursoDocenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "curso/docente";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
+}]);
+
+app.factory("cursoConteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "curso/conteudo";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);    
 }]);
 
 app.factory("tipoCursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
@@ -51,6 +61,7 @@ app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', fun
     var baseUrl = "conteudoProgramatico";
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);  
 }]);
+
 app.factory("vendedorService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "vendedor";
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);
@@ -104,12 +115,21 @@ function extendsAbstractServices(baseUrl, consumerService, $rootScope){
         });
     };
 
+    var _desvincular = function (id, callBack) {
+        var url = baseUrl + "?id=" + id;
+        $rootScope.Loading(true, "DELETE: " + url);
+        consumerService.delete(url, function () {
+            callBack();
+        });
+    }
+
     return {
         model: _model,
         lov: _lov,
         listar: _listar,
         salvar: _salvar,
-        excluir: _excluir
+        excluir: _excluir,
+        desvincular: _desvincular
     };
 }
 

@@ -15,14 +15,27 @@ namespace api.web.Controllers
         {
             _servico = servico;
         }
-
-
+        
         [HttpGet("model")]
         public IActionResult GetModel()
         {
             string usuario = _servico.ModelSerializale();
             return Ok(usuario);
         }
+
+        [HttpGet("docente/model")]
+        public IActionResult GetModelCursoDocente()
+        {
+            string cursoDocente = _servico.ModelCursoDocenteSerializale();
+            return Ok(cursoDocente);
+        }
+
+        [HttpGet("conteudo/model")]
+        public IActionResult GetModelCursoConteudo()
+        {
+            string cursoConteudo = _servico.ModelCursoConteudoProgramaticoSerializale();
+            return Ok(cursoConteudo);
+        }        
 
         [HttpGet("{descricao}")]
         public IActionResult GetTipoCurso(string descricao)
@@ -40,7 +53,7 @@ namespace api.web.Controllers
         public IActionResult Cadastrar(Curso entidade)
         {
             return Ok(_servico.Cadastrar(entidade));
-        }
+        }                
 
         [HttpPut]
         public IActionResult Editar(Curso entidade)
@@ -55,5 +68,34 @@ namespace api.web.Controllers
             _servico.Excluir(id);
             return Ok();
         }
+
+
+        [HttpPost("docente")]
+        public IActionResult VincularDocente(CursoDocente entidade)
+        {
+            return Ok(_servico.VincularDocente(entidade));
+        }
+
+        [HttpDelete("docente")]
+        public IActionResult ExcluirVinculoDocente(int id)
+        {
+            _servico.ExcluirVinculoDocente(id);
+            return Ok();
+        }
+        
+        [HttpDelete("conteudo")]
+        public IActionResult ExcluirVinculoConteudo(int id)
+        {
+            _servico.ExcluirVinculoConteudoProgramatico(id);
+            return Ok();
+        }
+
+        [HttpPost("conteudo")]
+        public IActionResult VincularConteudo(CursoConteudoProgramatico entidade)
+        {
+            return Ok(_servico.VincularConteudoProgramatico(entidade));
+        }
+        
+
     }
 }

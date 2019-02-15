@@ -12,6 +12,7 @@ app.constant('configConst', {
 //permissão e autorização
 app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDefaultOptions, DTColumnDefBuilder) {
 
+    //configuracao da Tables
     DTDefaultOptions.setLanguageSource(configConst.baseUrl + '/resources/js/plugins/data-table/Portuguese-Brasil.Json');
     DTDefaultOptions.setLoadingTemplate('<img src="' + configConst.baseUrl + '/resources/img/ajax-loader.gif">');
     DTDefaultOptions.setOption("filter", false);
@@ -45,19 +46,23 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 
     //modal
     $rootScope.modalExcluir = function (func, id, descricao) {
-        $rootScope.showModalExcluir = true;  //abre modal
+        var msg = "Deseja exluir o registor:" + descricao;
+        $rootScope.modalConfirmar("Excluir", msg, id, func);
+    }
 
+    $rootScope.modalConfirmar = function (titulo, descricao, param, func) {
+        $rootScope.showModalConfirmar = true;  //abre modal
+        $rootScope.tituloModal = titulo;
         $rootScope.msg = descricao;
 
         $rootScope.Confirmar = function () {
-            $rootScope.showModalExcluir = false; //fecha modal
-            func(id); //executa funcao de exclusão           
+            $rootScope.showModalConfirmar = false; //fecha modal
+            func(param); //executa funcao de exclusão           
         }
 
         $rootScope.FecharModal = function () {
-            $rootScope.showModalExcluir = false;
+            $rootScope.showModalConfirmar = false;
         }
-
     }
 
     //loading
@@ -120,13 +125,15 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "curso.html",
                 controller: 'cursoCtrl',
                 resolve: {
-                    parm: function (cursoService, tipoCursoService) {
+                    parm: function (cursoService, tipoCursoService, docenteService, conteudoProgramaticoService, cursoDocenteService, cursoConteudoProgramaticoService) {
                         return {
                             titulo: function () {
                                 return "Curso";
                             },
                             filter: function () {
-                                return { id: null, nome: null, tipoCursoId: null };
+                                return {
+                                    id: null, nome: null, tipoCursoId: null
+                                };
                             },
                             service: function () {
                                 return cursoService;
@@ -138,6 +145,18 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             tipoCursoService: function () {
                                 return tipoCursoService;
+                            },
+                            docenteService: function () {
+                                return docenteService;
+                            },
+                            conteudoProgramaticoService: function () {
+                                return conteudoProgramaticoService;
+                            },
+                            cursoDocenteService: function () {
+                                return cursoDocenteService;
+                            },
+                            cursoConteudoProgramaticoService: function () {
+                                return cursoConteudoProgramaticoService;
                             },
                         }
                     }
@@ -217,7 +236,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
-             .when("/vendedor", {
+            .when("/vendedor", {
                 templateUrl: configConst.baseUrlView + "vendedor.html",
                 controller: 'vendedorCtrl',
                 resolve: {
@@ -242,7 +261,6 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 }
             })
             .otherwise('/home');
-
     }]);
 
 app.factory("consumerService", ['$http', 'configConst', function ($http, configConst) {
@@ -335,8 +353,8 @@ app.factory('httpInterceptor', ['$q', '$rootScope', 'alertService', '$location',
                 $rootScope.showModalLoading = false;
                 $rootScope.msg = "";
                 $rootScope.facaDisgestao();
-            },1000);
-           
+            }, 1000);
+
         }
 
         return {

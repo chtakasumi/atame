@@ -30,7 +30,7 @@ namespace api.infra
         public DbSet<TipoCurso> TipoCursos { get; set; }
         public DbSet<Docente> Docentes { get; set; }
         public DbSet<ConteudoProgramatico> ConteudoProgramaticos { get; set; }
-        public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Vendedor> Vendedores { get; set; }     
 
     }
 }
