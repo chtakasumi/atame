@@ -22,6 +22,7 @@
     <None Remove="App\resources\css\bootstrap.min.css" />
     <None Remove="App\resources\css\bootstrap.min.css.map" />
     <None Remove="App\resources\css\dataTables.bootstrap.css" />
+    <None Remove="App\resources\css\datepicker3.css" />
     <None Remove="App\resources\css\jquery-ui.min.css" />
     <None Remove="App\resources\css\select.css" />
     <None Remove="App\resources\css\select2.css" />
@@ -68,6 +69,7 @@
     <None Remove="App\resources\js\models\controllers.js" />
     <None Remove="App\resources\js\models\main.js" />
     <None Remove="App\resources\js\plugins\form-validation\form-validation.js" />
+    <None Remove="App\resources\js\plugins\html-date\html-date.js" />
     <None Remove="App\resources\js\plugins\input-mask\angular-input-masks-standalone.js" />
     <None Remove="App\resources\js\plugins\modal-bootstrap\angularModalBootstrap.js" />
     <None Remove="App\resources\js\plugins\data-table\angular-datatables.js" />
@@ -75,17 +77,26 @@
     <None Remove="App\resources\js\plugins\data-table\jquery.dataTables.js" />
     <None Remove="App\resources\js\plugins\select2\select.js" />
     <None Remove="App\resources\js\plugins\toaster\toaster.js" />
+    <None Remove="App\resources\js\plugins\ui-mask\mask.js" />
     <None Remove="App\view\Componetes\menu.html" />
     <None Remove="App\view\conteudoProgramatico.html" />
     <None Remove="App\view\curso.html" />
+    <None Remove="App\view\cursoConteudoProgramaticoPartial.html" />
+    <None Remove="App\view\cursoDocentePartial.html" />
     <None Remove="App\view\docente.html" />
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
     <None Remove="App\view\municipio.html" />
     <None Remove="App\view\tipoCurso.html" />
     <None Remove="App\view\turma.html" />
+    <None Remove="App\view\turmaConteudoProgramaticoPartial.html" />
+    <None Remove="App\view\turmaDocentePartial.html" />
     <None Remove="App\view\UF.html" />
     <None Remove="App\view\vendedor.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App\resources\js\plugins\html-date\html-date.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -95,6 +106,7 @@
     <Content Include="App\resources\css\bootstrap.min.css" />
     <Content Include="App\resources\css\bootstrap.min.css.map" />
     <Content Include="App\resources\css\dataTables.bootstrap.css" />
+    <Content Include="App\resources\css\datepicker3.css" />
     <Content Include="App\resources\css\jquery-ui.min.css" />
     <Content Include="App\resources\css\select.css" />
     <Content Include="App\resources\css\select2.css" />
@@ -148,10 +160,15 @@
     <Content Include="App\resources\js\plugins\data-table\jquery.dataTables.js" />
     <Content Include="App\resources\js\plugins\select2\select.js" />
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
+    <Content Include="App\resources\js\plugins\ui-mask\mask.js" />
     <Content Include="App\view\Componetes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
+    <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
+    <Content Include="App\view\cursoDocentePartial.html" />
     <Content Include="App\view\turma.html" />
     <Content Include="App\view\curso.html" />
+    <Content Include="App\view\turmaConteudoProgramaticoPartial.html" />
+    <Content Include="App\view\turmaDocentePartial.html" />
     <Content Include="App\view\uf.html" />
     <Content Include="App\view\municipio.html" />
     <Content Include="App\view\vendedor.html" />
