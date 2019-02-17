@@ -20,12 +20,12 @@
                     <div class="form-group">
                         <label for="tipoCursoPesquisa" class="sr-only">TipoCurso</label>
                         <ui-select ng-model="filtros.tipoCurso"
-                                   on-select="selecionarPesquisa($item)" spinner-enabled="true">
+                                   on-select="lovPesquisa.selecionar($item)" spinner-enabled="true">
                             <ui-select-match placeholder="**Selecione um tipo de curso**">
                                 <span ng-bind="$select.selected.descricao"></span>
                             </ui-select-match>
-                            <ui-select-choices repeat="item in (listaTipoCursoPesquisa | filter: $select.search) track by item.id"
-                                               refresh="buscarTipoCursoPesquisa($select.search)" refresh-delay="0">
+                            <ui-select-choices repeat="item in (lovPesquisa.dados  | filter: $select.search) track by item.id"
+                                               refresh="lovPesquisa.pesquisar($select.search)" refresh-delay="0">
                                 <span ng-bind="item.descricao"></span>
                             </ui-select-choices>
                         </ui-select>
@@ -114,12 +114,12 @@
                             <label for="tipoCurso" class="control-label">Tipo Curso</label>
 
                             <ui-select input-id="tipoCurso" name="tipoCurso" ng-model="model.tipoCurso"
-                                       required on-select="selecionarTipoCurso($item)" spinner-enabled="true">
+                                       required on-select="lovCadastro.selecionar($item)" spinner-enabled="true">
                                 <ui-select-match placeholder="**Selecione um tipo de curso**">
                                     <span ng-bind="$select.selected.descricao"></span>
                                 </ui-select-match>
-                                <ui-select-choices repeat="item in (listaTipoCurso | filter: $select.search) track by item.id"
-                                                   refresh="buscarTipoCurso($select.search)" refresh-delay="0">
+                                <ui-select-choices repeat="item in (lovCadastro.dados | filter: $select.search) track by item.id"
+                                                   refresh="lovCadastro.pesquisar($select.search)" refresh-delay="0">
                                     <span ng-bind="item.descricao"></span>
                                 </ui-select-choices>
                             </ui-select>

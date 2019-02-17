@@ -162,6 +162,32 @@ namespace api.infra.Migrations
                     b.ToTable("GrupoUsuario");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Municipio", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Codigo")
+                        .HasColumnName("codigo")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<int?>("UFId")
+                        .IsRequired()
+                        .HasColumnName("UFId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UFId");
+
+                    b.ToTable("Municipio");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Perfil", b =>
                 {
                     b.Property<int>("Id")
@@ -215,6 +241,98 @@ namespace api.infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoCurso");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Turma", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CursoId")
+                        .HasColumnName("cursoId");
+
+                    b.Property<DateTime?>("Fim")
+                        .HasColumnName("fimPrevisto")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("Identificacao")
+                        .IsRequired()
+                        .HasColumnName("Identificacao")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<DateTime?>("Inicio")
+                        .HasColumnName("inicioPrevisto")
+                        .HasColumnType("Date");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnName("preco")
+                        .HasColumnType("Decimal(10, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CursoId");
+
+                    b.ToTable("Turma");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.TurmaConteudoProgramatico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ConteudoProgramaticoId");
+
+                    b.Property<int>("TurmaId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConteudoProgramaticoId");
+
+                    b.HasIndex("TurmaId");
+
+                    b.ToTable("TurmaConteudoProgramatico");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.TurmaDocente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DocenteId");
+
+                    b.Property<int>("TurmaId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("TurmaId");
+
+                    b.ToTable("TurmaDocente");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.UF", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Sigla")
+                        .IsRequired()
+                        .HasColumnName("sigla")
+                        .HasColumnType("varchar(2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UF");
                 });
 
             modelBuilder.Entity("api.domain.Entity.Usuario", b =>
@@ -272,7 +390,7 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.ConteudoProgramatico", "ConteudoProgramatico")
                         .WithMany()
                         .HasForeignKey("ConteudoProgramaticoId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("api.domain.Entity.Curso", "Curso")
                         .WithMany("ConteudosProgramaticos")
@@ -290,7 +408,7 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.Docente", "Docente")
                         .WithMany()
                         .HasForeignKey("DocenteId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("api.domain.Entity.GrupoUsuario", b =>
@@ -306,6 +424,14 @@ namespace api.infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Municipio", b =>
+                {
+                    b.HasOne("api.domain.Entity.UF", "UF")
+                        .WithMany("Municipios")
+                        .HasForeignKey("UFId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("api.domain.Entity.PerfilGrupo", b =>
                 {
                     b.HasOne("api.domain.Entity.Grupo", "Grupo")
@@ -317,6 +443,40 @@ namespace api.infra.Migrations
                         .WithMany("PerfisGrupos")
                         .HasForeignKey("PerfilId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Turma", b =>
+                {
+                    b.HasOne("api.domain.Entity.Curso", "Curso")
+                        .WithMany()
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.TurmaConteudoProgramatico", b =>
+                {
+                    b.HasOne("api.domain.Entity.ConteudoProgramatico", "ConteudoProgramatico")
+                        .WithMany()
+                        .HasForeignKey("ConteudoProgramaticoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Turma", "Turma")
+                        .WithMany("ConteudosProgramaticos")
+                        .HasForeignKey("TurmaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.TurmaDocente", b =>
+                {
+                    b.HasOne("api.domain.Entity.Docente", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Turma", "Turma")
+                        .WithMany("Docentes")
+                        .HasForeignKey("TurmaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

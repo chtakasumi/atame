@@ -25,6 +25,8 @@ namespace api.infra.Repository
              .Include(c => c.Docentes).ThenInclude(c => c.Docente)
              .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico).Take(500);
 
+
+
             return ListaCursos.ToList();
         }
 

@@ -20,6 +20,14 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new DocenteMap());
             modelBuilder.ApplyConfiguration(new ConteudoProgramaticoMap());
             modelBuilder.ApplyConfiguration(new VendedorMap());
+            modelBuilder.ApplyConfiguration(new TurmaMap());
+            modelBuilder.ApplyConfiguration(new CursoDocenteMap());
+            modelBuilder.ApplyConfiguration(new CursoConteudoProgramaticoMap());
+            modelBuilder.ApplyConfiguration(new TurmaDocenteMap());            
+            modelBuilder.ApplyConfiguration(new TurmaConteudoProgramaticoMap());
+
+            modelBuilder.ApplyConfiguration(new MunicipioMap());
+            modelBuilder.ApplyConfiguration(new UFMap());           
 
         }
 
@@ -30,7 +38,11 @@ namespace api.infra
         public DbSet<TipoCurso> TipoCursos { get; set; }
         public DbSet<Docente> Docentes { get; set; }
         public DbSet<ConteudoProgramatico> ConteudoProgramaticos { get; set; }
-        public DbSet<Vendedor> Vendedores { get; set; }     
+        public DbSet<Vendedor> Vendedores { get; set; }
+        public DbSet<Turma> Turmas { get; set; }
+
+        public DbSet<Municipio> Municipios { get; set; }
+        public DbSet<UF> UFs { get; set; }
 
     }
 }

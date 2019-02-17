@@ -1,6 +1,6 @@
 //modulo principal
 var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables",
-    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages"]);
+    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages","html.date"]);
 
 //constantes
 app.constant('configConst', {
@@ -85,7 +85,7 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 //rotas de url amigaveis
 app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig',
     function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
-
+       
         $httpProvider.interceptors.push('httpInterceptor');
 
         $httpProvider.defaults.withCredentials = true;
@@ -157,6 +157,47 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             cursoConteudoProgramaticoService: function () {
                                 return cursoConteudoProgramaticoService;
+                            },
+                        }
+                    }
+                }
+            })
+            .when("/turma", {
+                templateUrl: configConst.baseUrlView + "turma.html",
+                controller: 'turmaCtrl',
+                resolve: {
+                    parm: function (turmaService, cursoService, docenteService, conteudoProgramaticoService, turmaDocenteService, turmaConteudoProgramaticoService) {
+                        return {
+                            titulo: function () {
+                                return "Turma";
+                            },
+                            filter: function () {
+                                return {
+                                    id: null, identificacao: null, cursoId: null, inicio: null, fim: null
+                                };
+                            },
+                            service: function () {
+                                return turmaService;
+                            },
+                            model: function (callBack) {
+                                return turmaService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            cursoService: function () {
+                                return cursoService;
+                            },
+                            docenteService: function () {
+                                return docenteService;
+                            },
+                            conteudoProgramaticoService: function () {
+                                return conteudoProgramaticoService;
+                            },
+                            turmaDocenteService: function () {
+                                return turmaDocenteService;
+                            },
+                            turmaConteudoProgramaticoService: function () {
+                                return turmaConteudoProgramaticoService;
                             },
                         }
                     }
@@ -255,6 +296,57 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return vendedorService.model(function (data) {
                                     return callBack(data);
                                 });
+                            }
+                        }
+                    }
+                }
+            })
+            .when("/uf", {
+                templateUrl: configConst.baseUrlView + "uf.html",
+                controller: 'ufCtrl',
+                resolve: {
+                    parm: function (ufService) {
+                        return {
+                            titulo: function () {
+                                return "UF";
+                            },
+                            filter: function () {
+                                return { id: null, nome: null , sigla:null};
+                            },
+                            service: function () {
+                                return ufService;
+                            },
+                            model: function (callBack) {
+                                return ufService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
+            .when("/municipio", {
+                templateUrl: configConst.baseUrlView + "municipio.html",
+                controller: 'municipioCtrl',
+                resolve: {
+                    parm: function (municipioService, ufService) {
+                        return {
+                            titulo: function () {
+                                return "Minicípio";
+                            },
+                            filter: function () {
+                                return { id: null, nome: null, codigo: null, uf:null };
+                            },
+                            service: function () {
+                                return municipioService;
+                            },
+                            model: function (callBack) {
+                                return municipioService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            ufService: function (callBack) {
+                                return ufService;
                             }
                         }
                     }

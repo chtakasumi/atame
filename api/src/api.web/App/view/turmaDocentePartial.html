@@ -1,0 +1,51 @@
+﻿<div class="row">
+     <div class="col-md-12">
+        <label for="turmaDocente" class="control-label">Docente</label>
+        <div class="input-group">
+            <ui-select input-id="turmaDocente" name="turmaDocente" on-select="turmaDocente.selected($item)"
+                       ng-model="turmaDocente.model.item"
+                       spinner-enabled="true">
+                <ui-select-match placeholder="**Selecione um Docente**">
+                    <span ng-bind="$select.selected.nome"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (turmaDocente.data | filter: $select.search) track by item.id"
+                                   refresh="turmaDocente.listar($select.search)" refresh-delay="0">
+                    <span ng-bind="item.nome"></span>
+                </ui-select-choices>
+            </ui-select>
+            <div class="input-group-btn">
+                <button class="btn btn-primary" ng-click="turmaDocente.vincular()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Vincular</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12 table-responsive">
+        <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+               id="GridViewDocente">
+            <thead>
+                <tr class="title-table">
+                    <th class="hide">Código</th>
+                    <th class="hide">Código turma</th>
+                    <th class="hide">Código Docente</th>
+                    <th>Nome</th>
+                    <th>Formação</th>
+                    <th class="edicao"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in model.docentes">
+                    <td class="hide">{{row.id}}</td>
+                    <td class="hide">{{row.turmaId}}</td>
+                    <td class="hide">{{row.docente.id}}</td>
+                    <td>{{row.docente.nome}}</td>
+                    <td>{{row.docente.formacao}}</td>
+                    <td class="edicao">
+                        <a class="btn btn-default btn-xs" ng-click="modalExcluir(turmaDocente.desvincular, row, row.docente.nome)"><i class="glyphicon glyphicon-remove"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>   
+</div>

@@ -8,12 +8,15 @@ namespace api.domain.Interfaces
     {
         IEnumerable<Curso> Listar(CursoDTO cursoVo);
 
+
+        CursoDocente PesquisarVinculoDocente(int id);      
+        CursoDocente VincularDocente(CursoDocente entidade);
         void ExcluirVinculoDocente(CursoDocente cd);
-        CursoDocente PesquisarVinculoDocente(int id);
 
         CursoConteudoProgramatico PesquisarVinculoConteudoProgramatico(int id);
-        void ExcluirVinculoConteudoProgramatico(CursoConteudoProgramatico ctp);
         CursoConteudoProgramatico VincularConteudoProgramatico(CursoConteudoProgramatico entidade);
-        CursoDocente VincularDocente(CursoDocente entidade);
+        void ExcluirVinculoConteudoProgramatico(CursoConteudoProgramatico ctp);
+        
+       
     }
 }

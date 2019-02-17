@@ -40,6 +40,12 @@ h1 {
     font-weight: lighter;
 }
 
+.toast-top-full-width {
+    top: 0;
+    right: 0;
+    width: 20%;
+}
+
 .close {
     float: right;
     font-size: 21px;
@@ -53,6 +59,22 @@ h1 {
 .margin-top-label {
     margin-top:24px;
 }
+.fieldset {
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px;
+}
+span.fieldset-title {
+    position: relative;
+    display: block;
+    font-weight: bold;
+    top: -11px;
+    margin-left:8px;
+    background-color: #fffdfc;
+    width: max-content;
+    
+}
 
 .panel-heading {
     padding: 10px 15px;
@@ -62,6 +84,7 @@ h1 {
     border-top-right-radius: 3px;
     border-bottom: 1px solid transparent;
 }
+
 ul .dropdown-menu {
     background-color: #ba131a;
 }
@@ -153,6 +176,7 @@ li .dropdown-item a{
 tr.title-table {
     background-color: #a94442;
     color: white;
+ 
 }
 
 table.dataTable thead .sorting_asc:after,

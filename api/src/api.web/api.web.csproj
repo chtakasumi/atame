@@ -81,7 +81,10 @@
     <None Remove="App\view\docente.html" />
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
+    <None Remove="App\view\municipio.html" />
     <None Remove="App\view\tipoCurso.html" />
+    <None Remove="App\view\turma.html" />
+    <None Remove="App\view\UF.html" />
     <None Remove="App\view\vendedor.html" />
   </ItemGroup>
 
@@ -147,7 +150,10 @@
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
     <Content Include="App\view\Componetes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
+    <Content Include="App\view\turma.html" />
     <Content Include="App\view\curso.html" />
+    <Content Include="App\view\uf.html" />
+    <Content Include="App\view\municipio.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />

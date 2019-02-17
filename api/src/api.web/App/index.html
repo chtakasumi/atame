@@ -9,11 +9,9 @@
 
     <link href="resources/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="resources/css/toaster.css" rel="stylesheet" />
-
     <link href="resources/css/dataTables.bootstrap.css" rel="stylesheet" />
-
     <link href="resources/css/select.css" rel="stylesheet" />
-
+    <link href="resources/css/datepicker3.css" rel="stylesheet" />
     <!--<link href="resources/css/select2.css" rel="stylesheet" />
     <link href="resources/css/selectize.default.css" rel="stylesheet" />-->
 
@@ -40,6 +38,8 @@
     <script src="resources/js/plugins/input-mask/angular-input-masks-standalone.js"></script>
     <script src="resources/js/plugins/modal-bootstrap/angularModalBootstrap.js"></script>
     <script src="resources/js/plugins/form-validation/form-validation.js"></script>
+    <script src="resources/js/plugins/html-date/html-date.js"></script>
+
     <!--modelos-->
     <script src="resources/js/models/main.js"></script>
     <script src="resources/js/models/apiServices.js"></script>
@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <toaster-container toaster-options="{'time-out': 5000,'spinner':false}"></toaster-container>
+    <toaster-container toaster-options="{'time-out': 4000,'spinner':false}"></toaster-container>
 
     <modal-container id="modalConfirmar" backdrop="static" keyboard="true" buttonClose="true" title="{{tituloModal}}" visible="showModalConfirmar">
         <div class="row">
@@ -96,11 +96,18 @@
                                    role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item"> <a href="#!tipoCurso">TipoCurso</a></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a></li>
                                     <li class="dropdown-item"> <a class="dropdown-item" href="#!docente">Docente</a> </li>
                                     <li class="dropdown-item"> <a class="dropdown-item" href="#!conteudoProgramatico">Conteúdo Programático</a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!vendedor">Vendedor</a></li>                                  
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!uf">UF</a></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!municipio">Município</a></li>
+                                    <li class="dropdown-divider"></li>
+
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!curso">Curso</a></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!turma">Turma</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-item"> <a class="dropdown-item" href="#!vendedor">Vendedor</a></li>
                                 </ul>
                             </li>
                         </ul>

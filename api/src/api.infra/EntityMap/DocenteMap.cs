@@ -19,8 +19,7 @@ namespace api.infra.EntityConfig
 
             builder.Property(c => c.Formacao)
                .HasColumnName("formacao")
-               .HasColumnType("varchar(100)").IsRequired();           
-
+               .HasColumnType("varchar(100)").IsRequired();
         }
        
     }

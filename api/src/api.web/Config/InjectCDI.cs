@@ -21,6 +21,9 @@ namespace api.web
             services.AddScoped<DocenteService>();
             services.AddScoped<ConteudoProgramaticoService>();
             services.AddScoped<VendedorService>();
+            services.AddScoped<TurmaService>();
+            services.AddScoped<MunicipioService>();
+            services.AddScoped<UFService>();
 
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ICursoRepository, CursoRepository>();
@@ -28,6 +31,9 @@ namespace api.web
             services.AddTransient<IDocenteRepository, DocenteRepository>();
             services.AddTransient<IConteudoProgramaticoRepository, ConteudoProgramaticoRepository>();
             services.AddTransient<IVendedorRepository, VendedorRepository>();
+            services.AddTransient<ITurmaRepository, TurmaRepository>();
+            services.AddTransient<IMunicipioRepository, MunicipioRepository>();
+            services.AddTransient<IUFRepository, UFRepository>();
 
         }
     }

@@ -47,6 +47,21 @@ app.factory("cursoConteudoProgramaticoService", ['consumerService', '$rootScope'
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);    
 }]);
 
+app.factory("turmaService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "turma";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("turmaDocenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "turma/docente";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("turmaConteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "turma/conteudo";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
 app.factory("tipoCursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = 'tipoCurso';
     return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
@@ -64,6 +79,16 @@ app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', fun
 
 app.factory("vendedorService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
     var baseUrl = "vendedor";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("ufService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "uf";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("municipioService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "municipio";
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
@@ -132,4 +157,3 @@ function extendsAbstractServices(baseUrl, consumerService, $rootScope){
         desvincular: _desvincular
     };
 }
-

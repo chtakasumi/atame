@@ -40,11 +40,50 @@ valid.directive('customizarAlgumDiretetivaAqui', function () {
                 }
                 return value;
             }
-           // mCtrl.$parsers.push(myValidation); //uUSANDO ISSO PEGO O MODELO O VALOR DO COMPONENTE COM MASKARAS CASO TIVER
+           // mCtrl.$parsers.push(myValidation); //USANDO ISSO PEGO  O VALOR DO COMPONENTE COM MASKARAS CASO TIVER
             mCtrl.$validators.customValidationFunction = myValidation; //uUSANDO ISSO PEGO O MODELO
         }
     };
 });
 
-//
-//
+
+
+//var mymodal = angular.module('html.date', []);
+//mymodal.directive('htmlDate', function () {
+//    return {
+//        restrict: 'A',
+//        require: 'ngModel',
+//        scope: {},
+//        link: function (scope, element, attr, ctrl) {
+//            console.log('scope', scope);
+//            //em ordem de execucao
+//            ctrl.$formatters.push(function (value) {
+//                var retorno = value;
+//                if (value) {
+//                    retorno = new Date(value);
+//                }
+//                console.log('$formatters', value);
+//                return retorno;
+//            });
+
+//            ctrl.$validators.customValidationFunction = function (value) {
+//                console.log('$validators', value);
+//                return value;
+//            };
+
+//            scope.$watch('value', function (state) { //OUVINTE DE PROPRIEDADES
+//                console.log('$watch', state);
+
+//            });
+
+//            //USANDO ISSO PEGO  O VALOR DO COMPONENTE COM MASKARAS CASO TIVER   
+//            ctrl.$parsers.push(function (value) {
+//                console.log('$parsers', value);
+//                return value;
+
+//            });
+
+
+//        }
+//    };
+//});

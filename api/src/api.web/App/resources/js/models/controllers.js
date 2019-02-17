@@ -15,49 +15,24 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', function ($scope,
 
     extendsAbstractController($scope, alertService, parm, function () {
 
-        $scope.antesDeVoltar = function (form) {           
-            var listaItemconteudo = $scope.model.conteudosProgramaticos.filter(item => item.id == 0);
-            var listaItemdocente = $scope.model.docentes.filter(item => item.id == 0);
-            
-            if (listaItemdocente.length > 0) {
-                $scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba {VINCULO DE  DOCENTE}. Deseja sair memo assim? Os dados vinculados serao perdidos.", form, function (form) {
-                    if (listaItemconteudo.length > 0) {
-                        $scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba  {VINCULO DE CONTEUDOS PROGRAMATICOS}. Deseja sair memo assim? Os dados vinculados serao perdidos.", form, function (form) {
-                            $scope.voltar(form)
-                        });
-                    } else {
-                        $scope.voltar(form)
-                    }    
-                });
-            } else {
-                $scope.voltar(form)
-            }                   
-        }
+        //CarregarLovPesquisa
+        carregarLov({
+            scope: $scope.lovPesquisa = {},
+            servico: parm.tipoCursoService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.tipoCursoId = item.id;
+            }
+        });
 
-        //************TIPO CURSO*******************//
-        $$TipoCursoService = parm.tipoCursoService();
-
-        //CADASTRO
-        $scope.buscarTipoCurso = function (filtro) {
-            $$TipoCursoService.lov(filtro, function (data) {
-                $scope.listaTipoCurso = data;
-            });
-        }
-        $scope.selecionarTipoCurso = function (item) {
-            $scope.model.tipoCursoId = item.id;
-        }
-
-        //FILTRO
-        $scope.buscarTipoCursoPesquisa = function (fitro) {
-            $$TipoCursoService.lov(fitro, function (data) {
-                $scope.listaTipoCursoPesquisa = data;
-            });
-        }
-        $scope.selecionarPesquisa = function (item) {
-            $scope.filtros.tipoCursoId = item.id;
-        }
-        //*****************FIM TIPO CURSO*************//
-        
+        //CarregarLovCadastro     
+        carregarLov({
+            scope: $scope.lovCadastro = {},
+            servico: parm.tipoCursoService(),
+            aoSelecionar: function (item) {
+                $scope.model.tipoCursoId = item.id;
+            }
+        });
+              
         //***VINCULAR CONTEUDO PROGRAMATICO***//       
         var param1 = {
             scopePartial: $scope.cursoConteudoProgramatico = {},
@@ -73,12 +48,10 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', function ($scope,
             }
         };
         vincular(param1);
-        //***FIM CONTEUDO PROGRAMATICO***//
-        
-        //***VINCULAR DOCENTE***//
-        $scope.cursoDocente = {};
+       
+        //***VINCULAR DOCENTE***//        
         var param2 = {
-            scopePartial: $scope.cursoDocente,
+            scopePartial: $scope.cursoDocente = {},
             servicoVinculo: parm.cursoDocenteService(),
             servicoLov: parm.docenteService(),
             nomeAtributoFK01: "cursoId",
@@ -91,7 +64,87 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', function ($scope,
             }
         };
         vincular(param2);
-        //***FIM VINCULAR DOCENTE***//
+
+         //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
+        $scope.antesDeVoltar = function (form) {
+            $scope.antesDeVoltar = function (form) {
+                existeDadosNaoGravados($scope, $scope.model.docentes, 'DOCENTE', function () {
+                    existeDadosNaoGravados($scope, $scope.model.conteudosProgramaticos, 'CONTEUDOS PROGRAMATICOS', function () {
+                        $scope.voltar(form);
+                    });
+                });
+            }
+        }
+
+    });
+
+}]);
+
+app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+
+    extendsAbstractController($scope, alertService, parm, function () {
+
+        //CarregarLovPesquisa
+        carregarLov({
+            scope: $scope.lovPesquisa = {},
+            servico: parm.cursoService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.cursoId = item.id;
+            }
+        });
+        
+        //CarregarLovCadastro     
+        carregarLov({
+            scope: $scope.lovCadastro = {},
+            servico: parm.cursoService(),
+            aoSelecionar: function (item) {
+                $scope.model.cursoId = item.id;
+            }
+        });
+        
+
+        ////***VINCULAR CONTEUDO PROGRAMATICO***//       
+        var param1 = {
+            scopePartial: $scope.turmaConteudoProgramatico = {},
+            servicoVinculo: parm.turmaConteudoProgramaticoService(),
+            servicoLov: parm.conteudoProgramaticoService(),
+            nomeAtributoFK01: "turmaId",
+            nomeAtributoFK02: "conteudoProgramaticoId",
+            nomeTabelaLov: 'conteudoProgramatico',
+            model: $scope.model,
+            alertService: alertService,
+            funcGrid: function () {
+                return $scope.model.conteudosProgramaticos;
+            }
+        };      
+        vincular(param1);
+        
+
+        ////***VINCULAR DOCENTE***//    
+        var param2 = {
+            scopePartial: $scope.turmaDocente = {},
+            servicoVinculo: parm.turmaDocenteService(),
+            servicoLov: parm.docenteService(),
+            nomeAtributoFK01: "turmaId",
+            nomeAtributoFK02: "docenteId",
+            nomeTabelaLov: 'docente',
+            model: $scope.model,
+            alertService: alertService,
+            funcGrid: function () {
+                return $scope.model.docentes;
+            }
+        };
+        vincular(param2);
+     
+
+        //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
+        $scope.antesDeVoltar = function (form) {   
+            existeDadosNaoGravados($scope, $scope.model.docentes, 'DOCENTE', function () {
+                existeDadosNaoGravados($scope, $scope.model.conteudosProgramaticos, 'CONTEUDOS PROGRAMATICOS', function () {
+                    $scope.voltar(form);
+                });
+            });
+        }
 
     });
 
@@ -115,14 +168,45 @@ app.controller('vendedorCtrl', ['$scope', 'alertService', 'parm', function ($sco
     extendsAbstractController($scope, alertService, parm);
 }]);
 
+//comportamento da pagina Uf
+app.controller('ufCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm);
+}]);
+
+//comportamento da pagina Uf
+app.controller('municipioCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm, function () {
+
+
+        //CarregarLovPesquisa
+        carregarLov({
+            scope: $scope.lovPesquisa = {},
+            servico: parm.ufService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.ufId = item.id;
+            }
+        });
+
+        //CarregarLovCadastro     
+        carregarLov({
+            scope: $scope.lovCadastro = {},
+            servico: parm.ufService(),
+            aoSelecionar: function (item) {
+                $scope.model.ufId = item.id;
+            }
+        });
+
+    });
+}]);
+
 //funções em commun para telas de cadastros
 function extendsAbstractController($scope, alertService, parm, func) {
 
-    this.$$Model = null;
-    this.$$TituloModelo = null;
-    this.$$Servico = null;
-    this.$$Filtros = null;
-    this.$$Pesquisa;
+    var $$Model = null;
+    var $$TituloModelo = null;
+    var $$Servico = null;
+    var $$Filtros = null;
+    var $$Pesquisa;
 
     //não muda
     parm.model(function (dados) {
@@ -131,9 +215,8 @@ function extendsAbstractController($scope, alertService, parm, func) {
         $$Servico = parm.service();
         $$Filtros = parm.filter();
         $$Pesquisa = true;
-        init();
-
-        func = (func) ? func($$Model) : func;
+        init();       
+        
     });
 
     //não muda
@@ -141,8 +224,12 @@ function extendsAbstractController($scope, alertService, parm, func) {
         $scope.model = angular.copy($$Model);
         $scope.tituloModelo = angular.copy($$TituloModelo);
         $scope.filtros = angular.copy($$Filtros);
-
-        modoEdicao(false);
+        modoEdicao(false, function () {
+            setTimeout(function () {              
+                func = (func) ? func($$Model) : func;
+                $scope.facaDisgestao();
+            })            
+        });
     }
 
     //não muda
@@ -171,7 +258,7 @@ function extendsAbstractController($scope, alertService, parm, func) {
     }
 
     //não muda
-    function modoEdicao(bool) {
+    function modoEdicao(bool, func) {
         $scope.painelPesquisar = !bool;
         $scope.painelEditar = bool;
         if (bool) {
@@ -180,7 +267,7 @@ function extendsAbstractController($scope, alertService, parm, func) {
             $scope.limparFiltros();
             if ($$Pesquisa) {
                 // o botão voltar não pesquisa novamente.                
-                pesquisar();
+                pesquisar(func);
             }
             $$Pesquisa = true;
         }
@@ -203,9 +290,12 @@ function extendsAbstractController($scope, alertService, parm, func) {
 
     //CRUD
     //não muda
-    function pesquisar() {
+    function pesquisar(func) {
         $$Servico.listar($scope.filtros, function (data) {
             $scope.grade_model = data;
+            if (func) {
+                func();
+            }            
         });
     }
 
@@ -260,7 +350,7 @@ function extendsAbstractController($scope, alertService, parm, func) {
 }
 
 //funções em commun para telas de vinculos
-function vincular (param) {
+function vincular(param) {
 
     //parametros esperados para vincular o modelo principal ao modelo de ligação
     var scopePartial = param.scopePartial,
@@ -300,10 +390,7 @@ function vincular (param) {
             return;
         }
 
-        if (funcGrid().filter(function (item) {
-
-            return (item[nomeAtributoFK02] == scopePartial.model[nomeTabelaLov]["id"])
-        }).length > 0) {
+        if (funcGrid().filter(item => {return item[nomeAtributoFK02] == scopePartial.model[nomeTabelaLov]["id"]; }).length > 0) {
             alertService.getAdvertencia("Este elemente ja adicionado");
             return;
         }
@@ -321,12 +408,36 @@ function vincular (param) {
             // funcAtualizaGrid(gridVinculoModel);
             return;
         }
-
         servicoVinculo.desvincular(element.id, function () {
             funcGrid().splice(funcGrid().indexOf(element), 1);//limpar da tela           
             alertService.getSucesso("Registro excluido com sucesso");
         });
     }
 }
+
+function carregarLov(param) {
+    param.scope.pesquisar = function (fitro) {
+        param.servico.lov(fitro, function (data) {
+            param.scope.dados = data;
+        });
+    }
+    param.scope.selecionar = function (item) {
+        param.aoSelecionar(item);
+    }
+}
+
+function existeDadosNaoGravados(scope, grid, msg, callback) {    
+    var listaItemconteudo = grid.filter(item => item.id == 0);  
+    if (listaItemconteudo.length > 0) {
+        scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba {VINCULO DE  " + msg+"}. Deseja sair memo assim? Os dados vinculados serao perdidos.", null, function () {
+            callback();
+        });
+    } else {
+        callback();
+    }    
+}
+
+
+
 
 

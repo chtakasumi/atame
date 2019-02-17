@@ -1104,18 +1104,19 @@
 	 *  @memberof DataTable#oApi
 	 */
 	function _fnGetCellData( settings, rowIdx, colIdx, type )
-	{
+    {
+       
 		var draw           = settings.iDraw;
 		var col            = settings.aoColumns[colIdx];
 		var rowData        = settings.aoData[rowIdx]._aData;
 		var defaultContent = col.sDefaultContent;
-		var cellData       = col.fnGetData( rowData, type, {
+		var cellData       = col.fnGetData( rowData, type, { 
 			settings: settings,
 			row:      rowIdx,
 			col:      colIdx
-		} );
-	
-		if ( cellData === undefined ) {
+		} );        
+       
+        if (cellData === undefined) {  
 			if ( settings.iDrawError != draw && defaultContent === null ) {
 				_fnLog( settings, 0, "Requested unknown parameter "+
 					(typeof col.mData=='function' ? '{function}' : "'"+col.mData+"'")+
