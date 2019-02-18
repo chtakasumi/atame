@@ -99,6 +99,15 @@ app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', function ($scope,
             servico: parm.cursoService(),
             aoSelecionar: function (item) {
                 $scope.model.cursoId = item.id;
+                //tra a grid preenchidas
+                if ($scope.titulo.indexOf("Cadastrar") > -1) {
+                    if ($scope.model.conteudosProgramaticos.length == 0) {
+                        $scope.model.conteudosProgramaticos = item.conteudosProgramaticos;
+                    }
+                    if ($scope.model.docentes.length == 0) {
+                        $scope.model.docentes = item.docentes;
+                    }
+                }                
             }
         });
         
@@ -258,9 +267,9 @@ function extendsAbstractController($scope, alertService, parm, func) {
     }
 
     //não muda
-    function modoEdicao(bool, func) {
-        $scope.painelPesquisar = !bool;
-        $scope.painelEditar = bool;
+    function modoEdicao(bool, func) {       
+        $scope.modoEdicao = bool       
+
         if (bool) {
             limparFormulario();
         } else {

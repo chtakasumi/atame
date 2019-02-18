@@ -3,9 +3,8 @@ using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.domain.Services.DTO;
 using api.libs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
+
 
 namespace api.domain.Services
 {
@@ -49,11 +48,13 @@ namespace api.domain.Services
 
             //grava os vinculos de docentes e conteudos programaticos
             foreach (var TurmaDoc in Turma.Docentes) {
+                TurmaDoc.Id = 0;
                 TurmaDoc.Docente = null;
             }
 
             foreach (var conteudoProg in Turma.ConteudosProgramaticos)
             {
+                conteudoProg.Id = 0;
                 conteudoProg.ConteudoProgramatico = null;
             }
 
@@ -62,8 +63,10 @@ namespace api.domain.Services
 
         public IEnumerable<Turma> Lov(string descricao)
         {
-            var filtro = new TurmaDTO();
-            filtro.Identificacao = (descricao != "null") ? descricao : null;
+            var filtro = new TurmaDTO
+            {
+                Identificacao = (descricao != "null") ? descricao : null
+            };
 
             return _TurmaRepository.Listar(filtro);
         }

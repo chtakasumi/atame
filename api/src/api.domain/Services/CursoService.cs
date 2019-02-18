@@ -49,11 +49,13 @@ namespace api.domain.Services
 
             //grava os vinculos de docentes e conteudos programaticos
             foreach (var cursoDoc in curso.Docentes) {
+                cursoDoc.Id = 0;
                 cursoDoc.Docente = null;
             }
 
             foreach (var conteudoProg in curso.ConteudosProgramaticos)
             {
+                conteudoProg.Id = 0;
                 conteudoProg.ConteudoProgramatico = null;
             }
 
@@ -62,8 +64,10 @@ namespace api.domain.Services
 
         public IEnumerable<Curso> Lov(string descricao)
         {
-            var filtro = new CursoDTO();
-            filtro.Nome = (descricao != "null") ? descricao : null;
+            var filtro = new CursoDTO
+            {
+                Nome = (descricao != "null") ? descricao : null
+            };
 
             return _cursoRepository.Listar(filtro);
         }
