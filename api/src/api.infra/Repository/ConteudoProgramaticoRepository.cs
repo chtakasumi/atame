@@ -16,7 +16,8 @@ namespace api.infra.Repository
         {
             return base.Pesquisar(x =>
                 (x.Id == conteudoProgramatico.Id || !conteudoProgramatico.Id.HasValue) &&
-                (EF.Functions.Like(x.Identificacao, "%" + conteudoProgramatico.Identificacao + "%") || string.IsNullOrEmpty(conteudoProgramatico.Identificacao))
+                (EF.Functions.Like(x.Identificacao, "%" + conteudoProgramatico.Identificacao + "%") 
+                || string.IsNullOrEmpty(conteudoProgramatico.Identificacao))
              );
         }
     }

@@ -119,7 +119,7 @@ li .dropdown-item a{
 
 .navbar-inverse {
     background-color: #ba131a;
-    border-color: #1c74c0;
+    border-color: #ba131a;
 }
 .navbar-inverse .navbar-nav>li>a {
     color: white;

@@ -208,6 +208,127 @@ app.controller('municipioCtrl', ['$scope', 'alertService', 'parm', function ($sc
     });
 }]);
 
+//comportamento da pagina cliente
+app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm, function () {
+        //CarregarLovUF
+        carregarLov({
+            scope: $scope.lovCadastroUF = {},
+            servico: parm.ufService(),
+            aoSelecionar: function (item) {
+                $scope.model.ufId = item.id;
+            }
+        });
+
+        $scope.lovCadastroMunicipio = {};
+        $scope.lovCadastroMunicipio.pesquisar = function (fitro) {
+            parm.municipioService().listar({ ufId: $scope.model.ufId, nome: fitro }, function (data) {
+                $scope.lovCadastroMunicipio.dados = data;
+            });
+        }
+
+        $scope.lovCadastroMunicipio.selecionar = function (item) {
+            $scope.model.municipioId = item.id
+        }
+        
+    });
+   
+}]);
+
+//comportamento da pagina venda
+app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', function ($scope, alertService, parm) {
+    extendsAbstractController($scope, alertService, parm, function () {
+
+        //CarregarLovTurma
+        carregarLov({
+            scope: $scope.lovPesquisaTurma = {},
+            servico: parm.turmaService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.turmaId = item.id;
+            }
+        });       
+        carregarLov({
+            scope: $scope.lovCadastroTurma = {},
+            servico: parm.turmaService(),
+            aoSelecionar: function (turma) {              
+                $scope.model.turmaId = turma.id;
+                $scope.model.curso = turma.curso;              
+                if ($scope.titulo.indexOf("Cadastrar") > -1) {
+                    $scope.model.valorCurso = turma.preco; //estou pegando um valor do curso e não da turma tirar duvidas com o clovis...
+                }
+                $scope.calculaValorVenda();
+            }
+        });
+
+        //CarregarLovVendedor
+        carregarLov({
+            scope: $scope.lovPesquisaVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = item.id;
+            }
+        });
+        carregarLov({
+            scope: $scope.lovCadastroVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.model.vendedorId = item.id;
+            }
+        });
+
+        //CarregarLovCliente
+        carregarLov({
+            scope: $scope.lovPesquisaCliente = {},
+            servico: parm.clienteService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.clienteFinanceiroId = item.id;
+            }
+        });
+        carregarLov({
+            scope: $scope.lovCadastroCliente = {},
+            servico: parm.clienteService(),
+            aoSelecionar: function (item) {
+                $scope.model.clienteFinanceiroId = item.id;
+            }
+        });
+
+        //regras de calculo do desconto
+        $scope.calculaValorVenda = function () {           
+            var valorTotal = ($scope.model.quantidade > 0) ? $scope.model.valorCurso * $scope.model.quantidade : $scope.model.valorCurso;
+            var desconto = (($scope.model.desconto * valorTotal) / 100);
+            $scope.model.valorVenda = valorTotal - desconto;
+        }
+        
+        //***VINCULAR CURSO AO DOCENTE***//        
+        var vinculoAcademico = {
+            scopePartial: $scope.clienteAcademico = {}, //ok
+            servicoVinculo: parm.vendaClienteService(), //ok
+            servicoLov: parm.clienteService(),
+            nomeAtributoFK01: "vendaId",
+            nomeAtributoFK02: "clienteAcademicoId",
+            nomeTabelaLov: 'clienteAcademico',
+            model: $scope.model,
+            alertService: alertService,
+            funcGrid: function () {
+                return $scope.model.clientesAcademicos;
+            }
+        };
+        vincular(vinculoAcademico);
+
+        //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
+        //$scope.antesDeVoltar = function (form) {
+        //    $scope.antesDeVoltar = function (form) {
+        //        existeDadosNaoGravados($scope, $scope.model.docentes, 'DOCENTE', function () {
+        //            existeDadosNaoGravados($scope, $scope.model.conteudosProgramaticos, 'CONTEUDOS PROGRAMATICOS', function () {
+        //                $scope.voltar(form);
+        //            });
+        //        });
+        //    }
+        //}
+
+    });
+}]);
+
 //funções em commun para telas de cadastros
 function extendsAbstractController($scope, alertService, parm, func) {
 
@@ -400,7 +521,7 @@ function vincular(param) {
         }
 
         if (funcGrid().filter(item => {return item[nomeAtributoFK02] == scopePartial.model[nomeTabelaLov]["id"]; }).length > 0) {
-            alertService.getAdvertencia("Este elemente ja adicionado");
+            alertService.getAdvertencia("Este elemento ja foi adicionado");
             return;
         }
 

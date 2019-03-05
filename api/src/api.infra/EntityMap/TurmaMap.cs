@@ -18,17 +18,21 @@ namespace api.infra.EntityConfig
                 .IsRequired();
 
             builder.Property(c => c.CursoId)
-             .HasColumnName("cursoId").IsRequired();
+             .HasColumnName("cursoId")
+             .IsRequired();
             
             builder.Property(c => c.Preco)
-               .HasColumnName("preco").HasColumnType("Decimal(10, 2)").IsRequired();
-
-
+               .HasColumnName("preco")
+               .HasColumnType("Decimal(10, 2)")
+               .IsRequired();
+            
             builder.Property(c => c.Inicio)
-              .HasColumnName("inicioPrevisto").HasColumnType("Date");
+              .HasColumnName("inicioPrevisto")
+              .HasColumnType("Date");
 
             builder.Property(c => c.Fim)
-              .HasColumnName("fimPrevisto").HasColumnType("Date");
+              .HasColumnName("fimPrevisto")
+              .HasColumnType("Date");
             
             builder.HasOne(c => c.Curso).WithMany()
                 .HasForeignKey(c => c.CursoId)

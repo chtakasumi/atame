@@ -171,7 +171,7 @@ namespace api.domain.Services
 
         public TurmaDocente VincularDocente(TurmaDocente entidade)
         {
-            var docente = _TurmaRepository.VincularDocente(entidade);
+            TurmaDocente docente = _TurmaRepository.VincularDocente(entidade);
             docente.Docente = _docenteRepository.PesquisarPorId(docente.DocenteId);
             return docente;
         }

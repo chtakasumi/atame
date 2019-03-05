@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace api.domain.Interfaces
@@ -8,7 +9,7 @@ namespace api.domain.Interfaces
     {
         //metodos de busca       
         IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>> expressao);
-        IEnumerable<TEntity> Query(List<Expression<Func<TEntity, bool>>> criterios);
+        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, int?>> key);
         TEntity PesquisarPorId(int id);
         IEnumerable<TEntity> BuscarTodos();
 

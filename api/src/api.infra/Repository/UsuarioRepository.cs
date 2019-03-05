@@ -22,7 +22,7 @@ namespace api.infra.Repository
 
         public IEnumerable<Usuario> BuscarComGrupo(int usuarioId)
         {
-            return base._dbContexto.Usuarios.Where(usuario => usuario.Id == usuarioId)
+            return base.Query(usuario => usuario.Id == usuarioId, u=>u.Id)
                 .Include(usuario => usuario.GruposUsuarios)
                 .ThenInclude(gruposUsuarios => gruposUsuarios.Grupo).ToList();
         }

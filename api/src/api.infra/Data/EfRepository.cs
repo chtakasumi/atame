@@ -69,7 +69,7 @@ namespace api.infra.Data
 
         public virtual IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>>  expressao)
         {          
-            return _dbContexto.Set<TEntity>().Where(expressao).AsEnumerable();
+            return _dbContexto.Set<TEntity>().Where(expressao).Take(500);
         }
               
         public TEntity PesquisarPorId(int id)
@@ -79,21 +79,12 @@ namespace api.infra.Data
 
         public IEnumerable<TEntity> BuscarTodos()
         {
-            return _dbContexto.Set<TEntity>().AsEnumerable();
+            return _dbContexto.Set<TEntity>().AsEnumerable(); 
         }
 
-        public IEnumerable<TEntity> Query(List<Expression<Func<TEntity, bool>>> clauses)
+        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, int?>> key)
         {
-
-            IQueryable<TEntity> Query =null;
-
-            var bd = _dbContexto.Set<TEntity>();
-            foreach (var clause in clauses)
-            {
-                Query.Where(clause);
-            }
-
-            return bd.ToList();
+            return _dbContexto.Set<TEntity>().Where(expressaoWhere).OrderBy(key).Take(500);             
         }
 
         #endregion

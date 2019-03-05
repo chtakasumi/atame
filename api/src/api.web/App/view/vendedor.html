@@ -38,16 +38,14 @@
                         <thead>
                             <tr class="title-table">
                                 <th>Código</th>
-                                <th>Nome</th>
-                                <th>Formação</th>
+                                <th>Nome</th>                              
                                 <th class="edicao"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
-                                <td>{{row.nome}}</td>
-                                <td>{{row.formacao}}</td>
+                                <td>{{row.nome}}</td>                               
                                 <td class="edicao">
                                     <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.nome)"><i class="glyphicon glyphicon-remove"></i></a>

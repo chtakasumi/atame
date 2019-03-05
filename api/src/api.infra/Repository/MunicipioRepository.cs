@@ -15,11 +15,11 @@ namespace api.infra.Repository
         }
         public IEnumerable<Municipio> Listar(Municipio municipio)
         {
-            return base._dbContexto.Municipios.Where(x =>
+            return base.Query(x =>
                 (x.Id == municipio.Id || !municipio.Id.HasValue) &&
                 (EF.Functions.Like(x.Nome, "%" + municipio.Nome + "%") || string.IsNullOrEmpty(municipio.Nome)) &&
                 (EF.Functions.Like(x.Codigo, municipio.Codigo) || string.IsNullOrEmpty(municipio.Codigo)) &&
-                (x.UFId == municipio.UFId || !municipio.UFId.HasValue)
+                (x.UFId == municipio.UFId || !municipio.UFId.HasValue), x=>x.Id
              ).Include(m=>m.UF);
         }
     }

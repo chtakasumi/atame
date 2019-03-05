@@ -78,6 +78,7 @@
     <None Remove="App\resources\js\plugins\select2\select.js" />
     <None Remove="App\resources\js\plugins\toaster\toaster.js" />
     <None Remove="App\resources\js\plugins\ui-mask\mask.js" />
+    <None Remove="App\view\cliente.html" />
     <None Remove="App\view\Componetes\menu.html" />
     <None Remove="App\view\conteudoProgramatico.html" />
     <None Remove="App\view\curso.html" />
@@ -92,6 +93,8 @@
     <None Remove="App\view\turmaConteudoProgramaticoPartial.html" />
     <None Remove="App\view\turmaDocentePartial.html" />
     <None Remove="App\view\UF.html" />
+    <None Remove="App\view\venda.html" />
+    <None Remove="App\view\vendaClientePartial.html" />
     <None Remove="App\view\vendedor.html" />
   </ItemGroup>
 
@@ -164,6 +167,7 @@
     <Content Include="App\view\Componetes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
+    <Content Include="App\view\vendaClientePartial.html" />
     <Content Include="App\view\cursoDocentePartial.html" />
     <Content Include="App\view\turma.html" />
     <Content Include="App\view\curso.html" />
@@ -171,6 +175,8 @@
     <Content Include="App\view\turmaDocentePartial.html" />
     <Content Include="App\view\uf.html" />
     <Content Include="App\view\municipio.html" />
+    <Content Include="App\view\cliente.html" />
+    <Content Include="App\view\venda.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />

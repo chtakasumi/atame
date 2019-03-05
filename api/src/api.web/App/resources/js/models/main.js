@@ -352,6 +352,72 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/cliente", {
+                templateUrl: configConst.baseUrlView + "cliente.html",
+                controller: 'clienteCtrl',
+                resolve: {
+                    parm: function (clienteService, ufService, municipioService) {
+                        return {
+                            titulo: function () {
+                                return "Cliente";
+                            },
+                            filter: function () {
+                                return { id: null, nome: null, cpfCnpj: null  };
+                            },
+                            service: function () {
+                                return clienteService;
+                            },
+                            model: function (callBack) {
+                                return clienteService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            ufService: function () {
+                                return ufService;
+                            },
+                            municipioService: function () {
+                                return municipioService;
+                            }
+                        }
+                    }
+                }
+            })
+            .when("/venda", {
+                templateUrl: configConst.baseUrlView + "venda.html",
+                controller: 'vendaCtrl',
+                resolve: {
+                    parm: function (vendaService, turmaService, vendedorService, clienteService, vendaClienteService) {
+                        return {
+                            titulo: function () {
+                                return "Venda";
+                            },
+                            filter: function () {
+                                return { id: null, inicio: null, fim: null, turmaId: null, vendedorId: null, clienteFinanceiroId: null};
+                            },
+                            service: function () {
+                                return vendaService;
+                            },
+                            model: function (callBack) {
+                                return vendaService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            turmaService: function () {
+                                return turmaService;
+                            },
+                            vendedorService: function () {
+                                return vendedorService;
+                            },
+                            clienteService: function () {
+                                return clienteService;
+                            },
+                            vendaClienteService: function () {
+                                return vendaClienteService;
+                            }
+                        }
+                    }
+                }
+            })
             .otherwise('/home');
     }]);
 

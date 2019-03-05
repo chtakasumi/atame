@@ -17,16 +17,16 @@ namespace api.infra.Repository
 
         public IEnumerable<Turma> Listar(TurmaDTO TurmaVo)
         {
-            var ListaTurmas = base._dbContexto.Turmas.Where(x =>
+            var ListaTurmas = base.Query(x =>
                 (x.Id == TurmaVo.Id || !TurmaVo.Id.HasValue) &&
                 (x.CursoId == TurmaVo.CursoId || !TurmaVo.CursoId.HasValue) &&
-                (EF.Functions.Like(x.Identificacao, "%" + TurmaVo.Identificacao + "%") || string.IsNullOrEmpty(TurmaVo.Identificacao)&&
+                (EF.Functions.Like(x.Identificacao, "%" + TurmaVo.Identificacao + "%") || string.IsNullOrEmpty(TurmaVo.Identificacao)
+                &&
                 ((x.Inicio >= TurmaVo.Inicio || !TurmaVo.Inicio.HasValue) &&
                 (x.Inicio <= TurmaVo.Fim || !TurmaVo.Fim.HasValue))
-
-             )).Include(t => t.Curso)
+             ),x=>x.Id).Include(t => t.Curso)
              .Include(c => c.Docentes).ThenInclude(c => c.Docente)
-             .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico).Take(500);
+             .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico);
 
             return ListaTurmas.ToList();
         }

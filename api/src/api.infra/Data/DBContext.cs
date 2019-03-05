@@ -25,9 +25,11 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new CursoConteudoProgramaticoMap());
             modelBuilder.ApplyConfiguration(new TurmaDocenteMap());            
             modelBuilder.ApplyConfiguration(new TurmaConteudoProgramaticoMap());
-
             modelBuilder.ApplyConfiguration(new MunicipioMap());
-            modelBuilder.ApplyConfiguration(new UFMap());           
+            modelBuilder.ApplyConfiguration(new UFMap());
+            modelBuilder.ApplyConfiguration(new ClienteMap());
+            modelBuilder.ApplyConfiguration(new VendaMap());
+            modelBuilder.ApplyConfiguration(new VendaClienteMap());
 
         }
 
@@ -40,9 +42,10 @@ namespace api.infra
         public DbSet<ConteudoProgramatico> ConteudoProgramaticos { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Turma> Turmas { get; set; }
-
         public DbSet<Municipio> Municipios { get; set; }
         public DbSet<UF> UFs { get; set; }
+        public DbSet<Cliente> Cleintes { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
 
     }
 }

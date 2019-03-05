@@ -5,18 +5,14 @@ mymodal.directive('htmlDate', function () {
         require: 'ngModel',       
         link: function (scope, element, attr, ctrl) {
             
-            ctrl.$formatters.push(function (value) {               
+            ctrl.$formatters.push(function (value) {     
+                ctrl.$setPristine();
+                ctrl.$setUntouched(); 
                 var retorno = value;
                 if (value) {
                     return new Date(value);
                 }
                 return retorno;
-            });
-
-            ctrl.$parsers.push(function (value) {
-               ctrl.$setPristine();
-               ctrl.$setUntouched();    
-               return (value) ? value : undefined;
             });
         }
     };    

@@ -92,6 +92,21 @@ app.factory("municipioService", ['consumerService', '$rootScope', function (cons
     return extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
+app.factory("clienteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "cliente";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("vendaService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "venda";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("vendaClienteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+    var baseUrl = "venda/academico";
+    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
 function extendsAbstractServices(baseUrl, consumerService, $rootScope){
 
     var _lov = function (string, callBack) {

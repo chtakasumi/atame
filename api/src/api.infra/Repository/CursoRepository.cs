@@ -17,17 +17,14 @@ namespace api.infra.Repository
 
         public IEnumerable<Curso> Listar(CursoDTO cursoVo)
         {
-            var ListaCursos = base._dbContexto.Cursos.Where(x =>
+            return base.Query(x =>
                 (x.Id == cursoVo.Id || !cursoVo.Id.HasValue) &&
                 (x.TipoCursoId == cursoVo.TipoCursoId || !cursoVo.TipoCursoId.HasValue) &&
                 (EF.Functions.Like(x.Nome, "%" + cursoVo.Nome + "%") || string.IsNullOrEmpty(cursoVo.Nome)
-             )).Include(t => t.TipoCurso)
+             ), x=>x.Id).Include(t => t.TipoCurso)
              .Include(c => c.Docentes).ThenInclude(c => c.Docente)
-             .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico).Take(500);
-
-
-
-            return ListaCursos.ToList();
+             .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico).ToList();
+          
         }
 
         public void ExcluirVinculoDocente(CursoDocente cd)
@@ -40,8 +37,7 @@ namespace api.infra.Repository
         {      
             return _dbContexto.Set<CursoDocente>().Find(id);
         }
-
-
+        
         public void ExcluirVinculoConteudoProgramatico(CursoConteudoProgramatico ccp)
         {
             base._dbContexto.Remove(ccp);
