@@ -149,7 +149,6 @@ namespace api.domain.Services
 
             _vendaRepository.ExcluirVinculoAcademico(vc);
 
-
             //var dto = new VendaDTO
             //{
             //    Id = vc.VendaId
@@ -161,7 +160,6 @@ namespace api.domain.Services
             
             //foreach (var academicos in venda.ClientesAcademicos) {
             //    academicos.Venda = null;
-            //   academicos.
             //}
 
             //Editar(venda);

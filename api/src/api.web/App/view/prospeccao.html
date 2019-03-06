@@ -1,0 +1,214 @@
+<div id="divController">
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"
+                               ng-model="filtros.id" class="form-control" id="id" name="id"
+                               placeholder="Código">
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="clientePesquisa" class="sr-only">Cliente</label>
+                        <ui-select ng-model="filtros.cliente"
+                                   on-select="lovPesquisaCliente.selecionar($item)" spinner-enabled="true">
+                            <ui-select-match placeholder="**Selecione um Cliente(Financeiro)**">
+                                <span ng-bind="$select.selected.nome"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (lovPesquisaCliente.dados | filter: $select.search) track by item.id"
+                                               refresh="lovPesquisaCliente.pesquisar($select.search)" refresh-delay="0">
+                                <span ng-bind="item.nome"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="vendedorPesquisa" class="sr-only">Vendedor</label>
+                        <ui-select ng-model="filtros.vendedor"
+                                   on-select="lovPesquisaVendedor.selecionar($item)" spinner-enabled="true">
+                            <ui-select-match placeholder="**Selecione um vendedor**">
+                                <span ng-bind="$select.selected.nome"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (lovPesquisaVendedor.dados | filter: $select.search) track by item.id"
+                                               refresh="lovPesquisaVendedor.pesquisar($select.search)" refresh-delay="0">
+                                <span ng-bind="item.nome"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="fieldset">
+                        <span class="fieldset-title">Periodo da Prospecção</span>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>De:</label>
+                                <input type="date" ng-model="filtros.inicio" class="form-control" id="filtroInicio" name="filtroinicio" placeholder="Período de">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Até:</label>
+                                <input type="date" ng-model="filtros.fim" class="form-control" id="filtroFim" name="filtroFim" placeholder="Até">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pull-right margin-top-label">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>
+                        <button class="btn btn-default" ng-click="novo()">
+                            <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Código</th>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Vendedor</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in grade_model">
+                                <td>{{row.id}}</td>
+                                <td>{{row.data | date}}</td>
+                                <td>{{row.cliente.nome}}</td>
+                                <td>{{row.vendedor.nome}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.cliente)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="form" novalidate ng-show="modoEdicao">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <!--//nav-->
+            <ul class="nav nav-tabs">
+                <li class="active"><a role="button" data-toggle="tab" data-target="#abaProspeccao"><span class="title-tabs">Prospecção</span></a></li>
+                <li><a role="button" data-toggle="tab" data-target="#abaInteresses"><span class="title-tabs">Víncular Curso de Interesses</span></a></li>
+            </ul>
+            <div class="panel-body">
+
+                <div class="tab-content">
+                    <div id="abaProspeccao" class="tab-pane fade in active">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="codigo">Código</label>
+                                <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.data)">
+                                <label for="data" class="control-label">Data</label>
+                                <input type="date" html-date required ng-model="model.data" class="form-control" id="data"
+                                       name="data" placeholder="Previsão Término">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.data)"></span>
+                                <ng-messages for="form.data.$error" ng-show="GetValidMessages(form.data)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                    <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vendedor)">
+                                <label for="vendedorCadastro" class="control-label">Vendedor</label>
+                                <ui-select ng-model="model.vendedor" input-id="vendedor" name="vendedor" required
+                                           on-select="lovCadastroVendedor.selecionar($item)" spinner-enabled="true">
+                                    <ui-select-match placeholder="**Selecione um vendedor**">
+                                        <span ng-bind="$select.selected.nome"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (lovCadastroVendedor.dados | filter: $select.search) track by item.id"
+                                                       refresh="lovCadastroVendedor.pesquisar($select.search)" refresh-delay="0">
+                                        <span ng-bind="item.nome"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vendedor)"></span>
+                                <ng-messages for="form.vendedor.$error" ng-show="GetValidMessages(form.vendedor)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.cliente)">
+                                <label for="cliente" class="control-label">Cliente(Financeiro)</label>
+                                <ui-select ng-model="model.cliente" input-id="cliente" name="cliente" required
+                                           on-select="lovCadastroCliente.selecionar($item)" spinner-enabled="true">
+                                    <ui-select-match placeholder="**Selecione um cliente**">
+                                        <span ng-bind="$select.selected.nome"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (lovCadastroCliente.dados | filter: $select.search) track by item.id"
+                                                       refresh="lovCadastroCliente.pesquisar($select.search)" refresh-delay="0">
+                                        <span ng-bind="item.nome"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.cliente)"></span>
+                                <ng-messages for="form.cliente.$error" ng-show="GetValidMessages(form.cliente)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.observacao)">
+                                <label for="observacao" class="control-label">Descrição</label>
+                                <textarea type="text" ng-model="model.observacao" class="form-control" id="observacao"
+                                          name="observacao" placeholder="Descrição" maxlength="500" rows="4">            
+                                 </textarea>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.observacao)"></span>
+                                <ng-messages for="form.observacao.$error" ng-show="GetValidMessages(form.observacao)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="abaInteresses" class="tab-pane fade">
+                        <div ng-include="'./view/prospeccaoInteressePartial.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="antesDeVoltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

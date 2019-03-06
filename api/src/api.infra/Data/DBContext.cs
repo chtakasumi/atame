@@ -1,5 +1,5 @@
 ﻿using api.domain.Entity;
-using api.infra.EntityConfig;
+using api.infra.EntityMap;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.infra
@@ -30,6 +30,8 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new ClienteMap());
             modelBuilder.ApplyConfiguration(new VendaMap());
             modelBuilder.ApplyConfiguration(new VendaClienteMap());
+            modelBuilder.ApplyConfiguration(new ProspeccaoMap());
+            modelBuilder.ApplyConfiguration(new ProspeccaoInteresseMap());
 
         }
 
@@ -46,6 +48,7 @@ namespace api.infra
         public DbSet<UF> UFs { get; set; }
         public DbSet<Cliente> Cleintes { get; set; }
         public DbSet<Venda> Vendas { get; set; }
+        public DbSet<Prospeccao> Prospeccoes { get; set; }
 
     }
 }

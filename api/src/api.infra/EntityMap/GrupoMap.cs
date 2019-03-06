@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace api.infra.EntityConfig
+namespace api.infra.EntityMap
 {
     public class GrupoMap : IEntityTypeConfiguration<Grupo>
     {

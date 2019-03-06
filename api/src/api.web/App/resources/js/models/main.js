@@ -1,6 +1,6 @@
 //modulo principal
 var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables",
-    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages","html.date"]);
+    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages", "html.date"]);
 
 //constantes
 app.constant('configConst', {
@@ -85,7 +85,7 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 //rotas de url amigaveis
 app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig',
     function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
-       
+
         $httpProvider.interceptors.push('httpInterceptor');
 
         $httpProvider.defaults.withCredentials = true;
@@ -311,7 +311,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return "UF";
                             },
                             filter: function () {
-                                return { id: null, nome: null , sigla:null};
+                                return { id: null, nome: null, sigla: null };
                             },
                             service: function () {
                                 return ufService;
@@ -335,7 +335,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return "Minicípio";
                             },
                             filter: function () {
-                                return { id: null, nome: null, codigo: null, uf:null };
+                                return { id: null, nome: null, codigo: null, uf: null };
                             },
                             service: function () {
                                 return municipioService;
@@ -362,7 +362,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return "Cliente";
                             },
                             filter: function () {
-                                return { id: null, nome: null, cpfCnpj: null  };
+                                return { id: null, nome: null, cpfCnpj: null };
                             },
                             service: function () {
                                 return clienteService;
@@ -392,7 +392,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return "Venda";
                             },
                             filter: function () {
-                                return { id: null, inicio: null, fim: null, turmaId: null, vendedorId: null, clienteFinanceiroId: null};
+                                return { id: null, inicio: null, fim: null, turmaId: null, vendedorId: null, clienteFinanceiroId: null };
                             },
                             service: function () {
                                 return vendaService;
@@ -414,6 +414,45 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             vendaClienteService: function () {
                                 return vendaClienteService;
                             }
+                        }
+                    }
+                }
+            })
+            .when("/prospeccao", {
+                templateUrl: configConst.baseUrlView + "prospeccao.html",
+                controller: 'prospeccaoCtrl',
+                resolve: {
+                    parm: function (prospeccaoService, vendedorService, clienteService, cursoService, prospeccaoInteresseService) {
+                        return {
+                            titulo: function () {
+                                return "Prospecção";
+                            },
+                            filter: function () {
+                                return { id: null, inicio: null, fim: null, vendedorId: null, clienteId: null };
+                            },
+                            service: function () {
+                                return prospeccaoService;
+                            },
+                            model: function (callBack) {
+                                return prospeccaoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            vendedorService: function () {
+                                return vendedorService;
+                            },
+                            clienteService: function () {
+                                return clienteService;
+                            },
+                            vendaClienteService: function () {
+                                return vendaClienteService;
+                            },
+                            prospeccaoInteresseService: function () {
+                                return prospeccaoInteresseService;
+                            },
+                            cursoService: function () {
+                                return cursoService;
+                            }                            
                         }
                     }
                 }
@@ -500,6 +539,329 @@ app.factory("alertService", ['toaster', function (toaster) {
         getAdvertencia: _getAdvertencia,
         getError: _getError
     };
+
+}]);
+
+app.factory("modelService", [function () {
+
+    //funções em commun para telas de cadastros
+    var _extendsAbstractController = function ($scope, alertService, parm, func) {
+
+        var $$Model = null;
+        var $$TituloModelo = null;
+        var $$Servico = null;
+        var $$Filtros = null;
+        var $$Pesquisa;
+
+        //não muda
+        parm.model(function (dados) {
+            $$Model = dados;
+            $$TituloModelo = parm.titulo();
+            $$Servico = parm.service();
+            $$Filtros = parm.filter();
+            $$Pesquisa = true;
+            init();
+
+        });
+
+        //não muda
+        function init() {
+            $scope.model = angular.copy($$Model);
+            $scope.tituloModelo = angular.copy($$TituloModelo);
+            $scope.filtros = angular.copy($$Filtros);
+            modoEdicao(false, function () {
+                setTimeout(function () {
+                    func = (func) ? func($$Model) : func;
+                    $scope.facaDisgestao();
+                })
+            });
+        }
+
+        //não muda
+        $scope.limparFiltros = function () {
+            $scope.filtros = angular.copy($$Filtros);
+        }
+
+        //não muda
+        $scope.novo = function () {
+            modoEdicao(true);
+            $scope.titulo = "Cadastrar Novo " + $$TituloModelo;
+        }
+
+        //não muda
+        $scope.editar = function (entity) {
+            modoEdicao(true);
+            $scope.titulo = "Editar " + $$TituloModelo;
+            carregarFormulario(entity)
+        }
+
+        //não muda
+        $scope.voltar = function (form) {
+            resetaForm(form);
+            $Pesquisa = false;
+            modoEdicao(false);
+        }
+
+        //não muda
+        function modoEdicao(bool, func) {
+            $scope.modoEdicao = bool
+
+            if (bool) {
+                limparFormulario();
+            } else {
+                $scope.limparFiltros();
+                if ($$Pesquisa) {
+                    // o botão voltar não pesquisa novamente.                
+                    pesquisar(func);
+                }
+                $$Pesquisa = true;
+            }
+        }
+
+        //não muda
+        function limparFormulario() {
+            $scope.model = angular.copy($$Model);
+        }
+
+        //não muda
+        function carregarFormulario(entity) {
+            $scope.model = entity;
+        }
+
+        //não muda
+        $scope.pesquisar = function () {
+            pesquisar();
+        }
+
+        //CRUD
+        //não muda
+        function pesquisar(func) {
+            $$Servico.listar($scope.filtros, function (data) {
+                $scope.grade_model = data;
+                if (func) {
+                    func();
+                }
+            });
+        }
+
+        //não muda
+        $scope.excluir = function (id) {
+            $$Servico.excluir(id, function () {
+                modoEdicao(false);
+                alertService.getSucesso("Registro excluido com sucesso");
+            });
+        }
+
+        //não muda
+        $scope.salvar = function (form) {
+
+            angular.forEach(form.$$controls, function (field) {
+                field.$setDirty();
+            });
+
+            if (form.$valid) {
+                //validacoes       
+                $$Servico.salvar($scope.model, function (dados) {
+                    resetaForm(form);
+                    limparFormulario()
+                    modoEdicao(false);
+                    alertService.getSucesso("Dados salvo com sucesso");
+                });
+            }
+        }
+
+        $scope.GetValidFormGrupoClass = function (componente) {
+
+            if (componente.$touched || componente.$dirty /*|| form.$submitted*/) {
+                return (componente.$valid) ? 'has-success' : 'has-error';
+            }
+        }
+
+        $scope.GetValidInputClass = function (componente) {
+            if (componente.$touched || componente.$dirty /*form.$submitted*/) {
+                return (componente.$valid) ? 'glyphicon-ok' : 'glyphicon-remove';
+            }
+        }
+
+        $scope.GetValidMessages = function (componente) {
+            return componente.$invalid && (componente.$touched || componente.$dirty)
+        }
+
+        function resetaForm(form) {
+            form.$setPristine();
+            form.$setUntouched();
+            form.$submitted = false;
+        }
+    }
+
+    //funções em commun para telas de vinculos
+    var _vincular = function (param) {
+
+        //parametros esperados para vincular o modelo principal ao modelo de ligação
+        var scopePartial = param.scopePartial,
+            servicoVinculo = param.servicoVinculo,
+            servicoLov = param.servicoLov,
+            nomeAtributoFK01 = param.nomeAtributoFK01,
+            nomeAtributoFK02 = param.nomeAtributoFK02,
+            nomeTabelaLov = param.nomeTabelaLov,
+            model = param.model,
+            alertService = param.alertService,
+            funcGrid = param.funcGrid
+
+        //carregaModelos
+        servicoVinculo.model(function (model) {
+            scopePartial.model = angular.copy(model);
+        });
+
+
+        ////pesquisa  tipoCurso (filtro)
+        scopePartial.listar = function (fitro) {
+            servicoLov.lov(fitro, function (data) {
+                scopePartial.data = data;
+            });
+        }
+
+        scopePartial.selected = function (item) {
+            scopePartial.model[nomeAtributoFK01] = model.id;
+            scopePartial.model[nomeAtributoFK02] = item["id"];
+            scopePartial.model[nomeTabelaLov] = item;
+        }
+
+        /////aba vincular
+        scopePartial.vincular = function () {
+
+            if (!scopePartial.model.item) {
+                alertService.getAdvertencia("Selecione um item para vinculo.");
+                return;
+            }
+
+            if (funcGrid().filter(item => { return item[nomeAtributoFK02] == scopePartial.model[nomeTabelaLov]["id"]; }).length > 0) {
+                alertService.getAdvertencia("Este elemento ja foi adicionado");
+                return;
+            }
+
+            delete scopePartial.model['item'];
+
+            funcGrid().push(angular.copy(scopePartial.model));
+
+        }
+
+        ///aba vincular docente
+        scopePartial.desvincular = function (element) {
+            if (element.id == 0) {
+                funcGrid().splice(funcGrid().indexOf(element), 1);//limpar da tela
+                // funcAtualizaGrid(gridVinculoModel);
+                return;
+            }
+            servicoVinculo.desvincular(element.id, function () {
+                funcGrid().splice(funcGrid().indexOf(element), 1);//limpar da tela           
+                alertService.getSucesso("Registro excluido com sucesso");
+            });
+        }
+    }
+
+    var _carregarLov = function (param) {
+        param.scope.pesquisar = function (fitro) {
+            param.servico.lov(fitro, function (data) {
+                param.scope.dados = data;
+            });
+        }
+        param.scope.selecionar = function (item) {
+            param.aoSelecionar(item);
+        }
+    }
+
+    var _existeDadosNaoGravados = function (scope, grid, msg, callback) {
+        var listaItemconteudo = grid.filter(item => item.id == 0);
+        if (listaItemconteudo.length > 0) {
+            scope.modalConfirmar("Atencao", "Existem item a serem salvo na aba {VINCULO DE  " + msg + "}. Deseja sair memo assim? Os dados vinculados serao perdidos.", null, function () {
+                callback();
+            });
+        } else {
+            callback();
+        }
+    }
+    
+    return {
+        extendsAbstractController: _extendsAbstractController,
+        vincular: _vincular,
+        carregarLov: _carregarLov,
+        existeDadosNaoGravados: _existeDadosNaoGravados
+    };
+
+}]);
+
+app.factory("globalService", [function () {
+
+    var _extendsAbstractServices = function (baseUrl, consumerService, $rootScope) {
+
+        var _lov = function (string, callBack) {
+            var param = (string) ? string : null;
+            consumerService.get(baseUrl + "/" + param, function (data) {
+                callBack(data);
+            })
+        };
+
+        var _model = function (callBack) {
+            var url = baseUrl + "/model";
+            $rootScope.Loading(true, "GET: " + url);
+            consumerService.get(url, function (modelo) {
+                callBack(JSON.parse(JSON.parse(modelo)));
+            });
+        };
+
+        var _listar = function (filtro, callBack) {
+            var url = baseUrl + "/listar";
+            $rootScope.Loading(true, "POST: " + url);
+            consumerService.post(url, filtro, function (data) {
+                callBack(data);
+            })
+        };
+
+        var _salvar = function (entidade, callBack) {
+
+            if (entidade.id > 0) {
+                $rootScope.Loading(true, "PUT: " + baseUrl);
+                consumerService.put(baseUrl, entidade, function (data) {
+                    callBack(data);
+                });
+            } else {
+                $rootScope.Loading(true, "POST: " + baseUrl);
+                consumerService.post(baseUrl, entidade, function (data) {
+                    callBack(data);
+                });
+            }
+        };
+
+        var _excluir = function (id, callBack) {
+            var url = baseUrl + "?id=" + id;
+            $rootScope.Loading(true, "DELETE: " + url);
+            consumerService.delete(url, function () {
+                callBack();
+            });
+        };
+
+        var _desvincular = function (id, callBack) {
+            var url = baseUrl + "?id=" + id;
+            $rootScope.Loading(true, "DELETE: " + url);
+            consumerService.delete(url, function () {
+                callBack();
+            });
+        }
+
+        return {
+            model: _model,
+            lov: _lov,
+            listar: _listar,
+            salvar: _salvar,
+            excluir: _excluir,
+            desvincular: _desvincular
+        };
+    }
+
+    return {
+        extendsAbstractServices: _extendsAbstractServices
+    }
 
 }]);
 

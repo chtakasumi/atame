@@ -286,6 +286,56 @@ namespace api.infra.Migrations
                     b.ToTable("PerfilGrupo");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Prospeccao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnName("clienteId");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnName("data")
+                        .HasColumnType("Date");
+
+                    b.Property<string>("Observacao")
+                        .HasColumnName("observacao")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<int>("VendedorId")
+                        .HasColumnName("vendedorId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("VendedorId");
+
+                    b.ToTable("Prospeccao");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.ProspeccaoInteresse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CursoId")
+                        .HasColumnName("cursoId");
+
+                    b.Property<int>("ProspeccaoId")
+                        .HasColumnName("prospeccaoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CursoId");
+
+                    b.HasIndex("ProspeccaoId");
+
+                    b.ToTable("ProspeccaoInteresse");
+                });
+
             modelBuilder.Entity("api.domain.Entity.TipoCurso", b =>
                 {
                     b.Property<int?>("Id")
@@ -584,6 +634,32 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.Perfil", "Perfil")
                         .WithMany("PerfisGrupos")
                         .HasForeignKey("PerfilId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Prospeccao", b =>
+                {
+                    b.HasOne("api.domain.Entity.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Vendedor", "Vendedor")
+                        .WithMany()
+                        .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.ProspeccaoInteresse", b =>
+                {
+                    b.HasOne("api.domain.Entity.Curso", "Curso")
+                        .WithMany()
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Prospeccao", "Prospeccao")
+                        .WithMany("Interesses")
+                        .HasForeignKey("ProspeccaoId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

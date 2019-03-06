@@ -1,0 +1,52 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <label for="interesses" class="control-label">Curso de Interesse</label>
+        <div class="input-group">
+            <ui-select input-id="interesses" name="interesses" on-select="interesses.selected($item)"
+                       ng-model="interesses.model.item"
+                       spinner-enabled="true">
+                <ui-select-match placeholder="**Selecione um Interesses**">
+                    <span ng-bind="$select.selected.nome"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (interesses.data | filter: $select.search) track by item.id"
+                                   refresh="interesses.listar($select.search)" refresh-delay="0">
+                    <span ng-bind="item.nome"></span>
+                </ui-select-choices>
+            </ui-select>
+            <div class="input-group-btn">
+                <button class="btn btn-primary" ng-click="interesses.vincular()">
+                <i class="glyphicon glyphicon-plus"></i>&nbsp;Vincular</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12 table-responsive">
+
+        <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+               id="GridViewDocente">
+            <thead>
+                <tr class="title-table">
+                    <th ng-hide="true">Código</th>
+                    <th ng-hide="true">Código prospeccao</th>
+                    <th ng-hide="true">Código Curso</th>
+                    <th>Curso</th>                  
+                    <th class="edicao"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="row in model.interesses">
+                    <td ng-hide="true">{{row.id}}</td>
+                    <td ng-hide="true">{{row.prospeccaoId}}</td>
+                    <td ng-hide="true">{{row.cursoId}}</td>
+                    <td>{{row.curso.nome}}</td>                  
+                    <td class="edicao">
+                        <a class="btn btn-default btn-xs" ng-click="modalExcluir(interesses.desvincular, row, row.curso.nome)"><i class="glyphicon glyphicon-remove"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

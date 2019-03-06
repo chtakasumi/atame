@@ -9,9 +9,9 @@ namespace api.infra.Repository
     public class TipoCursoRepository : EfRepository<TipoCurso>, ITipoCursoRepository
     {
         public TipoCursoRepository(DBContext dbbcontexto) : base(dbbcontexto)
-        {
-          
+        {          
         }
+
         public IEnumerable<TipoCurso> Listar(TipoCurso tipoCurso)
         {
             return base.Pesquisar(x =>

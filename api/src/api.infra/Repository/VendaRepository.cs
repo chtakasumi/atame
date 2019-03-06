@@ -18,7 +18,7 @@ namespace api.infra.Repository
         {
             var ListaCursos = base.Query(x =>
                 (x.Id == venda.Id || !venda.Id.HasValue) &&
-                ((x.Turma.Inicio >= venda.Inicio || !venda.Inicio.HasValue) && (x.Turma.Fim <= venda.Fim || !venda.Fim.HasValue)) &&
+                ((x.Turma.Inicio >= venda.Inicio || !venda.Inicio.HasValue) && (x.Turma.Inicio <= venda.Fim || !venda.Fim.HasValue)) &&
                 (x.ClienteFinanceiroId == venda.ClienteFinanceiroId || !venda.ClienteFinanceiroId.HasValue) &&
                 (x.TurmaId == venda.TurmaId || !venda.TurmaId.HasValue) &&
                 (x.VendedorId == venda.VendedorId || !venda.VendedorId.HasValue), x => x.Id)

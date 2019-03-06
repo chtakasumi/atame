@@ -4,7 +4,7 @@ using System.Text;
 
 namespace api.domain.Interfaces
 {
-    public interface IperfilRepository
+    public interface IPerfilRepository
     {
     }
 }

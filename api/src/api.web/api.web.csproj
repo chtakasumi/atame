@@ -88,6 +88,8 @@
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
     <None Remove="App\view\municipio.html" />
+    <None Remove="App\view\Prospeccao.html" />
+    <None Remove="App\view\prospeccaoInteressePartial.html" />
     <None Remove="App\view\tipoCurso.html" />
     <None Remove="App\view\turma.html" />
     <None Remove="App\view\turmaConteudoProgramaticoPartial.html" />
@@ -167,6 +169,8 @@
     <Content Include="App\view\Componetes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
+    <Content Include="App\view\prospeccao.html" />
+    <Content Include="App\view\prospeccaoInteressePartial.html" />
     <Content Include="App\view\vendaClientePartial.html" />
     <Content Include="App\view\cursoDocentePartial.html" />
     <Content Include="App\view\turma.html" />

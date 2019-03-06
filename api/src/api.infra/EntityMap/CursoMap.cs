@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace api.infra.EntityConfig
+namespace api.infra.EntityMap
 {
     public class CursoMap : IEntityTypeConfiguration<Curso>
     {     
@@ -18,7 +18,9 @@ namespace api.infra.EntityConfig
                 .IsRequired();
 
             builder.Property(c => c.Preco)
-               .HasColumnName("preco").HasColumnType("Decimal(10, 2)").IsRequired();
+               .HasColumnName("preco")
+               .HasColumnType("Decimal(10, 2)")
+               .IsRequired();
             
             builder.Property(c => c.Descricao)
               .HasColumnName("descricao")

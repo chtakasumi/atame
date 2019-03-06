@@ -32,143 +32,90 @@ function (consumerService, $window, $location) {
 
 }]);
 
-app.factory("cursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("cursoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "curso";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);      
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);      
 }]);
 
-app.factory("cursoDocenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("cursoDocenteService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "curso/docente";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope); 
 }]);
 
-app.factory("cursoConteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("cursoConteudoProgramaticoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "curso/conteudo";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);    
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);    
 }]);
 
-app.factory("turmaService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("turmaService", ['consumerService', '$rootScope','globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "turma";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("turmaDocenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("turmaDocenteService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "turma/docente";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("turmaConteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("turmaConteudoProgramaticoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "turma/conteudo";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("tipoCursoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("tipoCursoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = 'tipoCurso';
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope); 
 }]); 
 
-app.factory("docenteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("docenteService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "docente";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope); 
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope); 
 }]);
 
-app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("conteudoProgramaticoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "conteudoProgramatico";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);  
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);  
 }]);
 
-app.factory("vendedorService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("vendedorService", ['consumerService', '$rootScope','globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "vendedor";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("ufService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("ufService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "uf";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("municipioService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("municipioService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "municipio";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("clienteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("clienteService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "cliente";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("vendaService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("vendaService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "venda";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-app.factory("vendaClienteService", ['consumerService', '$rootScope', function (consumerService, $rootScope) {
+app.factory("vendaClienteService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "venda/academico";
-    return extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-function extendsAbstractServices(baseUrl, consumerService, $rootScope){
+app.factory("prospeccaoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "prospeccao";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
 
-    var _lov = function (string, callBack) {
-        var param = (string) ? string : null;
-        consumerService.get(baseUrl + "/" + param, function (data) {
-            callBack(data);
-        })
-    };
+app.factory("prospeccaoInteresseService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "prospeccao/interesse";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
 
-    var _model = function (callBack) {
-        var url = baseUrl + "/model";
-        $rootScope.Loading(true, "GET: " + url);
-        consumerService.get(url, function (modelo) {
-            callBack(JSON.parse(JSON.parse(modelo)));
-        });
-    };
 
-    var _listar = function (filtro, callBack) {
-        var url = baseUrl + "/listar";
-        $rootScope.Loading(true, "POST: " + url);
-        consumerService.post(url, filtro, function (data) {
-            callBack(data);
-        })
-    };
 
-    var _salvar = function (entidade, callBack) {
-
-        if (entidade.id > 0) {
-            $rootScope.Loading(true, "PUT: " + baseUrl);
-            consumerService.put(baseUrl, entidade, function (data) {
-                callBack(data);
-            });
-        } else {
-            $rootScope.Loading(true, "POST: " + baseUrl);
-            consumerService.post(baseUrl, entidade, function (data) {
-                callBack(data);
-            });
-        }
-    };
-
-    var _excluir = function (id, callBack) {
-        var url = baseUrl + "?id=" + id;
-        $rootScope.Loading(true, "DELETE: " + url);
-        consumerService.delete(url, function () {
-            callBack();
-        });
-    };
-
-    var _desvincular = function (id, callBack) {
-        var url = baseUrl + "?id=" + id;
-        $rootScope.Loading(true, "DELETE: " + url);
-        consumerService.delete(url, function () {
-            callBack();
-        });
-    }
-
-    return {
-        model: _model,
-        lov: _lov,
-        listar: _listar,
-        salvar: _salvar,
-        excluir: _excluir,
-        desvincular: _desvincular
-    };
-}
