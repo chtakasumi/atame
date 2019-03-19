@@ -33,7 +33,16 @@ namespace api.infra.EntityMap
             builder.Property(c => c.Fim)
               .HasColumnName("fimPrevisto")
               .HasColumnType("Date");
-            
+
+            builder.Property(c => c.Parcela)
+               .HasColumnName("parcela")
+               .IsRequired();
+
+            builder.Property(c => c.ValorParcela)
+               .HasColumnName("valorParcela")
+                .HasColumnType("Decimal(10, 2)")
+               .IsRequired();
+
             builder.HasOne(c => c.Curso).WithMany()
                 .HasForeignKey(c => c.CursoId)
                .HasPrincipalKey(x => x.Id)

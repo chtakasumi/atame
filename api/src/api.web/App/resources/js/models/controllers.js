@@ -16,7 +16,7 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
     modelService.extendsAbstractController($scope, alertService, parm, function () {
 
         //CarregarLovPesquisa
-        modelService.modelService.carregarLov({
+        modelService.carregarLov({
             scope: $scope.lovPesquisa = {},
             servico: parm.tipoCursoService(),
             aoSelecionar: function (item) {
@@ -25,7 +25,7 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
         });
 
         //CarregarLovCadastro     
-        modelService.modelService.carregarLov({
+        modelService.carregarLov({
             scope: $scope.lovCadastro = {},
             servico: parm.tipoCursoService(),
             aoSelecionar: function (item) {
@@ -64,6 +64,10 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             }
         };
         modelService.vincular(param2);
+        
+        $scope.calculaValorParcela = function () {
+            $scope.model.valorParcela = ($scope.model.preco / $scope.model.parcela);
+        }
 
         //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
         $scope.antesDeVoltar = function (form) {
@@ -95,17 +99,21 @@ app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
         modelService.carregarLov({
             scope: $scope.lovCadastro = {},
             servico: parm.cursoService(),
-            aoSelecionar: function (item) {
-                $scope.model.cursoId = item.id;
-                //tra a grid preenchidas
+            aoSelecionar: function (curso) {
+                $scope.model.cursoId = curso.id;
+                //traz a grid preenchidas
                 if ($scope.titulo.indexOf("Cadastrar") > -1) {
                     if ($scope.model.conteudosProgramaticos.length == 0) {
-                        $scope.model.conteudosProgramaticos = item.conteudosProgramaticos;
+                        $scope.model.conteudosProgramaticos = curso.conteudosProgramaticos;
                     }
                     if ($scope.model.docentes.length == 0) {
-                        $scope.model.docentes = item.docentes;
+                        $scope.model.docentes = curso.docentes;
                     }
                 }
+
+                $scope.model.parcela = curso.parcela;
+                $scope.model.preco = curso.preco;
+                $scope.model.valorParcela = curso.valorParcela;
             }
         });
 
@@ -142,6 +150,11 @@ app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
             }
         };
         modelService.vincular(param2);
+
+
+        $scope.calculaValorParcela = function () {
+            $scope.model.valorParcela = ($scope.model.preco / $scope.model.parcela);
+        }
 
 
         //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
@@ -234,8 +247,19 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
 }]);
 
 //comportamento da pagina venda
-app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','utils', function ($scope, alertService, parm, modelService, utils) {
     modelService.extendsAbstractController($scope, alertService, parm, function () {
+
+
+       //Isso para sobreescerver a referencia do botão novo e executar no final
+        var novo = angular.copy($scope.novo);
+        $scope.novo = function (){
+            utils.getData(function (data) {
+                novo();
+                $scope.model.data = data; 
+                $scope.model.vencimentoPrimeiraParcela = utils.incrementaDias(data, 30);
+            });
+        }
 
         //CarregarLovTurma
         modelService.carregarLov({
@@ -255,7 +279,7 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
                 if ($scope.titulo.indexOf("Cadastrar") > -1) {
                     $scope.model.valorCurso = turma.preco; //estou pegando um valor do curso e não da turma tirar duvidas com o clovis...
                 }
-                $scope.calculaValorVenda();
+                $scope.calculaValorVendaEhParcela();
             }
         });
 
@@ -294,10 +318,11 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
         });
 
         //regras de calculo do desconto
-        $scope.calculaValorVenda = function () {
+        $scope.calculaValorVendaEhParcela = function () {
             var valorTotal = ($scope.model.quantidade > 0) ? $scope.model.valorCurso * $scope.model.quantidade : $scope.model.valorCurso;
             var desconto = (($scope.model.desconto * valorTotal) / 100);
             $scope.model.valorVenda = valorTotal - desconto;
+            $scope.model.valorParcela =  $scope.model.valorVenda / $scope.model.parcela;
         }
 
         //***VINCULAR CURSO AO DOCENTE***//        
@@ -387,3 +412,7 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
     });
 }]);
 
+//comportamento da pagina parametro
+app.controller('parametroCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+    modelService.extendsAbstractController($scope, alertService, parm);
+}]);

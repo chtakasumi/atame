@@ -117,5 +117,8 @@ app.factory("prospeccaoInteresseService", ['consumerService', '$rootScope', 'glo
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-
+app.factory("parametroService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "parametro";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
 

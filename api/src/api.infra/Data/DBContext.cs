@@ -32,6 +32,7 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new VendaClienteMap());
             modelBuilder.ApplyConfiguration(new ProspeccaoMap());
             modelBuilder.ApplyConfiguration(new ProspeccaoInteresseMap());
+            modelBuilder.ApplyConfiguration(new ParametroMap());
 
         }
 
@@ -49,6 +50,7 @@ namespace api.infra
         public DbSet<Cliente> Cleintes { get; set; }
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<Prospeccao> Prospeccoes { get; set; }
+        public DbSet<Parametro> Parametros { get; set; }
 
     }
 }

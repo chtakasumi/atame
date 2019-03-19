@@ -131,7 +131,7 @@
                                 </ng-messages>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.curso)">
                                 <label for="curso" class="control-label">Curso</label>
                                 <ui-select input-id="curso" name="curso" ng-model="model.curso"
@@ -151,11 +151,11 @@
 
                             </div>
                         </div>
-                        <div class="col-md-4 ">
+                        <div class="col-md-2 ">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.preco)">
                                 <label for="preco" class="control-label">Preço</label>
                                 <input type="text" ng-model="model.preco" ui-money-mask class="form-control" id="preco"
-                                       name="preco" placeholder="Preço" required min="0.01" max="99999999.99">
+                                       name="preco" placeholder="Preço" required min="0.01" max="99999999.99" ng-change="calculaValorParcela()">
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.preco)"></span>
                                 <ng-messages for="form.preco.$error" ng-show="GetValidMessages(form.preco)">
                                     <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
@@ -164,6 +164,28 @@
                                 </ng-messages>
                             </div>
                         </div>
+                        <div class="col-md-2 ">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.parcela)">
+                                <label for="parcela" class="control-label">Qtd. de Parcela</label>
+                                <input type="text" ng-model="model.parcela" class="form-control" id="parcela" name="parcela" placeholder="Qtd. Parcela"
+                                       ui-number-mask="0" min="0.000" max="99" maxlength="2" required ng-change="calculaValorParcela()">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.parcela)"></span>
+                                <ng-messages for="form.parcela.$error" ng-show="GetValidMessages(form.parcela)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                    <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                    <ng-message when="max" class="has-error-text">*Valor máximo permitido 99</ng-message>
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 2</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="valorParcela" class="control-label">Valor da Da Parcela</label>
+                                <input type="text" value="{{model.valorParcela | currency}}" class="form-control" id="valorParcela" name="valorParcela" placeholder="Valor da Parcela" disabled>
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="form-group  has-feedback" ng-class="GetValidFormGrupoClass(form.inicio)">
                                 <label for="inicio" class="control-label">Previsão Inicio</label>
@@ -205,7 +227,7 @@
                         </button>
                         <button class="btn btn-default" ng-click="antesDeVoltar(form)">
                             <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
-                        </button>                        
+                        </button>
                     </div>
                 </div>
             </div>

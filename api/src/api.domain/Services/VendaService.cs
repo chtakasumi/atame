@@ -1,4 +1,5 @@
-﻿using api.domain.Entity;
+﻿using System;
+using api.domain.Entity;
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
@@ -9,10 +10,12 @@ namespace api.domain.Services
     public class VendaService
     {
         private readonly IVendaRepository _vendaRepository;
+        private readonly IParametroRepository _param;
 
-        public VendaService(IVendaRepository venda)
+        public VendaService(IVendaRepository venda, IParametroRepository param)
         {
             _vendaRepository = venda;
+            _param = param;
         }
 
         public string ModelSerializale()
@@ -28,7 +31,12 @@ namespace api.domain.Services
         public Venda Cadastrar(Venda venda)
         {
             ValidarModelo(venda);
-            
+
+            if (venda.VencimentoPrimeiraParcela < DateTime.Now.AddDays(30))
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Vencimento da 1° Parcela não pode ser menor que 30 dias");
+            }
+
             //isso fala para o etity não criar um novo cliente.
             foreach (var vendaCliente in venda.ClientesAcademicos)
             {
@@ -98,6 +106,31 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Valor do Curso não informado");
             }
+                      
+
+            if (venda.Parcela == 0)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Parcela não informado");
+            }
+
+            if (!venda.VencimentoPrimeiraParcela.HasValue)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Vencimento da 1° Parcela não informado");
+            }
+
+            if (venda.ValorParcela == 0)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Valor da Parcela não informado");
+            }
+
+            var param = _param.Pesquisar(x => x.Chave == EnumParametros.DESCONTOS_PERMITIDOS.ToString()).ToEntity();
+            decimal descontoPermitido = TrataValor(param.valor);
+
+         
+            if (venda.Desconto > descontoPermitido)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Desconto não podera ser maior que ");
+            }
 
             if (venda.ClientesAcademicos.Count == 0)
             {
@@ -108,13 +141,25 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "A quantidade de vagas deve ser a mesma quantidade de acadêmicos.");
             }
-
+            
             venda.ClienteFinanceiro = null;
             venda.Turma = null;
             venda.Vendedor = null;
 
             venda.CalcularValorVenda();
         }
+
+        private decimal TrataValor(string valor)
+        {
+            if (!string.IsNullOrEmpty(valor)) {
+
+                return Convert.ToDecimal( valor.Replace(".", ",").Replace("%",""));
+            }
+
+            return 0;
+          
+        }
+
 
         //**Metodos academicos**//
         public string ModelClienteAcademicoSerializale()

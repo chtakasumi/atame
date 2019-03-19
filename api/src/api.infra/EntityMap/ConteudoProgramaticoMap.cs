@@ -14,12 +14,12 @@ namespace api.infra.EntityMap
 
             builder.Property(c => c.Identificacao)
                 .HasColumnName("nome")
-                .HasColumnType("varchar(40)")
+                .HasColumnType("varchar(100)")
                 .IsRequired();
 
             builder.Property(c => c.Descricao)
                .HasColumnName("descricao")
-               .HasColumnType("varchar(500)");           
+               .HasColumnType("varchar(1000)");           
 
         }
        

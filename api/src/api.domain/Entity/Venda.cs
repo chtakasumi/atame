@@ -26,6 +26,13 @@ namespace api.domain.Entity
 
         public decimal ValorVenda { get; set; }
 
+        public int Parcela { get; set; }
+
+        public decimal ValorParcela { get; set; }
+
+        public DateTime? VencimentoPrimeiraParcela { get; set; }
+
+
         public ICollection<VendaCliente> ClientesAcademicos { get; set; }
 
         public Venda()

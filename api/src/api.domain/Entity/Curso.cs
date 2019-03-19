@@ -9,9 +9,11 @@ namespace api.domain.Entity
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public int TipoCursoId { get; set; }
+        public int TipoCursoId { get; set; }        
         public TipoCurso TipoCurso { get; set; }
         public decimal Preco { get; set; }
+        public int Parcela { get; set; }
+        public decimal ValorParcela { get; set; }
 
         public ICollection<CursoConteudoProgramatico> ConteudosProgramaticos { get; set; }
         public ICollection<CursoDocente> Docentes { get; set; }

@@ -141,7 +141,13 @@ li .dropdown-item a{
 
 /********************View pages************/
 
-.paginas{
+.texto-destaque {
+    font-weight: bolder;
+    font-size: x-large;
+    color: blue;
+}
+
+.paginas {
     margin-top: 7%;
 }
 

@@ -14,7 +14,7 @@ namespace api.infra.EntityMap
 
             builder.Property(c => c.Nome)
                 .HasColumnName("nome")
-                .HasColumnType("varchar(40)")
+                .HasColumnType("varchar(100)")
                 .IsRequired();
 
             builder.Property(c => c.Preco)
@@ -24,8 +24,18 @@ namespace api.infra.EntityMap
             
             builder.Property(c => c.Descricao)
               .HasColumnName("descricao")
-              .HasColumnType("varchar(500)");
+              .HasColumnType("varchar(1000)");
 
+
+            builder.Property(c => c.Parcela)
+               .HasColumnName("parcela")
+               .IsRequired();
+
+            builder.Property(c => c.ValorParcela)
+               .HasColumnName("valorParcela")
+                .HasColumnType("Decimal(10, 2)")
+               .IsRequired();
+            
 
             builder.Property(c => c.TipoCursoId)
                 .HasColumnName("tipoCursoId");

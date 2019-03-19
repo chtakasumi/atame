@@ -16,11 +16,15 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
     DTDefaultOptions.setLanguageSource(configConst.baseUrl + '/resources/js/plugins/data-table/Portuguese-Brasil.Json');
     DTDefaultOptions.setLoadingTemplate('<img src="' + configConst.baseUrl + '/resources/img/ajax-loader.gif">');
     DTDefaultOptions.setOption("filter", false);
-    DTDefaultOptions.setOption("aoColumnDefs", [
+    DTDefaultOptions.setOption("columnDefs", [
         {
-            aTargets: 'edicao',
-            bSortable: false
-        }
+            defaultContent: "",
+            targets: "_all" //para parar o erro de não encontrar colunas
+        },
+        {
+            targets: 'edicao',           
+            sortable: false
+        }        
     ]);
 
     //esse evento acontece toda vez que mudo de url
@@ -301,6 +305,30 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/parametro", {
+                templateUrl: configConst.baseUrlView + "parametro.html",
+                controller: 'parametroCtrl',
+                resolve: {
+                    parm: function (parametroService) {
+                        return {
+                            titulo: function () {
+                                return "Parametro";
+                            },
+                            filter: function () {
+                                return { id: null, chave: null };
+                            },
+                            service: function () {
+                                return parametroService;
+                            },
+                            model: function (callBack) {
+                                return parametroService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
             .when("/uf", {
                 templateUrl: configConst.baseUrlView + "uf.html",
                 controller: 'ufCtrl',
@@ -386,7 +414,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "venda.html",
                 controller: 'vendaCtrl',
                 resolve: {
-                    parm: function (vendaService, turmaService, vendedorService, clienteService, vendaClienteService) {
+                    parm: function (vendaService, turmaService, vendedorService, clienteService, vendaClienteService, utils) {
                         return {
                             titulo: function () {
                                 return "Venda";
@@ -413,6 +441,9 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             vendaClienteService: function () {
                                 return vendaClienteService;
+                            },
+                            utils: function () {
+                                return utils;
                             }
                         }
                     }
@@ -568,6 +599,7 @@ app.factory("modelService", [function () {
         function init() {
             $scope.model = angular.copy($$Model);
             $scope.tituloModelo = angular.copy($$TituloModelo);
+            $scope.titulo = '';
             $scope.filtros = angular.copy($$Filtros);
             modoEdicao(false, function () {
                 setTimeout(function () {
@@ -861,6 +893,26 @@ app.factory("globalService", [function () {
 
     return {
         extendsAbstractServices: _extendsAbstractServices
+    }
+
+}]);
+
+app.factory("utils", ['consumerService', function (consumerService) {
+    var _getData = function (callback) {
+        consumerService.get('utils/datahora', function (data) {
+            //todo: pegar data do servidor
+            callback(JSON.parse(data));
+        })
+    }
+    var _incrementaDias = function (data, dias) {
+        var time = new Date(data);
+        var outraData = new Date();
+        outraData.setDate(time.getDate() + dias); // Adiciona 3 dias
+        return outraData.toISOString();
+    }
+    return {
+        getData: _getData,
+        incrementaDias: _incrementaDias
     }
 
 }]);

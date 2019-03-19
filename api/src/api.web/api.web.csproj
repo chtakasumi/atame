@@ -88,6 +88,7 @@
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
     <None Remove="App\view\municipio.html" />
+    <None Remove="App\view\parametro.html" />
     <None Remove="App\view\Prospeccao.html" />
     <None Remove="App\view\prospeccaoInteressePartial.html" />
     <None Remove="App\view\tipoCurso.html" />
@@ -181,6 +182,7 @@
     <Content Include="App\view\municipio.html" />
     <Content Include="App\view\cliente.html" />
     <Content Include="App\view\venda.html" />
+    <Content Include="App\view\parametro.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />

@@ -12,6 +12,8 @@ namespace api.domain.Entity
         public decimal Preco { get; set; }
         public DateTime? Inicio { get; set; }
         public DateTime? Fim { get; set; }
+        public int Parcela { get; set; }
+        public decimal ValorParcela { get; set; }
 
         public ICollection<TurmaConteudoProgramatico> ConteudosProgramaticos { get; set; }
         public ICollection<TurmaDocente> Docentes { get; set; }

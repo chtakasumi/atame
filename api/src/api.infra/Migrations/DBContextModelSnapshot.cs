@@ -90,12 +90,12 @@ namespace api.infra.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnName("descricao")
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<string>("Identificacao")
                         .IsRequired()
                         .HasColumnName("nome")
-                        .HasColumnType("varchar(40)");
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -110,12 +110,15 @@ namespace api.infra.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnName("descricao")
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnName("nome")
-                        .HasColumnType("varchar(40)");
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("Parcela")
+                        .HasColumnName("parcela");
 
                     b.Property<decimal>("Preco")
                         .HasColumnName("preco")
@@ -123,6 +126,10 @@ namespace api.infra.Migrations
 
                     b.Property<int>("TipoCursoId")
                         .HasColumnName("tipoCursoId");
+
+                    b.Property<decimal>("ValorParcela")
+                        .HasColumnName("valorParcela")
+                        .HasColumnType("Decimal(10, 2)");
 
                     b.HasKey("Id");
 
@@ -251,6 +258,31 @@ namespace api.infra.Migrations
                     b.ToTable("Municipio");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Parametro", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Chave")
+                        .IsRequired()
+                        .HasColumnName("chave")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnName("descricao")
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<string>("valor")
+                        .IsRequired()
+                        .HasColumnName("valor")
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Parametro");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Perfil", b =>
                 {
                     b.Property<int>("Id")
@@ -295,7 +327,8 @@ namespace api.infra.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnName("clienteId");
 
-                    b.Property<DateTime>("Data")
+                    b.Property<DateTime?>("Data")
+                        .IsRequired()
                         .HasColumnName("data")
                         .HasColumnType("Date");
 
@@ -378,8 +411,15 @@ namespace api.infra.Migrations
                         .HasColumnName("inicioPrevisto")
                         .HasColumnType("Date");
 
+                    b.Property<int>("Parcela")
+                        .HasColumnName("parcela");
+
                     b.Property<decimal>("Preco")
                         .HasColumnName("preco")
+                        .HasColumnType("Decimal(10, 2)");
+
+                    b.Property<decimal>("ValorParcela")
+                        .HasColumnName("valorParcela")
                         .HasColumnType("Decimal(10, 2)");
 
                     b.HasKey("Id");
@@ -492,6 +532,9 @@ namespace api.infra.Migrations
                         .HasColumnName("desconto")
                         .HasColumnType("Decimal(10, 3)");
 
+                    b.Property<int>("Parcela")
+                        .HasColumnName("parcela");
+
                     b.Property<int>("Quantidade")
                         .HasColumnName("quantidade");
 
@@ -502,9 +545,18 @@ namespace api.infra.Migrations
                         .HasColumnName("valorCurso")
                         .HasColumnType("Decimal(10, 2)");
 
+                    b.Property<decimal>("ValorParcela")
+                        .HasColumnName("valorParcela")
+                        .HasColumnType("Decimal(10, 2)");
+
                     b.Property<decimal>("ValorVenda")
                         .HasColumnName("valorVenda")
                         .HasColumnType("Decimal(10, 2)");
+
+                    b.Property<DateTime?>("VencimentoPrimeiraParcela")
+                        .IsRequired()
+                        .HasColumnName("vencimentoPrimeiraParcela")
+                        .HasColumnType("Date");
 
                     b.Property<int>("VendedorId")
                         .HasColumnName("vendedorId");

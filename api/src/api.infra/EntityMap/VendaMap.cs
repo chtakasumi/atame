@@ -34,7 +34,23 @@ namespace api.infra.EntityMap
                 .HasColumnName("valorVenda")
                 .HasColumnType("Decimal(10, 2)")
                 .IsRequired();
-            
+
+            builder.Property(c => c.Parcela)
+             .HasColumnName("parcela")
+             .IsRequired();
+
+            builder.Property(c => c.ValorParcela)
+               .HasColumnName("valorParcela")
+                .HasColumnType("Decimal(10, 2)")
+               .IsRequired();
+
+
+            builder.Property(c => c.VencimentoPrimeiraParcela)
+              .HasColumnName("vencimentoPrimeiraParcela")
+              .HasColumnType("Date")
+              .IsRequired();
+
+
             builder.Property(c => c.TurmaId)
                 .HasColumnName("turmaId")
                 .IsRequired();
