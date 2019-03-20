@@ -906,7 +906,7 @@ app.factory("utils", ['consumerService', function (consumerService) {
     }
     var _incrementaDias = function (data, dias) {
         var time = new Date(data);
-        var outraData = new Date();
+        var outraData = new Date(data);
         outraData.setDate(time.getDate() + dias); // Adiciona 3 dias
         return outraData.toISOString();
     }

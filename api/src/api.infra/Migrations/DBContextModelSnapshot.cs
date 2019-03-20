@@ -283,6 +283,37 @@ namespace api.infra.Migrations
                     b.ToTable("Parametro");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Parcela", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Numero")
+                        .HasColumnName("numero");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnName("preco")
+                        .HasColumnType("Decimal(10, 2)");
+
+                    b.Property<DateTime?>("PrevisaoPgto")
+                        .IsRequired()
+                        .HasColumnName("previsaoPgto")
+                        .HasColumnType("Date");
+
+                    b.Property<int>("Status")
+                        .HasColumnName("Status");
+
+                    b.Property<int>("VendaId")
+                        .HasColumnName("vendaId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VendaId");
+
+                    b.ToTable("Parcela");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Perfil", b =>
                 {
                     b.Property<int>("Id")
@@ -673,6 +704,14 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.UF", "UF")
                         .WithMany("Municipios")
                         .HasForeignKey("UFId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Parcela", b =>
+                {
+                    b.HasOne("api.domain.Entity.Venda", "Venda")
+                        .WithMany("Parcelas")
+                        .HasForeignKey("VendaId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

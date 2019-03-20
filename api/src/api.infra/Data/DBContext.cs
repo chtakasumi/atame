@@ -33,6 +33,7 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new ProspeccaoMap());
             modelBuilder.ApplyConfiguration(new ProspeccaoInteresseMap());
             modelBuilder.ApplyConfiguration(new ParametroMap());
+            modelBuilder.ApplyConfiguration(new ParcelaMap());
 
         }
 
@@ -51,6 +52,7 @@ namespace api.infra
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<Prospeccao> Prospeccoes { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
+        public DbSet<Parcela> Parcelas { get; set; }
 
     }
 }

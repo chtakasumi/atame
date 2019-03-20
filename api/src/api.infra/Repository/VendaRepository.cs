@@ -25,6 +25,7 @@ namespace api.infra.Repository
                 .Include(x => x.Turma)
                 .Include(x => x.Vendedor)
                 .Include(x => x.ClienteFinanceiro)
+                .Include(x => x.Parcelas)
                 .Include(x => x.ClientesAcademicos)
                 .ThenInclude(x => x.ClienteAcademico);
 

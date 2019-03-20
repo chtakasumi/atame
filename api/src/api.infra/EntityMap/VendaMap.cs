@@ -25,11 +25,11 @@ namespace api.infra.EntityMap
                .HasColumnName("valorCurso")
                 .HasColumnType("Decimal(10, 2)")
                .IsRequired();
-            
+
             builder.Property(c => c.Desconto)
                 .HasColumnName("desconto")
                 .HasColumnType("Decimal(10, 3)");
-            
+
             builder.Property(c => c.ValorVenda)
                 .HasColumnName("valorVenda")
                 .HasColumnType("Decimal(10, 2)")
@@ -44,12 +44,10 @@ namespace api.infra.EntityMap
                 .HasColumnType("Decimal(10, 2)")
                .IsRequired();
 
-
             builder.Property(c => c.VencimentoPrimeiraParcela)
               .HasColumnName("vencimentoPrimeiraParcela")
               .HasColumnType("Date")
               .IsRequired();
-
 
             builder.Property(c => c.TurmaId)
                 .HasColumnName("turmaId")
@@ -59,7 +57,7 @@ namespace api.infra.EntityMap
                   .HasForeignKey(c => c.TurmaId)
                   .HasPrincipalKey(x => x.Id)
                   .OnDelete(DeleteBehavior.Restrict);
-            
+
             builder.Property(c => c.ClienteFinanceiroId)
                 .HasColumnName("clienteFinanceiroId")
                 .IsRequired();
@@ -78,14 +76,17 @@ namespace api.infra.EntityMap
                 .HasPrincipalKey(x => x.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            
-
             builder.HasMany(c => c.ClientesAcademicos)
                  .WithOne(cp => cp.Venda)
                 .HasForeignKey(cp => cp.VendaId)
                 .HasPrincipalKey(c => c.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(c => c.Parcelas)
+                .WithOne(p => p.Venda)
+                .HasForeignKey(cp => cp.VendaId)
+                .HasPrincipalKey(c => c.Id)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -11,11 +11,13 @@ namespace api.domain.Services
     {
         private readonly IVendaRepository _vendaRepository;
         private readonly IParametroRepository _param;
+        IParcelaRepository _parcela;
 
-        public VendaService(IVendaRepository venda, IParametroRepository param)
+        public VendaService(IVendaRepository venda, IParametroRepository param, IParcelaRepository parcela)
         {
             _vendaRepository = venda;
-            _param = param;
+            _param          = param;
+            _parcela        = parcela;
         }
 
         public string ModelSerializale()
@@ -31,22 +33,16 @@ namespace api.domain.Services
         public Venda Cadastrar(Venda venda)
         {
             ValidarModelo(venda);
-
-            if (venda.VencimentoPrimeiraParcela < DateTime.Now.AddDays(30))
-            {
-                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Vencimento da 1° Parcela não pode ser menor que 30 dias");
-            }
-
-            //isso fala para o etity não criar um novo cliente.
+         
+            //isso fala para o entity não criar um novo cliente.
             foreach (var vendaCliente in venda.ClientesAcademicos)
             {
                 vendaCliente.Id = 0;
                 vendaCliente.ClienteAcademico = null;
             }
-
             return _vendaRepository.Inserir(venda);
         }
-       
+
         public IEnumerable<Venda> Lov(int? Id = null)
         {
             var filtro = new VendaDTO();
@@ -106,8 +102,7 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Valor do Curso não informado");
             }
-                      
-
+            
             if (venda.Parcela == 0)
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Parcela não informado");
@@ -147,6 +142,20 @@ namespace api.domain.Services
             venda.Vendedor = null;
 
             venda.CalcularValorVenda();
+
+            RemoveParcelas(venda.Id);
+        }
+
+        private void RemoveParcelas(int vendaId)
+        {
+            var listaParcelas=  _parcela.Pesquisar(x=>x.VendaId==vendaId);
+
+            _parcela.Excluir(listaParcelas);
+
+
+            //foreach (var parcela in listaParcelas) {
+            //    _parcela.Excluir(parcela);
+            //}
         }
 
         private decimal TrataValor(string valor)
@@ -159,8 +168,7 @@ namespace api.domain.Services
             return 0;
           
         }
-
-
+        
         //**Metodos academicos**//
         public string ModelClienteAcademicoSerializale()
         {

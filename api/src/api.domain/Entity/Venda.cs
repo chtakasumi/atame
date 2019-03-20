@@ -35,9 +35,12 @@ namespace api.domain.Entity
 
         public ICollection<VendaCliente> ClientesAcademicos { get; set; }
 
+        public ICollection<Parcela> Parcelas { get; set; }
+
         public Venda()
         {
             ClientesAcademicos = new List<VendaCliente>();
+            Parcelas = new List<Parcela>();
         }
 
         public void CalcularValorVenda()

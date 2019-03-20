@@ -1,0 +1,29 @@
+﻿
+<div class="row">
+    <div class="col-md-12 table-responsive">
+
+        <table class="table table-bordered table-striped table-hover table-condensed cf"
+               id="GridViewDocente">
+            <thead>
+                <tr class="title-table">
+                    <th ng-hide="true">Código</th>
+                    <th ng-hide="true">Código Venda</th>
+                    <th>Nro parcela</th>
+                    <th>Valor Parcela</th>
+                    <th>Data prevista pagamento</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in model.parcelas track by $index">
+                    <td ng-hide="true">{{row.id}}</td>
+                    <td ng-hide="true">{{row.vendaId}}</td>
+                    <td>{{row.numero}}</td>
+                    <td>{{row.preco  | currency}}</td>                    
+                    <td>{{row.previsaoPgto | date}}</td>
+                    <td>{{StatusParcela(row.status)}}</td>
+                </tr>
+            </tbody>
+        </table>       
+    </div>
+</div>

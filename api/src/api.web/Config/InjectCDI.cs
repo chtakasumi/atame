@@ -42,6 +42,7 @@ namespace api.web
             services.AddTransient<IVendaRepository, VendaRepository>();
             services.AddTransient<IProspeccaoRepository, ProspeccaoRepository>();
             services.AddTransient<IParametroRepository, ParametroRepository>();
+            services.AddTransient<IParcelaRepository, ParcelaRepository>();
         }
     }
 }

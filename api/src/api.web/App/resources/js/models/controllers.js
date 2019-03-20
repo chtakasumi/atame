@@ -250,14 +250,13 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
 app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','utils', function ($scope, alertService, parm, modelService, utils) {
     modelService.extendsAbstractController($scope, alertService, parm, function () {
 
-
        //Isso para sobreescerver a referencia do botão novo e executar no final
         var novo = angular.copy($scope.novo);
         $scope.novo = function (){
             utils.getData(function (data) {
                 novo();
                 $scope.model.data = data; 
-                $scope.model.vencimentoPrimeiraParcela = utils.incrementaDias(data, 30);
+                //$scope.model.vencimentoPrimeiraParcela = utils.incrementaDias(data, 30);
             });
         }
 
@@ -322,7 +321,7 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','u
             var valorTotal = ($scope.model.quantidade > 0) ? $scope.model.valorCurso * $scope.model.quantidade : $scope.model.valorCurso;
             var desconto = (($scope.model.desconto * valorTotal) / 100);
             $scope.model.valorVenda = valorTotal - desconto;
-            $scope.model.valorParcela =  $scope.model.valorVenda / $scope.model.parcela;
+            $scope.model.valorParcela = $scope.model.valorVenda / $scope.model.parcela;
         }
 
         //***VINCULAR CURSO AO DOCENTE***//        
@@ -341,11 +340,51 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','u
         };
         modelService.vincular(vinculoAcademico);
 
+        $scope.gerarParcelas = function () {
+
+           $scope.model.parcelas = [];
+
+           var qtdParcela =angular.copy($scope.model.parcela);
+
+            var parcela = { id: 0, vendaId: 0, venda: null, previsaoPgto: null, numero: null, preco: $scope.model.valorParcela, status: 0};
+            var vencimento;
+
+            if (qtdParcela > 0) {
+                for (var i = 1; i <= qtdParcela; i++) {   
+                
+                    parcela.numero = i;
+                  
+                    if (i === 1) {
+                        vencimento = utils.incrementaDias($scope.model.vencimentoPrimeiraParcela, 0);
+                        parcela.previsaoPgto = angular.copy(vencimento);
+                    } else {
+                        vencimento = utils.incrementaDias(vencimento, 30);                      
+                        parcela.previsaoPgto = angular.copy(vencimento);
+                    }
+                    console.log(vencimento);
+                    $scope.model.parcelas.push(angular.copy(parcela));
+                }
+            }         
+        }
+
         //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
         $scope.antesDeVoltar = function (form) {       
             modelService.existeDadosNaoGravados($scope, $scope.model.clientesAcademicos, 'ACADEMICO', function () {
                 $scope.voltar(form);
             });
+        }
+
+        $scope.StatusParcela = function (status) {
+            switch (status) {                
+                case 0:
+                    return 'Pendente';
+
+                case 1:
+                    return 'Pago';
+                default:
+                    return status;
+
+            }
         }
     });
 }]);
