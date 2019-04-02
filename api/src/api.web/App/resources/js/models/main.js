@@ -27,6 +27,8 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
         }        
     ]);
 
+   
+
     //esse evento acontece toda vez que mudo de url
     $rootScope.$on('$locationChangeSuccess', function (event, toState, toStateParams) {
         //ativar ao clicar no menu
@@ -89,6 +91,10 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 //rotas de url amigaveis
 app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig',
     function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
+
+      
+          
+        
 
         $httpProvider.interceptors.push('httpInterceptor');
 
@@ -414,7 +420,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "venda.html",
                 controller: 'vendaCtrl',
                 resolve: {
-                    parm: function (vendaService, turmaService, vendedorService, clienteService, vendaClienteService, utils) {
+                    parm: function (vendaService, turmaService , vendedorService, clienteService, vendaClienteService) {
                         return {
                             titulo: function () {
                                 return "Venda";
@@ -441,10 +447,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             vendaClienteService: function () {
                                 return vendaClienteService;
-                            },
-                            utils: function () {
-                                return utils;
-                            }
+                            }                           
                         }
                     }
                 }
@@ -484,6 +487,49 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             cursoService: function () {
                                 return cursoService;
                             }                            
+                        }
+                    }
+                }
+            })
+            .when("/faturamento", {
+                templateUrl: configConst.baseUrlView + "faturamento.html",
+                controller: 'faturamentoCtrl',
+                resolve: {
+                    parm: function (faturamentoService, clienteService, vendedorService, vendaClienteService) {
+                        return {
+                            titulo: function () {
+                                return "Faturamento";
+                            },
+                            model: function (callBack) {
+                                return faturamentoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            filter: function () {
+                                return {
+                                    id: null,
+                                    competenciaAno: null,
+                                    competenciaMes: null,
+                                    clienteFinanceiro: null,
+                                    status: null,
+                                    parcela: null,
+                                    vendedor: null,
+                                    dataPgto: null,
+                                    dataVencimento: null
+                                };
+                            },
+                            service: function () {
+                                return faturamentoService;
+                            },
+                            clienteService: function() {
+                                return clienteService;
+                            },
+                            vendedorService: function () {
+                                return vendedorService;
+                            }, 
+                            vendaClienteService: function () {
+                                return vendaClienteService;
+                            }
                         }
                     }
                 }
@@ -891,8 +937,20 @@ app.factory("globalService", [function () {
         };
     }
 
+    var _statusParcela = function (status) {
+        switch (status) {
+            case 0:
+                return 'Pendente';
+            case 1:
+                return 'Pago';
+            default:
+                return 'Pendente';
+        }
+    }
+
     return {
-        extendsAbstractServices: _extendsAbstractServices
+        extendsAbstractServices: _extendsAbstractServices,
+        getStatusDescription: _statusParcela
     }
 
 }]);

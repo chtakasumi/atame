@@ -1,0 +1,163 @@
+<div id="divController">
+
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="competenciaAno" class="sr-only">Ano Competência:</label>
+                        <input type="text" max="9999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.competenciaAno" class="form-control" id="competenciaAno" name="competenciaAno" placeholder="competenciaAno">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="competenciaMes" class="sr-only">Mês Competência:</label>
+                        <input type="text" max="12" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.competenciaMes" class="form-control" id="competenciaMes" name="competenciaMes" placeholder="Código">
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="clientePesquisa" class="sr-only">Cliente</label>
+                        <ui-select ng-model="filtros.cliente"
+                                   on-select="lovPesquisaCliente.selecionar($item)" spinner-enabled="true">
+                            <ui-select-match placeholder="**Selecione um Cliente(Financeiro)**">
+                                <span ng-bind="$select.selected.nome"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (lovPesquisaCliente.dados | filter: $select.search) track by item.id"
+                                               refresh="lovPesquisaCliente.pesquisar($select.search)" refresh-delay="0">
+                                <span ng-bind="item.nome"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="parcela" class="sr-only">N° da Parcela</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.parcela" class="form-control" id="parcela" name="parcela" placeholder="N° da Parcela">
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="vendedorPesquisa" class="sr-only">Vendedor</label>
+                        <ui-select ng-model="filtros.vendedor"
+                                   on-select="lovPesquisaVendedor.selecionar($item)" spinner-enabled="true">
+                            <ui-select-match placeholder="**Selecione um vendedor**">
+                                <span ng-bind="$select.selected.nome"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (lovPesquisaVendedor.dados | filter: $select.search) track by item.id"
+                                               refresh="lovPesquisaVendedor.pesquisar($select.search)" refresh-delay="0">
+                                <span ng-bind="item.nome"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Data Pagamento</label>
+                        <input type="date" ng-model="filtros.dataPgto" class="form-control" id="dataPgto" name="dataPgto" placeholder="Data Pagamento">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Data Vencimento</label>
+                        <input type="date" ng-model="filtros.dataVencimento" class="form-control" id="dataVencimento" name="dataVencimento" placeholder="Data Vencimento">
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-12 pull-right">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>                      
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Codigo</th>
+                                <th>Venda</th>
+                                <th>ClienteFinanceiro</th>
+                                <th>Vendedor</th>
+                                <th>N° Parcela</th>
+                                <th>Vlr Parcela</th>
+                                <th>Vencimento</th>
+                                <th>Vlr Pago</th>
+                                <th>Data Pgto</th>
+                                <th>Situação</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="parcela in grade_model">
+                                <td>{{parcela.venda.id}}</td>
+                                <td>{{parcela.venda.data | date:'dd/MM/yyyy'}}</td>
+                                <td>{{parcela.venda.clienteFinanceiro.nome}}</td>
+                                <td>{{parcela.venda.vendedor.nome}}</td>
+                                <td>{{parcela.numero}}º</td>
+                                <td>{{parcela.preco | currency}}</td>
+                                <td>{{parcela.previsaoPgto  | date:'dd/MM/yyyy'}}</td>
+                                <td>{{parcela.faturamento.valorPago | currency}}</td>
+                                <td>{{parcela.faturamento.dataPgto | date:'dd/MM/yyyy'}}</td>
+                                <td ng-class="getStatusDescription(row.status)=='Pendente'? 'red':'green'">{{getStatusDescription(row.status)}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-show="getStatusDescription(row.status)=='Pago'" ng-click="editar(parcela)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" title="Efeturar Baixar" ng-show="getStatusDescription(row.status)=='Pendente'"  ng-click="baixar(parcela)"><i class="glyphicon glyphicon-saved"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="form" novalidate ng-show="modoEdicao">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="voltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

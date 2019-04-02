@@ -197,6 +197,42 @@ namespace api.infra.Migrations
                     b.ToTable("Docente");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Faturamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompetenciaAno")
+                        .HasColumnName("competenciaAno");
+
+                    b.Property<int>("CompetenciaMes")
+                        .HasColumnName("competenciaMes");
+
+                    b.Property<DateTime?>("DataPgto")
+                        .IsRequired()
+                        .HasColumnName("dataPgto")
+                        .HasColumnType("Date");
+
+                    b.Property<int>("ParcelaId")
+                        .HasColumnName("parcelaId");
+
+                    b.Property<decimal>("ValorPago")
+                        .HasColumnName("valorPago")
+                        .HasColumnType("Decimal(10, 2)");
+
+                    b.Property<int>("VendaId")
+                        .HasColumnName("vendaId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParcelaId");
+
+                    b.HasIndex("VendaId");
+
+                    b.ToTable("Faturamento");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Grupo", b =>
                 {
                     b.Property<int>("Id")
@@ -289,12 +325,14 @@ namespace api.infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("FaturamentoId");
+
                     b.Property<int>("Numero")
                         .HasColumnName("numero");
 
                     b.Property<decimal>("Preco")
                         .HasColumnName("preco")
-                        .HasColumnType("Decimal(10, 2)");
+                        .HasColumnType("Decimal(10,2)");
 
                     b.Property<DateTime?>("PrevisaoPgto")
                         .IsRequired()
@@ -308,6 +346,8 @@ namespace api.infra.Migrations
                         .HasColumnName("vendaId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FaturamentoId");
 
                     b.HasIndex("VendaId");
 
@@ -686,6 +726,19 @@ namespace api.infra.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Faturamento", b =>
+                {
+                    b.HasOne("api.domain.Entity.Parcela", "Parcela")
+                        .WithMany()
+                        .HasForeignKey("ParcelaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("VendaId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("api.domain.Entity.GrupoUsuario", b =>
                 {
                     b.HasOne("api.domain.Entity.Grupo", "Grupo")
@@ -709,6 +762,10 @@ namespace api.infra.Migrations
 
             modelBuilder.Entity("api.domain.Entity.Parcela", b =>
                 {
+                    b.HasOne("api.domain.Entity.Faturamento", "Faturamento")
+                        .WithMany()
+                        .HasForeignKey("FaturamentoId");
+
                     b.HasOne("api.domain.Entity.Venda", "Venda")
                         .WithMany("Parcelas")
                         .HasForeignKey("VendaId")

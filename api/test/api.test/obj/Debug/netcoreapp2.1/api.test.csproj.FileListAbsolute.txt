@@ -6,11 +6,9 @@ C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\De
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.domain.dll
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.infra.dll
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.libs.dll
-C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.domain.pdb
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.infra.pdb
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\api.libs.pdb
-C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.csprojAssemblyReference.cache
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.csproj.CoreCompileInputs.cache
 C:\Users\AdmAbaco\Documents\SistemaGestaoComercialAtame\api\test\api.test\obj\Debug\netcoreapp2.1\api.test.AssemblyInfoInputs.cache

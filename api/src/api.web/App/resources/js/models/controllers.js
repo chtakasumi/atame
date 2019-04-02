@@ -247,7 +247,7 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
 }]);
 
 //comportamento da pagina venda
-app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','utils', function ($scope, alertService, parm, modelService, utils) {
+app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'utils', 'globalService', function ($scope, alertService, parm, modelService, utils, globalService) {
     modelService.extendsAbstractController($scope, alertService, parm, function () {
 
        //Isso para sobreescerver a referencia do botão novo e executar no final
@@ -374,17 +374,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService','u
             });
         }
 
-        $scope.StatusParcela = function (status) {
-            switch (status) {                
-                case 0:
-                    return 'Pendente';
-
-                case 1:
-                    return 'Pago';
-                default:
-                    return status;
-
-            }
+        $scope.getStatusDescription = function (status) {
+            return globalService.getStatusDescription(status);
         }
     });
 }]);
@@ -454,4 +445,13 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
 //comportamento da pagina parametro
 app.controller('parametroCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
     modelService.extendsAbstractController($scope, alertService, parm);
+}]);
+
+app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'globalService', function ($scope, alertService, parm, modelService, globalService) {
+
+    modelService.extendsAbstractController($scope, alertService, parm);
+
+    $scope.getStatusDescription = function (status) {
+        return globalService.getStatusDescription(status);
+    }
 }]);

@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="ApiContextInitializer.cs" />
+    <Compile Remove="Migrations\20190329035814_tabelaFaturamento.cs" />
+    <Compile Remove="Migrations\20190402033009_Faturamento.cs" />
+    <Compile Remove="Migrations\20190402035705_Faturamento2.cs" />
   </ItemGroup>
 
   <ItemGroup>

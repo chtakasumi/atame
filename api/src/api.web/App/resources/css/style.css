@@ -46,6 +46,16 @@ h1 {
     width: 20%;
 }
 
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
 .close {
     float: right;
     font-size: 21px;

@@ -5,6 +5,7 @@ using api.domain.Interfaces;
 using api.infra.Data;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace api.infra.Repository
 {
     public class VendaRepository : EfRepository<Venda>, IVendaRepository
@@ -14,14 +15,14 @@ namespace api.infra.Repository
 
         }
 
-        public IEnumerable<Venda> Listar(VendaDTO venda)
+        public IEnumerable<Venda> Listar(VendaDTO vendaDtdo)
         {
-            var ListaCursos = base.Query(x =>
-                (x.Id == venda.Id || !venda.Id.HasValue) &&
-                ((x.Turma.Inicio >= venda.Inicio || !venda.Inicio.HasValue) && (x.Turma.Inicio <= venda.Fim || !venda.Fim.HasValue)) &&
-                (x.ClienteFinanceiroId == venda.ClienteFinanceiroId || !venda.ClienteFinanceiroId.HasValue) &&
-                (x.TurmaId == venda.TurmaId || !venda.TurmaId.HasValue) &&
-                (x.VendedorId == venda.VendedorId || !venda.VendedorId.HasValue), x => x.Id)
+            var ListaVendas = base.Query(x =>
+                (x.Id == vendaDtdo.Id || !vendaDtdo.Id.HasValue) &&
+                ((x.Turma.Inicio >= vendaDtdo.Inicio || !vendaDtdo.Inicio.HasValue) && (x.Turma.Inicio <= vendaDtdo.Fim || !vendaDtdo.Fim.HasValue)) &&
+                (x.ClienteFinanceiroId == vendaDtdo.ClienteFinanceiroId || !vendaDtdo.ClienteFinanceiroId.HasValue) &&
+                (x.TurmaId == vendaDtdo.TurmaId || !vendaDtdo.TurmaId.HasValue) &&
+                (x.VendedorId == vendaDtdo.VendedorId || !vendaDtdo.VendedorId.HasValue), x => x.Id)
                 .Include(x => x.Turma)
                 .Include(x => x.Vendedor)
                 .Include(x => x.ClienteFinanceiro)
@@ -29,7 +30,13 @@ namespace api.infra.Repository
                 .Include(x => x.ClientesAcademicos)
                 .ThenInclude(x => x.ClienteAcademico);
 
-            return ListaCursos.ToList();
+            //ordenando as parcelas
+            foreach (var venda in ListaVendas)
+            {
+                venda.Parcelas = venda.Parcelas.OrderBy(p => p.Numero).ToList();
+            }
+
+            return ListaVendas.ToList();
         }
 
         public void ExcluirVinculoAcademico(VendaCliente vc)

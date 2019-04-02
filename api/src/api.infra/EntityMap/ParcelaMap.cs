@@ -22,11 +22,9 @@ namespace api.infra.EntityMap
                .IsRequired();
 
             builder.Property(c => c.Preco)
-                        .HasColumnName("preco")
-                          .HasColumnType("Decimal(10, 2)")
-                        .IsRequired();
-
-               
+                .HasColumnName("preco")
+                .HasColumnType("Decimal(10,2)")
+                .IsRequired();
 
             builder.Property(c => c.Status)
                .HasColumnName("Status")              
@@ -41,6 +39,7 @@ namespace api.infra.EntityMap
                .HasForeignKey(c => c.VendaId)
                .HasPrincipalKey(x => x.Id)
                .OnDelete(DeleteBehavior.Restrict);
+           
         }       
     }
 }

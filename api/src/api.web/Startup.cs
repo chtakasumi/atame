@@ -42,6 +42,7 @@ namespace api.web
             services.AddMvc(config =>
             {
                 config.Filters.Add(typeof(CustomExceptionFilter));
+                config.Filters.Add(typeof(TransactionActionFilter));
             })
 
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)

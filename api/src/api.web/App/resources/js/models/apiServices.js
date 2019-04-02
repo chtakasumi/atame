@@ -122,3 +122,8 @@ app.factory("parametroService", ['consumerService', '$rootScope', 'globalService
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
+app.factory("faturamentoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "faturamento";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+

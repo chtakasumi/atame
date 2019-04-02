@@ -124,7 +124,7 @@ namespace api.domain.Services
          
             if (venda.Desconto > descontoPermitido)
             {
-                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Desconto não podera ser maior que ");
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Desconto não podera ser maior que: "+ descontoPermitido);
             }
 
             if (venda.ClientesAcademicos.Count == 0)
@@ -149,13 +149,7 @@ namespace api.domain.Services
         private void RemoveParcelas(int vendaId)
         {
             var listaParcelas=  _parcela.Pesquisar(x=>x.VendaId==vendaId);
-
-            _parcela.Excluir(listaParcelas);
-
-
-            //foreach (var parcela in listaParcelas) {
-            //    _parcela.Excluir(parcela);
-            //}
+            _parcela.Excluir(listaParcelas);            
         }
 
         private decimal TrataValor(string valor)
