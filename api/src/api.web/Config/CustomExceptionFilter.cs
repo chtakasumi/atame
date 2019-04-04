@@ -24,7 +24,10 @@ namespace api.web.Config
             else
             { 
                 status = 500;
-                mensagem = context.Exception.InnerException.Message;                
+                mensagem = context.Exception.Message;
+                if (context.Exception.InnerException != null) {
+                    mensagem += " - " +context.Exception.InnerException.Message;
+                }
             }
 
             HttpResponse response = context.HttpContext.Response;

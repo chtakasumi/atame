@@ -17,5 +17,11 @@ namespace api.domain.Entity
         public int? FaturamentoId { get; set; }
         public Faturamento Faturamento{ get; set; }
 
-}
+
+        public Parcela()
+        {
+            this.Faturamento = new Faturamento();            
+        }
+
+    }
 }

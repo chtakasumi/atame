@@ -938,14 +938,20 @@ app.factory("globalService", [function () {
     }
 
     var _statusParcela = function (status) {
+       
         switch (status) {
             case 0:
                 return 'Pendente';
             case 1:
                 return 'Pago';
-            default:
+            case '':
                 return 'Pendente';
+            default:
+               return status;
+
         }
+
+        return status;
     }
 
     return {

@@ -447,9 +447,25 @@ app.controller('parametroCtrl', ['$scope', 'alertService', 'parm', 'modelService
     modelService.extendsAbstractController($scope, alertService, parm);
 }]);
 
-app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'globalService', function ($scope, alertService, parm, modelService, globalService) {
+app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'globalService', 'utils', function ($scope, alertService, parm, modelService, globalService, utils) {
 
-    modelService.extendsAbstractController($scope, alertService, parm);
+    modelService.extendsAbstractController($scope, alertService, parm, function () {
+
+        $scope.baixar = function (model) {   
+
+            utils.getData(function (data) {
+                var vdata = new Date(data);
+                model.faturamento.competenciaAno = vdata.getFullYear();
+                model.faturamento.competenciaMes = vdata.getMonth() + 1;
+                model.faturamento.vendaId = model.vendaId;
+                model.faturamento.parcelaId = model.id;
+                model.faturamento.valorPago = model.preco;
+                model.faturamento.dataPgto = data;
+                $scope.editar(model);
+                $scope.titulo = "Baixar parcela";
+            })
+        }
+    });
 
     $scope.getStatusDescription = function (status) {
         return globalService.getStatusDescription(status);

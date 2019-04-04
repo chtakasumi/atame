@@ -4,6 +4,7 @@ using api.domain.Services.Commons;
 using api.libs;
 using System.Collections.Generic;
 using api.domain.Services.DTO;
+using System;
 
 namespace api.domain.Services
 {
@@ -28,7 +29,7 @@ namespace api.domain.Services
             return _faturamentoRepository.ListarParcelas(faturamentoVo);
         }
 
-        public Parcela Cadastrar(Parcela parcelaFaturamento)
+        private Parcela Cadastrar(Parcela parcelaFaturamento)
         {
             ValidarModelo(parcelaFaturamento);
          
@@ -41,6 +42,19 @@ namespace api.domain.Services
             AtualizaStatusParcela(parcelaFaturamento, EnumStatusPgto.Pago);           
 
             return parcelaFaturamento;
+        }
+
+        public Parcela BaixarParcela(Parcela entidade)
+        {
+            if (entidade.FaturamentoId.GetValueOrDefault() == 0)
+            {
+                entidade = Cadastrar(entidade);
+            }
+            else {
+                Editar(entidade);
+            }
+
+            return entidade;
         }
 
         private void AtualizaStatusParcela(Parcela parcela, EnumStatusPgto status)
@@ -66,7 +80,7 @@ namespace api.domain.Services
             return _faturamentoRepository.Listar(filtro);
         }
 
-        public void Editar(Parcela parcela)
+        private void Editar(Parcela parcela)
         {
             ValidarModelo(parcela);
 

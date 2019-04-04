@@ -27,7 +27,7 @@ namespace api.web
             services.AddScoped<ClienteService>();
             services.AddScoped<VendaService>();
             services.AddScoped<ProspeccaoService>();
-            services.AddScoped<ParametroService>();
+            services.AddScoped<ParametroService>();          
             services.AddScoped<FaturamentoParcelaService>();
 
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();

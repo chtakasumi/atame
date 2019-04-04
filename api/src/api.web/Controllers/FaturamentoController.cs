@@ -35,17 +35,12 @@ namespace api.web.Controllers
             return Ok(_servico.Lov(id));
         }
 
-        [HttpPost]
-        public IActionResult Cadastrar(Parcela entidade)
-        {       
-            return Ok(_servico.Cadastrar(entidade));
-        }
-
         [HttpPut]
-        public IActionResult Editar(Parcela entidade)
+        [HttpPost]
+        public IActionResult BaixarParcela(Parcela entidade)
         {
-            _servico.Editar(entidade);
-            return Ok();
+            Parcela parcela = _servico.BaixarParcela(entidade);
+            return Ok(parcela);
         }
 
         [HttpDelete]

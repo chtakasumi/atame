@@ -34,7 +34,7 @@ namespace api.domain.Services
         {
             ValidarModelo(venda);
          
-            //isso fala para o entity não criar um novo cliente.
+            //não cadastrar novos clientes
             foreach (var vendaCliente in venda.ClientesAcademicos)
             {
                 vendaCliente.Id = 0;
@@ -141,6 +141,14 @@ namespace api.domain.Services
             venda.Turma = null;
             venda.Vendedor = null;
 
+
+            //não salvar faturamento
+            foreach (var parcela in venda.Parcelas)
+            {
+                parcela.FaturamentoId =null;
+                parcela.Faturamento = null;
+            }
+                       
             venda.CalcularValorVenda();
 
             RemoveParcelas(venda.Id);

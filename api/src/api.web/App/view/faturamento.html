@@ -81,7 +81,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="col-lg-12 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
@@ -89,7 +89,7 @@
                         </button>
                         <button class="btn btn-warning" ng-click="limparFiltros()">
                             <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
-                        </button>                      
+                        </button>
                     </div>
                 </div>
             </div>
@@ -123,10 +123,10 @@
                                 <td>{{parcela.previsaoPgto  | date:'dd/MM/yyyy'}}</td>
                                 <td>{{parcela.faturamento.valorPago | currency}}</td>
                                 <td>{{parcela.faturamento.dataPgto | date:'dd/MM/yyyy'}}</td>
-                                <td ng-class="getStatusDescription(row.status)=='Pendente'? 'red':'green'">{{getStatusDescription(row.status)}}</td>
+                                <td ng-class="getStatusDescription(parcela.status)=='Pendente'? 'red':'green'">{{getStatusDescription(parcela.status)}}</td>
                                 <td class="edicao">
-                                    <a class="btn btn-default btn-xs" ng-show="getStatusDescription(row.status)=='Pago'" ng-click="editar(parcela)"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a class="btn btn-default btn-xs" title="Efeturar Baixar" ng-show="getStatusDescription(row.status)=='Pendente'"  ng-click="baixar(parcela)"><i class="glyphicon glyphicon-saved"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-show="getStatusDescription(parcela.status)=='Pago'" ng-click="editar(parcela)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" title="Efeturar Baixar" ng-show="getStatusDescription(parcela.status)=='Pendente'" ng-click="baixar(parcela)"><i class="glyphicon glyphicon-saved"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -140,11 +140,145 @@
             <div class="panel-heading">{{titulo}}</div>
             <div class="panel-body">
 
-                <div class="form-group">
-                    <label for="codigo">Código</label>
-                    <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="codigo">Código Venda</label>
+                            <input type="text" ng-model="model.venda.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label for="Venda">Data da Compra</label>
+                            <input type="text" value="{{model.venda.data | date:'dd/MM/yyyy'}}" class="form-control" id="Venda" name="Venda" placeholder="Venda" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="numeroParcela">Nº Parcela</label>
+                            <input type="text" value="{{model.numero}}º / {{model.venda.parcela}}" class="form-control" id="numeroParcela" name="numeroParcela" placeholder="Nº Parcela" disabled>
+                        </div>
+                    </div>
+
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="vendedor">Vendedor</label>
+                            <input type="text" value="{{model.venda.vendedor.nome}}" class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor" disabled>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="cliente">Cliente</label>
+                            <input type="text" value="{{model.venda.clienteFinanceiro.nome}}" class="form-control" id="cliente" name="cliente" placeholder="Cliente" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="cpfCnpj">CPF/CNPF</label>
+                            <input type="text" value="{{model.venda.clienteFinanceiro.cpfCnpj}}" class="form-control" id="cpfCnpj" name="cpfCnpj" placeholder="CPF/CNPF" disabled>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="vlrCurso">Valor do Curso</label>
+                            <input type="text" value="{{model.venda.valorCurso | currency}}" class="form-control"
+                                   id="vlrCurso" name="vlrCurso" placeholder="Valor do Curso" disabled>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="vlr">Valor da Parcela</label>
+                            <input type="text" value="{{model.preco | currency}}" class="form-control" id="vlr" name="vlr" placeholder="Valor da Parcela" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Vencimento">Vencimento</label>
+                            <input type="text" value="{{model.previsaoPgto  | date:'dd/MM/yyyy'}}" class="form-control" id="Vencimento" name="Vencimento" placeholder="Vencimento" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.competenciaAno)">
+                            <label for="competenciaAno" class="control-label">Ano Competência</label>
+                            <input type="number" ng-model="model.faturamento.competenciaAno" class="form-control" id="competenciaAno" name="competenciaAno" placeholder="Ano Competência"
+                                   min="2019" max="9999" maxlength="4" required>
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.competenciaAno)"></span>
+                            <ng-messages for="form.competenciaAno.$error" ng-show="GetValidMessages(form.competenciaAno)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="min" class="has-error-text">*Valor deve ser superior a 2018 </ng-message>
+                                <ng-message when="max" class="has-error-text">*Valor máximo permitido 9999</ng-message>
+                                <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 4</ng-message>
+                            </ng-messages>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.competenciaMes)">
+                            <label for="competenciaMes" class="control-label">Mês Competência</label>
+                            <input type="number" ng-model="model.faturamento.competenciaMes" class="form-control" id="competenciaMes" name="competenciaMes" placeholder="Mês Competência"
+                                    min="1" max="12" maxlength="2" required>
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.competenciaMes)"></span>
+                            <ng-messages for="form.competenciaMes.$error" ng-show="GetValidMessages(form.competenciaMes)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="max" class="has-error-text">*Valor máximo permitido 12</ng-message>
+                                <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 2</ng-message>
+                            </ng-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">                       
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.dataPgto)">
+                            <label for="dataPgto" class="control-label">Data Pagamento</label>
+                            <input type="date" html-date required ng-model="model.faturamento.dataPgto" class="form-control" id="dataPgto"
+                                   name="dataPgto" placeholder="Data Pagamento">
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.dataPgto)"></span>
+                            <ng-messages for="form.dataPgto.$error" ng-show="GetValidMessages(form.dataPgto)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
+                            </ng-messages>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.valorPago)">
+                            <label for="valorPago" class="control-label">Valor do Pagamento</label>
+                            <input type="text" ng-model="model.faturamento.valorPago" ui-money-mask class="form-control" id="valorPago"
+                                   name="valorPago" placeholder="Preço" required min="0.01" max="99999999.99" ng-change="calculaValorParcela()">
+                            <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.valorPago)"></span>
+                            <ng-messages for="form.valorPago.$error" ng-show="GetValidMessages(form.valorPago)">
+                                <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                <ng-message when="max" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                            </ng-messages>
+                        </div>
+                    </div>
+
+                </div>
+                
             </div>
             <div class="panel-footer">
                 <div class="form-group">
