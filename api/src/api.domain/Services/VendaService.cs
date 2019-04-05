@@ -145,6 +145,7 @@ namespace api.domain.Services
             //não salvar faturamento
             foreach (var parcela in venda.Parcelas)
             {
+                parcela.Id = null;
                 parcela.FaturamentoId =null;
                 parcela.Faturamento = null;
             }

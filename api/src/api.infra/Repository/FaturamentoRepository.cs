@@ -23,21 +23,22 @@ namespace api.infra.Repository
         public IEnumerable<Parcela> ListarParcelas(FaturamentoDTO faturamento)
         {
             var parcelas = this._dbContexto.Parcelas.Where(x =>
-                  (x.Id == faturamento.ParcelaId || !faturamento.ParcelaId.HasValue) &&
+                  (x.Id == faturamento.Id || !faturamento.Id.HasValue) &&
                   (x.Numero == faturamento.Numero || !faturamento.Numero.HasValue) &&
                   (x.Status == faturamento.Status || !faturamento.Status.HasValue) &&
                   (x.PrevisaoPgto == faturamento.Vencimento || !faturamento.Vencimento.HasValue) &&
                   //vendas
                   (x.Venda.Id == faturamento.VendaId || !faturamento.VendaId.HasValue) &&
+                   (x.Venda.ClienteFinanceiro.CpfCnpj == faturamento.CpfCnpj || string.IsNullOrEmpty(faturamento.CpfCnpj)) &&
                   (x.Venda.ClienteFinanceiroId == faturamento.ClienteFinanceiroId || !faturamento.ClienteFinanceiroId.HasValue) &&
                   (x.Venda.VendedorId == faturamento.VendedorId || !faturamento.VendedorId.HasValue) &&
                   (x.Venda.VendedorId == faturamento.VendedorId || !faturamento.VendedorId.HasValue)).Include(x => x.Faturamento)
                   .Include(p => p.Venda)
                   .ThenInclude(v => v.Vendedor)
-                  .Include(p=>p.Venda).ThenInclude(v=>v.ClienteFinanceiro).OrderBy(p=>p.VendaId).OrderBy(p=>p.Numero);
-     
+                  .Include(p=>p.Venda).ThenInclude(v=>v.ClienteFinanceiro);
 
-            return parcelas;
+
+            return parcelas.OrderBy(p => p.Numero);
 
         }
     } 

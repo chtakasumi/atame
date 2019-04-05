@@ -508,14 +508,14 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             filter: function () {
                                 return {
                                     id: null,
-                                    competenciaAno: null,
-                                    competenciaMes: null,
-                                    clienteFinanceiro: null,
+                                    numero: null,
                                     status: null,
-                                    parcela: null,
-                                    vendedor: null,
-                                    dataPgto: null,
-                                    dataVencimento: null
+                                    vencimento: null,
+                                    vendaId: null,
+                                    clienteFinanceiroId: null,
+                                    vendedorId: null,
+                                    dataVenda: null,
+                                    cpfCnpj: null                                    
                                 };
                             },
                             service: function () {

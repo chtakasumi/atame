@@ -60,9 +60,9 @@ namespace api.domain.Services
         private void AtualizaStatusParcela(Parcela parcela, EnumStatusPgto status)
         {
             parcela.Status = status;
-
+            parcela.Venda = null;
             if (status == EnumStatusPgto.Pendente)
-            {
+            {               
                 parcela.Faturamento = null;
                 parcela.FaturamentoId = null;
             }
@@ -84,15 +84,17 @@ namespace api.domain.Services
         {
             ValidarModelo(parcela);
 
-            Parcela parcelaAnterior = _parcela.PesquisarPorId(parcela.Id);
+            Parcela parcelaAnterior = _parcela.PesquisarPorId(parcela.Id.GetValueOrDefault());
 
             if (parcela.Id != parcelaAnterior.Id) {
+                parcelaAnterior.Faturamento = null;
                 AtualizaStatusParcela(parcelaAnterior, EnumStatusPgto.Pendente);
             }
 
             _faturamentoRepository.Atualizar(parcela.Faturamento);
 
-            AtualizaStatusParcela(parcela, EnumStatusPgto.Pago);
+            //parcela.Faturamento = null;
+            //AtualizaStatusParcela(parcela, EnumStatusPgto.Pago);
         }
 
         public void Excluir(int id)

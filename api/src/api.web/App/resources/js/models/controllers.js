@@ -465,6 +465,16 @@ app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelServi
                 $scope.titulo = "Baixar parcela";
             })
         }
+               
+        //CarregarLovVendedor
+        modelService.carregarLov({
+            scope: $scope.lovPesquisaVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = item.id;
+            }
+        });
+        
     });
 
     $scope.getStatusDescription = function (status) {

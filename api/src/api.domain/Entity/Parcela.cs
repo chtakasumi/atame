@@ -5,7 +5,7 @@ namespace api.domain.Entity
     public class Parcela
     {
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public int VendaId { get; set; }
         public Venda Venda { get; set; }

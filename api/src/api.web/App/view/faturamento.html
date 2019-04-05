@@ -1,30 +1,57 @@
 <div id="divController">
-
     <div class="panel panel-default" ng-show="!modoEdicao">
         <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-2">
+
+
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="id" class="sr-only">Codigo:</label>
-                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                        <label for="id" class="sr-only">Codigo da parcela:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id"
+                               class="form-control" id="id" name="id" placeholder="Código Parcela">
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="competenciaAno" class="sr-only">Ano Competência:</label>
-                        <input type="text" max="9999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.competenciaAno" class="form-control" id="competenciaAno" name="competenciaAno" placeholder="competenciaAno">
+                        <label class="sr-only">Código Venda</label>
+                        <input type="text" ng-model="filtros.vendaId" class="form-control" id="vendaId" name="vendaId" placeholder="Código da Venda">
                     </div>
                 </div>
 
-                <div class="col-md-2">
+
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="competenciaMes" class="sr-only">Mês Competência:</label>
-                        <input type="text" max="12" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.competenciaMes" class="form-control" id="competenciaMes" name="competenciaMes" placeholder="Código">
+                        <label for="numero" class="sr-only">Número da Parcela:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.numero"
+                               class="form-control" id="numero" name="numero" placeholder="N° Parcela">
                     </div>
                 </div>
 
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="status" class="sr-only">Situação</label>
+                        <select id="status" name="status" placeholder="Status" ng-model="filtros.status" class="form-control">
+                            <option value="">**Selecione uma Situação**</option>
+                            <option value="0">Pendente</option>
+                            <option value="1">Pago</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="cpfCnpj" class="sr-only">CPF/CNPJ</label>
+                        <input type="text" ui-br-cpfcnpj-mask ng-model="filtros.cpfCnpj" class="form-control" id="cpfCnpj" name="cpfCnpj" placeholder="CPF/CNPJ">
+                    </div>
+                </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
@@ -39,14 +66,6 @@
                                 <span ng-bind="item.nome"></span>
                             </ui-select-choices>
                         </ui-select>
-                    </div>
-                </div>
-
-
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="parcela" class="sr-only">N° da Parcela</label>
-                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.parcela" class="form-control" id="parcela" name="parcela" placeholder="N° da Parcela">
                     </div>
                 </div>
 
@@ -66,23 +85,26 @@
                         </ui-select>
                     </div>
                 </div>
+            </div>
 
-                <div class="col-md-6">
+            <div class="row">
+
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Data Pagamento</label>
-                        <input type="date" ng-model="filtros.dataPgto" class="form-control" id="dataPgto" name="dataPgto" placeholder="Data Pagamento">
+                        <label>Data da Venda</label>
+                        <input type="date" ng-model="filtros.dataVenda" class="form-control" id="dataVenda" name="dataVenda" placeholder="Data da Venda">
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Data Vencimento</label>
-                        <input type="date" ng-model="filtros.dataVencimento" class="form-control" id="dataVencimento" name="dataVencimento" placeholder="Data Vencimento">
+                        <label for="dataVencimento">Data Vencimento</label>
+                        <input type="date" ng-model="filtros.vencimento" class="form-control" id="dataVencimento" name="dataVencimento"
+                               placeholder="Data Vencimento">
                     </div>
                 </div>
 
-
-                <div class="col-lg-12 pull-right">
+                <div class="col-lg-4 pull-right margin-top-label">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
                             <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
@@ -93,13 +115,15 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12 table-responsive">
                     <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
                            id="GridView1">
                         <thead>
                             <tr class="title-table">
-                                <th>Codigo</th>
+                                <th>Código</th>
+                                <th>Cód. Venda</th>
                                 <th>Venda</th>
                                 <th>ClienteFinanceiro</th>
                                 <th>Vendedor</th>
@@ -114,6 +138,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="parcela in grade_model">
+                                <td>{{parcela.id}}</td>
                                 <td>{{parcela.venda.id}}</td>
                                 <td>{{parcela.venda.data | date:'dd/MM/yyyy'}}</td>
                                 <td>{{parcela.venda.clienteFinanceiro.nome}}</td>
@@ -133,13 +158,13 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
     <form name="form" novalidate ng-show="modoEdicao">
         <div class="panel panel-default">
             <div class="panel-heading">{{titulo}}</div>
             <div class="panel-body">
-
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -147,25 +172,19 @@
                             <input type="text" ng-model="model.venda.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-
                         <div class="form-group">
                             <label for="Venda">Data da Compra</label>
                             <input type="text" value="{{model.venda.data | date:'dd/MM/yyyy'}}" class="form-control" id="Venda" name="Venda" placeholder="Venda" disabled>
                         </div>
-
                     </div>
-
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="numeroParcela">Nº Parcela</label>
                             <input type="text" value="{{model.numero}}º / {{model.venda.parcela}}" class="form-control" id="numeroParcela" name="numeroParcela" placeholder="Nº Parcela" disabled>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -173,9 +192,7 @@
                             <input type="text" value="{{model.venda.vendedor.nome}}" class="form-control" id="vendedor" name="vendedor" placeholder="Vendedor" disabled>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
@@ -183,7 +200,6 @@
                             <input type="text" value="{{model.venda.clienteFinanceiro.nome}}" class="form-control" id="cliente" name="cliente" placeholder="Cliente" disabled>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="cpfCnpj">CPF/CNPF</label>
@@ -191,11 +207,8 @@
                         </div>
                     </div>
 
-
                 </div>
-
                 <div class="row">
-
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="vlrCurso">Valor do Curso</label>
@@ -203,7 +216,6 @@
                                    id="vlrCurso" name="vlrCurso" placeholder="Valor do Curso" disabled>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="vlr">Valor da Parcela</label>
@@ -217,7 +229,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-2">
                         <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.competenciaAno)">
@@ -237,7 +248,7 @@
                         <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.competenciaMes)">
                             <label for="competenciaMes" class="control-label">Mês Competência</label>
                             <input type="number" ng-model="model.faturamento.competenciaMes" class="form-control" id="competenciaMes" name="competenciaMes" placeholder="Mês Competência"
-                                    min="1" max="12" maxlength="2" required>
+                                   min="1" max="12" maxlength="2" required>
                             <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.competenciaMes)"></span>
                             <ng-messages for="form.competenciaMes.$error" ng-show="GetValidMessages(form.competenciaMes)">
                                 <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
@@ -247,8 +258,7 @@
                             </ng-messages>
                         </div>
                     </div>
-
-                    <div class="col-md-4">                       
+                    <div class="col-md-4">
                         <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.dataPgto)">
                             <label for="dataPgto" class="control-label">Data Pagamento</label>
                             <input type="date" html-date required ng-model="model.faturamento.dataPgto" class="form-control" id="dataPgto"
@@ -260,9 +270,7 @@
                             </ng-messages>
                         </div>
 
-
                     </div>
-
                     <div class="col-md-4">
                         <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.valorPago)">
                             <label for="valorPago" class="control-label">Valor do Pagamento</label>
@@ -276,9 +284,8 @@
                             </ng-messages>
                         </div>
                     </div>
-
                 </div>
-                
+
             </div>
             <div class="panel-footer">
                 <div class="form-group">
