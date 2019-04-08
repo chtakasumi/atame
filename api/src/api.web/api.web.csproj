@@ -97,6 +97,8 @@
     <None Remove="App\view\turmaConteudoProgramaticoPartial.html" />
     <None Remove="App\view\turmaDocentePartial.html" />
     <None Remove="App\view\UF.html" />
+    <None Remove="App\view\usuario.html" />
+    <None Remove="App\view\usuarioGrupoPartial.html" />
     <None Remove="App\view\venda.html" />
     <None Remove="App\view\vendaClientePartial.html" />
     <None Remove="App\view\vendaParcelaPartial.html" />
@@ -174,6 +176,8 @@
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
     <Content Include="App\view\prospeccao.html" />
     <Content Include="App\view\prospeccaoInteressePartial.html" />
+    <Content Include="App\view\usuario.html" />
+    <Content Include="App\view\usuarioGrupoPartial.html" />
     <Content Include="App\view\vendaParcelaPartial.html" />
     <Content Include="App\view\vendaClientePartial.html" />
     <Content Include="App\view\cursoDocentePartial.html" />

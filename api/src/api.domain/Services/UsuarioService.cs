@@ -1,6 +1,7 @@
 ﻿using api.domain.Entity;
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
+using api.domain.Services.DTO;
 using api.libs;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,24 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.NaoAutorizado, "Usuário ou senhas inválidas");
             }
+            
+            if (usuario.Ativo != "S")
+            {
+                throw new MensagemException(EnumStatusCode.NaoAutorizado, "Usuário Bloqueado. Entre em contato com o administrador do sistema.");
+            }
 
             return new DadosChave(usuario.Id, usuario.Login, usuario.Ativo,usuario.GruposUsuarios, DateTime.Now);
        
+        }
+
+        public IEnumerable<Usuario> Listar(UsuarioDTO dto)
+        {
+            return _usuarioRepository.Listar(dto);
+        }
+
+        public string ModelSerializale()
+        {
+            return Json.ToJson(new Usuario());
         }
 
         public IEnumerable<Usuario> BuscarTodos()
@@ -61,38 +77,32 @@ namespace api.domain.Services
         {
             return _usuarioRepository.BuscarComGrupo(id);
         }
-
-        public void Atualizar(Usuario usuario)
-        {
-            _usuarioRepository.Atualizar(usuario);
-        }
-
+              
         public Usuario BuscarPorId(int id)
         {
             return _usuarioRepository.PesquisarPorId(id);
         }
 
+        public void Atualizar(Usuario usuario)
+        {
+            ValidarModel(usuario);
+
+            _usuarioRepository.Atualizar(usuario);
+        }
+
         public Usuario Cadastrar(Usuario usuario)
         {
-            if (string.IsNullOrEmpty(usuario.Login))
-            {
-               throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Login não informado");
-            }
-
-            if (string.IsNullOrEmpty(usuario.Senha))
-            {
-                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
-            }
-
-            usuario.Ativo = "S";
+            ValidarModel(usuario);           
             usuario.Login = usuario.Login.Trim().ToUpper();
 
+            usuario.GruposUsuarios.Add(VincularGrupoMaster());
+            
             return _usuarioRepository.Inserir(usuario);
 
         }
 
         public Usuario Excluir(int id)
-        {   
+        {
             if (id == 0)
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Id não informado");
@@ -111,6 +121,30 @@ namespace api.domain.Services
 
         }
 
+        private GrupoUsuario VincularGrupoMaster()
+        {
+            return new GrupoUsuario {
+                GrupoId = 1
+            };             
+        }
+
+        private void ValidarModel(Usuario usuario)
+        {
+            if (string.IsNullOrEmpty(usuario.Login))
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Login não informado");
+            }
+
+            if (string.IsNullOrEmpty(usuario.Senha))
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
+            }
+
+            usuario.Senha = Seguranca.GerarHash(usuario.Senha);
+
+            usuario.Vendedor = null;
+        }
+        
         public bool IsAutenticado(string cookie)
         {
             //todo: verifico se o cookie não foi expirado

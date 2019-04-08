@@ -9,6 +9,7 @@
     <Compile Remove="Migrations\20190329035814_tabelaFaturamento.cs" />
     <Compile Remove="Migrations\20190402033009_Faturamento.cs" />
     <Compile Remove="Migrations\20190402035705_Faturamento2.cs" />
+    <Compile Remove="Migrations\20190405020447_usuarioGrupo.cs" />
   </ItemGroup>
 
   <ItemGroup>

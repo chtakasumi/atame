@@ -321,7 +321,7 @@ namespace api.infra.Migrations
 
             modelBuilder.Entity("api.domain.Entity.Parcela", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -580,7 +580,12 @@ namespace api.infra.Migrations
                         .HasColumnName("senha")
                         .HasMaxLength(40);
 
+                    b.Property<int?>("VendedorId")
+                        .HasColumnName("vendedorId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VendedorId");
 
                     b.ToTable("Usuario");
                 });
@@ -843,6 +848,14 @@ namespace api.infra.Migrations
                         .WithMany("Docentes")
                         .HasForeignKey("TurmaId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Usuario", b =>
+                {
+                    b.HasOne("api.domain.Entity.Vendedor", "Vendedor")
+                        .WithMany()
+                        .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("api.domain.Entity.Venda", b =>

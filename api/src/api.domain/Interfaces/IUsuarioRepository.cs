@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using api.domain.Entity;
+using api.domain.Services.DTO;
 
 namespace api.domain.Interfaces
 {
@@ -7,5 +8,7 @@ namespace api.domain.Interfaces
     {
         Usuario Autenticar(string login, string senha);
         IEnumerable<Usuario> BuscarComGrupo(int usuarioId);
+        IEnumerable<Usuario> Listar(UsuarioDTO dto);
+        ICollection<GrupoUsuario> BuscarGrupos(int id);
     }
 }

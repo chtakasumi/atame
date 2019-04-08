@@ -27,6 +27,17 @@ namespace api.infra.EntityMap
                 .HasColumnType("varchar(1)")
                  .IsRequired();
 
+
+            builder.Property(c => c.VendedorId)
+                 .HasColumnName("vendedorId");
+            
+            builder.HasOne(x => x.Vendedor)
+                .WithMany()
+                .HasForeignKey(x => x.VendedorId)
+                .HasPrincipalKey(x => x.Id)
+                .OnDelete(DeleteBehavior.SetNull);
+            
+
             builder.HasMany(x => x.GruposUsuarios)
                 .WithOne(x=>x.Usuario)
                 .HasForeignKey(x=>x.UsuarioId)

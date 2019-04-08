@@ -380,6 +380,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
     });
 }]);
 
+
+//orçamento
 app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
     modelService.extendsAbstractController($scope, alertService, parm, function () {
         
@@ -481,3 +483,30 @@ app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelServi
         return globalService.getStatusDescription(status);
     }
 }]);
+
+app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+
+    modelService.extendsAbstractController($scope, alertService, parm, function () {
+        
+        //CarregarLovVendedor
+        modelService.carregarLov({
+            scope: $scope.lovPesquisaVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = item.id;
+            }
+        });
+
+        modelService.carregarLov({
+            scope: $scope.lovCadastroVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.model.vendedorId = item.id;
+            }
+        });  
+      
+
+    });
+
+}]);
+

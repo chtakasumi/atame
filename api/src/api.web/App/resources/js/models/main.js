@@ -91,11 +91,7 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
 //rotas de url amigaveis
 app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$locationProvider', 'uiSelectConfig',
     function ($routeProvider, configConst, $httpProvider, $qProvider, $locationProvider, uiSelectConfig) {
-
-      
-          
         
-
         $httpProvider.interceptors.push('httpInterceptor');
 
         $httpProvider.defaults.withCredentials = true;
@@ -459,7 +455,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     parm: function (prospeccaoService, vendedorService, clienteService, cursoService, prospeccaoInteresseService) {
                         return {
                             titulo: function () {
-                                return "Prospecção";
+                                return "Orçamento";
                             },
                             filter: function () {
                                 return { id: null, inicio: null, fim: null, vendedorId: null, clienteId: null };
@@ -529,6 +525,33 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             }, 
                             vendaClienteService: function () {
                                 return vendaClienteService;
+                            }
+                        }
+                    }
+                }
+            })
+            .when("/usuario", {
+                templateUrl: configConst.baseUrlView + "usuario.html",
+                controller: 'usuarioCtrl',
+                resolve: {
+                    parm: function (usuarioService, vendedorService) {
+                        return {
+                            titulo: function () {
+                                return "Usuário";
+                            },
+                            filter: function () {
+                                return { id: null, login: null, vendedorId: null, ativo:null};
+                            },
+                            service: function () {
+                                return usuarioService;
+                            },
+                            vendedorService: function () {
+                                return vendedorService;
+                            },
+                            model: function (callBack) {
+                                return usuarioService.model(function (data) {
+                                    return callBack(data);
+                                });
                             }
                         }
                     }

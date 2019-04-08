@@ -2,6 +2,7 @@
 using api.domain.Entity;
 using api.domain.Services;
 using api.domain.Services.Commons;
+using api.domain.Services.DTO;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,18 @@ namespace api.web.Controllers
             _servico = servico;
         }
 
+        [HttpGet("model")]
+        public IActionResult GetModel()
+        {
+            string model = _servico.ModelSerializale();
+            return Ok(model);
+        }
+
+        [HttpPost("listar")]
+        public IActionResult Listar(UsuarioDTO entidade)
+        {
+            return Ok(_servico.Listar(entidade));
+        }
 
         // crud
         [HttpGet]
@@ -47,8 +60,8 @@ namespace api.web.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteUsuario([FromRoute] int id)
+        [HttpDelete]
+        public IActionResult DeleteUsuario(int id)
         {
             var usuario = _servico.Excluir(id);
             return Ok(usuario);

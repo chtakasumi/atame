@@ -1,5 +1,6 @@
 ﻿using api.domain.Entity;
 using api.domain.Interfaces;
+using api.domain.Services.DTO;
 using api.infra.Data;
 using api.libs;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,23 @@ namespace api.infra.Repository
             return base.Query(usuario => usuario.Id == usuarioId, u=>u.Id)
                 .Include(usuario => usuario.GruposUsuarios)
                 .ThenInclude(gruposUsuarios => gruposUsuarios.Grupo).ToList();
+        }
+
+        public ICollection<GrupoUsuario> BuscarGrupos(int id)
+        {
+            Usuario usuario = base.Query(x => x.Id == id, x => x.Id).Include(u => u.GruposUsuarios).ThenInclude(gruposUsuarios => gruposUsuarios.Grupo).Single();
+
+            return usuario.GruposUsuarios;
+
+        }
+
+        public IEnumerable<Usuario> Listar(UsuarioDTO dto)
+        {
+            return base.Query(x =>
+                (x.Id == dto.Id || !dto.Id.HasValue)&&    
+                (EF.Functions.Like(x.Login, "%" + dto.Login + "%") || string.IsNullOrEmpty(dto.Login)) &&
+                (x.Vendedor.Id == dto.VendedorId || !dto.VendedorId.HasValue) &&
+                (x.Ativo == dto.Ativo || string.IsNullOrEmpty(dto.Ativo)),x=>x.Id).Include(x=>x.Vendedor).ToList();
         }
     }
 }
