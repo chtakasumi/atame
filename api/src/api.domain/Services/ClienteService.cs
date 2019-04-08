@@ -94,8 +94,18 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Municipio obrigatório.");
             }
+
+            var clienteEncontrado = _clienteRepository.Listar(new ClienteDTO { CpfCnpj = cliente.CpfCnpj }).ToEntity();
+
+            _clienteRepository.EntityStateDetached(clienteEncontrado);
+
+            if (clienteEncontrado!=null && clienteEncontrado.Id != cliente.Id)
+            {
+                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, string.Format("CPF/CNPJ já registrado na base de dados para o cliente de codigo: {0}, Nome: {1}", clienteEncontrado.Id, clienteEncontrado.Nome));               
+            }
             cliente.UF = null;
             cliente.Municipio = null;
+            cliente.Vendedor = null;
 
         }
     }    

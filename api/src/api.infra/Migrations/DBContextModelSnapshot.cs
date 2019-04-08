@@ -73,11 +73,16 @@ namespace api.infra.Migrations
                     b.Property<int>("UFId")
                         .HasColumnName("ufId");
 
+                    b.Property<int?>("VendedorId")
+                        .HasColumnName("vendedorId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MunicipioId");
 
                     b.HasIndex("UFId");
+
+                    b.HasIndex("VendedorId");
 
                     b.ToTable("Cliente");
                 });
@@ -694,6 +699,11 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.UF", "UF")
                         .WithMany()
                         .HasForeignKey("UFId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.Vendedor", "Vendedor")
+                        .WithMany()
+                        .HasForeignKey("VendedorId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

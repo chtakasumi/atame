@@ -386,13 +386,13 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "cliente.html",
                 controller: 'clienteCtrl',
                 resolve: {
-                    parm: function (clienteService, ufService, municipioService) {
+                    parm: function (clienteService, ufService, municipioService, vendedorService) {
                         return {
                             titulo: function () {
                                 return "Cliente";
                             },
                             filter: function () {
-                                return { id: null, nome: null, cpfCnpj: null };
+                                return { id: null, nome: null, cpfCnpj: null, vendedorId: null};
                             },
                             service: function () {
                                 return clienteService;
@@ -407,6 +407,9 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             municipioService: function () {
                                 return municipioService;
+                            },
+                            vendedorService: function () {
+                                return vendedorService;
                             }
                         }
                     }

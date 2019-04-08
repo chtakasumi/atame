@@ -10,5 +10,6 @@ namespace api.domain.Entity
         public string Nome { get; set; }
         public string CpfCnpj { get; set; }
         public string NomeCpfCnpj { get; set; }
+        public int? VendedorId { get; set; }
     }
 }

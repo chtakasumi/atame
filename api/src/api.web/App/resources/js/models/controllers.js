@@ -230,6 +230,23 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
                 $scope.model.ufId = item.id;
             }
         });
+        
+        //CarregarLovVendedor
+        modelService.carregarLov({
+            scope: $scope.lovPesquisaVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = item.id;
+            }
+        });
+
+        modelService.carregarLov({
+            scope: $scope.lovCadastroVendedor = {},
+            servico: parm.vendedorService(),
+            aoSelecionar: function (item) {
+                $scope.model.vendedorId = item.id;
+            }
+        });
 
         $scope.lovCadastroMunicipio = {};
         $scope.lovCadastroMunicipio.pesquisar = function (fitro) {

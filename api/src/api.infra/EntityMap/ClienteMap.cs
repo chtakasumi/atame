@@ -42,7 +42,16 @@ namespace api.infra.EntityMap
                 .WithMany()
                 .HasForeignKey(c => c.MunicipioId)
                 .OnDelete(DeleteBehavior.Restrict);
-            
+
+
+            builder.Property(c => c.VendedorId)
+              .HasColumnName("vendedorId");
+
+            builder.HasOne(c => c.Vendedor)
+             .WithMany()
+             .HasForeignKey(c => c.VendedorId)
+             .OnDelete(DeleteBehavior.Restrict);
+
             builder.Property(c => c.UFId)
                 .HasColumnName("ufId")
                 .IsRequired();

@@ -16,6 +16,10 @@ namespace api.domain.Entity
         public UF UF { get; set; }
         public int MunicipioId { get; set; }
         public Municipio Municipio { get; set; }
+        
+        public int? VendedorId { get; set; }
+        public Vendedor Vendedor { get; set; }
+
         public string Endereco { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }

@@ -23,7 +23,12 @@ namespace api.domain.Interfaces
 
         //metodos de exclusao
         void Excluir(TEntity entity);
-        void Excluir(IEnumerable<TEntity> entities);       
+        void Excluir(IEnumerable<TEntity> entities);
+
+        //Estado da entidade desanexado        
+        void EntityStateDetached(TEntity entity);
+
+
 
     }
 
