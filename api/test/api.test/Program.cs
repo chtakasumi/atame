@@ -1,4 +1,5 @@
 ﻿using api.domain.Entity;
+using api.domain.Services.Commons;
 using api.libs;
 using System;
 
@@ -8,7 +9,9 @@ namespace api.test
     {
         static void Main(string[] args)
         {
-            TestarJSONCoverter();
+            //TestarLibSeguranca();
+            //TestarJSONCoverter();
+            TestarCalculoPercentualCommissao();
 
             Console.ReadKey();
         }
@@ -37,5 +40,19 @@ namespace api.test
             Curso o = Json.ToObject<Curso>(json);
             Console.WriteLine(o);
         }
+
+        static void TestarCalculoPercentualCommissao()
+        {   
+            var precoCurso = Convert.ToDecimal("1.000,00");
+            var comissaoVendedor = Convert.ToDecimal("5,000");
+            var descontoVenda = Convert.ToDecimal("20,00");
+
+            var calc = new CalculoPercentual(precoCurso, comissaoVendedor, descontoVenda);
+
+            Console.WriteLine(calc.ToString());
+        }
+
+
+
     }
 }
