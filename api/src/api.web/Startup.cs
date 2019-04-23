@@ -64,7 +64,6 @@ namespace api.web
             services.AddDbContext<DBContext>(options =>            
             options.UseSqlServer(Configuration.GetConnectionString("gestao_comercial")));
 
-
             //Aplicando as injeções de dependencia ao projeto
             new InjectCDI(services);
 

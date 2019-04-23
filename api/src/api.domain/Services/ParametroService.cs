@@ -2,7 +2,9 @@
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace api.domain.Services
 {
@@ -39,6 +41,13 @@ namespace api.domain.Services
             filtro.Chave = (chave != "null")? chave : null;
 
             return _parametroRepository.Listar(filtro);
+        }
+
+        public string Chaves()
+        {
+            //var lista = new List<Lista>();
+            var listaEnum = Enum.GetNames(typeof(EnumParametros));
+            return Json.ToJson(listaEnum);
         }
 
         public void Editar(Parametro parametro)

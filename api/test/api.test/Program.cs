@@ -43,11 +43,11 @@ namespace api.test
 
         static void TestarCalculoPercentualCommissao()
         {   
-            var precoCurso = Convert.ToDecimal("1.000,00");
+            var valorRecebido = Convert.ToDecimal("800,00");
             var comissaoVendedor = Convert.ToDecimal("5,000");
             var descontoVenda = Convert.ToDecimal("20,00");
 
-            var calc = new CalculoPercentual(precoCurso, comissaoVendedor, descontoVenda);
+            var calc = new CalculoPercentual(valorRecebido, comissaoVendedor, descontoVenda);
 
             Console.WriteLine(calc.ToString());
         }

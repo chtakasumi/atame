@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\api",
+    "\\api\\src"
   ],
-  "SelectedNode": "\\api",
+  "SelectedNode": "\\api\\src\\api.infra",
   "PreviewInSolutionExplorer": false
 }

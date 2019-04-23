@@ -560,6 +560,40 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/comissao", {
+                templateUrl: configConst.baseUrlView + "comissao.html",
+                controller: 'comissaoCtrl',
+                resolve: {
+                    parm: function (comissaoService) {
+                        return {
+                            titulo: function () {
+                                return "Comissão";
+                            },
+                            filter: function () {
+                                return {
+                                    id: null,
+                                    faturamentoId: null,
+                                    vendedor: null,
+                                    numeroParcela: null,
+                                    vendaId: null,
+                                    dataFaturamentoIni: null,
+                                    dataFaturamentoFim: null,
+                                    status: null,
+                                    dataPagamento: null,
+                                };
+                            },
+                            service: function () {
+                                return comissaoService;
+                            },                          
+                            model: function (callBack) {
+                                return comissaoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
             .otherwise('/home');
     }]);
 
@@ -874,7 +908,7 @@ app.factory("modelService", [function () {
             param.aoSelecionar(item);
         }
     }
-
+       
     var _existeDadosNaoGravados = function (scope, grid, msg, callback) {
         var listaItemconteudo = grid.filter(item => item.id == 0);
         if (listaItemconteudo.length > 0) {
@@ -885,12 +919,13 @@ app.factory("modelService", [function () {
             callback();
         }
     }
+        
     
     return {
         extendsAbstractController: _extendsAbstractController,
         vincular: _vincular,
         carregarLov: _carregarLov,
-        existeDadosNaoGravados: _existeDadosNaoGravados
+        existeDadosNaoGravados: _existeDadosNaoGravados      
     };
 
 }]);
@@ -953,13 +988,14 @@ app.factory("globalService", [function () {
             });
         }
 
+
         return {
             model: _model,
             lov: _lov,
             listar: _listar,
             salvar: _salvar,
             excluir: _excluir,
-            desvincular: _desvincular
+            desvincular: _desvincular          
         };
     }
 
@@ -980,9 +1016,11 @@ app.factory("globalService", [function () {
         return status;
     }
 
+   
+
     return {
         extendsAbstractServices: _extendsAbstractServices,
-        getStatusDescription: _statusParcela
+        getStatusDescription: _statusParcela,
     }
 
 }]);

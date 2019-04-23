@@ -5,18 +5,23 @@ using api.libs;
 using System.Collections.Generic;
 using api.domain.Services.DTO;
 using System;
+using System.Collections;
 
 namespace api.domain.Services
 {
     public class FaturamentoParcelaService
     {
-        private readonly IFaturamentoRepository _faturamentoRepository;       
-        IParcelaRepository _parcela;
+        private readonly IFaturamentoRepository _faturamentoRepository;
+        private readonly IParcelaRepository _parcelaRepository;
+        private readonly IComissaoRepository _comissaoRepository;
+        private readonly IParametroRepository _parametroRepository;
 
-        public FaturamentoParcelaService(IFaturamentoRepository faturamento,  IParcelaRepository parcela)
+        public FaturamentoParcelaService(IFaturamentoRepository faturamento, IParcelaRepository parcela, IComissaoRepository comissao, IParametroRepository parametro)
         {
-            _faturamentoRepository = faturamento;         
-            _parcela        = parcela;
+            this._faturamentoRepository = faturamento;
+            this._parcelaRepository = parcela;
+            this._comissaoRepository = comissao;
+            this._parametroRepository = parametro;
         }
 
         public string ModelSerializale()
@@ -31,17 +36,54 @@ namespace api.domain.Services
 
         private Parcela Cadastrar(Parcela parcelaFaturamento)
         {
+
+            var comissaoVenda = BuscarComissao(parcelaFaturamento.Venda.TurmaId);
+            var descontoVenda = parcelaFaturamento.Venda.Desconto;
+            var comissaoGerente = Convert.ToDecimal(_parametroRepository.Listar(new Parametro { Chave = EnumParametros.PERCENTUAL_COMISSAO_GERENTE.ToString() }).ToEntity().valor);
+
             ValidarModelo(parcelaFaturamento);
-         
-            Faturamento faturamento= _faturamentoRepository.Inserir(parcelaFaturamento.Faturamento);
+
+            Faturamento faturamento = _faturamentoRepository.Inserir(parcelaFaturamento.Faturamento);
 
             parcelaFaturamento.FaturamentoId = faturamento.Id;
             parcelaFaturamento.Faturamento = null;
 
+            AtualizaStatusParcela(parcelaFaturamento, EnumStatusPgto.Pago);
 
-            AtualizaStatusParcela(parcelaFaturamento, EnumStatusPgto.Pago);           
+            var calculoVendedor = new CalculoPercentual(faturamento.ValorPago, comissaoVenda, descontoVenda);
+            var calculoGerente = new CalculoPercentual(faturamento.ValorPago, comissaoGerente, descontoVenda,true);
+
+            var listaComissao = new List<Comissao>{
+
+            new Comissao
+            {
+                FaturamentoId = faturamento.Id,
+               // Faturamento = faturamento,
+                Percentual = calculoVendedor.ValorNovaComisao,
+                ValorApagar = calculoVendedor.ValorAhReceber,
+                Status = EnumStatusComissao.EmAberto,
+                Gerente = false
+            },
+            new Comissao
+            {
+                FaturamentoId = faturamento.Id,
+                //Faturamento = faturamento,
+                Percentual = calculoGerente.ValorNovaComisao,
+                ValorApagar = calculoGerente.ValorAhReceber,
+                Status = EnumStatusComissao.EmAberto,
+                Gerente = true
+            }
+        };
+            _comissaoRepository.Inserir(listaComissao);
+
+
 
             return parcelaFaturamento;
+        }
+
+        private decimal BuscarComissao(int turmaId)
+        {
+            return _faturamentoRepository.BuscarComissao(turmaId);
         }
 
         public Parcela BaixarParcela(Parcela entidade)
@@ -50,10 +92,10 @@ namespace api.domain.Services
             {
                 entidade = Cadastrar(entidade);
             }
-            else {
+            else
+            {
                 Editar(entidade);
             }
-
             return entidade;
         }
 
@@ -62,12 +104,11 @@ namespace api.domain.Services
             parcela.Status = status;
             parcela.Venda = null;
             if (status == EnumStatusPgto.Pendente)
-            {               
+            {
                 parcela.Faturamento = null;
                 parcela.FaturamentoId = null;
             }
-            
-            _parcela.Atualizar(parcela);
+            _parcelaRepository.Atualizar(parcela);
         }
 
         public IEnumerable<Faturamento> Lov(int? numero = null)
@@ -84,9 +125,10 @@ namespace api.domain.Services
         {
             ValidarModelo(parcela);
 
-            Parcela parcelaAnterior = _parcela.PesquisarPorId(parcela.Id.GetValueOrDefault());
+            Parcela parcelaAnterior = _parcelaRepository.PesquisarPorId(parcela.Id.GetValueOrDefault());
 
-            if (parcela.Id != parcelaAnterior.Id) {
+            if (parcela.Id != parcelaAnterior.Id)
+            {
                 parcelaAnterior.Faturamento = null;
                 AtualizaStatusParcela(parcelaAnterior, EnumStatusPgto.Pendente);
             }
@@ -112,10 +154,10 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Não foi possivel excluir o Faturamento. Faturamento não localizado");
             }
-            
+
             if (faturamento.Parcela == null)
             {
-                faturamento.Parcela  = _parcela.PesquisarPorId(faturamento.ParcelaId);
+                faturamento.Parcela = _parcelaRepository.PesquisarPorId(faturamento.ParcelaId);
             }
 
             AtualizaStatusParcela(faturamento.Parcela, EnumStatusPgto.Pendente);
@@ -155,6 +197,6 @@ namespace api.domain.Services
             parcelaFaturamento.Faturamento.Parcela = null;
         }
 
-      
+
     }
 }

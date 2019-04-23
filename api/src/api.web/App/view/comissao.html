@@ -1,0 +1,270 @@
+<div id="divController">
+
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"
+                               ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="nome" class="sr-only">Codigo Faturamento</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"
+                               ng-model="filtros.faturamentoId" class="form-control" id="faturamentoId"
+                               name="faturamentoId" placeholder="Código Faturamento">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="nome" class="sr-only">Código Venda</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0"
+                               ng-model="filtros.VendaId" class="form-control" id="VendaId"
+                               name="VendaId" placeholder="Código Venda">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nome" class="sr-only">Nome Vendedor</label>
+                        <input type="text" ng-model="filtros.vendedor" class="form-control" id="vendedor" name="vendedor"
+                               placeholder="Nome do Vendedor">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nome">N° da Parcela</label>
+                        <input type="text" ng-model="filtros.NumeroParcela" class="form-control" id="NumeroParcela" name="NumeroParcela"
+                               placeholder="N° da Parcela">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="status">Status Comissão</label>
+                        <select required id="status" name="chave" class="form-control"
+                                ng-options="item for item in listaStatusComissao"
+                                ng-model="filtros.status"></select>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="DataPagamento">Data Pagamento:</label>
+                        <input type="date" ng-model="filtros.DataPagamento" class="form-control"
+                               id="DataPagamento" name="DataPagamento"
+                               placeholder="Data Pagamento">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="fieldset">
+                        <span class="fieldset-title">Periodo do Faturamento</span>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>De:</label>
+                                <input type="date" ng-model="filtros.dataFaturamentoIni" class="form-control"
+                                       id="dataFaturamentoIni" name="dataFaturamentoIni" placeholder="Período de">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Até:</label>
+                                <input type="date" ng-model="filtros.dataFaturamentoFim" class="form-control" id="dataFaturamentoFim" 
+                                       name="dataFaturamentoFim" placeholder="Até">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 pull-right  margin-top-label">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>                     
+                    </div>
+                </div>
+            </div>
+            <div class="row grid-class">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Cód. Venda</th>
+                                <th>Vendedor</th>
+                                <th>N° Parcela</th>
+                                <th>Valor Faturado</th>
+                                <th>Data Faturamento</th>
+                                <th>Percentual</th>
+                                <th>Vlr a Pagar</th>
+                                <th>Status</th>
+                                <th>Vlr Pago</th>
+                                <th>Data Pgto</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in grade_model">
+                                <td>{{row.faturamento.venda.id}}</td>
+                                <td>{{(row.gerente)?'Gerente':row.faturamento.venda.vendedor.nome}}</td>
+                                <td>{{row.faturamento.parcela.numero}}°</td>
+                                <td>{{row.faturamento.valorPago}}</td>
+                                <td>{{row.faturamento.dataPgto | date:'shortDate'}}</td>
+                                <td>{{row.percentual |number:3}}%</td>
+                                <td>{{row.valorApagar | currency}}</td>
+                                <td ng-class="color(row.status)">{{row.status}}</td>
+                                <td>{{row.valorPago | currency}}</td>
+                                <td>{{row.dataPagamento  | date:'shortDate'}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" title="Efetuar pagamento" 
+                                       ng-click="baixar(row)"><i class="glyphicon glyphicon-ok"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="form" novalidate ng-show="modoEdicao">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <div class="panel-body">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="codigo">Código</label>
+                        <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="codigoVenda">Código Venda</label>
+                        <input type="text" value="{{model.faturamento.venda.id}}" class="form-control" id="codigoVenda" name="codigoVenda" placeholder="Código da venda" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="numeroParcela">N° Parcela</label>
+                        <input type="text" value="{{model.faturamento.parcela.numero}}°" class="form-control" id="numeroParcela" 
+                               name="numeroParcela" placeholder="N° Parcela" disabled>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="gerentevendedor">{{(model.gerente)?'Gerente':'Vendedor'}}</label>
+                        <input type="text" value="{{(model.gerente)?'Gerente':model.faturamento.venda.vendedor.nome}}" class="form-control"
+                               id="gerentevendedor" name="gerentevendedor" placeholder="{{(model.gerente)?'Gerente':'Vendedor'}}" disabled>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="DtaFaturamento">Data do Faturamento</label>
+                        <input type="text" value="{{model.faturamento.dataPgto | date:'shortDate'}}" class="form-control"
+                               id="DtaFaturamento" name="DtaFaturamento" placeholder="Data do Faturamento" disabled>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="valorApagar">Status Pagamento</label>
+                        <input type="text" value="{{model.status}}" class="form-control"
+                               id="status" name="status" placeholder="Status pagamento" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="valorFaturado">Valor Faturado</label>
+                        <input type="text" value="{{model.faturamento.valorPago | currency}}" class="form-control texto-destaque"  style="color:green"
+                               id="valorFaturado" name="valorFaturado" placeholder="Valor Faturado" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="percentualPagar">Percetual a Pagar</label>
+                        <input type="text" value="{{model.percentual |number:3}}%" class="form-control"
+                               id="percentualPagar" name="percentualPagar" placeholder="Percetual a Pagar" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="valorApagar">Valor a Pagar</label>
+                        <input type="text" value="{{model.valorApagar | currency}}" class="form-control texto-destaque" style="color:red"
+                               id="valorApagar" name="valorApagar" placeholder="Valor a Pagar" disabled>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.dataPagamento)">
+                        <label for="dataPagamento" class="control-label">Data Pagamento</label>
+                        <input type="date" html-date required ng-model="model.dataPagamento" class="form-control" id="dataPagamento"
+                               name="dataPagamento" placeholder="Data Pagamento">
+                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.dataPagamento)"></span>
+                        <ng-messages for="form.dataPagamento.$error" ng-show="GetValidMessages(form.dataPagamento)">
+                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
+                        </ng-messages>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.valorPago)">
+                        <label for="valorPago" class="control-label">Valor do Pagamento</label>
+                        <input type="text" ng-model="model.valorPago" ui-money-mask class="form-control texto-destaque"   id="valorPago"
+                               name="valorPago" placeholder="Preço" required min="0.01" max="99999999.99" ng-change="calculaValorParcela()">
+                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.valorPago)"></span>
+                        <ng-messages for="form.valorPago.$error" ng-show="GetValidMessages(form.valorPago)">
+                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                            <ng-message when="max" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                        </ng-messages>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.observacao)">
+                        <label for="observacao" class="control-label">Observação</label>
+                        <textarea type="text" ng-model="model.observacao" class="form-control" id="observacao"
+                                  name="observacao" placeholder="Descrição" maxlength="1000" rows="4">            
+                    </textarea>
+                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.observacao)"></span>
+                        <ng-messages for="form.observacao.$error" ng-show="GetValidMessages(form.observacao)">
+                            <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                        </ng-messages>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="voltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

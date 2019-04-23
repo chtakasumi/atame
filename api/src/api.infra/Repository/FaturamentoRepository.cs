@@ -15,6 +15,12 @@ namespace api.infra.Repository
 
         }
 
+        public decimal BuscarComissao(int turmaId)
+        {
+            var turma = this._dbContexto.Turmas.Include(t => t.Curso).ThenInclude(c => c.TipoCurso).Where(t=>t.Id ==turmaId).Single();
+            return turma.Curso.TipoCurso.Comissao;
+        }
+
         public IEnumerable<Faturamento> Listar(FaturamentoDTO faturamento)
         {
             throw new System.NotImplementedException();
@@ -35,11 +41,11 @@ namespace api.infra.Repository
                   (x.Venda.VendedorId == faturamento.VendedorId || !faturamento.VendedorId.HasValue)).Include(x => x.Faturamento)
                   .Include(p => p.Venda)
                   .ThenInclude(v => v.Vendedor)
-                  .Include(p=>p.Venda).ThenInclude(v=>v.ClienteFinanceiro);
+                  .Include(p => p.Venda).ThenInclude(v => v.ClienteFinanceiro);
 
 
             return parcelas.OrderBy(p => p.Numero);
 
         }
-    } 
+    }
 }

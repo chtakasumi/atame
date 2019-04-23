@@ -5,6 +5,6 @@ namespace api.domain.Interfaces
 {
     public interface IParametroRepository : IRepository<Parametro>
     {
-        IEnumerable<Parametro> Listar(Parametro vendedor);
+        IEnumerable<Parametro> Listar(Parametro parametro);
     }
 }

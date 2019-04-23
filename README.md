@@ -1,6 +1,6 @@
 # Sistema de Gestão comercial - ATAME
 
-Este projeto visa criar um ERP com foco na area comercial inicialmente.
+Este projeto visa criar um ERP com foco na area comercial inicialmente. Depois Trabalhar com a area acadêmica.
 
 ## Contributing
 * **Elton John Assunção** https://github.com/ejaassuncao
@@ -14,4 +14,4 @@ Este projeto visa criar um ERP com foco na area comercial inicialmente.
 * **GRUPO ATAME**
 
 ## License
-* ***Este projeto do grupo Atame.***
+* ***Este projeto do percetence ao grupo Atame.***

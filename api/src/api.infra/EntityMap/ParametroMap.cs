@@ -12,6 +12,9 @@ namespace api.infra.EntityMap
 
             builder.HasKey(c => c.Id);
 
+
+            builder.HasIndex(e => e.Chave).IsUnique();
+
             builder.Property(c => c.Chave)
                 .HasColumnName("chave")
                 .HasColumnType("varchar(100)")

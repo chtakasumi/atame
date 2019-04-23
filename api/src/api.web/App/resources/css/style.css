@@ -19,6 +19,9 @@ h1 {
     text-align: right;
     z-index: -1;
 }
+label {
+    color: #5b5b5b;
+}
 
 .footer > div {  
     margin-top:5px;
@@ -53,6 +56,11 @@ h1 {
 
 .green {
     color: green;
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
     font-weight: bold;
 }
 
@@ -279,3 +287,8 @@ input[type="radio"] {
     input[type="radio"]:hover {
         box-shadow: 0px 0px 10px #1300ff;
     }
+
+
+.grid-class {
+    margin-top:10px;
+}

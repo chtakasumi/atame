@@ -7,6 +7,7 @@ namespace api.domain.Services.Commons
     public enum EnumParametros
     {
         DESCONTOS_PERMITIDOS,
-        HOST_SERVE_CEP
+        HOST_SERVE_CEP,
+        PERCENTUAL_COMISSAO_GERENTE
     }
 }

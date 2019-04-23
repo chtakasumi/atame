@@ -397,7 +397,6 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
     });
 }]);
 
-
 //orçamento
 app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
     modelService.extendsAbstractController($scope, alertService, parm, function () {
@@ -463,7 +462,12 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
 
 //comportamento da pagina parametro
 app.controller('parametroCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
-    modelService.extendsAbstractController($scope, alertService, parm);
+    modelService.extendsAbstractController($scope, alertService, parm, function () {      
+        //CarregarLovCadastro     
+        parm.service().listarChave(function (dados) {           
+            $scope.listachaves =  dados
+        })      
+    });
 }]);
 
 app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'globalService', 'utils', function ($scope, alertService, parm, modelService, globalService, utils) {
@@ -525,5 +529,40 @@ app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService',
 
     });
 
+}]);
+
+app.controller('comissaoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'utils', function ($scope, alertService, parm, modelService, utils) {
+    modelService.extendsAbstractController($scope, alertService, parm, function () {
+        //Carregar status   
+        parm.service().listaStatus(function (dados) {
+            $scope.listaStatusComissao = dados
+        });        
+        
+        $scope.baixar = function (model) {
+            utils.getData(function (data) {
+                var vdata = new Date(data);
+                model.dataPagamento = vdata;
+                model.valorPago = model.valorApagar;
+                $scope.editar(model);
+                $scope.titulo = "Efeturar pagamento";
+            });
+        }
+        
+        $scope.color = function (status) {
+            switch (status) {
+                case 'ParcialmentePago':
+                    return 'blue';
+
+                case 'Pago':
+                    return 'green';
+                    break;
+
+                case 'EmAberto':
+                    return 'red';
+                    break;
+
+            };
+        }
+    });
 }]);
 

@@ -10,14 +10,14 @@
                         <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="nome" class="sr-only">Nome</label>
                         <input type="text" ng-model="filtros.nome" class="form-control" id="nome" name="nome" placeholder="Nome">
                     </div>
                 </div>
                
-                <div class="col-lg-12 pull-right">
+                <div class="col-lg-4 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
                             <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row  grid-class">
                 <div class="col-md-12 table-responsive">
                     <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
                            id="GridView1">

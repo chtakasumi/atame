@@ -16,7 +16,7 @@
                         <input type="text" ng-model="filtros.chave" class="form-control" id="chave" name="chave" placeholder="chave">
                     </div>
                 </div>
-               
+
                 <div class="col-lg-5 pull-right">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
@@ -69,20 +69,18 @@
                     <label for="codigo">Código</label>
                     <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
                 </div>
+
                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.chave)">
+
                     <label for="chave" class="control-label">Chave</label>
-                     <select ng-model="model.chave" class="
-                       form-control" id="chave" name="chave" placeholder="chave" required maxlength="100">
-                         <option value="DESCONTOS_PERMITIDOS">DESCONTOS_PERMITIDOS</option>
-                         <option value="HOST_SERVE_CEP">HOST_SERVER_CEP</option>
-                    </select>
+                    <select required id="chave" name="chave" class="form-control" ng-options="item for item in listachaves"
+                            ng-model="model.chave"></select>
                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.chave)"></span>
                     <ng-messages for="form.chave.$error" ng-show="GetValidMessages(form.chave)">
                         <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
-                    </ng-messages>
-
+                    </ng-messages>         
                 </div>
+
                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.valor)">
                     <label for="valor" class="control-label">Valor</label>
                     <input type="text" ng-model="model.valor" class="

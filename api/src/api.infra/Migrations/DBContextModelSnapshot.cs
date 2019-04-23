@@ -87,6 +87,47 @@ namespace api.infra.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Comissao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("DataPagamento")
+                        .HasColumnName("dataPagamento");
+
+                    b.Property<int>("FaturamentoId")
+                        .HasColumnName("faturamentoId");
+
+                    b.Property<bool>("Gerente")
+                        .HasColumnName("gerente");
+
+                    b.Property<string>("Observacao")
+                        .HasColumnName("observacao")
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<decimal>("Percentual")
+                        .HasColumnName("percentual")
+                        .HasColumnType("decimal(10,3)");
+
+                    b.Property<int>("Status")
+                        .HasColumnName("status");
+
+                    b.Property<decimal>("ValorApagar")
+                        .HasColumnName("valorApagar")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<decimal?>("ValorPago")
+                        .HasColumnName("valorPago")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FaturamentoId");
+
+                    b.ToTable("Comissao");
+                });
+
             modelBuilder.Entity("api.domain.Entity.ConteudoProgramatico", b =>
                 {
                     b.Property<int?>("Id")
@@ -320,6 +361,9 @@ namespace api.infra.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Chave")
+                        .IsUnique();
 
                     b.ToTable("Parametro");
                 });
@@ -704,6 +748,14 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.Vendedor", "Vendedor")
                         .WithMany()
                         .HasForeignKey("VendedorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Comissao", b =>
+                {
+                    b.HasOne("api.domain.Entity.Faturamento", "Faturamento")
+                        .WithMany()
+                        .HasForeignKey("FaturamentoId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

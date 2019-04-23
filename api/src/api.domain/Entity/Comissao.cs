@@ -13,18 +13,19 @@ namespace api.domain.Entity
         public Faturamento Faturamento { get; set; }       
         public decimal Percentual { get; set; } //é a porcetagem que o vendedor tem a receber sobre o valor faturado
         public decimal ValorApagar { get; set; } //previsto
-
-        public decimal ValorPago { get; set; }
-        public string Observacao { get; set; }       
         public EnumStatusComissao Status { get; set; }
-        public DateTime DataPagamento { get; set; }
+        public bool Gerente { get; set; }
+
+        public decimal? ValorPago { get; set; }
+        public string Observacao { get; set; }     
+        public DateTime? DataPagamento { get; set; }
     }
 
     public enum EnumStatusComissao
     {
         EmAberto,
         Pago,
-        Parcial
+        ParcialmentePago
     }
    
 }

@@ -29,6 +29,7 @@ namespace api.web
             services.AddScoped<ProspeccaoService>();
             services.AddScoped<ParametroService>();          
             services.AddScoped<FaturamentoParcelaService>();
+            services.AddScoped<ComissaoService>();
 
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ICursoRepository, CursoRepository>();
@@ -45,6 +46,7 @@ namespace api.web
             services.AddTransient<IParametroRepository, ParametroRepository>();
             services.AddTransient<IParcelaRepository, ParcelaRepository>();
             services.AddTransient<IFaturamentoRepository, FaturamentoRepository>();
+            services.AddTransient<IComissaoRepository, ComissaoRepository>();
         }
     }
 }

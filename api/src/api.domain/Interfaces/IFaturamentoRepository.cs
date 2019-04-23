@@ -9,6 +9,6 @@ namespace api.domain.Interfaces
         IEnumerable<Faturamento> Listar(FaturamentoDTO faturamento);
 
         IEnumerable<Parcela> ListarParcelas(FaturamentoDTO faturamento);
-       
+        decimal BuscarComissao(int turmaId);
     }
 }

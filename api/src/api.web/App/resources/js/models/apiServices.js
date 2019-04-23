@@ -119,16 +119,36 @@ app.factory("prospeccaoInteresseService", ['consumerService', '$rootScope', 'glo
 
 app.factory("parametroService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "parametro";
-    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    var api = globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    api.listarChave = function (callback) {
+        consumerService.get(baseUrl + "/listar-parametro", function (modelo) {
+            callback(JSON.parse(JSON.parse(modelo)));
+        })
+    }
+
+    return api;
 }]);
 
 app.factory("faturamentoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "faturamento";
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+
 }]);
 
 app.factory("usuarioService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "usuario";
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
+
+app.factory("comissaoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "comissao";
+    var api = globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+    api.listaStatus = function (callback) {
+        consumerService.get(baseUrl + "/listar-status", function (modelo) {
+            callback(JSON.parse(JSON.parse(modelo)));
+        })
+    }
+    return api;
+}]);
+
 
