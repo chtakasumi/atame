@@ -566,3 +566,6 @@ app.controller('comissaoCtrl', ['$scope', 'alertService', 'parm', 'modelService'
     });
 }]);
 
+app.controller('bancoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+    modelService.extendsAbstractController($scope, alertService, parm);
+}]);

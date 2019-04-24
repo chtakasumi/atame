@@ -151,4 +151,10 @@ app.factory("comissaoService", ['consumerService', '$rootScope', 'globalService'
     return api;
 }]);
 
+app.factory("bancoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "banco";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+
 

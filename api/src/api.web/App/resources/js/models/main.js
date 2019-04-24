@@ -307,6 +307,30 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/banco", {
+                templateUrl: configConst.baseUrlView + "banco.html",
+                controller: 'bancoCtrl',
+                resolve: {
+                    parm: function (bancoService) {
+                        return {
+                            titulo: function () {
+                                return "Banco";
+                            },
+                            filter: function () {
+                                return { id: null, codigo: null, nome: null };
+                            },
+                            service: function () {
+                                return bancoService;
+                            },
+                            model: function (callBack) {
+                                return bancoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
             .when("/parametro", {
                 templateUrl: configConst.baseUrlView + "parametro.html",
                 controller: 'parametroCtrl',

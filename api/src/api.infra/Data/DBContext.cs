@@ -36,6 +36,8 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new ParcelaMap());
             modelBuilder.ApplyConfiguration(new FaturamentoMap());
             modelBuilder.ApplyConfiguration(new ComissaoMap());
+            modelBuilder.ApplyConfiguration(new BancoMap());
+            
 
         }
 
@@ -57,6 +59,6 @@ namespace api.infra
         public DbSet<Parcela> Parcelas { get; set; }
         public DbSet<Faturamento> Faturamentos { get; set; }
         public DbSet<Faturamento> Comissoes { get; set; }
-
+        public DbSet<Banco> Banco { get; set; }
     }
 }
