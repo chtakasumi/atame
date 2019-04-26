@@ -242,6 +242,27 @@ namespace api.infra.Migrations
                     b.ToTable("CursoDocente");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Desconto", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnName("descricao")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal?>("Percentual")
+                        .IsRequired()
+                        .HasColumnName("percentual")
+                        .HasColumnType("Decimal(10, 3)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Desconto");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Docente", b =>
                 {
                     b.Property<int?>("Id")

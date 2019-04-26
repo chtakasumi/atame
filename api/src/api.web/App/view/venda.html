@@ -258,18 +258,23 @@
                                     </ng-messages>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3">                               
+
                                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.desconto)">
                                     <label for="desconto" class="control-label">Desconto</label>
-                                    <input type="text" ng-model="model.desconto" class="form-control" ng-change="calculaValorVendaEhParcela()"
-                                           id="desconto" name="desconto" placeholder="Desconto"
-                                           ui-percentage-value ui-percentage-mask="3" min="0.000" max="100" maxlength="10" required>
+                                    <ui-select ng-model="model.descontoObject" input-id="vendedor" name="desconto"                                              
+                                               on-select="lovCadastroDesconto.selecionar($item)" spinner-enabled="true">
+                                        <ui-select-match placeholder="**Selecione um Desconto**">
+                                            {{$select.selected.percentual | number:3}}%
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="item in (lovCadastroDesconto.dados | filter: $select.search) track by item.id"
+                                                           refresh="lovCadastroDesconto.pesquisar($select.search)" refresh-delay="0">
+                                            {{item.percentual | number:3}}%
+                                        </ui-select-choices>
+                                    </ui-select>
                                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.desconto)"></span>
                                     <ng-messages for="form.desconto.$error" ng-show="GetValidMessages(form.desconto)">
                                         <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="max" class="has-error-text">*Valor máximo permitido 100,000%</ng-message>
-                                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
                                     </ng-messages>
                                 </div>
                             </div>

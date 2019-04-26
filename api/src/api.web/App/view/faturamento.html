@@ -150,7 +150,7 @@
                                 <td>{{parcela.faturamento.dataPgto | date:'dd/MM/yyyy'}}</td>
                                 <td ng-class="getStatusDescription(parcela.status)=='Pendente'? 'red':'green'">{{getStatusDescription(parcela.status)}}</td>
                                 <td class="edicao">
-                                    <a class="btn btn-default btn-xs" ng-show="getStatusDescription(parcela.status)=='Pago'" ng-click="editar(parcela)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs"title="Editar"  ng-show="getStatusDescription(parcela.status)=='Pago'" ng-click="editar(parcela)"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-default btn-xs" title="Efeturar Baixar" ng-show="getStatusDescription(parcela.status)=='Pendente'" ng-click="baixar(parcela)"><i class="glyphicon glyphicon-saved"></i></a>
                                 </td>
                             </tr>

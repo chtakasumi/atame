@@ -21,7 +21,7 @@ namespace api.domain.Entity
         public int Quantidade { get; set; }
 
         public decimal ValorCurso { get; set; }
-
+                      
         public decimal Desconto { get; set; }
 
         public decimal ValorVenda { get; set; }

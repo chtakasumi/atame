@@ -307,6 +307,30 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/desconto", {
+                templateUrl: configConst.baseUrlView + "desconto.html",
+                controller: 'descontoCtrl',
+                resolve: {
+                    parm: function (descontoService) {
+                        return {
+                            titulo: function () {
+                                return "Desconto";
+                            },
+                            filter: function () {
+                                return { id: null, descricao: null };
+                            },
+                            service: function () {
+                                return descontoService;
+                            },
+                            model: function (callBack) {
+                                return descontoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
             .when("/banco", {
                 templateUrl: configConst.baseUrlView + "banco.html",
                 controller: 'bancoCtrl',
@@ -443,7 +467,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "venda.html",
                 controller: 'vendaCtrl',
                 resolve: {
-                    parm: function (vendaService, turmaService , vendedorService, clienteService, vendaClienteService) {
+                    parm: function (vendaService, turmaService, vendedorService, clienteService, vendaClienteService, descontoService) {
                         return {
                             titulo: function () {
                                 return "Venda";
@@ -470,7 +494,10 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             vendaClienteService: function () {
                                 return vendaClienteService;
-                            }                           
+                            },
+                            descontoService: function () {
+                                return descontoService;
+                            },
                         }
                     }
                 }

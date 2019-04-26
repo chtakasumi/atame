@@ -276,6 +276,12 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
                 //$scope.model.vencimentoPrimeiraParcela = utils.incrementaDias(data, 30);
             });
         }
+        //override
+        var editar = angular.copy($scope.editar);
+        $scope.editar = function (model){   
+            model.descontoObject = { percentual: model.desconto };
+            editar(model);
+        }
 
         //CarregarLovTurma
         modelService.carregarLov({
@@ -330,6 +336,15 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             servico: parm.clienteService(),
             aoSelecionar: function (item) {
                 $scope.model.clienteFinanceiroId = item.id;
+            }
+        });
+
+        modelService.carregarLov({
+            scope: $scope.lovCadastroDesconto = {},
+            servico: parm.descontoService(),
+            aoSelecionar: function (item) {               
+                $scope.model.descontoObject = item;
+                $scope.model.desconto = item.percentual;
             }
         });
 
@@ -567,5 +582,9 @@ app.controller('comissaoCtrl', ['$scope', 'alertService', 'parm', 'modelService'
 }]);
 
 app.controller('bancoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+    modelService.extendsAbstractController($scope, alertService, parm);
+}]);
+
+app.controller('descontoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
     modelService.extendsAbstractController($scope, alertService, parm);
 }]);

@@ -86,6 +86,7 @@
     <None Remove="App\view\curso.html" />
     <None Remove="App\view\cursoConteudoProgramaticoPartial.html" />
     <None Remove="App\view\cursoDocentePartial.html" />
+    <None Remove="App\view\desconto.html" />
     <None Remove="App\view\docente.html" />
     <None Remove="App\view\faturamento.html" />
     <None Remove="App\view\home.html" />
@@ -195,6 +196,7 @@
     <Content Include="App\view\faturamento.html" />
     <Content Include="App\view\comissao.html" />
     <Content Include="App\view\banco.html" />
+    <Content Include="App\view\desconto.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />
