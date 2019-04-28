@@ -90,7 +90,11 @@ namespace api.infra.Data
 
         public void EntityStateDetached(TEntity entity)
         {
-            _dbContexto.Entry(entity).State = EntityState.Detached;
+            if (entity != null)
+            {
+                _dbContexto.Entry(entity).State = EntityState.Detached;
+            }
+            
         }
       
         #endregion
