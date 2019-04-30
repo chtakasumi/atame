@@ -156,7 +156,7 @@ namespace api.infra.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnName("descricao")
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("varchar(8000)");
 
                     b.Property<string>("Identificacao")
                         .IsRequired()
@@ -282,6 +282,69 @@ namespace api.infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Docente");
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Empresa", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bairro")
+                        .HasColumnName("bairro")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Celular")
+                        .HasColumnName("celular")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Cep")
+                        .HasColumnName("cep")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Cnpj")
+                        .IsRequired()
+                        .HasColumnName("cnpj")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Complemento")
+                        .HasColumnName("complemento")
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<string>("Email")
+                        .HasColumnName("email")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnName("endereco")
+                        .HasColumnType("varchar(300)");
+
+                    b.Property<int>("MunicipioId")
+                        .HasColumnName("municipioId");
+
+                    b.Property<string>("Numero")
+                        .HasColumnName("numero")
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("RazaoSocial")
+                        .IsRequired()
+                        .HasColumnName("razaoSocial")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnName("telefone")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<int>("UFId")
+                        .HasColumnName("ufId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MunicipioId");
+
+                    b.HasIndex("UFId");
+
+                    b.ToTable("empresa");
                 });
 
             modelBuilder.Entity("api.domain.Entity.Faturamento", b =>
@@ -485,8 +548,21 @@ namespace api.infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClienteId")
-                        .HasColumnName("clienteId");
+                    b.Property<string>("ClienteCelular")
+                        .HasColumnName("celular")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("ClienteEmail")
+                        .HasColumnName("email")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("ClienteNome")
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(60)");
+
+                    b.Property<string>("ClienteTelefone")
+                        .HasColumnName("telefone")
+                        .HasColumnType("varchar(15)");
 
                     b.Property<DateTime?>("Data")
                         .IsRequired()
@@ -497,12 +573,12 @@ namespace api.infra.Migrations
                         .HasColumnName("observacao")
                         .HasColumnType("varchar(500)");
 
+                    b.Property<int>("Status");
+
                     b.Property<int>("VendedorId")
                         .HasColumnName("vendedorId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
 
                     b.HasIndex("VendedorId");
 
@@ -834,6 +910,19 @@ namespace api.infra.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("api.domain.Entity.Empresa", b =>
+                {
+                    b.HasOne("api.domain.Entity.Municipio", "Municipio")
+                        .WithMany()
+                        .HasForeignKey("MunicipioId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.UF", "UF")
+                        .WithMany()
+                        .HasForeignKey("UFId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("api.domain.Entity.Faturamento", b =>
                 {
                     b.HasOne("api.domain.Entity.Parcela", "Parcela")
@@ -895,11 +984,6 @@ namespace api.infra.Migrations
 
             modelBuilder.Entity("api.domain.Entity.Prospeccao", b =>
                 {
-                    b.HasOne("api.domain.Entity.Cliente", "Cliente")
-                        .WithMany()
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("api.domain.Entity.Vendedor", "Vendedor")
                         .WithMany()
                         .HasForeignKey("VendedorId")

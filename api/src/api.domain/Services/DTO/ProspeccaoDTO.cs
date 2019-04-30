@@ -8,6 +8,7 @@ namespace api.domain.Services.DTO
         public DateTime? Inicio { get; set; }
         public DateTime? Fim { get; set; }
         public int? VendedorId { get; set; }       
-        public int? ClienteId { get; set; }       
+        public int? ClienteId { get; set; }
+        public string ClienteNome { get; set; }
     }
 }

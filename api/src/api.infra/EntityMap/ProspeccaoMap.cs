@@ -21,15 +21,22 @@ namespace api.infra.EntityMap
                .HasColumnName("observacao")
                .HasColumnType("varchar(500)");
 
-            builder.Property(c => c.ClienteId)
-            .HasColumnName("clienteId")
-            .IsRequired();
+            builder.Property(c => c.ClienteNome)
+              .HasColumnName("nome")
+              .HasColumnType("varchar(60)"); 
 
-            builder.HasOne(c => c.Cliente).WithMany()
-            .HasForeignKey(c => c.ClienteId)
-            .HasPrincipalKey(x => x.Id)
-            .OnDelete(DeleteBehavior.Restrict);
-            
+            builder.Property(c => c.ClienteTelefone)
+              .HasColumnName("telefone")
+              .HasColumnType("varchar(15)");
+
+            builder.Property(c => c.ClienteCelular)
+                .HasColumnName("celular")
+                .HasColumnType("varchar(15)");
+
+            builder.Property(c => c.ClienteEmail)
+                .HasColumnName("email")
+                .HasColumnType("varchar(60)");
+
 
             builder.Property(c => c.VendedorId)
            .HasColumnName("vendedorId")

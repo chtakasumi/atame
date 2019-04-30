@@ -433,22 +433,16 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
             }
         });
 
-        //CarregarLovCliente
-        modelService.carregarLov({
-            scope: $scope.lovPesquisaCliente = {},
-            servico: parm.clienteService(),
-            aoSelecionar: function (item) {
-                $scope.filtros.clienteId = item.id;
-            }
-        });
 
-        modelService.carregarLov({
-            scope: $scope.lovCadastroCliente = {},
-            servico: parm.clienteService(),
-            aoSelecionar: function (item) {
-                $scope.model.clienteId = item.id;
-            }
-        });
+        var metodonovo = $scope.novo;
+
+        $scope.novo = function ()
+        {
+           
+            metodonovo();
+            $scope.model.status = "EmAnalise";
+           
+        }                 
                
         //***VINCULAR CURSO DE INTERESSE***//        
         var vinculoAcademico = {
@@ -587,4 +581,30 @@ app.controller('bancoCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
 
 app.controller('descontoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
     modelService.extendsAbstractController($scope, alertService, parm);
+}]);
+
+app.controller('empresaCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+    modelService.extendsAbstractController($scope, alertService, parm, function () {
+        //CarregarLovUF
+        modelService.carregarLov({
+            scope: $scope.lovCadastroUF = {},
+            servico: parm.ufService(),
+            aoSelecionar: function (item) {
+                $scope.model.ufId = item.id;
+            }
+        });
+       
+        $scope.lovCadastroMunicipio = {};
+        $scope.lovCadastroMunicipio.pesquisar = function (fitro) {
+            parm.municipioService().listar({ ufId: $scope.model.ufId, nome: fitro }, function (data) {
+                $scope.lovCadastroMunicipio.dados = data;
+            });
+        }
+
+        $scope.lovCadastroMunicipio.selecionar = function (item) {
+            $scope.model.municipioId = item.id
+        }
+
+    });
+
 }]);

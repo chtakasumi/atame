@@ -1,0 +1,264 @@
+<div id="divController">
+
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="razaoSocial" class="sr-only">Razão Social</label>
+                        <input type="text" ng-model="filtros.razaoSocial"  class="form-control" 
+                               id="razaoSocial" name="razaoSocial" placeholder="Razão Social">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="cnpj" class="sr-only">CNPJ</label>
+                        <input type="text" ng-model="filtros.cnpj"  ui-br-cnpj-mask class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 pull-right">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>
+                        <button class="btn btn-default" ng-click="novo()">
+                            <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid-class">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Código</th>                              
+                                <th>Nome</th>
+                                <th>CPF/CNPJ</th>
+                                <th>Telefone</th>
+                                <th>Celular</th>
+                                <th>E-mail</th>
+                                <th>UF-Município</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in grade_model">
+                                <td>{{row.id}}</td>                             
+                                <td>{{row.razaoSocial}}</td>
+                                <td>{{row.cnpj}}</td>
+                                <td>{{row.telefone}}</td>
+                                <td>{{row.celular}}</td>
+                                <td>{{row.email}}</td>
+                                <td>{{row.uf.sigla}}- {{row.municipio.nome}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.nome)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="form" novalidate ng-show="modoEdicao">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="codigo">Código</label>
+                                <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.razaoSocial)">
+                                <label for="razaoSocial" class="control-label">Razão Social</label>
+                                <input type="text" ng-model="model.razaoSocial" class="form-control" 
+                                       id="razaoSocial" name="razaoSocial" placeholder="razaoSocial" required maxlength="60">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.razaoSocial)"></span>
+                                <ng-messages for="form.razaoSocial.$error" ng-show="GetValidMessages(form.razaoSocial)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.cnpj)">
+                                <label for="cnpj" class="control-label">CNPJ</label>
+                                <input type="text" ng-model="model.cnpj" ui-br-cnpj-mask
+                                       class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.cnpj)"></span>
+                                <ng-messages for="form.cnpj.$error" ng-show="GetValidMessages(form.cnpj)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.telefone)">
+                                <label for="telefone" class="control-label">Telefone</label>
+                                <input type="text" ng-model="model.telefone" ui-br-phone-number-mask
+                                       class="form-control" id="telefone" name="telefone" placeholder="Telefone">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.telefone)"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.celular)">
+                                <label for="celular" class="control-label">Celular</label>
+                                <input type="text" ng-model="model.celular" ui-br-phone-number-mask
+                                       class="form-control" id="celular" name="celular" placeholder="Celular">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.celular)"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.email)">
+                                <label for="email" class="control-label">E-mail</label>
+                                <input type="email" ng-model="model.email"
+                                       class="form-control" id="email" name="email" placeholder="E-mail">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.email)"></span>
+                                <ng-messages for="form.email.$error" ng-show="GetValidMessages(form.email)">
+                                    <ng-message when="email" class="has-error-text">*E-mail inválido</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.uf)">
+                                <label for="uf" class="control-label">UF</label>
+                                <ui-select input-id="uf" name="uf" ng-model="model.uf"
+                                           required on-select="lovCadastroUF.selecionar($item)" spinner-enabled="true">
+                                    <ui-select-match placeholder="**Selecione uma UF**">
+                                        <span ng-bind="$select.selected.sigla"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (lovCadastroUF.dados | filter: $select.search) track by item.id"
+                                                       refresh="lovCadastroUF.pesquisar($select.search)" refresh-delay="0">
+                                        <span ng-bind="item.sigla"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.uf)"></span>
+                                <ng-messages for="form.uf.$error" ng-show="GetValidMessages(form.uf)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.municipio)">
+                                <label for="municipio" class="control-label">Municipio</label>
+                                <ui-select input-id="municipio" name="municipio" ng-model="model.municipio"
+                                           required on-select="lovCadastroMunicipio.selecionar($item)" spinner-enabled="true">
+                                    <ui-select-match placeholder="**Selecione um municipio*">
+                                        <span ng-bind="$select.selected.nome"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in (lovCadastroMunicipio.dados | filter: $select.search) track by item.id"
+                                                       refresh="lovCadastroMunicipio.pesquisar($select.search)" refresh-delay="0">
+                                        <span ng-bind="item.nome"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.municipio)"></span>
+                                <ng-messages for="form.municipio.$error" ng-show="GetValidMessages(form.municipio)">
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.bairro)">
+                                <label for="bairro" class="control-label">Bairro</label>
+                                <input type="text" ng-model="model.bairro" class="form-control"
+                                       id="bairro" name="bairro" placeholder="Bairro" maxlength="60">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.bairro)"></span>
+                                <ng-messages for="form.bairro.$error" ng-show="GetValidMessages(form.bairro)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.cep)">
+                                <label for="cep" class="control-label">CEP</label>
+                                <input type="text" ng-model="model.cep" class="form-control"
+                                       id="cep" name="cep" placeholder="CEP" maxlength="20">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.cep)"></span>
+                                <ng-messages for="form.cep.$error" ng-show="GetValidMessages(form.cep)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.endereco)">
+                                <label for="endereco" class="control-label">Endereço</label>
+                                <input type="text" ng-model="model.endereco" class="form-control"
+                                       id="endereco" name="endereco" placeholder="Endereço" maxlength="300">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.endereco)"></span>
+                                <ng-messages for="form.endereco.$error" ng-show="GetValidMessages(form.endereco)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.numero)">
+                                <label for="numero" class="control-label">Número</label>
+                                <input type="text" ng-model="model.numero" class="form-control"
+                                       id="numero" name="numero" placeholder="Número" maxlength="10">
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.numero)"></span>
+                                <ng-messages for="form.numero.$error" ng-show="GetValidMessages(form.numero)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.complemento)">
+                                <label for="complemento" class="control-label">Complemento</label>
+                                <textarea type="text" ng-model="model.complemento" class="form-control" rows="5"
+                                          id="complemento" name="complemento" placeholder="Complemento" maxlength="1000">
+                            </textarea>
+                                <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.complemento)"></span>
+                                <ng-messages for="form.complemento.$error" ng-show="GetValidMessages(form.complemento)">
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                                </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="voltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

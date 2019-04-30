@@ -36,7 +36,7 @@ namespace api.infra.Repository
                 venda.Parcelas = venda.Parcelas.OrderBy(p => p.Numero).ToList();
             }
 
-            return ListaVendas.ToList();
+            return ListaVendas;
         }
 
         public void ExcluirVinculoAcademico(VendaCliente vc)

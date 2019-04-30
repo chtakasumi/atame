@@ -84,7 +84,7 @@
                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.descricao)">
                     <label for="descricao" class="control-label">Descrição</label>
                     <textarea type="text" ng-model="model.descricao" class="form-control" id="descricao"
-                              name="descricao" placeholder="Descrição" maxlength="1000" rows="4">            
+                              name="descricao" placeholder="Descrição" maxlength="8000" rows="4">            
                     </textarea>
                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.descricao)"></span>
                     <ng-messages for="form.descricao.$error" ng-show="GetValidMessages(form.descricao)">

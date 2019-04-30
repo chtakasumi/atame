@@ -97,6 +97,12 @@ app.factory("clienteService", ['consumerService', '$rootScope', 'globalService',
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
+app.factory("empresaService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "empresa";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+
 app.factory("vendaService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "venda";
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);

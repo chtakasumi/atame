@@ -86,8 +86,8 @@
                                     <td>{{row.identificacao}}</td>
                                     <td>{{row.curso.nome}}</td>
                                     <td>{{row.preco | currency}}</td>
-                                    <td>{{row.inicio | date }}</td>
-                                    <td>{{row.fim | date }}</td>
+                                    <td>{{row.inicio | date:'shortDate' }}</td>
+                                    <td>{{row.fim | date:'shortDate' }}</td>
                                     <td class="edicao">
                                         <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.identificacao)"><i class="glyphicon glyphicon-remove"></i></a>

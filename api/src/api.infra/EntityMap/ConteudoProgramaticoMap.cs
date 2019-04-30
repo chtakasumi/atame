@@ -19,7 +19,7 @@ namespace api.infra.EntityMap
 
             builder.Property(c => c.Descricao)
                .HasColumnName("descricao")
-               .HasColumnType("varchar(1000)");           
+               .HasColumnType("varchar(8000)");           
 
         }
        

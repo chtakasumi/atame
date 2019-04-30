@@ -84,19 +84,13 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Vendedor não informado");
             }
-
-            if (Prospeccao.ClienteId == 0)
-            {
-                throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Cliente não informado");
-            }
             
             if (Prospeccao.Interesses.Count == 0)
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Informe ao menos um Curso de Interesse.");
             }
 
-            Prospeccao.Vendedor = null;
-            Prospeccao.Cliente = null;
+            Prospeccao.Vendedor = null;          
           
         }
 

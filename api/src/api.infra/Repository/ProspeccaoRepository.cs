@@ -21,9 +21,8 @@ namespace api.infra.Repository
                 (x.Id == Prospeccao.Id || !Prospeccao.Id.HasValue) &&
                 ((x.Data >= Prospeccao.Inicio || !Prospeccao.Inicio.HasValue) && (x.Data <= Prospeccao.Fim || !Prospeccao.Fim.HasValue)) &&
                 (x.VendedorId == Prospeccao.VendedorId || !Prospeccao.VendedorId.HasValue) &&
-                (x.ClienteId == Prospeccao.ClienteId || !Prospeccao.ClienteId.HasValue), x => x.Id)             
-                .Include(x => x.Vendedor)
-                .Include(x => x.Cliente)
+                (EF.Functions.Like(x.ClienteNome, "%" + Prospeccao.ClienteNome + "%") || string.IsNullOrEmpty(Prospeccao.ClienteNome)), x => x.Id)             
+                .Include(x => x.Vendedor)              
                 .Include(x => x.Interesses)
                 .ThenInclude(x => x.Curso);
 

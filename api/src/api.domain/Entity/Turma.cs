@@ -14,7 +14,13 @@ namespace api.domain.Entity
         public DateTime? Fim { get; set; }
         public int Parcela { get; set; }
         public decimal ValorParcela { get; set; }
-
+        public string CursoTuma {
+            get
+            {
+                return string.Format("{0} - {1}", this.Identificacao, this.Curso?.Nome);
+            }
+        }
+     
         public ICollection<TurmaConteudoProgramatico> ConteudosProgramaticos { get; set; }
         public ICollection<TurmaDocente> Docentes { get; set; }
 

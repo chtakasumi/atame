@@ -463,6 +463,36 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/empresa", {
+                templateUrl: configConst.baseUrlView + "empresa.html",
+                controller: 'empresaCtrl',
+                resolve: {
+                    parm: function (empresaService, ufService, municipioService) {
+                        return {
+                            titulo: function () {
+                                return "Empresa";
+                            },
+                            filter: function () {
+                                return { id: null, nome: null, cnpj: null};
+                            },
+                            service: function () {
+                                return empresaService;
+                            },
+                            model: function (callBack) {
+                                return empresaService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                            ufService: function () {
+                                return ufService;
+                            },
+                            municipioService: function () {
+                                return municipioService;
+                            }                           
+                        }
+                    }
+                }
+            })
             .when("/venda", {
                 templateUrl: configConst.baseUrlView + "venda.html",
                 controller: 'vendaCtrl',
@@ -512,7 +542,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return "Orçamento";
                             },
                             filter: function () {
-                                return { id: null, inicio: null, fim: null, vendedorId: null, clienteId: null };
+                                return { id: null, inicio: null, fim: null, vendedorId: null, clienteNome: null };
                             },
                             service: function () {
                                 return prospeccaoService;

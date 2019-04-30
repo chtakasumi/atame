@@ -11,22 +11,24 @@
                                placeholder="Código">
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-10">
                     <div class="form-group">
                         <label for="turmaPesquisa" class="sr-only">Turma</label>
                         <ui-select ng-model="filtros.turma"
                                    on-select="lovPesquisaTurma.selecionar($item)" spinner-enabled="true">
                             <ui-select-match placeholder="**Selecione a turma**">
-                                <span ng-bind="$select.selected.identificacao"></span>
+                                <span ng-bind="$select.selected.cursoTuma"></span>
                             </ui-select-match>
                             <ui-select-choices repeat="item in (lovPesquisaTurma.dados | filter: $select.search) track by item.id"
                                                refresh="lovPesquisaTurma.pesquisar($select.search)" refresh-delay="0">
-                                <span ng-bind="item.identificacao"></span>
+                                <span ng-bind="item.cursoTuma"></span>
                             </ui-select-choices>
                         </ui-select>
                     </div>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="vendedorPesquisa" class="sr-only">Vendedor</label>
                         <ui-select ng-model="filtros.vendedor"
@@ -41,7 +43,7 @@
                         </ui-select>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="clientePesquisa" class="sr-only">Cliente</label>
                         <ui-select ng-model="filtros.cliente"
@@ -88,8 +90,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
-            <br />
+            </div>           
             <div class="row  grid-class">
                 <div class="col-md-12 table-responsive">
                     <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
@@ -209,11 +210,11 @@
                                     <ui-select ng-model="model.turma" input-id="turma" name="turma" required
                                                on-select="lovCadastroTurma.selecionar($item)" spinner-enabled="true">
                                         <ui-select-match placeholder="**Selecione a turma**">
-                                            <span ng-bind="$select.selected.identificacao"></span>
+                                            <span ng-bind="$select.selected.cursoTuma"></span>
                                         </ui-select-match>
                                         <ui-select-choices repeat="item in (lovCadastroTurma.dados | filter: $select.search) track by item.id"
                                                            refresh="lovCadastroTurma.pesquisar($select.search)" refresh-delay="0">
-                                            <span ng-bind="item.identificacao"></span>
+                                            <span ng-bind="item.cursoTuma"></span>
                                         </ui-select-choices>
                                     </ui-select>
                                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.turma)"></span>

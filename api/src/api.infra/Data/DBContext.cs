@@ -38,6 +38,7 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new ComissaoMap());
             modelBuilder.ApplyConfiguration(new BancoMap());
             modelBuilder.ApplyConfiguration(new DescontoMap());
+            modelBuilder.ApplyConfiguration(new EmpresaMap());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
@@ -60,5 +61,6 @@ namespace api.infra
         public DbSet<Faturamento> Comissoes { get; set; }
         public DbSet<Banco> Bancos { get; set; }
         public DbSet<Desconto> Descontos { get; set; }
+        public DbSet<Empresa> Empresas { get; set; }
     }
 }

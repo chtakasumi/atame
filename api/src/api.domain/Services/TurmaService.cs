@@ -3,6 +3,7 @@ using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.domain.Services.DTO;
 using api.libs;
+using System;
 using System.Collections.Generic;
 
 
@@ -61,11 +62,12 @@ namespace api.domain.Services
             return _TurmaRepository.Inserir(Turma);
         }
 
-        public IEnumerable<Turma> Lov(string descricao)
-        {
+        public IEnumerable<Turma> Lov(string cursoTurma)
+        {  
             var filtro = new TurmaDTO
             {
-                Identificacao = (descricao != "null") ? descricao : null
+                CursoTuma = (cursoTurma != "null") ? cursoTurma:null,   
+                Fim = DateTime.Now //somente curso que estão em aberto
             };
 
             return _TurmaRepository.Listar(filtro);

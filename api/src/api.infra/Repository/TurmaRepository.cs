@@ -12,21 +12,23 @@ namespace api.infra.Repository
     {
         public TurmaRepository(DBContext dbbcontexto) : base(dbbcontexto)
         {
-          
-        }     
+
+        }
 
         public IEnumerable<Turma> Listar(TurmaDTO TurmaVo)
         {
             var ListaTurmas = base.Query(x =>
                 (x.Id == TurmaVo.Id || !TurmaVo.Id.HasValue) &&
                 (x.CursoId == TurmaVo.CursoId || !TurmaVo.CursoId.HasValue) &&
-                (EF.Functions.Like(x.Identificacao, "%" + TurmaVo.Identificacao + "%") || string.IsNullOrEmpty(TurmaVo.Identificacao)
-                &&
-                ((x.Inicio >= TurmaVo.Inicio || !TurmaVo.Inicio.HasValue) &&
-                (x.Inicio <= TurmaVo.Fim || !TurmaVo.Fim.HasValue))
-             ),x=>x.Id).Include(t => t.Curso)
-             .Include(c => c.Docentes).ThenInclude(c => c.Docente)
-             .Include(c=>c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico);
+                (EF.Functions.Like(x.Identificacao, "%" + TurmaVo.Identificacao + "%") || string.IsNullOrEmpty(TurmaVo.Identificacao)) &&
+                ((x.Inicio >= TurmaVo.Inicio || !TurmaVo.Inicio.HasValue) && (x.Inicio <= TurmaVo.Fim || !TurmaVo.Fim.HasValue)) &&
+                (x.Fim >= TurmaVo.Fim || !TurmaVo.Fim.HasValue) &&
+                (EF.Functions.Like(x.Identificacao + " - " + x.Curso.Nome, "%" + TurmaVo.CursoTuma + "%") || string.IsNullOrEmpty(TurmaVo.CursoTuma))
+                , x => x.Id)
+                .Include(t => t.Curso)
+                .Include(c => c.Docentes)
+                .ThenInclude(c => c.Docente)
+                .Include(c => c.ConteudosProgramaticos).ThenInclude(c => c.ConteudoProgramatico);
 
             return ListaTurmas.ToList();
         }
@@ -38,7 +40,7 @@ namespace api.infra.Repository
         }
 
         public TurmaDocente PesquisarVinculoDocente(int id)
-        {      
+        {
             return _dbContexto.Set<TurmaDocente>().Find(id);
         }
 

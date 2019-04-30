@@ -10,14 +10,28 @@ namespace api.domain.Entity
         public DateTime? Data { get; set; }
         public int VendedorId { get; set; }
         public Vendedor Vendedor { get; set; }
-        public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
         public string Observacao { get; set; }
+
+        public string ClienteNome { get; set; }
+        public string ClienteEmail { get; set; }
+        public string ClienteTelefone { get; set; }
+        public string ClienteCelular { get; set; }
+        public EnumEstatusProspeccao Status { get; set; }
+
+
         public ICollection<ProspeccaoInteresse> Interesses { get; set; }
 
         public Prospeccao()
         {
             Interesses = new List<ProspeccaoInteresse>();
         }        
+    }
+
+    public enum EnumEstatusProspeccao
+    {
+         EmAnalise,
+         Aprovado,
+         SemInteresse,
+         FuturoContato
     }
 }

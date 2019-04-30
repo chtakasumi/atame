@@ -88,6 +88,7 @@
     <None Remove="App\view\cursoDocentePartial.html" />
     <None Remove="App\view\desconto.html" />
     <None Remove="App\view\docente.html" />
+    <None Remove="App\view\empresa.html" />
     <None Remove="App\view\faturamento.html" />
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
@@ -174,6 +175,7 @@
     <Content Include="App\resources\js\plugins\select2\select.js" />
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
     <Content Include="App\resources\js\plugins\ui-mask\mask.js" />
+    <Content Include="App\view\empresa.html" />
     <Content Include="App\view\Componetes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
