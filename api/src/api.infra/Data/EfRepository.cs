@@ -85,7 +85,7 @@ namespace api.infra.Data
 
         public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, int?>> key)
         {
-           return _dbContexto.Set<TEntity>().Where(expressaoWhere).OrderBy(key).Take(500);           
+           return _dbContexto.Set<TEntity>().Where(expressaoWhere).OrderByDescending(key).Take(500);           
         }
 
         public void EntityStateDetached(TEntity entity)

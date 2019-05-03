@@ -3,6 +3,7 @@ using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace api.domain.Services
@@ -38,7 +39,15 @@ namespace api.domain.Services
         {
             var filtro = new Desconto();
             filtro.Percentual = Convert.ToDecimal(percentual == "null" ? "0": percentual);
-            return _descontoRepository.Listar(filtro);
+            List<Desconto> descontos = _descontoRepository.Listar(filtro).ToList();
+            var desconto = new Desconto {
+                Id = 0,
+                Descricao = "Sem desconto",
+                Percentual = Convert.ToDecimal("0.00")
+            };
+
+            descontos.Add(desconto);
+            return descontos.OrderBy(x=>x.Id);
         }
 
         public void Editar(Desconto desconto)

@@ -20,6 +20,8 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovPesquisa = {},
             servico: parm.tipoCursoService(),
             aoSelecionar: function (item) {
+                $scope.filtros.tipoCursoId = null;
+                if (!item) return;
                 $scope.filtros.tipoCursoId = item.id;
             }
         });
@@ -29,7 +31,9 @@ app.controller('cursoCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovCadastro = {},
             servico: parm.tipoCursoService(),
             aoSelecionar: function (item) {
-                $scope.model.tipoCursoId = item.id;
+                $scope.model.tipoCursoId = null;
+                if (!item) return;
+                $scope.model.tipoCursoId = item.id;                
             }
         });
 
@@ -91,7 +95,9 @@ app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
             scope: $scope.lovPesquisa = {},
             servico: parm.cursoService(),
             aoSelecionar: function (item) {
-                $scope.filtros.cursoId = item.id;
+                $scope.filtros.cursoId = null;
+                if (!item) return;
+                 $scope.filtros.cursoId = item.id;
             }
         });
 
@@ -100,6 +106,8 @@ app.controller('turmaCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
             scope: $scope.lovCadastro = {},
             servico: parm.cursoService(),
             aoSelecionar: function (curso) {
+                $scope.model.cursoId = null;
+                if (!item) return;
                 $scope.model.cursoId = curso.id;
                 //traz a grid preenchidas
                 if ($scope.titulo.indexOf("Cadastrar") > -1) {
@@ -202,7 +210,9 @@ app.controller('municipioCtrl', ['$scope', 'alertService', 'parm', 'modelService
         modelService.carregarLov({
             scope: $scope.lovPesquisa = {},
             servico: parm.ufService(),
-            aoSelecionar: function (item) {
+            aoSelecionar: function (item) {  
+                $scope.filtros.ufId = null;
+                if (!item) return;
                 $scope.filtros.ufId = item.id;
             }
         });
@@ -212,6 +222,8 @@ app.controller('municipioCtrl', ['$scope', 'alertService', 'parm', 'modelService
             scope: $scope.lovCadastro = {},
             servico: parm.ufService(),
             aoSelecionar: function (item) {
+                $scope.model.ufId = null;
+                if (!item) return;
                 $scope.model.ufId = item.id;
             }
         });
@@ -227,6 +239,8 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovCadastroUF = {},
             servico: parm.ufService(),
             aoSelecionar: function (item) {
+                $scope.model.ufId = null;
+                if (!item) return;
                 $scope.model.ufId = item.id;
             }
         });
@@ -236,6 +250,8 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovPesquisaVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = null;
+                if (!item) return;
                 $scope.filtros.vendedorId = item.id;
             }
         });
@@ -244,6 +260,8 @@ app.controller('clienteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovCadastroVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.model.vendedorId = null;
+                if (!item) return;
                 $scope.model.vendedorId = item.id;
             }
         });
@@ -288,6 +306,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovPesquisaTurma = {},
             servico: parm.turmaService(),
             aoSelecionar: function (item) {
+                $scope.filtros.turmaId = null;
+                if (!item) return;
                 $scope.filtros.turmaId = item.id;
             }
         });
@@ -295,11 +315,16 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
         modelService.carregarLov({
             scope: $scope.lovCadastroTurma = {},
             servico: parm.turmaService(),
-            aoSelecionar: function (turma) {
-                $scope.model.turmaId = turma.id;
-                $scope.model.curso = turma.curso;
+            aoSelecionar: function (item) {
+
+                $scope.model.turmaId = null;
+                $scope.model.curso = null;
+                $scope.model.valorCurso = null;
+                if (!item) return;
+                $scope.model.turmaId = item.id;
+                $scope.model.curso = item.curso;
                 if ($scope.titulo.indexOf("Cadastrar") > -1) {
-                    $scope.model.valorCurso = turma.preco; //estou pegando um valor do curso e não da turma tirar duvidas com o clovis...
+                    $scope.model.valorCurso = item.preco; //estou pegando um valor do curso e não da turma tirar duvidas com o clovis...
                 }
                 $scope.calculaValorVendaEhParcela();
             }
@@ -310,6 +335,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovPesquisaVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = null;
+                if (!item) return;
                 $scope.filtros.vendedorId = item.id;
             }
         });
@@ -318,6 +345,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovCadastroVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.model.vendedorId = null;
+                if (!item) return;
                 $scope.model.vendedorId = item.id;
             }
         });
@@ -327,6 +356,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovPesquisaCliente = {},
             servico: parm.clienteService(),
             aoSelecionar: function (item) {
+                $scope.filtros.clienteFinanceiroId = null;
+                if (!item) return;
                 $scope.filtros.clienteFinanceiroId = item.id;
             }
         });
@@ -335,6 +366,8 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
             scope: $scope.lovCadastroCliente = {},
             servico: parm.clienteService(),
             aoSelecionar: function (item) {
+                $scope.model.clienteFinanceiroId = null;
+                if (!item) return;
                 $scope.model.clienteFinanceiroId = item.id;
             }
         });
@@ -342,9 +375,12 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
         modelService.carregarLov({
             scope: $scope.lovCadastroDesconto = {},
             servico: parm.descontoService(),
-            aoSelecionar: function (item) {               
+            aoSelecionar: function (item) {              
+                $scope.model.desconto = null;
+                if (!item) return;
                 $scope.model.descontoObject = item;
-                $scope.model.desconto = item.percentual;
+                $scope.model.desconto = item.percentual;                   
+               
             }
         });
 
@@ -392,8 +428,7 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
                     } else {
                         vencimento = utils.incrementaDias(vencimento, 30);                      
                         parcela.previsaoPgto = angular.copy(vencimento);
-                    }
-                    console.log(vencimento);
+                    }                   
                     $scope.model.parcelas.push(angular.copy(parcela));
                 }
             }         
@@ -401,9 +436,9 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
 
         //***ANTES DE VOLTAR VALIDA REGISTROS NÃO SALVOS***//
         $scope.antesDeVoltar = function (form) {       
-            modelService.existeDadosNaoGravados($scope, $scope.model.clientesAcademicos, 'ACADEMICO', function () {
+            //modelService.existeDadosNaoGravados($scope, $scope.model.clientesAcademicos, 'ACADEMICO', function () {
                 $scope.voltar(form);
-            });
+           // });
         }
 
         $scope.getStatusDescription = function (status) {
@@ -421,6 +456,8 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
             scope: $scope.lovPesquisaVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = null;
+                if (!item) return;
                 $scope.filtros.vendedorId = item.id;
             }
         });
@@ -429,6 +466,8 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
             scope: $scope.lovCadastroVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.model.vendedorId = null;
+                if (!item) return;
                 $scope.model.vendedorId = item.id;
             }
         });
@@ -503,7 +542,20 @@ app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelServi
             scope: $scope.lovPesquisaVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
-                $scope.filtros.vendedorId = item.id;
+                $scope.filtros.vendedorId = null;
+                if (!item) return;
+                $scope.filtros.vendedorId = item.id;                    
+               
+            }
+        });
+
+        modelService.carregarLov({
+            scope: $scope.lovPesquisaCliente = {},
+            servico: parm.clienteService(),
+            aoSelecionar: function (item) {               
+                $scope.filtros.clienteFinanceiroId = null;
+                if (!item) return;
+                $scope.filtros.clienteFinanceiroId = item.id;                
             }
         });
         
@@ -523,7 +575,10 @@ app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovPesquisaVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.filtros.vendedorId = null;
+                if (!item) return;
                 $scope.filtros.vendedorId = item.id;
+               
             }
         });
 
@@ -531,6 +586,8 @@ app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovCadastroVendedor = {},
             servico: parm.vendedorService(),
             aoSelecionar: function (item) {
+                $scope.model.vendedorId = null;
+                if (!item) return;
                 $scope.model.vendedorId = item.id;
             }
         });  
@@ -590,6 +647,8 @@ app.controller('empresaCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             scope: $scope.lovCadastroUF = {},
             servico: parm.ufService(),
             aoSelecionar: function (item) {
+                $scope.model.ufId = null;
+                if (!item) return;
                 $scope.model.ufId = item.id;
             }
         });

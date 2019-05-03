@@ -23,7 +23,7 @@ namespace api.infra.Repository
                 (x.ClienteFinanceiroId == vendaDtdo.ClienteFinanceiroId || !vendaDtdo.ClienteFinanceiroId.HasValue) &&
                 (x.TurmaId == vendaDtdo.TurmaId || !vendaDtdo.TurmaId.HasValue) &&
                 (x.VendedorId == vendaDtdo.VendedorId || !vendaDtdo.VendedorId.HasValue), x => x.Id)
-                .Include(x => x.Turma)
+                .Include(x => x.Turma).ThenInclude(t=>t.Curso)
                 .Include(x => x.Vendedor)
                 .Include(x => x.ClienteFinanceiro)
                 .Include(x => x.Parcelas)

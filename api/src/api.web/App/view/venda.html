@@ -98,7 +98,7 @@
                         <thead>
                             <tr class="title-table">
                                 <th>Código</th>
-                                <th>Turma / Inicio</th>
+                                <th>Turma - Curso</th>
                                 <th>Vendedor</th>
                                 <th>Cliente(Financeiro)</th>
                                 <th>Valor uni.</th>
@@ -111,7 +111,7 @@
                         <tbody>
                             <tr ng-repeat="row in grade_model">
                                 <td>{{row.id}}</td>
-                                <td>{{row.turma.identificacao }} / {{row.turma.inicio | date}}</td>
+                                <td>{{row.turma.cursoTuma}}</td>
                                 <td>{{row.vendedor.nome}}</td>
                                 <td>{{row.clienteFinanceiro.nome}}</td>
                                 <td>{{row.turma.preco | currency}}</td>
@@ -135,7 +135,7 @@
             <!--//nav-->
             <ul class="nav nav-tabs">
                 <li class="active"><a role="button" data-toggle="tab" data-target="#abaVenda"><span class="title-tabs">Vendas</span></a></li>
-                <li><a role="button" data-toggle="tab" data-target="#abaAcademicos"><span class="title-tabs">Víncular Acadêmicos</span></a></li>
+                <!--<li><a role="button" data-toggle="tab" data-target="#abaAcademicos"><span class="title-tabs">Víncular Acadêmicos</span></a></li>-->
                 <li><a role="button" data-toggle="tab" data-target="#abaParcelas"><span class="title-tabs">Parcelas</span></a></li>                
             </ul>
             <div class="panel-body">
@@ -228,7 +228,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="curso" class="control-label">Curso</label>
-                                    <input type="text" ng-model="model.curso.nome" class="form-control" id="curso" name="curso" placeholder="Curso" disabled>
+                                    <input type="text" ng-model="model.turma.curso.nome" class="form-control" id="curso" name="curso" placeholder="Curso" disabled>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -240,7 +240,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="inicioTurma" class="control-label">Inicio da Turma</label>
-                                    <input type="text" class="form-control" value="{{model.turma.inicio | date}}" id="inicioTurma" name="inicioTurma" placeholder="Inicio da Turma" disabled>
+                                    <input type="text" class="form-control" value="{{model.turma.inicio | date:'shortDate'}}" id="inicioTurma" name="inicioTurma" placeholder="Inicio da Turma" disabled>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.quantidade)">
                                     <label for="quantidade" class="control-label">Quantidade de Vagas</label>
                                     <input type="text" ng-model="model.quantidade" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade Vagas"
-                                           ui-number-mask="0" min="1" max="9999999999" maxlength="10" required ng-change="calculaValorVendaEhParcela()">
+                                           ui-number-mask="0" min="1" max="9999999999" maxlength="10" required s>
                                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.quantidade)"></span>
                                     <ng-messages for="form.quantidade.$error" ng-show="GetValidMessages(form.quantidade)">
                                         <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
@@ -259,13 +259,13 @@
                                     </ng-messages>
                                 </div>
                             </div>
-                            <div class="col-md-3">                               
+                            <div class="col-md-3">
 
                                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.desconto)">
                                     <label for="desconto" class="control-label">Desconto</label>
-                                    <ui-select ng-model="model.descontoObject" input-id="vendedor" name="desconto"                                              
-                                               on-select="lovCadastroDesconto.selecionar($item)" spinner-enabled="true">
-                                        <ui-select-match placeholder="**Selecione um Desconto**">
+                                    <ui-select ng-model="model.descontoObject"  input-id="vendedor" name="desconto"
+                                               on-select="lovCadastroDesconto.selecionar($item);calculaValorVendaEhParcela()" spinner-enabled="true">
+                                        <ui-select-match placeholder="0.000" ng-init="0.00">
                                             {{$select.selected.percentual | number:3}}%
                                         </ui-select-match>
                                         <ui-select-choices repeat="item in (lovCadastroDesconto.dados | filter: $select.search) track by item.id"
@@ -282,7 +282,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="valorVenda" class="control-label">Valor da Venda</label>
-                                    <input type="text" value="{{model.valorVenda | currency}}" class="form-control texto-destaque" id="valorVenda" name="valorVenda" placeholder="Valor da Venda" disabled>
+                                    <input type="text" value="{{model.valorVenda | currency}}" class="form-control texto-destaque" 
+                                           id="valorVenda" name="valorVenda" placeholder="Valor da Venda" disabled>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +308,7 @@
                                 <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vencimentoPrimeiraParcela)">
                                     <label for="vencimentoPrimeiraParcela" class="control-label">Vencimento da 1° Parcela</label>
                                     <input type="date" html-date required ng-model="model.vencimentoPrimeiraParcela" class="form-control" id="vencimentoPrimeiraParcela"
-                                           name="vencimentoPrimeiraParcela" placeholder="Previsão Término"  ng-change="gerarParcelas()">
+                                           name="vencimentoPrimeiraParcela" placeholder="Previsão Término" ng-change="gerarParcelas()">
                                     <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vencimentoPrimeiraParcela)"></span>
                                     <ng-messages for="form.vencimentoPrimeiraParcela.$error" ng-show="GetValidMessages(form.vencimentoPrimeiraParcela)">
                                         <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
@@ -323,10 +324,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="well">
+                            <label class="label-group">Vincular Acadêmicos</label>
+                            <div ng-include="'./view/vendaClientePartial.html'"></div>
+                        </div>
+
                     </div>
-                    <div id="abaAcademicos" class="tab-pane fade">
+                    <!--<div id="abaAcademicos" class="tab-pane fade">
                         <div ng-include="'./view/vendaClientePartial.html'"></div>
-                    </div>
+                    </div>-->
                     <div id="abaParcelas" class="tab-pane fade">
                         <div ng-include="'./view/vendaParcelaPartial.html'"></div>
                     </div>
