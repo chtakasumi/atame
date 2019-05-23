@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7 col-sm-7">
                     <div class="fieldset">
                         <span class="fieldset-title">Previsão de Inicio da Turma</span>
                         <div class="col-md-6">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 pull-right margin-top-label">
+                <div class="col-md-5  col-sm-5 pull-right margin-top-label">
                     <div class="btn-group pull-right">
                         <button class="btn btn-primary" ng-click="pesquisar()">
                             <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
@@ -90,7 +90,7 @@
                         </button>
                     </div>
                 </div>
-            </div>           
+            </div>
             <div class="row  grid-class">
                 <div class="col-md-12 table-responsive">
                     <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
@@ -135,222 +135,230 @@
             <!--//nav-->
             <ul class="nav nav-tabs">
                 <li class="active"><a role="button" data-toggle="tab" data-target="#abaVenda"><span class="title-tabs">Vendas</span></a></li>
-                <!--<li><a role="button" data-toggle="tab" data-target="#abaAcademicos"><span class="title-tabs">Víncular Acadêmicos</span></a></li>-->
-                <li><a role="button" data-toggle="tab" data-target="#abaParcelas"><span class="title-tabs">Parcelas</span></a></li>                
+                <li><a role="button" data-toggle="tab" data-target="#abaParcelas"><span class="title-tabs">Parcelas</span></a></li>
             </ul>
             <div class="panel-body">
                 <div class="tab-content">
                     <div id="abaVenda" class="tab-pane fade in active">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="codigo">Código</label>
-                                    <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.data)">
-                                    <label for="data" class="control-label">Data</label>
-                                    <input type="date" html-date required ng-model="model.data" class="form-control" id="data"
-                                           name="data" placeholder="Previsão Término">
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.data)"></span>
-                                    <ng-messages for="form.data.$error" ng-show="GetValidMessages(form.data)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vendedor)">
-                                    <label for="vendedorCadastro" class="control-label">Vendedor</label>
-                                    <ui-select ng-model="model.vendedor" input-id="vendedor" name="vendedor" required
-                                               on-select="lovCadastroVendedor.selecionar($item)" spinner-enabled="true">
-                                        <ui-select-match placeholder="**Selecione um vendedor**">
-                                            <span ng-bind="$select.selected.nome"></span>
-                                        </ui-select-match>
-                                        <ui-select-choices repeat="item in (lovCadastroVendedor.dados | filter: $select.search) track by item.id"
-                                                           refresh="lovCadastroVendedor.pesquisar($select.search)" refresh-delay="0">
-                                            <span ng-bind="item.nome"></span>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vendedor)"></span>
-                                    <ng-messages for="form.vendedor.$error" ng-show="GetValidMessages(form.vendedor)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.clienteFinanceiro)">
-                                    <label for="clienteFinanceiro" class="control-label">Cliente(Financeiro)</label>
-                                    <ui-select ng-model="model.clienteFinanceiro" input-id="clienteFinanceiro" name="clienteFinanceiro" required
-                                               on-select="lovCadastroCliente.selecionar($item)" spinner-enabled="true">
-                                        <ui-select-match placeholder="**Selecione um cliente**">
-                                            <span ng-bind="$select.selected.nome"></span>
-                                        </ui-select-match>
-                                        <ui-select-choices repeat="item in (lovCadastroCliente.dados | filter: $select.search) track by item.id"
-                                                           refresh="lovCadastroCliente.pesquisar($select.search)" refresh-delay="0">
-                                            <span ng-bind="item.nome"></span>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.clienteFinanceiro)"></span>
-                                    <ng-messages for="form.clienteFinanceiro.$error" ng-show="GetValidMessages(form.clienteFinanceiro)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.turma)">
-                                    <label for="turmaCadastro" class="control-label">Turma</label>
-                                    <ui-select ng-model="model.turma" input-id="turma" name="turma" required
-                                               on-select="lovCadastroTurma.selecionar($item)" spinner-enabled="true">
-                                        <ui-select-match placeholder="**Selecione a turma**">
-                                            <span ng-bind="$select.selected.cursoTuma"></span>
-                                        </ui-select-match>
-                                        <ui-select-choices repeat="item in (lovCadastroTurma.dados | filter: $select.search) track by item.id"
-                                                           refresh="lovCadastroTurma.pesquisar($select.search)" refresh-delay="0">
-                                            <span ng-bind="item.cursoTuma"></span>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.turma)"></span>
-                                    <ng-messages for="form.turma.$error" ng-show="GetValidMessages(form.turma)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="curso" class="control-label">Curso</label>
-                                    <input type="text" ng-model="model.turma.curso.nome" class="form-control" id="curso" name="curso" placeholder="Curso" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="valorCurso" class="control-label">Valor do Curso</label>
-                                    <input type="text" value="{{model.valorCurso | currency}}" class="form-control" id="valorCurso" name="valorCurso" placeholder="Valor do Curso" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="inicioTurma" class="control-label">Inicio da Turma</label>
-                                    <input type="text" class="form-control" value="{{model.turma.inicio | date:'shortDate'}}" id="inicioTurma" name="inicioTurma" placeholder="Inicio da Turma" disabled>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.quantidade)">
-                                    <label for="quantidade" class="control-label">Quantidade de Vagas</label>
-                                    <input type="text" ng-model="model.quantidade" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade Vagas"
-                                           ui-number-mask="0" min="1" max="9999999999" maxlength="10" required s>
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.quantidade)"></span>
-                                    <ng-messages for="form.quantidade.$error" ng-show="GetValidMessages(form.quantidade)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="max" class="has-error-text">*Valor máximo permitido 9999999999</ng-message>
-                                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
 
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.desconto)">
-                                    <label for="desconto" class="control-label">Desconto</label>
-                                    <ui-select ng-model="model.descontoObject"  input-id="vendedor" name="desconto"
-                                               on-select="lovCadastroDesconto.selecionar($item);calculaValorVendaEhParcela()" spinner-enabled="true">
-                                        <ui-select-match placeholder="0.000" ng-init="0.00">
-                                            {{$select.selected.percentual | number:3}}%
-                                        </ui-select-match>
-                                        <ui-select-choices repeat="item in (lovCadastroDesconto.dados | filter: $select.search) track by item.id"
-                                                           refresh="lovCadastroDesconto.pesquisar($select.search)" refresh-delay="0">
-                                            {{item.percentual | number:3}}%
-                                        </ui-select-choices>
-                                    </ui-select>
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.desconto)"></span>
-                                    <ng-messages for="form.desconto.$error" ng-show="GetValidMessages(form.desconto)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                    </ng-messages>
+                        <div class="well-group">
+                            <label class="label-group">Dados da Venda</label>
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="form-group">
+                                        <label for="codigo">Código</label>
+                                        <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="valorVenda" class="control-label">Valor da Venda</label>
-                                    <input type="text" value="{{model.valorVenda | currency}}" class="form-control texto-destaque" 
-                                           id="valorVenda" name="valorVenda" placeholder="Valor da Venda" disabled>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.data)">
+                                        <label for="data" class="control-label">Data</label>
+                                        <input type="date" html-date required ng-model="model.data" class="form-control" id="data"
+                                               name="data" placeholder="Previsão Término">
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.data)"></span>
+                                        <ng-messages for="form.data.$error" ng-show="GetValidMessages(form.data)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
+                                        </ng-messages>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
 
-                            <div class="col-md-3">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.parcela)">
-                                    <label for="parcela" class="control-label">Quantidade de Parcela</label>
-                                    <input type="text" ng-model="model.parcela" class="form-control" id="parcela" name="parcela" placeholder="Quantidade de Parcela"
-                                           ui-number-mask="0" min="1" max="9999999999" maxlength="10" required ng-change="calculaValorVendaEhParcela(); gerarParcelas()">
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.parcela)"></span>
-                                    <ng-messages for="form.parcela.$error" ng-show="GetValidMessages(form.parcela)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="max" class="has-error-text">*Valor máximo permitido 9999999999</ng-message>
-                                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
-                                    </ng-messages>
+                                <div class="col-md-7">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vendedor)">
+                                        <label for="vendedorCadastro" class="control-label">Vendedor</label>
+                                        <ui-select ng-model="model.vendedor" input-id="vendedor" name="vendedor" required
+                                                   on-select="lovCadastroVendedor.selecionar($item)" spinner-enabled="true">
+                                            <ui-select-match placeholder="**Selecione um vendedor**">
+                                                <span ng-bind="$select.selected.nome"></span>
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in (lovCadastroVendedor.dados | filter: $select.search) track by item.id"
+                                                               refresh="lovCadastroVendedor.pesquisar($select.search)" refresh-delay="0">
+                                                <span ng-bind="item.nome"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vendedor)"></span>
+                                        <ng-messages for="form.vendedor.$error" ng-show="GetValidMessages(form.vendedor)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                        </ng-messages>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vencimentoPrimeiraParcela)">
-                                    <label for="vencimentoPrimeiraParcela" class="control-label">Vencimento da 1° Parcela</label>
-                                    <input type="date" html-date required ng-model="model.vencimentoPrimeiraParcela" class="form-control" id="vencimentoPrimeiraParcela"
-                                           name="vencimentoPrimeiraParcela" placeholder="Previsão Término" ng-change="gerarParcelas()">
-                                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vencimentoPrimeiraParcela)"></span>
-                                    <ng-messages for="form.vencimentoPrimeiraParcela.$error" ng-show="GetValidMessages(form.vencimentoPrimeiraParcela)">
-                                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                        <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
-                                    </ng-messages>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="valorParcela" class="control-label">Valor de cada Parcela</label>
-                                    <input type="text" value="{{model.valorParcela | currency}}" class="form-control texto-destaque" id="valorParcela" name="valorParcela" placeholder="Valor de cada Parcela" disabled>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.clienteFinanceiro)">
+                                        <label for="clienteFinanceiro" class="control-label">Cliente(Financeiro)</label>
+                                        <ui-select ng-model="model.clienteFinanceiro" input-id="clienteFinanceiro" name="clienteFinanceiro" required
+                                                   on-select="lovCadastroCliente.selecionar($item)" spinner-enabled="true">
+                                            <ui-select-match placeholder="**Selecione um cliente**">
+                                                <span ng-bind="$select.selected.nome"></span>
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in (lovCadastroCliente.dados | filter: $select.search) track by item.id"
+                                                               refresh="lovCadastroCliente.pesquisar($select.search)" refresh-delay="0">
+                                                <span ng-bind="item.nome"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.clienteFinanceiro)"></span>
+                                        <ng-messages for="form.clienteFinanceiro.$error" ng-show="GetValidMessages(form.clienteFinanceiro)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                        </ng-messages>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="well" style="background: white;">
-                            <label class="label-group">Vincular Acadêmicos</label>
-                            <div ng-include="'./view/vendaClientePartial.html'"></div>
+
+                        <div class="well-group">
+                            <label class="label-group">Dados do Curso</label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.turma)">
+                                        <label for="turmaCadastro" class="control-label">Turma</label>
+                                        <ui-select ng-model="model.turma" input-id="turma" name="turma" required
+                                                   on-select="lovCadastroTurma.selecionar($item)" spinner-enabled="true">
+                                            <ui-select-match placeholder="**Selecione a turma**">
+                                                <span ng-bind="$select.selected.cursoTuma"></span>
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in (lovCadastroTurma.dados | filter: $select.search) track by item.id"
+                                                               refresh="lovCadastroTurma.pesquisar($select.search)" refresh-delay="0">
+                                                <span ng-bind="item.cursoTuma"></span>
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.turma)"></span>
+                                        <ng-messages for="form.turma.$error" ng-show="GetValidMessages(form.turma)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="curso" class="control-label">Curso</label>
+                                        <input type="text" ng-model="model.turma.curso.nome" class="form-control" id="curso" name="curso" placeholder="Curso" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="valorCurso" class="control-label">Valor do Curso</label>
+                                        <input type="text" value="{{model.valorCurso | currency}}" class="form-control" id="valorCurso" name="valorCurso" placeholder="Valor do Curso" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="inicioTurma" class="control-label">Inicio da Turma</label>
+                                        <input type="text" class="form-control" value="{{model.turma.inicio | date:'shortDate'}}" id="inicioTurma" name="inicioTurma" placeholder="Inicio da Turma" disabled>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+                        <div class="well-group">
+                            <label class="label-group">Valores da Venda</label>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.quantidade)">
+                                        <label for="quantidade" class="control-label">Quantidade de Vagas</label>
+                                        <input type="text" ng-model="model.quantidade" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade Vagas"
+                                               ui-number-mask="0" min="1" max="9999999999" maxlength="10" required s>
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.quantidade)"></span>
+                                        <ng-messages for="form.quantidade.$error" ng-show="GetValidMessages(form.quantidade)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="max" class="has-error-text">*Valor máximo permitido 9999999999</ng-message>
+                                            <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.desconto)">
+                                        <label for="desconto" class="control-label">Desconto</label>
+                                        <ui-select ng-model="model.descontoObject" input-id="vendedor" name="desconto"
+                                                   on-select="lovCadastroDesconto.selecionar($item);calculaValorVendaEhParcela()" spinner-enabled="true">
+                                            <ui-select-match placeholder="0.000" ng-init="0.00">
+                                                {{$select.selected.percentual | number:3}}%
+                                            </ui-select-match>
+                                            <ui-select-choices repeat="item in (lovCadastroDesconto.dados | filter: $select.search) track by item.id"
+                                                               refresh="lovCadastroDesconto.pesquisar($select.search)" refresh-delay="0">
+                                                {{item.percentual | number:3}}%
+                                            </ui-select-choices>
+                                        </ui-select>
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.desconto)"></span>
+                                        <ng-messages for="form.desconto.$error" ng-show="GetValidMessages(form.desconto)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="valorVenda" class="control-label">Valor da Venda</label>
+                                        <input type="text" value="{{model.valorVenda | currency}}" class="form-control texto-destaque"
+                                               id="valorVenda" name="valorVenda" placeholder="Valor da Venda" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.parcela)">
+                                        <label for="parcela" class="control-label">Quantidade de Parcela</label>
+                                        <input type="text" ng-model="model.parcela" class="form-control" id="parcela" name="parcela" placeholder="Quantidade de Parcela"
+                                               ui-number-mask="0" min="1" max="9999999999" maxlength="10" required ng-change="calculaValorVendaEhParcela(); gerarParcelas()">
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.parcela)"></span>
+                                        <ng-messages for="form.parcela.$error" ng-show="GetValidMessages(form.parcela)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="min" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="max" class="has-error-text">*Valor máximo permitido 9999999999</ng-message>
+                                            <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter 10</ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.vencimentoPrimeiraParcela)">
+                                        <label for="vencimentoPrimeiraParcela" class="control-label">Vencimento da 1° Parcela</label>
+                                        <input type="date" html-date required ng-model="model.vencimentoPrimeiraParcela" class="form-control" id="vencimentoPrimeiraParcela"
+                                               name="vencimentoPrimeiraParcela" placeholder="Previsão Término" ng-change="gerarParcelas()">
+                                        <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.vencimentoPrimeiraParcela)"></span>
+                                        <ng-messages for="form.vencimentoPrimeiraParcela.$error" ng-show="GetValidMessages(form.vencimentoPrimeiraParcela)">
+                                            <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                            <ng-message when="date" class="has-error-text">*Data inválida</ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="valorParcela" class="control-label">Valor de cada Parcela</label>
+                                        <input type="text" value="{{model.valorParcela | currency}}" class="form-control texto-destaque" id="valorParcela" name="valorParcela" placeholder="Valor de cada Parcela" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!--<div id="abaAcademicos" class="tab-pane fade">
+
+                    <div class="well-group">
+                        <label class="label-group">Vincular Acadêmicos</label>
                         <div ng-include="'./view/vendaClientePartial.html'"></div>
-                    </div>-->
-                    <div id="abaParcelas" class="tab-pane fade">
-                        <div ng-include="'./view/vendaParcelaPartial.html'"></div>
                     </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <div class="form-group">
-                    <div class="btn-group">
-                        <button class="btn btn-success" ng-click="salvar(form)">
-                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
-                        </button>
-                        <button class="btn btn-default" ng-click="antesDeVoltar(form)">
-                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
-                        </button>
-                    </div>
+                </div>            
+                <div id="abaParcelas" class="tab-pane fade">
+                    <div ng-include="'./view/vendaParcelaPartial.html'"></div>
                 </div>
             </div>
         </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <div class="btn-group">
+                    <button class="btn btn-success" ng-click="salvar(form)">
+                        <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                    </button>
+                    <button class="btn btn-default" ng-click="antesDeVoltar(form)">
+                        <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>
     </form>
 </div>

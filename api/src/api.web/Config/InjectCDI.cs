@@ -1,6 +1,8 @@
 ﻿using api.domain.Interfaces;
 using api.domain.Services;
 using api.infra.Repository;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace api.web
@@ -15,6 +17,9 @@ namespace api.web
         /// <param name="services"></param>
         public InjectCDI(IServiceCollection services)
         {
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
+
             services.AddScoped<UsuarioService>();
             services.AddScoped<CursoService>();
             services.AddScoped<TipoCursoService>();

@@ -6,7 +6,7 @@ using System.Net;
 
 namespace api.web.Config
 {
-    public class CustomExceptionFilter : IExceptionFilter
+    public class ExceptionFilter : IExceptionFilter
     {
         public void OnException(ExceptionContext context)
         {

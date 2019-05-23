@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using api.domain.Entity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace api.web.Controllers
@@ -13,5 +14,13 @@ namespace api.web.Controllers
         {           
             return Ok(DateTime.Now.ToString("yyyy-MM-ddThh:mm:ss"));
         }
+        
+        [HttpGet("orgaoExpeditor")]
+        public IActionResult GetOrgaoExpeditor()
+        {
+            var orgaoExpeditor = new OrgaoExpeditor();
+            return Ok(orgaoExpeditor.GetAll());
+        }
+
     }
 }

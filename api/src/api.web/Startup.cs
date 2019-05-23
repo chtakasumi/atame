@@ -1,6 +1,8 @@
 ﻿using api.infra;
 using api.infra.Data;
 using api.web.Config;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -31,8 +33,8 @@ namespace api.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           // services.AddCors();
-            
+            // services.AddCors();
+
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "App";              
@@ -41,7 +43,7 @@ namespace api.web
 
             services.AddMvc(config =>
             {
-                config.Filters.Add(typeof(CustomExceptionFilter));
+                config.Filters.Add(typeof(ExceptionFilter));
                 config.Filters.Add(typeof(TransactionActionFilter));
             })
 
@@ -75,8 +77,7 @@ namespace api.web
             // app.UseCors(
             //    options => options.WithOrigins("http://localhost:52565").AllowAnyMethod()
             //);            
-
-
+            
             InitializeMyDatabase(app);
 
             if (env.IsDevelopment())

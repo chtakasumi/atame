@@ -107,6 +107,9 @@
     <None Remove="App\view\vendaClientePartial.html" />
     <None Remove="App\view\vendaParcelaPartial.html" />
     <None Remove="App\view\vendedor.html" />
+    <None Remove="libwkhtmltox.dll" />
+    <None Remove="libwkhtmltox.dylib" />
+    <None Remove="libwkhtmltox.so" />
   </ItemGroup>
 
   <ItemGroup>
@@ -204,9 +207,14 @@
     <Content Include="App\view\home.html" />
     <Content Include="App\view\login.html" />
     <Content Include="App\view\tipoCurso.html" />
+    <Content Include="libwkhtmltox.dll" />
+    <Content Include="libwkhtmltox.dylib" />
+    <Content Include="libwkhtmltox.so" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Haukcode.DinkToPdf" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
