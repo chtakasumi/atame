@@ -1,5 +1,6 @@
 ﻿using api.domain.Entity;
 using api.domain.Services;
+using api.domain.Services.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.web.Controllers
@@ -24,7 +25,7 @@ namespace api.web.Controllers
         }
 
         [HttpPost("listar")]
-        public IActionResult Listar(Docente entidade)
+        public IActionResult Listar(DocenteDTO entidade)
         {
             return Ok(_servico.Listar(entidade));
         }

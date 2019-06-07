@@ -102,7 +102,6 @@ app.factory("empresaService", ['consumerService', '$rootScope', 'globalService',
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
 
-
 app.factory("vendaService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "venda";
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
@@ -165,6 +164,30 @@ app.factory("bancoService", ['consumerService', '$rootScope', 'globalService', f
 app.factory("descontoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
     var baseUrl = "desconto";
     return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+}]);
+
+app.factory("utilsService", ['consumerService', '$rootScope', 'globalService', function (consumerService) {
+    var baseUrl = "utils";
+    return {
+        datahora: function (callback) {
+            consumerService.get(baseUrl + "/datahora", function (modelo) {
+                callback(JSON.parse(JSON.parse(modelo)));
+            })
+        },
+        orgaoExpeditor: function (callback) {      
+            consumerService.get(baseUrl + "/orgaoExpeditor", function (modelo) {               
+                callback(modelo);
+            })
+        },
+
+        tipoConta: function (callback) {
+            consumerService.get(baseUrl + "/tipoConta", function (modelo) {
+                callback(modelo);
+            })
+        }
+
+    }
+
 }]);
 
 

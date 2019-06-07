@@ -1,6 +1,7 @@
 ﻿using api.domain.Entity;
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
+using api.domain.Services.DTO;
 using api.libs;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace api.domain.Services
             return Json.ToJson(new Docente());                
         }
 
-        public IEnumerable<Docente> Listar(Docente docente)
+        public IEnumerable<Docente> Listar(DocenteDTO docente)
         {
             return _docenteRepository.Listar(docente);
         }
@@ -41,7 +42,7 @@ namespace api.domain.Services
 
         public IEnumerable<Docente> Lov(string descricao)
         {
-            var filtro = new Docente();
+            var filtro = new DocenteDTO();
             filtro.Nome = (descricao != "null") ? descricao : null;
 
             return _docenteRepository.Listar(filtro);
@@ -77,6 +78,11 @@ namespace api.domain.Services
             {
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Formação do docente não informado");
             }
-         }
+
+
+            docente.Banco = null;
+            docente.UfExpedicao = null;
+
+        }
     }    
 }

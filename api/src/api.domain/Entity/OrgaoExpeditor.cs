@@ -5,23 +5,25 @@ using System.Text;
 namespace api.domain.Entity
 {
     public class OrgaoExpeditor
-    {
+    {       
         public string Sigla { get; private set; }
         public string Descricao { get; private set; }
-        private readonly List<OrgaoExpeditor> _orgaosExpeditores;
-
+        public string SiglaDescricao { get; private set; }
+     
         public OrgaoExpeditor(string sigla, string descricao)
         {
             Sigla = sigla;
             Descricao = descricao;
+            SiglaDescricao = string.Format("{0} - {1}", Sigla, Descricao);
         }
 
         public OrgaoExpeditor()
+        {         
+        }
+
+        public List<OrgaoExpeditor> GetAll()
         {
-
-            this._orgaosExpeditores = new List<OrgaoExpeditor> {
-
-
+            return new List<OrgaoExpeditor> {
                 new OrgaoExpeditor("ABNC","Academia Brasileira de Neurocirurgia"),
                 new OrgaoExpeditor("CGPI/DUREX/DPF","Coordenação Geral de Polícia de Imigração da Polícia Federal"),
                 new OrgaoExpeditor("CGPI","Coordenação-Geral de Privilégios e Imunidades"),
@@ -87,13 +89,8 @@ namespace api.domain.Entity
                 new OrgaoExpeditor("SJTC","Secretaria da Justiça do Trabalho e Cidadania"),
                 new OrgaoExpeditor("SJTS","Secretaria da Justiça do Trabalho e Segurança"),
                 new OrgaoExpeditor("SPTC","Secretaria de Polícia Técnico - Científica"),
-               
-            };
-        }
 
-        public List<OrgaoExpeditor> GetAll()
-        {
-            return this._orgaosExpeditores;
+            };
         }
     }
 }

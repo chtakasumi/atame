@@ -69,7 +69,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">{{titulo}}</div>
             <div class="panel-body">
-
                 <!--Dados Pessoais-->
                 <div class="well-group">
                     <label class="label-group">Dados Pessoais</label>
@@ -98,8 +97,10 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-2">
-                            <img src="" class="img-rounded img-thumbnail foto" alt="clique aqui para adicionar sua foto">
+                            <input id="fileFoto" type="file" class="hide" accept="image/x-png,image/gif,image/jpeg" />
+                            <img ng-model="model.foto" role="button" my-upload="fileFoto" class="img-rounded img-thumbnail foto" alt="clique aqui para adicionar sua foto">
                         </div>
+                     
                     </div>
                     <div class="row">
                         <div class="col-lg-9 col-sm-9">
@@ -129,7 +130,7 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-lg-3 col-sm-3">
+                        <div class="col-lg-6 col-sm-6">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.cpf)">
                                 <label for="cpf" class="control-label">CPF</label>
                                 <input type="text" ng-model="model.cpf" ui-br-cpf-mask
@@ -141,7 +142,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-sm-2">
+                        <div class="col-lg-6 col-sm-6">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.rg)">
                                 <label for="rg" class="control-label">RG</label>
                                 <input type="text" ng-model="model.rg" class="form-control" id="rg" name="rg" placeholder="RG" required maxlength="40">
@@ -152,7 +153,8 @@
                                 </ng-messages>
                             </div>
                         </div>
-
+                    </div>
+                    <div class="row">
                         <div class="col-lg-3 col-sm-3">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.ufExpedicao)">
                                 <label for="ufExpedicao" class="control-label">Uf Expeditor</label>
@@ -173,18 +175,17 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-sm-4">
+                        <div class="col-lg-9 col-sm-9">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.orgaoExpedicao)">
                                 <label for="orgaoExpedicao" class="control-label">Orgão de Expeditor</label>
                                 <ui-select input-id="orgaoExpedicao" name="orgaoExpedicao" ng-model="model.orgaoExpedicao"
                                            required on-select="lovOrgaoExpedicao.selecionar($item)" spinner-enabled="true">
                                     <ui-select-match placeholder="**Orgão de Expeditor**">
-                                        <span ng-bind="$select.selected.sigla"></span>
+                                        <span ng-bind="$select.selected.siglaDescricao"></span>
                                     </ui-select-match>
-                                    <ui-select-choices repeat="item in (lovOrgaoExpedicao.dados | filter: $select.search) track by item.id"
+                                    <ui-select-choices repeat="item in (lovOrgaoExpedicao.dados | filter: $select.search) track by item.sigla"
                                                        refresh="lovOrgaoExpedicao.pesquisar($select.search)" refresh-delay="0">
-                                        <span ng-bind="item.sigla"></span>-
-                                        <span ng-bind="item.descricao"></span>
+                                        <span ng-bind="item.siglaDescricao"></span>
                                     </ui-select-choices>
                                 </ui-select>
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.orgaoExpedicao)"></span>
@@ -239,7 +240,7 @@
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.banco)">
                                 <label for="banco" class="control-label">Banco</label>
                                 <ui-select input-id="banco" name="banco" ng-model="model.banco"
-                                           required on-select="lovBanco.selecionar($item)" spinner-enabled="true">
+                                           on-select="lovBanco.selecionar($item)" spinner-enabled="true">
                                     <ui-select-match placeholder="**Selecione um Banco**">
                                         <span ng-bind="$select.selected.nome"></span>
                                     </ui-select-match>
@@ -257,22 +258,23 @@
                         <div class="col-lg-4 col-sm-4">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.agencia)">
                                 <label for="agencia" class="control-label">Agência</label>
-                                <input type="text" ng-model="model.agencia"
+                                <input type="text" ng-model="model.agencia" maxlength="100"
                                        class="form-control" id="agencia" name="agencia" placeholder="Agência">
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.agencia)"></span>
                                 <ng-messages for="form.agencia.$error" ng-show="GetValidMessages(form.agencia)">
-                                    <ng-message when="email" class="has-error-text">*E-mail inválido</ng-message>
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
                                 </ng-messages>
                             </div>
                         </div>
                         <div class="col-lg-4 col-sm-4">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.conta)">
                                 <label for="conta" class="control-label">Conta</label>
-                                <input type="text" ng-model="model.conta" ui-br-phone-number-mask
+                                <input type="text" ng-model="model.conta" maxlength="100"
                                        class="form-control" id="conta" name="conta" placeholder="Conta">
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.conta)"></span>
                                 <ng-messages for="form.conta.$error" ng-show="GetValidMessages(form.conta)">
                                     <ng-message when="conta" class="has-error-text">*Conta inválido</ng-message>
+                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
                                 </ng-messages>
                             </div>
                         </div>
@@ -283,18 +285,18 @@
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.tipoConta)">
                                 <label for="tipoConta" class="control-label">Tipo Conta</label>
                                 <ui-select input-id="tipoConta" name="tipoConta" ng-model="model.tipoConta"
-                                           required on-select="lovTipoConta.selecionar($item)" spinner-enabled="true">
+                                           on-select="lovTipoConta.selecionar($item)" spinner-enabled="true">
                                     <ui-select-match placeholder="**Selecione um tipo de Conta**">
-                                        <span ng-bind="$select.selected.nome"></span>
+                                        <span ng-bind="$select.selected.descricao"></span>
                                     </ui-select-match>
-                                    <ui-select-choices repeat="item in (lovTipoConta.dados | filter: $select.search) track by item.id"
+                                    <ui-select-choices repeat="item in (lovTipoConta.dados | filter: $select.search) track by item.sigla"
                                                        refresh="lovTipoConta.pesquisar($select.search)" refresh-delay="0">
-                                        <span ng-bind="item.nome"></span>
+                                        <span ng-bind="item.descricao"></span>
                                     </ui-select-choices>
                                 </ui-select>
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.tipoConta)"></span>
                                 <ng-messages for="form.tipoConta.$error" ng-show="GetValidMessages(form.tipoConta)">
-                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                                    <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>                                 
                                 </ng-messages>
                             </div>
                         </div>
@@ -302,8 +304,8 @@
                         <div class="col-lg-8 col-sm-8">
                             <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.titularizacao)">
                                 <label for="titularizacao" class="control-label">Titularização</label>
-                                <input type="text" ng-model="model.titularizacao" class="form-control" id="titularizacao" name="titularizacao" 
-                                       placeholder="Titularização" required maxlength="100">
+                                <input type="text" ng-model="model.titularizacao" class="form-control" id="titularizacao" name="titularizacao"
+                                       placeholder="Titularização" maxlength="100">
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.titularizacao)"></span>
                                 <ng-messages for="form.titularizacao.$error" ng-show="GetValidMessages(form.titularizacao)">
                                     <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
@@ -313,7 +315,7 @@
                         </div>
                     </div>
                 </div>
-
+                
             </div>
             <div class="panel-footer">
                 <div class="form-group">

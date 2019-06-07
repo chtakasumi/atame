@@ -183,8 +183,54 @@ app.controller('tipoCursoCtrl', ['$scope', 'alertService', 'parm', 'modelService
 }]);
 
 //comportamento da pagina docente
-app.controller('docenteCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
-    modelService.extendsAbstractController($scope, alertService, parm);
+app.controller('docenteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
+    function ($scope, alertService, parm, modelService) {
+        modelService.extendsAbstractController($scope, alertService, parm, function () {  
+            
+            //Carregar UF lovUfExpeditor.dados
+            modelService.carregarLov({
+                scope: $scope.lovUfExpeditor = {},
+                servico: parm.ufService(),
+                aoSelecionar: function (item) {
+                    $scope.model.ufExpedicaoId = null;
+                    if (!item) return;
+                    $scope.model.ufExpedicaoId = item.id;
+                }
+            });
+
+            $scope.lovOrgaoExpedicao = {};
+            parm.utilsService().orgaoExpeditor(function (data) {
+                //  debugger;
+                $scope.lovOrgaoExpedicao.dados = data;
+                $scope.lovOrgaoExpedicao.selecionar = function (item) {
+                    $scope.model.orgaoExpedicaoSiglaDescricao = null;
+                    if (!item) return;
+                    $scope.model.orgaoExpedicaoSiglaDescricao = item.siglaDescricao;
+                }
+            });
+
+            $scope.lovTipoConta = {};
+            parm.utilsService().tipoConta(function (data) {              
+                $scope.lovTipoConta.dados = data;
+                $scope.lovTipoConta.selecionar = function (item) {
+                    $scope.model.tipoContaDescricao = null;
+                    if (!item) return;
+                    $scope.model.tipoContaDescricao = item.descricao;
+                }
+            });
+
+            //Carregar lovBanco
+            modelService.carregarLov({
+                scope: $scope.lovBanco = {},
+                servico: parm.bancoService(),
+                aoSelecionar: function (item) {
+                    $scope.model.bancoId = null;
+                    if (!item) return;
+                    $scope.model.bancoId = item.id;
+                }
+            });
+            
+    });
 }]);
 
 app.controller('conteudoProgramaticoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {

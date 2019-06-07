@@ -265,21 +265,83 @@ namespace api.infra.Migrations
 
             modelBuilder.Entity("api.domain.Entity.Docente", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Agencia")
+                        .HasColumnName("agencia")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("BancoId")
+                        .HasColumnName("bancoId");
+
+                    b.Property<string>("Celular")
+                        .HasColumnName("celular")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Conta")
+                        .HasColumnName("Conta")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnName("cpf")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Email")
+                        .HasColumnName("email")
+                        .HasColumnType("varchar(60)");
 
                     b.Property<string>("Formacao")
                         .IsRequired()
                         .HasColumnName("formacao")
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Foto")
+                        .HasColumnName("foto")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("Nascimento")
+                        .IsRequired()
+                        .HasColumnName("nascimento")
+                        .HasColumnType("date");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnName("nome")
-                        .HasColumnType("varchar(40)");
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("OrgaoExpedicaoSiglaDescricao")
+                        .IsRequired()
+                        .HasColumnName("orgaoExpedicaoSiglaDescricao")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Rg")
+                        .IsRequired()
+                        .HasColumnName("rg")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnName("telefone")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("TipoContaDescricao")
+                        .HasColumnName("tipoContaDescricao")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Titularizacao")
+                        .HasColumnName("titularizacao")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("UfExpedicaoId")
+                        .HasColumnName("ufExpedicaoId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BancoId");
+
+                    b.HasIndex("UfExpedicaoId");
 
                     b.ToTable("Docente");
                 });
@@ -907,6 +969,19 @@ namespace api.infra.Migrations
                     b.HasOne("api.domain.Entity.Docente", "Docente")
                         .WithMany()
                         .HasForeignKey("DocenteId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("api.domain.Entity.Docente", b =>
+                {
+                    b.HasOne("api.domain.Entity.Banco", "Banco")
+                        .WithMany()
+                        .HasForeignKey("BancoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("api.domain.Entity.UF", "UfExpedicao")
+                        .WithMany()
+                        .HasForeignKey("UfExpedicaoId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

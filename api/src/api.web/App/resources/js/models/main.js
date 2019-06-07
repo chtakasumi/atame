@@ -1,6 +1,6 @@
 //modulo principal
 var app = angular.module("main", ["ngRoute", "ngSanitize", "ngAnimate", "toaster", "datatables",
-    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages", "html.date"]);
+    "ui.select", "ui.utils.masks", "angular.modal.bootstrap", "form.validation", "ngMessages", "html.date","my.upload"]);
 
 //constantes
 app.constant('configConst', {
@@ -131,7 +131,8 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "curso.html",
                 controller: 'cursoCtrl',
                 resolve: {
-                    parm: function (cursoService, tipoCursoService, docenteService, conteudoProgramaticoService, cursoDocenteService, cursoConteudoProgramaticoService) {
+                    parm: function (cursoService, tipoCursoService, docenteService,
+                        conteudoProgramaticoService, cursoDocenteService, cursoConteudoProgramaticoService) {
                         return {
                             titulo: function () {
                                 return "Curso";
@@ -163,7 +164,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                             },
                             cursoConteudoProgramaticoService: function () {
                                 return cursoConteudoProgramaticoService;
-                            },
+                            }
                         }
                     }
                 }
@@ -239,7 +240,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                 templateUrl: configConst.baseUrlView + "docente.html",
                 controller: 'docenteCtrl',
                 resolve: {
-                    parm: function (docenteService) {
+                    parm: function (docenteService, ufService, utilsService, bancoService) {
                         return {
                             titulo: function () {
                                 return "Docente";
@@ -254,6 +255,15 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                                 return docenteService.model(function (data) {
                                     return callBack(data);
                                 });
+                            },
+                            ufService: function () {
+                                return ufService;
+                            },
+                            utilsService: function() {
+                                return utilsService;
+                            },
+                            bancoService: function () {
+                                return bancoService;
                             }
                         }
                     }
@@ -1000,8 +1010,7 @@ app.factory("modelService", [function () {
             callback();
         }
     }
-        
-    
+   
     return {
         extendsAbstractController: _extendsAbstractController,
         vincular: _vincular,
@@ -1096,8 +1105,6 @@ app.factory("globalService", [function () {
 
         return status;
     }
-
-   
 
     return {
         extendsAbstractServices: _extendsAbstractServices,

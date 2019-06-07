@@ -75,6 +75,7 @@
     <None Remove="App\resources\js\plugins\data-table\angular-datatables.js" />
     <None Remove="App\resources\js\plugins\data-table\dataTables.bootstrap.js" />
     <None Remove="App\resources\js\plugins\data-table\jquery.dataTables.js" />
+    <None Remove="App\resources\js\plugins\my-upload\my-upload.js" />
     <None Remove="App\resources\js\plugins\select2\select.js" />
     <None Remove="App\resources\js\plugins\toaster\toaster.js" />
     <None Remove="App\resources\js\plugins\ui-mask\mask.js" />
@@ -110,6 +111,9 @@
     <None Remove="libwkhtmltox.dll" />
     <None Remove="libwkhtmltox.dylib" />
     <None Remove="libwkhtmltox.so" />
+    <None Remove="_86x\libwkhtmltox.dll" />
+    <None Remove="_86x\libwkhtmltox.dylib" />
+    <None Remove="_86x\libwkhtmltox.so" />
   </ItemGroup>
 
   <ItemGroup>
@@ -175,6 +179,7 @@
     <Content Include="App\resources\js\plugins\data-table\angular-datatables.js" />
     <Content Include="App\resources\js\plugins\data-table\dataTables.bootstrap.js" />
     <Content Include="App\resources\js\plugins\data-table\jquery.dataTables.js" />
+    <Content Include="App\resources\js\plugins\my-upload\my-upload.js" />
     <Content Include="App\resources\js\plugins\select2\select.js" />
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
     <Content Include="App\resources\js\plugins\ui-mask\mask.js" />
@@ -210,6 +215,9 @@
     <Content Include="libwkhtmltox.dll" />
     <Content Include="libwkhtmltox.dylib" />
     <Content Include="libwkhtmltox.so" />
+    <Content Include="_86x\libwkhtmltox.dll" />
+    <Content Include="_86x\libwkhtmltox.dylib" />
+    <Content Include="_86x\libwkhtmltox.so" />
   </ItemGroup>
 
   <ItemGroup>

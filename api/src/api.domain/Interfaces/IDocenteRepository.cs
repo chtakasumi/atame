@@ -8,6 +8,6 @@ namespace api.domain.Interfaces
 {
     public interface IDocenteRepository : IRepository<Docente>
     {
-        IEnumerable<Docente> Listar(Docente docente);
+        IEnumerable<Docente> Listar(DocenteDTO docente);
     }
 }
