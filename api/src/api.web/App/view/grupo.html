@@ -1,0 +1,146 @@
+<div id="divController">
+
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="descricao" class="sr-only">Descrição</label>
+                        <input type="text" ng-model="filtros.nome" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 pull-right">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>
+                        <button class="btn btn-default" ng-click="novo()">
+                            <i class="glyphicon glyphicon-plus"></i>&nbsp;Novo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row  grid-class">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in grade_model">
+                                <td>{{row.id}}</td>
+                                <td>{{row.descricao}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.descricao)"><i class="glyphicon glyphicon-remove"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="form" novalidate ng-show="modoEdicao">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{titulo}}</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" ng-model="model.id" class="form-control" id="codigo" name="codigo" placeholder="Código" disabled>
+                </div>
+                <div class="form-group has-feedback" ng-class="GetValidFormGrupoClass(form.descricao)">
+                    <label for="descricao" class="control-label">Descrição</label>
+                    <input type="text" ng-model="model.descricao" class="form-control" id="descricao"
+                           name="descricao" placeholder="Descrição" required maxlength="100">
+                    <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.descricao)"></span>
+                    <ng-messages for="form.descricao.$error" ng-show="GetValidMessages(form.descricao)">
+                        <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
+                        <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter</ng-message>
+                    </ng-messages>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="">
+                            <!--//perfils sem permissao de acesso-->
+                            <table class="table">
+                                <thead style="background-color:red; color:aliceblue">
+                                    <tr>
+                                        <th>Sem Permissão</th>
+                                        <th class="edicao">Atribuir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in model.permissoesNaoCedidas">
+                                        <td>{{item.descricao}}</td>
+                                        <td><a class="btn btn-success" ng-click="atribuirPermissao(item)"><i class="glyphicon glyphicon-plus"></i></a></td>
+                                    </tr>
+                                    <tr ng-show="model.permissoesNaoCedidas.length==0">
+                                        <th>Todas permissões foram atribuidas</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <!--//perfils com permissao de acesso-->
+                            <table class="table">
+                                <thead style="background-color:blue ;color:aliceblue">
+                                    <tr>
+                                        <th>Com Permissão</th>
+                                        <th class="edicao">Remover</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in model.permissoesCedidas">
+                                        <td>{{item.descricao}}</td>
+                                        <td>
+                                            <a class="btn btn-danger" ng-click="removerPermissao(item)"><i class="glyphicon glyphicon-minus"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr ng-show="model.permissoesCedidas.length==0">
+                                        <th>Grupo sem permissoes atribuidas</th>                                        
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button class="btn btn-success" ng-click="salvar(form)">
+                            <i class="glyphicon glyphicon-ok"></i>&nbsp;Salvar
+                        </button>
+                        <button class="btn btn-default" ng-click="voltar(form)">
+                            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

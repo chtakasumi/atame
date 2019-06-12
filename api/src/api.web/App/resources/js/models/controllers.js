@@ -713,3 +713,20 @@ app.controller('empresaCtrl', ['$scope', 'alertService', 'parm', 'modelService',
     });
 
 }]);
+
+//comportamento da pagina grupo
+app.controller('grupoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
+    modelService.extendsAbstractController($scope, alertService, parm, function () {
+       
+        $scope.atribuirPermissao = function (element) {          
+            $scope.model.permissoesCedidas.push(element);
+            $scope.model.permissoesNaoCedidas.splice($scope.model.permissoesNaoCedidas.indexOf(element), 1);
+        }
+        
+        $scope.removerPermissao = function (element) {
+            $scope.model.permissoesCedidas.splice($scope.model.permissoesCedidas.indexOf(element), 1);
+            $scope.model.permissoesNaoCedidas.push(element);
+            
+        }
+    });
+}]);

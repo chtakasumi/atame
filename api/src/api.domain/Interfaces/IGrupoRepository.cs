@@ -1,9 +1,12 @@
-﻿using api.domain.Entity;
+﻿using System.Collections.Generic;
+using api.domain.Entity;
 
 namespace api.domain.Interfaces
 {
-    public interface IGrupoRepository: IRepository<Grupo>
+    public interface IGrupoRepository : IRepository<Grupo>
     {
-        void Testagrupo();
+        IEnumerable<Grupo> Listar(Grupo grupoVo);     
+        List<Perfil> ListarPerfil();
+        void RemoverPerfilGrupos(int id);
     }
 }

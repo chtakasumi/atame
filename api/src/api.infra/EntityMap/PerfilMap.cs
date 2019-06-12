@@ -16,12 +16,6 @@ namespace api.infra.EntityMap
                 .HasColumnName("descricao")               
                 .HasMaxLength(40)
                 .IsRequired();
-          
-            builder.HasMany(x=>x.PerfisGrupos).
-                WithOne(x=>x.Perfil)
-                .HasForeignKey(x=>x.PerfilId)
-                .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

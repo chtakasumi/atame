@@ -190,5 +190,26 @@ app.factory("utilsService", ['consumerService', '$rootScope', 'globalService', f
 
 }]);
 
+app.factory("grupoService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "grupo";
+    var api = globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
+
+    api.atribuirPermissao = function (callback) {
+        consumerService.get(baseUrl + "/atribuir-permissao", function (modelo) {
+            callback(JSON.parse(JSON.parse(modelo)));
+        });
+    }
+
+    api.atribuirPermissao = function (callback) {
+        consumerService.get(baseUrl + "/remover-permissao", function (modelo) {
+            callback(JSON.parse(JSON.parse(modelo)));
+        });
+    }
+
+
+    return api;
+
+}]);
+
 
 

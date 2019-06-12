@@ -91,6 +91,7 @@
     <None Remove="App\view\docente.html" />
     <None Remove="App\view\empresa.html" />
     <None Remove="App\view\faturamento.html" />
+    <None Remove="App\view\grupo.html" />
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
     <None Remove="App\view\municipio.html" />
@@ -207,6 +208,7 @@
     <Content Include="App\view\comissao.html" />
     <Content Include="App\view\banco.html" />
     <Content Include="App\view\desconto.html" />
+    <Content Include="App\view\grupo.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />

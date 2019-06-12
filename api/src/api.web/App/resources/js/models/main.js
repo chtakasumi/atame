@@ -317,6 +317,30 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/grupo", {
+                templateUrl: configConst.baseUrlView + "grupo.html",
+                controller: 'grupoCtrl',
+                resolve: {
+                    parm: function (grupoService) {
+                        return {
+                            titulo: function () {
+                                return "Grupo";
+                            },
+                            filter: function () {
+                                return { id: null, descricao: null };
+                            },
+                            service: function () {
+                                return grupoService;
+                            },
+                            model: function (callBack) {
+                                return grupoService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            }
+                        }
+                    }
+                }
+            })
             .when("/desconto", {
                 templateUrl: configConst.baseUrlView + "desconto.html",
                 controller: 'descontoCtrl',
@@ -541,7 +565,7 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                         }
                     }
                 }
-            })
+            })            
             .when("/prospeccao", {
                 templateUrl: configConst.baseUrlView + "prospeccao.html",
                 controller: 'prospeccaoCtrl',

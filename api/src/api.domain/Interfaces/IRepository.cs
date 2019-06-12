@@ -9,7 +9,7 @@ namespace api.domain.Interfaces
     {
         //metodos de busca       
         IEnumerable<TEntity> Pesquisar(Expression<Func<TEntity, bool>> expressao);
-        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, int?>> key);
+        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, object>> key);
         TEntity PesquisarPorId(int id);
         IEnumerable<TEntity> BuscarTodos();
 

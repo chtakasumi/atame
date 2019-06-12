@@ -1,5 +1,6 @@
 ﻿using api.domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace api.infra.Data
             return _dbContexto.Set<TEntity>().AsEnumerable(); 
         }
 
-        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, int?>> key)
+        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expressaoWhere, Expression<Func<TEntity, object>> key)
         {
            return _dbContexto.Set<TEntity>().Where(expressaoWhere).OrderByDescending(key).Take(500);           
         }

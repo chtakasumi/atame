@@ -28,6 +28,9 @@ namespace api.infra.EntityMap
                 .HasPrincipalKey(x => x.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.Ignore(x => x.PermissoesCedidas);
+            builder.Ignore(x => x.PermissoesNaoCedidas);
+
         }
     }
 }

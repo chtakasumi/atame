@@ -447,7 +447,7 @@ namespace api.infra.Migrations
 
             modelBuilder.Entity("api.domain.Entity.Grupo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -1052,9 +1052,9 @@ namespace api.infra.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("api.domain.Entity.Perfil", "Perfil")
-                        .WithMany("PerfisGrupos")
+                        .WithMany()
                         .HasForeignKey("PerfilId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("api.domain.Entity.Prospeccao", b =>

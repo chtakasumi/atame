@@ -6,6 +6,6 @@ namespace api.domain.Entity
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public ICollection<PerfilGrupo> PerfisGrupos { get; set; }
+       // public ICollection<PerfilGrupo> PerfisGrupos { get; set; }
     }
 }
