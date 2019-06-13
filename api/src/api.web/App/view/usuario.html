@@ -81,7 +81,7 @@
                                 <td>{{row.login}}</td>
                                 <td>{{row.ativo}}</td>
                                 <td class="edicao">
-                                    <a class="btn btn-default btn-xs" ng-click="row.senha=''; editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.login)"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
@@ -149,10 +149,16 @@
                                 <span class="glyphicon form-control-feedback" ng-class="GetValidInputClass(form.senha)"></span>
                                 <ng-messages for="form.senha.$error" ng-show="GetValidMessages(form.senha)">
                                     <ng-message when="required" class="has-error-text">*Campo obrigatório</ng-message>
-                                    <ng-message when="maxlength" class="has-error-text">*Estorou número máximo de caracter. Tamanho máximo permitido 40 caracter</ng-message>
+                                    <ng-message when="maxlength" class="has-error-text">
+                                        *Estorou número máximo de caracter.
+                                        Tamanho máximo permitido 40 caracter
+                                    </ng-message>
+                                    <ng-message when="password" class="has-error-text">
+                                        *password
+                                    </ng-message>
                                 </ng-messages>
                             </div>
-                        </div>
+                        </div>                      
                     </div>
                     <div class="row">
                         <div class="col-md-12">

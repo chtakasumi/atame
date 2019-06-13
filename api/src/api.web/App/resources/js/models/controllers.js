@@ -612,9 +612,8 @@ app.controller('faturamentoCtrl', ['$scope', 'alertService', 'parm', 'modelServi
 }]);
 
 app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
-
-    modelService.extendsAbstractController($scope, alertService, parm, function () {
-        
+    
+    modelService.extendsAbstractController($scope, alertService, parm, function () {        
         //CarregarLovVendedor
         modelService.carregarLov({
             scope: $scope.lovPesquisaVendedor = {},

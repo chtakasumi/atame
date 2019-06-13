@@ -104,9 +104,9 @@ namespace api.domain.Services
                 {
                     Id = 0,
                     UsuarioId = usuario.Id,
-                    Usuario = usuario,
+                    Usuario = null,
                     GrupoId = grupoCedidos.Id.Value,
-                    Grupo = grupoCedidos
+                    Grupo = null
                 });
             }
 
@@ -156,9 +156,22 @@ namespace api.domain.Services
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
             }
 
-            usuario.Login = usuario.Login.Trim().ToUpper();
-            usuario.Senha = Seguranca.GerarHash(usuario.Senha);
+            if (usuario.Id > 0)
+            {
+                var user= _usuarioRepository.PesquisarPorId(usuario.Id);
+                //se seja que esta chegando for diferente da do banco de dados
+                if (user.Senha != usuario.Senha)
+                {
+                    usuario.Senha= Seguranca.GerarHash(usuario.Senha);
+                }
+                _usuarioRepository.EntityStateDetached(user);                                
+            }
+            else
+            {
+                usuario.Senha = Seguranca.GerarHash(usuario.Senha); //criptograva a senha se estiver sendo cadastra
+            }
 
+            usuario.Login = usuario.Login.Trim().ToUpper();
             usuario.Vendedor = null;
         }
         

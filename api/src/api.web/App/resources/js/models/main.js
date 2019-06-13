@@ -79,8 +79,7 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
             $rootScope.$apply();
         }
     }
-
-
+    
     $rootScope.menu = function (menu) {      
         var menus = autenticacaoService.getMenus();
         if (menus == null) {
@@ -89,6 +88,7 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
             return menus.filter(x => x.menu === menu).length > 0;
         }       
     }
+
     $rootScope.subMenu = function (subMenu) {       
         var menus = autenticacaoService.getMenus();
         if (menus == null) {

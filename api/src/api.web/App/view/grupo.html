@@ -76,10 +76,16 @@
                     </ng-messages>
                 </div>
 
-                <div class="row">
 
-                    <div class="col-md-6">
-                        <div class="">
+                <div class="well-group">
+                    <label class="label-group">Permissões</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="search" ng-model="textoPesquisa" class="form-control" placeholder="Pesquisar um perfil" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
                             <!--//perfils sem permissao de acesso-->
                             <table class="table">
                                 <thead style="background-color:red; color:aliceblue">
@@ -89,7 +95,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in model.permissoesNaoCedidas | orderBy:['order']">
+                                    <tr ng-repeat="item in model.permissoesNaoCedidas | filter:textoPesquisa as results track by item.descricao | orderBy:['order']">
                                         <td><strong>Modulo:</strong>&nbsp;{{item.modulo}} <br /> <strong>Menu:</strong>&nbsp;{{item.menu}} <br /> <strong>Sub-Menu:</strong>&nbsp;{{item.descricao}}</td>
                                         <td><a class="btn btn-success" ng-click="atribuirPermissao(item)"><i class="glyphicon glyphicon-plus"></i></a></td>
                                     </tr>
@@ -99,9 +105,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
+                        <div class="col-md-6">
                             <!--//perfils com permissao de acesso-->
                             <table class="table">
                                 <thead style="background-color:blue ;color:aliceblue">
@@ -110,16 +114,16 @@
                                         <th class="edicao">Remover</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in model.permissoesCedidas  | orderBy:['order']">
+                                <tbody class="example-animate-container">
+                                    <tr class="animate-repeat" ng-repeat="item in model.permissoesCedidas  | filter:textoPesquisa as results track by item.descricao | orderBy:['order']">
                                         <td><strong>Modulo:</strong>&nbsp;{{item.modulo}} <br /> <strong>Menu:</strong>&nbsp;{{item.menu}} <br /> <strong>Sub-Menu:</strong>&nbsp;{{item.descricao}}</td>
                                         <td>
                                             <a class="btn btn-danger" ng-click="removerPermissao(item)"><i class="glyphicon glyphicon-minus"></i></a>
                                         </td>
                                     </tr>
 
-                                    <tr ng-show="model.permissoesCedidas.length==0">
-                                        <th>Grupo sem permissoes atribuidas</th>                                        
+                                    <tr class="animate-repeat" ng-show="model.permissoesCedidas.length==0">
+                                        <th>Grupo sem permissoes atribuidas</th>
                                     </tr>
 
                                 </tbody>
