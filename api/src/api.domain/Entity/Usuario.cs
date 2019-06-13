@@ -11,12 +11,14 @@ namespace api.domain.Entity
         public string Senha { get; set; }
         public string Ativo { get; set; }
         public ICollection<GrupoUsuario> GruposUsuarios { get; set; }
-
+        public List<Grupo> GruposCedidas { get; set; }
+        public List<Grupo> GruposNaoCedidas { get; set; }
+        
         public Usuario()
         {
-            this.GruposUsuarios = new List<GrupoUsuario>();
+            GruposUsuarios = new List<GrupoUsuario>();
+            GruposCedidas = new List<Grupo>();
+            GruposNaoCedidas = new List<Grupo>();
         }
-
-
     }
 }

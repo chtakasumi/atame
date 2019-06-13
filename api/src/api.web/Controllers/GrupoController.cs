@@ -52,7 +52,6 @@ namespace api.web.Controllers
         {
             _servico.Excluir(id);
             return Ok();
-        }
-      
+        }      
     }
 }

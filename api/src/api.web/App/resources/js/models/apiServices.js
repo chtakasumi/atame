@@ -2,14 +2,20 @@ var app = angular.module('main');
 app.factory("autenticacaoService", ['consumerService', '$window', '$location',
 function (consumerService, $window, $location) {
        
-   var key = "Chave";
+    var keyChave = "Chave";
+    var keyMenu = "Menu";
 
     var _autenticate = function () {       
-        return $window.localStorage.getItem(key);
+        return $window.localStorage.getItem(keyChave);
+    };
+
+    var _menus = function () {
+        return JSON.parse($window.localStorage.getItem(keyMenu));       
     };
 
     var _deslogar = function () {        
-        $window.localStorage.removeItem(key);
+        $window.localStorage.removeItem(keyChave);
+        $window.localStorage.removeItem(keyMenu);
         $location.path("/login");
     }
 
@@ -19,15 +25,17 @@ function (consumerService, $window, $location) {
 
         consumerService.post("usuario/Autenticar", parm,
         function (dados) {              
-             $window.localStorage.setItem(key, dados.chave);             
-             return func(dados.chave);              
+            $window.localStorage.setItem(keyChave, dados.chave);           
+            $window.localStorage.setItem(keyMenu, JSON.stringify(dados.perfils));    
+            return func(dados.chave);              
         });
     };
 
     return {
-        getPermission: _autenticate,
+        getAutenticate: _autenticate,
         deslogar: _deslogar,
-        autenticar: _autenticar
+        autenticar: _autenticar,
+        getMenus: _menus
     };
 
 }]);

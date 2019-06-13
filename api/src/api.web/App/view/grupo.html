@@ -89,8 +89,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in model.permissoesNaoCedidas">
-                                        <td>{{item.descricao}}</td>
+                                    <tr ng-repeat="item in model.permissoesNaoCedidas | orderBy:['order']">
+                                        <td><strong>Modulo:</strong>&nbsp;{{item.modulo}} <br /> <strong>Menu:</strong>&nbsp;{{item.menu}} <br /> <strong>Sub-Menu:</strong>&nbsp;{{item.descricao}}</td>
                                         <td><a class="btn btn-success" ng-click="atribuirPermissao(item)"><i class="glyphicon glyphicon-plus"></i></a></td>
                                     </tr>
                                     <tr ng-show="model.permissoesNaoCedidas.length==0">
@@ -111,8 +111,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in model.permissoesCedidas">
-                                        <td>{{item.descricao}}</td>
+                                    <tr ng-repeat="item in model.permissoesCedidas  | orderBy:['order']">
+                                        <td><strong>Modulo:</strong>&nbsp;{{item.modulo}} <br /> <strong>Menu:</strong>&nbsp;{{item.menu}} <br /> <strong>Sub-Menu:</strong>&nbsp;{{item.descricao}}</td>
                                         <td>
                                             <a class="btn btn-danger" ng-click="removerPermissao(item)"><i class="glyphicon glyphicon-minus"></i></a>
                                         </td>

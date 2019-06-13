@@ -1,0 +1,43 @@
+﻿<ul class="nav navbar-nav">
+    <li class="nav-item dropdown" ng-if="menu('Configuracao')">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+           role="button" aria-haspopup="true" aria-expanded="false">Configuração Sistema</a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" ng-if="subMenu('usuario')"> <a href="#!usuario">Usuário</a></li>
+            <li class="dropdown-item" ng-if="subMenu('grupo')"> <a href="#!grupo">Grupos</a></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item" ng-if="subMenu('uf')"> <a class="dropdown-item" href="#!uf">UF</a></li>
+            <li class="dropdown-item" ng-if="subMenu('municipio')"> <a class="dropdown-item" href="#!municipio">Município</a></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item" ng-if="subMenu('banco')"> <a class="dropdown-item" href="#!banco">Banco</a></li>
+            <li class="dropdown-item" ng-if="subMenu('empresa')"> <a class="dropdown-item" href="#!empresa">Empresa</a></li>
+            <li class="dropdown-item" ng-if="subMenu('desconto')"> <a class="dropdown-item" href="#!desconto">Desconto</a></li>
+            <li class="dropdown-item" ng-if="subMenu('parametro')"> <a class="dropdown-item" href="#!parametro">Parâmetros</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown" ng-if="menu('Cadastro')">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+           role="button" aria-haspopup="true" aria-expanded="false">Cadastro</a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" ng-if="subMenu('tipoCurso')"> <a href="#!tipoCurso">TipoCurso</a></li>
+            <li class="dropdown-item" ng-if="subMenu('docente')"> <a class="dropdown-item" href="#!docente">Docente</a> </li>
+            <li class="dropdown-item" ng-if="subMenu('conteudoProgramatico')"> <a class="dropdown-item" href="#!conteudoProgramatico">Conteúdo Programático</a></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item" ng-if="subMenu('curso')"> <a class="dropdown-item" href="#!curso">Curso</a></li>
+            <li class="dropdown-item" ng-if="subMenu('turma')"> <a class="dropdown-item" href="#!turma">Turma</a></li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-item" ng-if="subMenu('vendedor')"> <a class="dropdown-item" href="#!vendedor">Vendedor</a></li>
+            <li class="dropdown-item" ng-if="subMenu('cliente')"> <a class="dropdown-item" href="#!cliente">Cliente</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown" ng-if="menu('Operacional')">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+           role="button" aria-haspopup="true" aria-expanded="false">Operacões</a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" ng-if="subMenu('prospeccao')"> <a href="#!prospeccao">Gerar Orçamento</a></li>
+            <li class="dropdown-item" ng-if="subMenu('venda')"> <a href="#!venda">Realizar Venda</a></li>
+            <li class="dropdown-item" ng-if="subMenu('faturamento')"> <a href="#!faturamento">Faturar</a></li>
+            <li class="dropdown-item" ng-if="subMenu('comissao')"> <a href="#!comissao">Pagar Comissão</a></li>
+        </ul>
+    </li>
+</ul>

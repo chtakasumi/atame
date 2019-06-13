@@ -1,10 +1,10 @@
 var app = angular.module('main');
 
 //comportamento da pagina login
-app.controller('loginCtrl', ['$scope', 'autenticacaoService', '$location', function ($scope, autenticacaoService, $location) {
+app.controller('loginCtrl', ['$scope', 'autenticacaoService', '$location', '$rootScope', function ($scope, autenticacaoService, $location, $rootScope) {
     $scope.autenticar = function () {
         autenticacaoService.autenticar($scope.login, $scope.senha, function (chave) {
-            if (chave) {
+            if (chave) {               
                 $location.path("/home");
             }
         });
@@ -183,8 +183,7 @@ app.controller('tipoCursoCtrl', ['$scope', 'alertService', 'parm', 'modelService
 }]);
 
 //comportamento da pagina docente
-app.controller('docenteCtrl', ['$scope', 'alertService', 'parm', 'modelService',
-    function ($scope, alertService, parm, modelService) {
+app.controller('docenteCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
         modelService.extendsAbstractController($scope, alertService, parm, function () {  
             
             //Carregar UF lovUfExpeditor.dados
@@ -623,8 +622,7 @@ app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService',
             aoSelecionar: function (item) {
                 $scope.filtros.vendedorId = null;
                 if (!item) return;
-                $scope.filtros.vendedorId = item.id;
-               
+                $scope.filtros.vendedorId = item.id;               
             }
         });
 
@@ -637,7 +635,16 @@ app.controller('usuarioCtrl', ['$scope', 'alertService', 'parm', 'modelService',
                 $scope.model.vendedorId = item.id;
             }
         });  
-      
+
+        $scope.atribuirGrupo = function (element) {
+            $scope.model.gruposCedidas.push(element);
+            $scope.model.gruposNaoCedidas.splice($scope.model.gruposNaoCedidas.indexOf(element), 1);
+        }
+
+        $scope.removerGrupo = function (element) {
+            $scope.model.gruposCedidas.splice($scope.model.gruposCedidas.indexOf(element), 1);
+            $scope.model.gruposNaoCedidas.push(element);
+        }
 
     });
 

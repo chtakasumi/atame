@@ -1,57 +1,51 @@
 ﻿<div class="row">
-    <div class="col-md-12">
-        <label for="clienteAcademico" class="control-label">Acadêmico</label>
-        <div class="input-group">
-            <ui-select input-id="clienteAcademico" name="clienteAcademico" on-select="clienteAcademico.selected($item)"
-                       ng-model="clienteAcademico.model.item"
-                       spinner-enabled="true">
-                <ui-select-match placeholder="**Selecione um Acadêmico**">
-                    <span ng-bind="$select.selected.nome"></span>
-                </ui-select-match>
-                <ui-select-choices repeat="item in (clienteAcademico.data | filter: $select.search) track by item.id"
-                                   refresh="clienteAcademico.listar($select.search)" refresh-delay="0">
-                    <span ng-bind="item.nome"></span>
-                </ui-select-choices>
-            </ui-select>
-            <div class="input-group-btn">
-                <button class="btn btn-primary" ng-click="clienteAcademico.vincular()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Vincular</button>
-            </div>
+
+    <div class="col-md-6">
+        <div class="">
+            <!--//perfils sem permissao de acesso-->
+            <table class="table">
+                <thead style="background-color:red; color:aliceblue">
+                    <tr>
+                        <th>Sem Permissão</th>
+                        <th class="edicao">Atribuir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in model.gruposNaoCedidas">
+                        <td>{{item.descricao}}</td>
+                        <td><a class="btn btn-success" ng-click="atribuirGrupo(item)"><i class="glyphicon glyphicon-plus"></i></a></td>
+                    </tr>
+                    <tr ng-show="model.gruposNaoCedidas.length==0">
+                        <th>Todos os Grupos foram atribuidas</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-12 table-responsive">
+    <div class="col-md-6">
+        <div>
+            <!--//perfils com permissao de acesso-->
+            <table class="table">
+                <thead style="background-color:blue ;color:aliceblue">
+                    <tr>
+                        <th>Com Permissão</th>
+                        <th class="edicao">Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in model.gruposCedidas">
+                        <td>{{item.descricao}}</td>
+                        <td>
+                            <a class="btn btn-danger" ng-click="removerGrupo(item)"><i class="glyphicon glyphicon-minus"></i></a>
+                        </td>
+                    </tr>
 
-        <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
-               id="GridViewDocente">
-            <thead>
-                <tr class="title-table">
-                    <th ng-hide="true">Código</th>
-                    <th ng-hide="true">Código Venda</th>
-                    <th ng-hide="true">Código Cliente</th>
-                    <th>Nome</th>
-                    <th>Contato</th>
-                    <th class="edicao"></th>
-                </tr>
-            </thead>
+                    <tr ng-show="model.gruposCedidas.length==0">
+                        <th>Nenhúm Grupo atribuido</th>
+                    </tr>
 
-            <tbody>
-                <tr ng-repeat="row in model.clientesAcademicos">
-                    <td ng-hide="true">{{row.id}}</td>
-                    <td ng-hide="true">{{row.vendaId}}</td>
-                    <td ng-hide="true">{{row.clienteAcademicoId}}</td>
-                    <td>{{row.clienteAcademico.nome}}</td>
-                    <td>
-                        <p ng-hide="row.clienteAcademico.telefone===''">Telefone: {{row.clienteAcademico.telefone}}</p>
-                        <p ng-hide="row.clienteAcademico.celular===''">Celular: {{row.clienteAcademico.celular}}</p>
-                        <p ng-hide="row.clienteAcademico.email===''">Email: {{row.clienteAcademico.email}}</p>
-                    </td>
-                    <td class="edicao">
-                        <a class="btn btn-default btn-xs" ng-click="modalExcluir(clienteAcademico.desvincular, row, row.clienteAcademico.nome)"><i class="glyphicon glyphicon-remove"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

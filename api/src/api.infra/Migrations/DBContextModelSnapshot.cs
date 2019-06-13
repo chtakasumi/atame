@@ -578,7 +578,22 @@ namespace api.infra.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnName("descricao")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("Funcionalidade")
+                        .HasColumnName("funcionalidade")
                         .HasMaxLength(40);
+
+                    b.Property<string>("Menu")
+                        .HasColumnName("menu")
+                        .HasMaxLength(40);
+
+                    b.Property<string>("Modulo")
+                        .HasColumnName("modulo")
+                        .HasMaxLength(40);
+
+                    b.Property<int>("Order")
+                        .HasColumnName("Order");
 
                     b.HasKey("Id");
 

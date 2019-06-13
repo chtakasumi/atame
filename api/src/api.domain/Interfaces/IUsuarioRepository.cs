@@ -10,5 +10,7 @@ namespace api.domain.Interfaces
         IEnumerable<Usuario> BuscarComGrupo(int usuarioId);
         IEnumerable<Usuario> Listar(UsuarioDTO dto);
         ICollection<GrupoUsuario> BuscarGrupos(int id);
+        List<Grupo> ListarGrupo();
+        void RemoverGrupoUsuario(int id);
     }
 }

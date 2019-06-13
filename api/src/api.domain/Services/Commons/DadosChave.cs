@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using api.domain.Entity;
 using api.libs;
 
@@ -8,22 +7,31 @@ namespace api.domain.Services.Commons
 {
     public class DadosChave
     {
-        private int id;
-        private string login;
-        private string ativo;      
-        private DateTime now;
+        private int Id;
+        private string Login;
+        private string Ativo;      
+        private DateTime Now;      
 
         public DadosChave(int id, string login, string ativo, ICollection<GrupoUsuario> gruposUsuarios, DateTime now)
         {
-            this.id = id;
-            this.login = login;
-            this.ativo = ativo;
-            this.gruposUsuarios = gruposUsuarios;
-            this.now = now;
+            Perfils = new List<Perfil>();
+
+            this.Id = id;
+            this.Login = login;
+            this.Ativo = ativo;           
+            this.Now = now;
+
+            foreach (var gu in gruposUsuarios)
+            {
+                foreach (var perfilGrupo in gu.Grupo.PerfisGrupos)
+                {
+                    Perfils.Add(perfilGrupo.Perfil);
+                }               
+            }
         }
 
-        public string Chave { get { return Seguranca.Critptografar(string.Concat(this.id, '|', this.login, '|', this.ativo)); } }
+        public string Chave { get { return Seguranca.Critptografar(string.Concat(this.Id, '|', this.Login, '|', this.Ativo)); } }
 
-        public ICollection<GrupoUsuario> gruposUsuarios { get; set; }
+        public IList<Perfil> Perfils { get; set; }
     }
 }

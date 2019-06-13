@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace api.domain.Entity
 {
     public class Perfil
     {
-        public int Id { get; set; }
+        public int Id { get; set; }       
+        public string Modulo { get; set; }
+        public string Menu { get; set; }
+        public string Funcionalidade { get; set; }
         public string Descricao { get; set; }
-       // public ICollection<PerfilGrupo> PerfisGrupos { get; set; }
+        public int Order { get; set; }
     }
 }

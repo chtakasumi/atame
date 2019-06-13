@@ -27,13 +27,9 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
         }        
     ]);
 
-   
-
     //esse evento acontece toda vez que mudo de url
     $rootScope.$on('$locationChangeSuccess', function (event, toState, toStateParams) {
-        //ativar ao clicar no menu
-        // ativaMenu(toState);
-
+        
         //checa permissão de acesso as paginas
         if (toState.indexOf('login') > -1) {
             autenticacaoService.deslogar();
@@ -41,11 +37,12 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
         else if (toState.indexOf('logout') > -1) {
             autenticacaoService.deslogar();
         }
-        if (!autenticacaoService.getPermission()) {
-            $rootScope.permission = false;
+
+        if (!autenticacaoService.getAutenticate()) {
+            $rootScope.autenticate = false;
             $location.path("/login");
         } else {
-            $rootScope.permission = true;
+            $rootScope.autenticate = true;
         }
 
     });
@@ -72,18 +69,33 @@ app.run(function ($rootScope, autenticacaoService, $location, configConst, DTDef
     }
 
     //loading
-    $rootScope.Loading = function (status, msg) {
-        // setTimeout(function () {
+    $rootScope.Loading = function (status, msg) {      
         $rootScope.showModalLoading = status;
-        $rootScope.msg = msg;
-        //});
-        // $rootScope.facaDisgestao();     
+        $rootScope.msg = msg;         
     }
 
     $rootScope.facaDisgestao = function () {
         if ($rootScope.$$phase != '$apply' && $rootScope.$$phase != '$digest') {
             $rootScope.$apply();
         }
+    }
+
+
+    $rootScope.menu = function (menu) {      
+        var menus = autenticacaoService.getMenus();
+        if (menus == null) {
+            autenticacaoService.deslogar();
+        } else {
+            return menus.filter(x => x.menu === menu).length > 0;
+        }       
+    }
+    $rootScope.subMenu = function (subMenu) {       
+        var menus = autenticacaoService.getMenus();
+        if (menus == null) {
+            autenticacaoService.deslogar();
+        } else {
+            return menus.filter(x => x.funcionalidade === subMenu).length > 0;
+        }        
     }
 
 });

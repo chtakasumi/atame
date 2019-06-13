@@ -82,7 +82,7 @@
     <None Remove="App\view\banco.html" />
     <None Remove="App\view\cliente.html" />
     <None Remove="App\view\Comissao.html" />
-    <None Remove="App\view\Componetes\menu.html" />
+    <None Remove="App\view\componentes\menu.html" />
     <None Remove="App\view\conteudoProgramatico.html" />
     <None Remove="App\view\curso.html" />
     <None Remove="App\view\cursoConteudoProgramaticoPartial.html" />
@@ -185,7 +185,7 @@
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
     <Content Include="App\resources\js\plugins\ui-mask\mask.js" />
     <Content Include="App\view\empresa.html" />
-    <Content Include="App\view\Componetes\menu.html" />
+    <Content Include="App\view\componentes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
     <Content Include="App\view\prospeccao.html" />

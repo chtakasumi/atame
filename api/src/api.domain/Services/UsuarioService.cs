@@ -55,7 +55,9 @@ namespace api.domain.Services
 
         public string ModelSerializale()
         {
-            return Json.ToJson(new Usuario());
+            var usuario = new Usuario();
+            usuario.GruposNaoCedidas = _usuarioRepository.ListarGrupo();
+            return Json.ToJson(usuario);
         }
 
         public IEnumerable<Usuario> BuscarTodos()
@@ -87,17 +89,38 @@ namespace api.domain.Services
         {
             ValidarModel(usuario);
 
+            #region //Limpa o grups do usuario e insere novamente os grupos para o usuario em questão
+
+            if (usuario.Id > 0)
+            {               
+                _usuarioRepository.RemoverGrupoUsuario(usuario.Id);
+            }
+
+            usuario.GruposUsuarios.Clear();
+
+            foreach (Grupo grupoCedidos in usuario.GruposCedidas)
+            {
+                usuario.GruposUsuarios.Add(new GrupoUsuario
+                {
+                    Id = 0,
+                    UsuarioId = usuario.Id,
+                    Usuario = usuario,
+                    GrupoId = grupoCedidos.Id.Value,
+                    Grupo = grupoCedidos
+                });
+            }
+
+            #endregion
+
             _usuarioRepository.Atualizar(usuario);
         }
 
         public Usuario Cadastrar(Usuario usuario)
         {
-            ValidarModel(usuario);           
-            usuario.Login = usuario.Login.Trim().ToUpper();
-
-            usuario.GruposUsuarios.Add(VincularGrupoMaster());
-            
-            return _usuarioRepository.Inserir(usuario);
+            ValidarModel(usuario);
+            var user=  _usuarioRepository.Inserir(usuario);
+            Atualizar(user);
+            return user;
 
         }
 
@@ -120,14 +143,7 @@ namespace api.domain.Services
             return usuario;
 
         }
-
-        private GrupoUsuario VincularGrupoMaster()
-        {
-            return new GrupoUsuario {
-                GrupoId = 1
-            };             
-        }
-
+        
         private void ValidarModel(Usuario usuario)
         {
             if (string.IsNullOrEmpty(usuario.Login))
@@ -140,6 +156,7 @@ namespace api.domain.Services
                 throw new MensagemException(EnumStatusCode.RequisicaoInvalida, "Senha não informada");
             }
 
+            usuario.Login = usuario.Login.Trim().ToUpper();
             usuario.Senha = Seguranca.GerarHash(usuario.Senha);
 
             usuario.Vendedor = null;

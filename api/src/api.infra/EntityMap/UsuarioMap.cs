@@ -44,6 +44,10 @@ namespace api.infra.EntityMap
                 .HasPrincipalKey(x=>x.Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
+
+            builder.Ignore(x => x.GruposCedidas);
+            builder.Ignore(x => x.GruposNaoCedidas);
+
         }
     }
 }

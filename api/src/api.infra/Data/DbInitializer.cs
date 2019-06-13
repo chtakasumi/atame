@@ -1,4 +1,5 @@
 ﻿using api.domain.Entity;
+using api.domain.Services.Commons;
 using api.libs;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -100,96 +101,92 @@ namespace api.infra.Data
         private static ICollection<PerfilGrupo> ListaPerfil()
         {
             return new PerfilGrupo[]
+            {
+                #region Configuracao
+                    new PerfilGrupo
                     {
-                        #region configuracao
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_usuario",}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_grupos"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_uf"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_municipio"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_banco"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_empresa"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_desconto"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_parametro"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="configuracao_parametro"}
-                            },
-                        #endregion
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="usuario", Descricao="Tela de Usuário", Order=1}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="grupo",  Descricao="Tela de Grupo", Order=2}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="uf", Descricao="Tela de UFs", Order=3}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="municipio", Descricao="Tela de Municipio", Order=4}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="banco", Descricao="Tela de Banco", Order=5}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="empresa", Descricao="Tela de Empresa", Order=6}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="desconto", Descricao="Tela de Desconto", Order=7}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Configuracao), Funcionalidade="parametro", Descricao="Tela de Parâmentro", Order=8}
+                    },                    
+                #endregion
 
-                        #region cadastro
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_tipoCurso"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_docente"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_conteudoProgramatico"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_curso"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_turma"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_vendedor"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="cadastro_cliente"}
-                            },
-                         #endregion
+                #region Cadastro
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="tipoCurso", Descricao="Tela de Tipo de Curso", Order=9}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="docente", Descricao="Tela de Docente", Order=10}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="conteudoProgramatico", Descricao="Tela de Conteúdo Programático", Order=11}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="curso", Descricao="Tela de Curso", Order=12}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="turma", Descricao="Tela de Turma", Order=13}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="vendedor", Descricao="Tela de vendedor", Order=14}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Cadastro), Funcionalidade="cliente",Descricao="Tela de Cliente", Order=15}
+                    },
+                #endregion
 
-                        #region operacao
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="operacao_orcamento"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="operacao_venda"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="operacao_fatura"}
-                            },
-                            new PerfilGrupo
-                            {
-                                Perfil = new Perfil{Descricao="operacao_comissao"}
-                            }
-                            #endregion
-                    };
+                #region Operacao
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Operacional), Funcionalidade="orcamento",Descricao="Tela de Orçamento", Order=16}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Operacional), Funcionalidade="venda", Descricao="Tela de Venda", Order=17}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Operacional), Funcionalidade="faturamento",Descricao="Tela de Faturamento", Order=18}
+                    },
+                    new PerfilGrupo
+                    {
+                        Perfil = new Perfil{Modulo=Enum.GetName(typeof(EnumModulo), EnumModulo.Financeiro) , Menu =Enum.GetName(typeof(EnumMenu), EnumMenu.Operacional), Funcionalidade="comissao", Descricao="Tela de Comissão", Order=19}
+                    }
+                    #endregion
+            };
         }
     }
 }
