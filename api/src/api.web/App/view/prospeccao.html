@@ -91,10 +91,11 @@
                                 <td>{{row.data | date:'shortDate'}}</td>
                                 <td>{{row.clienteNome}}</td>
                                 <td>{{row.vendedor.nome}}</td>
-                                <td>{{row.status}}</td>
-                                <td class="edicao">
-                                    <a class="btn btn-default btn-xs" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a class="btn btn-default btn-xs" ng-click="modalExcluir(excluir, row.id, row.cliente)"><i class="glyphicon glyphicon-remove"></i></a>
+                                <td>{{row.status}}</td>                               
+                                <td class="edicao">                                    
+                                    <a class="btn btn-default btn-xs" title="Gerar Orçamento" ng-click="gerarOrcamento(row)"><i class="icon-pdf"></i></a>
+                                    <a class="btn btn-default btn-xs" title="Editar" ng-click="editar(row)"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-default btn-xs" title="Excluir" ng-click="modalExcluir(excluir, row.id, row.cliente)"><i class="glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
                         </tbody>

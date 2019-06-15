@@ -2,6 +2,7 @@
 using api.domain.Interfaces;
 using api.domain.Services.Commons;
 using api.libs;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace api.domain.Services
@@ -45,6 +46,12 @@ namespace api.domain.Services
         {
             ValidarModelo(Empresa);
             _EmpresaRepository.Atualizar(Empresa);
+        }
+
+        public Empresa GetEmpresa()
+        {
+          var empresa=  _EmpresaRepository.BuscarTodos();
+            return empresa.FirstOrDefault();
         }
 
         public void Excluir(int id)

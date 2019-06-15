@@ -26,6 +26,11 @@ namespace api.domain.Services
             return _prospeccaoRepository.Listar(prospeccaoVo);
         }
 
+        public IEnumerable<Prospeccao> ListarRelatorio(ProspeccaoDTO dto)
+        {
+            return _prospeccaoRepository.ListarRelatorio(dto);
+        }
+
         public Prospeccao Cadastrar(Prospeccao Prospeccao)
         {
             ValidarModelo(Prospeccao);

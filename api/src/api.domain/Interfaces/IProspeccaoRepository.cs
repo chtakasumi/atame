@@ -6,6 +6,7 @@ namespace api.domain.Interfaces
 {
     public interface IProspeccaoRepository : IRepository<Prospeccao>
     {
+        IEnumerable<Prospeccao> ListarRelatorio(ProspeccaoDTO Prospeccao);
         IEnumerable<Prospeccao> Listar(ProspeccaoDTO Prospeccao);
         ProspeccaoInteresse VincularInteresse(ProspeccaoInteresse entidade);
         ProspeccaoInteresse PesquisarVinculoInteresse(int id);

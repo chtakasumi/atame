@@ -1,0 +1,8 @@
+.icon-pdf {
+    background-image: url(../svg-icons/file-pdf-regular.svg);   
+    padding: 1px 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

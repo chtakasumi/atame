@@ -493,8 +493,10 @@ app.controller('vendaCtrl', ['$scope', 'alertService', 'parm', 'modelService', '
 }]);
 
 //orçamento
-app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelService', function ($scope, alertService, parm, modelService) {
-    modelService.extendsAbstractController($scope, alertService, parm, function () {
+app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'relatorioService',
+    function ($scope, alertService, parm, modelService, relatorioService) {
+
+        modelService.extendsAbstractController($scope, alertService, parm, function () {
         
         //CarregarLovVendedor
         modelService.carregarLov({
@@ -549,6 +551,14 @@ app.controller('prospeccaoCtrl', ['$scope', 'alertService', 'parm', 'modelServic
             modelService.existeDadosNaoGravados($scope, $scope.model.interesses, 'INTERESSES', function () {
                 $scope.voltar(form);
             });
+        }
+
+        $scope.gerarOrcamento=function(orcamento)
+        {
+            relatorioService.gerarOrcamento(orcamento.id, function (dados) {   
+                //console.log(dados);
+                //modalService.OpenPDF(dados);
+            })
         }
     });
 }]);

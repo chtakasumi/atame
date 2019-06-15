@@ -7,10 +7,10 @@ namespace api.domain.Services.Commons
 {
     public class DadosChave
     {
-        private int Id;
-        private string Login;
-        private string Ativo;      
-        private DateTime Now;      
+        public int Id { get; set; }
+        public string Login { get; set; }
+        public DateTime Now { get; set; }
+        private string Ativo;
 
         public DadosChave(int id, string login, string ativo, ICollection<GrupoUsuario> gruposUsuarios, DateTime now)
         {

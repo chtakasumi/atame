@@ -23,6 +23,7 @@
     <None Remove="App\resources\css\bootstrap.min.css.map" />
     <None Remove="App\resources\css\dataTables.bootstrap.css" />
     <None Remove="App\resources\css\datepicker3.css" />
+    <None Remove="App\resources\css\icons-svg.css" />
     <None Remove="App\resources\css\jquery-ui.min.css" />
     <None Remove="App\resources\css\select.css" />
     <None Remove="App\resources\css\select2.css" />
@@ -79,6 +80,7 @@
     <None Remove="App\resources\js\plugins\select2\select.js" />
     <None Remove="App\resources\js\plugins\toaster\toaster.js" />
     <None Remove="App\resources\js\plugins\ui-mask\mask.js" />
+    <None Remove="App\resources\svg-icons\file-pdf-regular.svg" />
     <None Remove="App\view\banco.html" />
     <None Remove="App\view\cliente.html" />
     <None Remove="App\view\Comissao.html" />
@@ -98,6 +100,7 @@
     <None Remove="App\view\parametro.html" />
     <None Remove="App\view\Prospeccao.html" />
     <None Remove="App\view\prospeccaoInteressePartial.html" />
+    <None Remove="App\view\template\cabecalho.html" />
     <None Remove="App\view\tipoCurso.html" />
     <None Remove="App\view\turma.html" />
     <None Remove="App\view\turmaConteudoProgramaticoPartial.html" />
@@ -118,6 +121,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="App\resources\css\icons-svg.css" />
     <Content Include="App\resources\js\plugins\html-date\html-date.js" />
   </ItemGroup>
 
@@ -184,12 +188,14 @@
     <Content Include="App\resources\js\plugins\select2\select.js" />
     <Content Include="App\resources\js\plugins\toaster\toaster.js" />
     <Content Include="App\resources\js\plugins\ui-mask\mask.js" />
+    <Content Include="App\resources\svg-icons\file-pdf-regular.svg" />
     <Content Include="App\view\empresa.html" />
     <Content Include="App\view\componentes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
     <Content Include="App\view\prospeccao.html" />
     <Content Include="App\view\prospeccaoInteressePartial.html" />
+    <Content Include="App\view\template\cabecalho.html" />
     <Content Include="App\view\usuario.html" />
     <Content Include="App\view\usuarioGrupoPartial.html" />
     <Content Include="App\view\vendaParcelaPartial.html" />
