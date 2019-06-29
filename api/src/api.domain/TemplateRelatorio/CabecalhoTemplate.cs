@@ -3,8 +3,6 @@ using api.domain.Interfaces;
 using api.domain.Services;
 using api.domain.Services.DTO;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace api.domain.TemplateRelatorio
 {
@@ -15,23 +13,27 @@ namespace api.domain.TemplateRelatorio
         public CabecalhoTemplate(           
             string corpoTemplateHtml,
             string titulo,
+            string descricao,
             ParametroService parametroService,
             EmpresaService empresaService,
             UsuarioService usuarioService)
         {         
             _templateHtml = corpoTemplateHtml;
             _titulo = titulo;
+            _descricao = descricao;
             _parametroService = parametroService;
             _empresaService = empresaService;
             _usuarioService = usuarioService;
         }
 
         public string _titulo { get; }
+        public string _descricao { get; }
         public string _templateHtml { get; }
         public ParametroService _parametroService { get; }
         public EmpresaService _empresaService { get; }
         public UsuarioService _usuarioService { get; }
-        string IRelatorioTemplate.Titulo { get; set; }
+        public string Titulo { get; set ; }
+        public string Descricao { get; set ; }
 
         public string GerarHtml(RelatorioDTO relDTO)
         {
@@ -103,7 +105,7 @@ namespace api.domain.TemplateRelatorio
                                     <div class=""interno"">
                                         <p>Grupo Atame</p>
                                         <p>"+this._titulo+@"</p>
-                                        <span class=""descricao"">Para Cursos de Pós-Graducação e Cursos de Extensão</span>
+                                        <span class=""descricao"">"+ this._descricao+@"</span>
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,6 @@
 ﻿using api.domain.Entity;
 using api.domain.Services;
+using api.domain.TemplateRelatorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.web.Controllers
@@ -60,9 +61,12 @@ namespace api.web.Controllers
         {
             //todo: finalizar
             GeradorRelatorio entity = _servico.PesquisarPorId(id);
-            var query=  _servico.ExecutarQuery(entity.Query);
 
-           string html = "";
+            string html = "";
+            using (var query = _servico.ExecutarQuery(entity.Query))
+            {
+                html = ExecutorTemplate.GerarHtml(query);
+            }
 
             return Ok(html);
         }

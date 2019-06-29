@@ -23,6 +23,8 @@ namespace api.domain.TemplateRelatorio
         }
 
         public string Titulo { get=> "Orçamento"; set { } }
+        public string Descricao { get => " Para Cursos de Pós - Graducação e Cursos de Extensão"; set { } }
+
 
         public string GerarHtml(RelatorioDTO relDTO)
         {

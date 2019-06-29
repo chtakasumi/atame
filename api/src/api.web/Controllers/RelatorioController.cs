@@ -91,6 +91,7 @@ namespace api.web.Controllers
             var cabecalho = new CabecalhoTemplate(
                 rel.GerarHtml(dto),
                 rel.Titulo,
+                rel.Descricao,
                 new ParametroService(new ParametroRepository(_context)),
                 new EmpresaService(new EmpresaRepository(_context)),
                 new UsuarioService(new UsuarioRepository(_context)));
