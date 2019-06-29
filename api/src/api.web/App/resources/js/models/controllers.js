@@ -746,3 +746,32 @@ app.controller('grupoCtrl', ['$scope', 'alertService', 'parm', 'modelService', f
         }
     });
 }]);
+
+app.controller('geradorRelatorioCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'utils',
+    function ($scope, alertService, parm, modelService, utils) {
+    modelService.extendsAbstractController($scope, alertService, parm, function () {      
+        $scope.criarAlias = function () {
+            $scope.model.alias = utils.especialCharMask($scope.model.nome);
+            if ($scope.model.alias) {
+                $scope.model.alias = $scope.model.alias.substr(0, 39);
+            }
+        }
+        //ao cadatrar um query um perfil com o nome do alias do relatorio, o descritivo é o nome do relatorio, o modulo é Relatorio
+        //esse modulo é uma tela com um grid que executar os relatorios dinamicos
+
+
+    });
+    }]);
+
+app.controller('relatorioCtrl', ['$scope', 'alertService', 'parm', 'modelService', 'relatorioService',
+    function ($scope, alertService, parm, modelService, relatorioService) {
+        modelService.extendsAbstractController($scope, alertService, parm, function () {
+
+            $scope.executarQuery = function (id, formato) {
+                relatorioService.executarQuery(id, formato, function (dados) {
+                    console.log("relatorio executado");
+                })
+            }
+
+        });
+    }]);

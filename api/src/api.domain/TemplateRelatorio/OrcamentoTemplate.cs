@@ -13,7 +13,7 @@ namespace api.domain.TemplateRelatorio
         readonly ProspeccaoService _prospeccaoService;
         readonly EmpresaService _empresaService;
         readonly TurmaService _turmaService;
-        public string Titulo => "Orçamento";
+       
 
         public OrcamentoTemplate(ProspeccaoService prospeccao, EmpresaService empresaService, TurmaService turmaService)
         {            
@@ -21,7 +21,9 @@ namespace api.domain.TemplateRelatorio
             _empresaService = empresaService;
             _turmaService =turmaService;
         }
-       
+
+        public string Titulo { get=> "Orçamento"; set { } }
+
         public string GerarHtml(RelatorioDTO relDTO)
         {
             var dto = new ProspeccaoDTO

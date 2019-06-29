@@ -1,0 +1,68 @@
+<div id="divController">
+
+    <div class="panel panel-default" ng-show="!modoEdicao">
+        <div class="panel-heading">Pesquisar {{tituloModelo}}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="id" class="sr-only">Codigo:</label>
+                        <input type="text" max="99999999" ui-hide-group-sep ui-number-mask="0" ng-model="filtros.id" class="form-control" id="id" name="id" placeholder="Código">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nome" class="sr-only">Nome</label>
+                        <input type="text" ng-model="filtros.nome" class="form-control" id="nome" name="nome" placeholder="Nome">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Alias" class="sr-only">Descricao</label>
+                        <input type="text" ng-model="filtros.descricao" class="form-control" id="descricao" name="descricao" placeholder="Descrição">
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 pull-right">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary" ng-click="pesquisar()">
+                            <i class="glyphicon glyphicon-search"></i>&nbsp;Pesquisar
+                        </button>
+                        <button class="btn btn-warning" ng-click="limparFiltros()">
+                            <i class="glyphicon glyphicon-filter"></i>&nbsp;Limpar Filtro
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row  grid-class">
+                <div class="col-md-12 table-responsive">
+                    <table datatable="ng" class="table table-bordered table-striped table-hover table-condensed cf"
+                           id="GridView1">
+                        <thead>
+                            <tr class="title-table">
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th class="edicao"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in grade_model">
+                                <td>{{row.id}}</td>
+                                <td>{{row.nome}}</td>
+                                <td>{{row.descricao}}</td>
+                                <td class="edicao">
+                                    <a class="btn btn-default btn-xs" title="Executar PDF" 
+                                       ng-click="executarQuery(row.id,'pdf')"><i class="icon-pdf"></i>
+                                    </a>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

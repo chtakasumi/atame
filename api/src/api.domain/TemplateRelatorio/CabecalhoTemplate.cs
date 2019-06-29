@@ -12,15 +12,15 @@ namespace api.domain.TemplateRelatorio
     {
         private Usuario _usuario;
 
-        public CabecalhoTemplate(
+        public CabecalhoTemplate(           
+            string corpoTemplateHtml,
             string titulo,
-            string templateHtml,
             ParametroService parametroService,
             EmpresaService empresaService,
             UsuarioService usuarioService)
-        {
+        {         
+            _templateHtml = corpoTemplateHtml;
             _titulo = titulo;
-            _templateHtml = templateHtml;
             _parametroService = parametroService;
             _empresaService = empresaService;
             _usuarioService = usuarioService;
@@ -31,7 +31,7 @@ namespace api.domain.TemplateRelatorio
         public ParametroService _parametroService { get; }
         public EmpresaService _empresaService { get; }
         public UsuarioService _usuarioService { get; }
-        public string Titulo => null;
+        string IRelatorioTemplate.Titulo { get; set; }
 
         public string GerarHtml(RelatorioDTO relDTO)
         {

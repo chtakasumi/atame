@@ -16,16 +16,15 @@ namespace api.web.Config
             if (context.Exception.GetType() == typeof(MensagemException))
             {
                 MensagemException exception = (MensagemException)context.Exception;
-
                 status = (int)exception.StatusCode;
-
                 mensagem = exception.Mensagem;
             }
             else
             { 
                 status = 500;
                 mensagem = context.Exception.Message;
-                if (context.Exception.InnerException != null) {
+                if (context.Exception.InnerException != null)
+                {
                     mensagem += " - " +context.Exception.InnerException.Message;
                 }
             }

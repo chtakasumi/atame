@@ -139,6 +139,58 @@ app.config(['$routeProvider', 'configConst', '$httpProvider', '$qProvider', '$lo
                     }
                 }
             })
+            .when("/relatorio", {
+                templateUrl: configConst.baseUrlView + "relatorios.html",
+                controller: 'relatorioCtrl',
+                resolve: {
+                    parm: function (geradorRelatorioService) {
+                        return {
+                            titulo: function () {
+                                return "Gerador de relatório";
+                            },
+                            filter: function () {
+                                return {
+                                    id: null, nome: null, descricao: null
+                                };
+                            },
+                            service: function () {
+                                return geradorRelatorioService;
+                            },
+                            model: function (callBack) {
+                                return geradorRelatorioService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                        }
+                    }
+                }
+            })
+            .when("/geradorRelatorio", {
+                templateUrl: configConst.baseUrlView + "geradorRelatorio.html",
+                controller: 'geradorRelatorioCtrl',
+                resolve: {
+                    parm: function (geradorRelatorioService) {
+                        return {
+                            titulo: function () {
+                                return "Relatórios";
+                            },
+                            filter: function () {
+                                return {
+                                    id: null, nome: null, descricao: null
+                                };
+                            },
+                            service: function () {
+                                return geradorRelatorioService;
+                            },
+                            model: function (callBack) {
+                                return geradorRelatorioService.model(function (data) {
+                                    return callBack(data);
+                                });
+                            },
+                        }
+                    }
+                }
+            })
             .when("/curso", {
                 templateUrl: configConst.baseUrlView + "curso.html",
                 controller: 'cursoCtrl',
@@ -1162,9 +1214,24 @@ app.factory("utils", ['consumerService', function (consumerService) {
         outraData.setDate(time.getDate() + dias); // Adiciona 3 dias
         return outraData.toISOString();
     }
+    
+    var _especialCharMask = function (especialChar) {
+
+        if (especialChar) {
+            especialChar = especialChar.trim().toLowerCase();
+            especialChar = especialChar.replace(/[^\w\s]/gi, '');
+            especialChar = especialChar.replace(/\s/g, '_')
+        }
+
+        return especialChar;
+    }
+
+
+
     return {
         getData: _getData,
-        incrementaDias: _incrementaDias
+        incrementaDias: _incrementaDias,
+        especialCharMask: _especialCharMask
     }
 
 }]);

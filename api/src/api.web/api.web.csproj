@@ -93,6 +93,7 @@
     <None Remove="App\view\docente.html" />
     <None Remove="App\view\empresa.html" />
     <None Remove="App\view\faturamento.html" />
+    <None Remove="App\view\geradorRelatorio.html" />
     <None Remove="App\view\grupo.html" />
     <None Remove="App\view\home.html" />
     <None Remove="App\view\login.html" />
@@ -100,6 +101,7 @@
     <None Remove="App\view\parametro.html" />
     <None Remove="App\view\Prospeccao.html" />
     <None Remove="App\view\prospeccaoInteressePartial.html" />
+    <None Remove="App\view\relatorios.html" />
     <None Remove="App\view\template\cabecalho.html" />
     <None Remove="App\view\tipoCurso.html" />
     <None Remove="App\view\turma.html" />
@@ -193,6 +195,7 @@
     <Content Include="App\view\componentes\menu.html" />
     <Content Include="App\view\conteudoProgramatico.html" />
     <Content Include="App\view\cursoConteudoProgramaticoPartial.html" />
+    <Content Include="App\view\relatorios.html" />
     <Content Include="App\view\prospeccao.html" />
     <Content Include="App\view\prospeccaoInteressePartial.html" />
     <Content Include="App\view\template\cabecalho.html" />
@@ -215,6 +218,7 @@
     <Content Include="App\view\banco.html" />
     <Content Include="App\view\desconto.html" />
     <Content Include="App\view\grupo.html" />
+    <Content Include="App\view\geradorRelatorio.html" />
     <Content Include="App\view\vendedor.html" />
     <Content Include="App\view\docente.html" />
     <Content Include="App\view\home.html" />

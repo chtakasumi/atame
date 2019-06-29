@@ -1,4 +1,5 @@
-﻿using api.domain.Interfaces;
+﻿using api.domain.Entity;
+using api.domain.Interfaces;
 using api.domain.Services;
 using api.infra.Repository;
 using DinkToPdf;
@@ -18,7 +19,7 @@ namespace api.web
         public InjectCDI(IServiceCollection services)
         {
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-
+            
 
             services.AddScoped<UsuarioService>();
             services.AddScoped<CursoService>();
@@ -39,7 +40,8 @@ namespace api.web
             services.AddScoped<DescontoService>();
             services.AddScoped<EmpresaService>();
             services.AddScoped<GrupoService>();
-
+            services.AddScoped<GeradorRelatorioService>();
+            
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ICursoRepository, CursoRepository>();
             services.AddTransient<ITipoCursoRepository, TipoCursoRepository>();
@@ -60,6 +62,10 @@ namespace api.web
             services.AddTransient<IDescontoRepository, DescontoRepository>();
             services.AddTransient<IEmpresaRepository, EmpresaRepository>();
             services.AddTransient<IGrupoRepository, GrupoRepository>();
+            services.AddTransient<IGeradorRelatorioRepository, GeradorRelatorioRepository>();
+            services.AddTransient<IPerfilRepository, PerfilRepository>();
+
+            
         }
     }
 }

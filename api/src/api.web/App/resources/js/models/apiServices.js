@@ -233,18 +233,31 @@ app.factory("relatorioService", ['consumerService', '$rootScope', 'globalService
         var api = globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 
         api.gerarOrcamento = function (id, callback) {         
-            var relatorio = "orcamento";
-            execute(relatorio, id);            
-        }       
+            var action = "orcamento";
+            execute(action, id, "pdf");            
+        }  
 
-        function execute(rel, id) {
+        api.executarQuery = function (id, formato, callback) {
+            var action = "executar-relatorio";
+            execute(action, id, formato);
+        }
+
+        function execute(action, id, formato) {
             var user = autenticacaoService.getUser();
             parm = "&usuId=" + user.id;
-            location.href = configConst.baseUrlApi + baseUrl + "/" + rel + "?relatorioId=" + id + parm;
+            parm += "&formato=" + formato;
+
+            location.href = configConst.baseUrlApi + baseUrl + "/" + action + "?relatorioId=" + id + parm;
         }
         
         return api;
+    }]);
+
+app.factory("geradorRelatorioService", ['consumerService', '$rootScope', 'globalService', function (consumerService, $rootScope, globalService) {
+    var baseUrl = "gerador-relatorio";
+    return globalService.extendsAbstractServices(baseUrl, consumerService, $rootScope);
 }]);
+
 
 
 

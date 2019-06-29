@@ -58,25 +58,43 @@ namespace api.web.Controllers
         }
 
         [HttpGet("orcamento")]
-        public IActionResult GetOrcamento(int relatorioId, int usuId)
+        public IActionResult GetOrcamento(int relatorioId, int usuId, string formato)
         {
-            var dtoParametros = new RelatorioDTO(relatorioId, usuId);
-            var relatorioOrcamento = new OrcamentoTemplate(new ProspeccaoService(new ProspeccaoRepository(_context)),
+            var dto = new RelatorioDTO(relatorioId, usuId, formato);
+
+            var template = new OrcamentoTemplate
+            (
+                new ProspeccaoService(new ProspeccaoRepository(_context)),
                 new EmpresaService(new EmpresaRepository(_context)),
-                new TurmaService(new TurmaRepository(_context), new DocenteRepository(_context), new ConteudoProgramaticoRepository(_context)));
-            return ExecutaRelatorio(dtoParametros, relatorioOrcamento, Orientation.Portrait);
+                new TurmaService(new TurmaRepository(_context),
+                                    new DocenteRepository(_context),
+                                    new ConteudoProgramaticoRepository(_context))
+            );
+
+            return ExecutaRelatorio(dto, template, Orientation.Portrait);
         }
-               
+
+
+        [HttpGet("executar-relatorio")]
+        public IActionResult ExecutarRelatorio(int relatorioId, int usuId, string formato)
+        {
+            var dto = new RelatorioDTO(relatorioId, usuId, formato);
+
+            var template = new ExecutorTemplate(new GeradorRelatorioService(new GeradorRelatorioRepository(_context), null));
+
+            return ExecutaRelatorio(dto, template, Orientation.Landscape);
+        }
+
+        //todo:Jogar esta parte na camada de dominios
         private IActionResult ExecutaRelatorio(RelatorioDTO dto, IRelatorioTemplate rel, Orientation orientacao)
         {
-
-            var cabecalho = new CabecalhoTemplate(rel.Titulo,
+            var cabecalho = new CabecalhoTemplate(
                 rel.GerarHtml(dto),
+                rel.Titulo,
                 new ParametroService(new ParametroRepository(_context)),
                 new EmpresaService(new EmpresaRepository(_context)),
                 new UsuarioService(new UsuarioRepository(_context)));
 
-                     
             var doc = new HtmlToPdfDocument()
             {
                 GlobalSettings = {
@@ -86,7 +104,8 @@ namespace api.web.Controllers
                     //Out = @"C:\DinkToPdf\src\DinkToPdf.TestThreadSafe\test.pdf", imforam caso queira salva ro documento
                 },
                 Objects = {
-                        new ObjectSettings() {
+                        new ObjectSettings()
+                        {
                             PagesCount =  true,
                             HtmlContent = cabecalho.GerarHtml(dto),
                             WebSettings = { DefaultEncoding = "utf-8" },

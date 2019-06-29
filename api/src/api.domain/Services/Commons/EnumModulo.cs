@@ -5,15 +5,18 @@ using System.Text;
 namespace api.domain.Services.Commons
 {
     public enum EnumModulo
-    {
+    {       
+        Vendas,
+        Academico,
         Financeiro,
-        Academico
+        Global //este modulo esta para todos os modulos
     }
 
     public enum EnumMenu
     {
         Configuracao,
         Cadastro,
-        Operacional
+        Operacional,
+        Relatorio
     }
 }

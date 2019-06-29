@@ -445,6 +445,37 @@ namespace api.infra.Migrations
                     b.ToTable("Faturamento");
                 });
 
+            modelBuilder.Entity("api.domain.Entity.GeradorRelatorio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Alias")
+                        .IsRequired()
+                        .HasColumnName("alias")
+                        .HasColumnType("varchar(40)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnName("descricao")
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("nome")
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Query")
+                        .IsRequired()
+                        .HasColumnName("query")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GeradorRelatorio");
+                });
+
             modelBuilder.Entity("api.domain.Entity.Grupo", b =>
                 {
                     b.Property<int?>("Id")

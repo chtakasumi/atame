@@ -7,7 +7,7 @@ namespace api.domain.Interfaces
 {
     public interface IRelatorioTemplate
     {
-        string Titulo { get; }
+        string Titulo { get; set; }
         string GerarHtml(RelatorioDTO relDTO);
     }
 }

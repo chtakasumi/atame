@@ -39,10 +39,11 @@ namespace api.infra
             modelBuilder.ApplyConfiguration(new BancoMap());
             modelBuilder.ApplyConfiguration(new DescontoMap());
             modelBuilder.ApplyConfiguration(new EmpresaMap());
+            modelBuilder.ApplyConfiguration(new GeradorRelatorioMap());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Perfil> Perfis { get; set; }
+        public DbSet<Perfil> Perfis { get; set; }      
         public DbSet<Grupo> Grupos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<TipoCurso> TipoCursos { get; set; }
@@ -62,5 +63,6 @@ namespace api.infra
         public DbSet<Banco> Bancos { get; set; }
         public DbSet<Desconto> Descontos { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<GeradorRelatorio> GeradorRelatorios { get; set; }
     }
 }
